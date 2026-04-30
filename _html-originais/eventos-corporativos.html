@@ -1,0 +1,3275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Casa Voss — Espaço de Eventos Corporativos</title>
+    <meta name="description"
+        content="Casa Voss — Espaço de eventos corporativos em São Paulo. Auditório, salas, gourmet e lounge para até 250 pessoas. Sofisticação e acolhimento para a sua marca." />
+    <meta property="og:title" content="Casa Voss — Espaço de Eventos Corporativos" />
+    <meta property="og:description"
+        content="Sofisticação e acolhimento para transformar seu evento em uma experiência inesquecível." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://use.typekit.net/ruo8uhd.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/flatpickr.min.css" />
+
+    <script>
+        var GTM_ID = 'GTM-XXXXXXX';
+    </script>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', GTM_ID);</script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --verde: #1a2e1a;
+            --verde-medio: #2d4a2d;
+            --verde-claro: #3d5e3d;
+            --bege: #f0ebe0;
+            --bege-escuro: #d9d0be;
+            --branco: #fafaf7;
+            --cobre: #8b6a3e
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--branco);
+            color: var(--verde);
+            overflow-x: hidden
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important
+            }
+
+            .hero-bg {
+                transform: scale(1) !important;
+                opacity: .45 !important
+            }
+
+            .hero-content {
+                opacity: 1 !important;
+                transform: none !important
+            }
+
+            .espaco-card-img img,
+            .galeria-item img {
+                transform: none !important
+            }
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 60px;
+            background: rgba(26, 46, 26, .92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: padding .4s
+        }
+
+        nav.scrolled {
+            padding: 16px 60px
+        }
+
+        .nav-logo {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--bege);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            text-decoration: none
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none
+        }
+
+        .nav-links a {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--bege-escuro);
+            text-decoration: none;
+            font-weight: 300;
+            transition: color .3s
+        }
+
+        .nav-links a:hover {
+            color: var(--branco)
+        }
+
+        .nav-cta {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            background: transparent;
+            border: 1px solid rgba(217, 208, 190, .5);
+            color: var(--bege);
+            padding: 10px 24px;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all .3s;
+            text-decoration: none;
+            display: inline-block
+        }
+
+        .nav-cta:hover {
+            background: var(--bege);
+            color: var(--verde)
+        }
+
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+            z-index: 110
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 24px;
+            height: 1px;
+            background: var(--bege);
+            transition: all .3s;
+            transform-origin: center
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 105;
+            background: rgba(26, 46, 26, .98);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            opacity: 0;
+            transition: opacity .35s ease
+        }
+
+        .mobile-menu.open {
+            display: flex;
+            opacity: 1
+        }
+
+        .mobile-menu a {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 28px;
+            font-weight: 300;
+            color: var(--bege);
+            text-decoration: none;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: color .3s
+        }
+
+        .mobile-menu a:hover {
+            color: var(--branco)
+        }
+
+        .mobile-menu .mobile-cta {
+            margin-top: 16px;
+            background: var(--bege);
+            color: var(--verde);
+            padding: 14px 36px;
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-weight: 400;
+            text-decoration: none;
+            transition: background .3s
+        }
+
+        .mobile-menu .mobile-cta:hover {
+            background: var(--branco)
+        }
+
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            background: var(--verde)
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://casavoss.com.br/wp-content/uploads/2026/04/Copia-de-064VIZ_IMG_01-Recepcao.avif');
+            background-size: cover;
+            background-position: center;
+            background-color: var(--verde-medio);
+            opacity: .6;
+            transform: scale(1.04);
+            animation: heroZoom 12s ease-out forwards
+        }
+
+        @keyframes heroZoom {
+            to {
+                transform: scale(1)
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26, 46, 26, .75) 0%, rgba(26, 46, 26, .18) 50%, rgba(26, 46, 26, .05) 100%)
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 60px 80px;
+            max-width: 800px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease .4s forwards
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .hero-tag {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--branco);
+            margin-bottom: 20px;
+            display: block;
+            font-weight: 300
+        }
+
+        .hero-title {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: clamp(28px, min(5.5vw, 6.2vh), 68px);
+            font-weight: 200;
+            color: var(--branco);
+            line-height: 1.1;
+            margin-bottom: 28px;
+            letter-spacing: -.5px
+        }
+
+        .hero-title em {
+            font-style: italic;
+            font-weight: 700;
+            color: var(--bege-escuro)
+        }
+
+        .hero-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: var(--bege-escuro);
+            line-height: 1.85;
+            max-width: 480px;
+            margin-bottom: 48px;
+            font-weight: 300
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap
+        }
+
+        .btn-primary {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            background: var(--bege);
+            color: var(--verde);
+            padding: 16px 36px;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-weight: 400;
+            transition: all .3s;
+            text-decoration: none;
+            display: inline-block
+        }
+
+        .btn-primary:hover {
+            background: var(--branco);
+            transform: translateY(-1px)
+        }
+
+        .stats-bar {
+            background: var(--verde-medio);
+            display: flex;
+            justify-content: center
+        }
+
+        .stat-item {
+            padding: 36px 60px;
+            text-align: center;
+            border-right: 1px solid rgba(240, 235, 224, .12);
+            flex: 1;
+            max-width: 240px
+        }
+
+        .stat-item:last-child {
+            border-right: none
+        }
+
+        .stat-num {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 38px;
+            font-weight: 300;
+            color: var(--bege);
+            display: block;
+            line-height: 1;
+            letter-spacing: -.5px
+        }
+
+        .stat-label {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--bege-escuro);
+            opacity: .6;
+            margin-top: 8px;
+            display: block;
+            font-weight: 300
+        }
+
+        .sobre {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px
+        }
+
+        .sobre-img {
+            background-image: url('https://casavoss.com.br/wp-content/uploads/2026/04/Copia-de-064VIZ_IMG_14-Fachada_resultado.avif');
+            background-size: cover;
+            background-position: center;
+            background-color: var(--verde-medio);
+            min-height: 520px
+        }
+
+        .sobre-content {
+            background: var(--bege);
+            padding: 80px 72px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .section-tag {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 10px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--cobre);
+            margin-bottom: 24px;
+            display: block;
+            font-weight: 300
+        }
+
+        .section-title {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: clamp(32px, 3.5vw, 46px);
+            font-weight: 200;
+            color: var(--verde);
+            line-height: 1.2;
+            margin-bottom: 28px;
+            letter-spacing: -.3px
+        }
+
+        .section-title em {
+            font-style: italic;
+            font-weight: 700
+        }
+
+        .section-body {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.9;
+            color: var(--verde-claro);
+            font-weight: 300;
+            margin-bottom: 36px
+        }
+
+        .espacos {
+            background: var(--branco);
+            padding: 100px 60px;
+            scroll-margin-top: 80px
+        }
+
+        .espacos-header {
+            margin-bottom: 56px
+        }
+
+        .espacos-header .section-title {
+            margin-bottom: 16px
+        }
+
+        .espacos-desc {
+            font-family: 'Inter', sans-serif;
+            max-width: 520px;
+            font-size: 15px;
+            line-height: 1.85;
+            color: var(--verde-claro);
+            font-weight: 300
+        }
+
+        .espacos-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0
+        }
+
+        .espaco-card {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            background-color: var(--verde);
+            transition: background .4s
+        }
+
+        .espaco-card:hover {
+            background: var(--verde-medio)
+        }
+
+        .espaco-card-img {
+            width: 100%;
+            overflow: hidden;
+            aspect-ratio: 2/3
+        }
+
+        .espaco-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .7s ease, opacity .5s;
+            opacity: .88
+        }
+
+        .espaco-card:hover .espaco-card-img img {
+            transform: scale(1.06);
+            opacity: .55
+        }
+
+        .espaco-card-body {
+            padding: 28px 22px 32px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            position: relative
+        }
+
+        .espaco-name {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 19px;
+            font-weight: 300;
+            color: var(--branco);
+            display: block;
+            margin-bottom: 12px;
+            letter-spacing: .5px
+        }
+
+        .espaco-cap {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            letter-spacing: .3px;
+            color: var(--bege-escuro);
+            opacity: .75;
+            line-height: 1.7;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            font-weight: 300;
+            margin-bottom: 20px;
+            flex: 1;
+            transition: opacity .4s
+        }
+
+        .espaco-card:hover .espaco-cap {
+            opacity: 0
+        }
+
+        .espaco-card-btn {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            background: var(--bege);
+            color: var(--verde);
+            padding: 12px 22px;
+            font-size: 9px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-weight: 400;
+            transition: background .3s, opacity .4s;
+            align-self: flex-start;
+            position: absolute;
+            bottom: 32px;
+            left: 22px;
+            opacity: 0;
+            transform: translateY(8px);
+            pointer-events: none
+        }
+
+        .espaco-card:hover .espaco-card-btn {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto
+        }
+
+        .espaco-card-btn:hover {
+            background: var(--branco)
+        }
+
+        .experiencia-voss {
+            background: var(--verde);
+            padding: 100px 60px;
+            scroll-margin-top: 80px
+        }
+
+        .experiencia-voss-header {
+            max-width: 680px;
+            margin: 0 auto 60px;
+            text-align: center
+        }
+
+        .experiencia-voss-header .section-tag {
+            color: var(--cobre)
+        }
+
+        .experiencia-voss-header .section-title {
+            color: var(--bege)
+        }
+
+        .experiencia-voss-header .section-body {
+            font-family: 'Inter', sans-serif;
+            color: rgba(240, 235, 224, .6);
+            font-size: 16px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300
+        }
+
+        .exp-tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px
+        }
+
+        .exp-tipo-card {
+            background: rgba(240, 235, 224, .04);
+            border: 1px solid rgba(240, 235, 224, .07);
+            padding: 48px 40px;
+            text-align: center;
+            transition: background .4s, border-color .4s
+        }
+
+        .exp-tipo-card:hover {
+            background: rgba(240, 235, 224, .08);
+            border-color: rgba(139, 106, 62, .3)
+        }
+
+        .exp-tipo-icon {
+            width: 62px;
+            height: 62px;
+            border: 1px solid rgba(139, 106, 62, .35);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px;
+            transition: background .3s, border-color .3s
+        }
+
+        .exp-tipo-card:hover .exp-tipo-icon {
+            background: rgba(139, 106, 62, .12);
+            border-color: var(--cobre)
+        }
+
+        .exp-tipo-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--cobre);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .exp-tipo-title {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--bege);
+            letter-spacing: .5px;
+            margin-bottom: 14px;
+            display: block;
+            line-height: 1.4
+        }
+
+        .exp-tipo-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            line-height: 1.75;
+            color: rgba(240, 235, 224, .45);
+            font-weight: 300
+        }
+
+        .gastronomia {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 580px
+        }
+
+        .gastro-img {
+            background-image: url('https://casavoss.com.br/wp-content/uploads/2026/04/Copia-de-064VIZ_IMG_08-Gourmet_resultado.avif');
+            background-size: cover;
+            background-position: center;
+            background-color: var(--verde-medio);
+            min-height: 480px
+        }
+
+        .gastro-content {
+            background: var(--bege);
+            padding: 80px 72px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .gastro-content .section-body {
+            margin-bottom: 0
+        }
+
+        .gastro-assinatura {
+            margin-top: 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px
+        }
+
+        .gastro-assinatura-linha {
+            flex: 1;
+            height: 1px;
+            background: var(--cobre);
+            opacity: .3
+        }
+
+        .gastro-assinatura-text {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--cobre);
+            white-space: nowrap;
+            letter-spacing: 1px
+        }
+
+        .diferenciais {
+            background: var(--branco);
+            padding: 100px 60px;
+            scroll-margin-top: 80px
+        }
+
+        .diferenciais-header {
+            max-width: 680px;
+            margin: 0 auto 60px;
+            text-align: center
+        }
+
+        .diferenciais-header .section-body {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .diferenciais-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px
+        }
+
+        .dif-card {
+            background: rgba(26, 46, 26, .02);
+            border: 1px solid rgba(26, 46, 26, .07);
+            padding: 44px 36px;
+            text-align: center;
+            transition: background .4s, border-color .4s
+        }
+
+        .dif-card:hover {
+            background: rgba(26, 46, 26, .05);
+            border-color: rgba(139, 106, 62, .3)
+        }
+
+        .dif-card-icon {
+            width: 58px;
+            height: 58px;
+            border: 1px solid rgba(139, 106, 62, .3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            transition: background .3s, border-color .3s
+        }
+
+        .dif-card:hover .dif-card-icon {
+            background: rgba(139, 106, 62, .08);
+            border-color: var(--cobre)
+        }
+
+        .dif-card-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--cobre);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .dif-card-title {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--verde);
+            letter-spacing: .5px;
+            display: block;
+            line-height: 1.4
+        }
+
+        .dif-last-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            margin-top: 2px
+        }
+
+        .dif-last-row .dif-card {
+            height: 100%
+        }
+
+        .depoimento {
+            background: var(--bege);
+            padding: 120px 60px;
+            text-align: center
+        }
+
+        .dep-icon {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 72px;
+            color: var(--cobre);
+            opacity: .3;
+            line-height: .6;
+            margin-bottom: 40px;
+            display: block;
+            font-weight: 300
+        }
+
+        .dep-quote {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: clamp(24px, 3.5vw, 38px);
+            font-weight: 200;
+            font-style: italic;
+            color: var(--verde);
+            max-width: 840px;
+            margin: 0 auto 36px;
+            line-height: 1.45;
+            letter-spacing: -.2px
+        }
+
+        .dep-author {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--cobre);
+            font-weight: 300
+        }
+
+        .galeria-header {
+            background: var(--branco);
+            text-align: center;
+            padding: 100px 60px 48px;
+            scroll-margin-top: 80px
+        }
+
+        .galeria-header .section-title {
+            margin-bottom: 0
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 320px 320px;
+            gap: 3px
+        }
+
+        .galeria-item {
+            overflow: hidden;
+            background-color: var(--verde-medio)
+        }
+
+        .galeria-item.tall {
+            grid-row: span 2
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .7s ease, opacity .4s;
+            opacity: .92
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.04);
+            opacity: 1
+        }
+
+        .contato-section {
+            background: var(--verde);
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            scroll-margin-top: 80px
+        }
+
+        .contato-info {
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 1px solid rgba(240, 235, 224, .08)
+        }
+
+        .contato-info .section-title {
+            color: var(--bege);
+            margin-bottom: 20px
+        }
+
+        .contato-info .section-body {
+            font-family: 'Inter', sans-serif;
+            color: rgba(240, 235, 224, .55);
+            font-size: 15px;
+            line-height: 1.85;
+            margin-bottom: 40px;
+            font-weight: 300
+        }
+
+        .btn-whatsapp {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #25d366;
+            color: #fff;
+            padding: 16px 32px;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-weight: 400;
+            transition: background .3s, transform .3s;
+            text-decoration: none;
+            margin-bottom: 40px
+        }
+
+        .btn-whatsapp:hover {
+            background: #1ebe5a;
+            transform: translateY(-1px)
+        }
+
+        .btn-whatsapp svg {
+            width: 18px;
+            height: 18px;
+            fill: #fff;
+            flex-shrink: 0
+        }
+
+        .visita-box {
+            border: 1px solid rgba(240, 235, 224, .1);
+            padding: 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            transition: border-color .3s
+        }
+
+        .visita-box:hover {
+            border-color: rgba(139, 106, 62, .35)
+        }
+
+        .visita-box-icon {
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(139, 106, 62, .35);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0
+        }
+
+        .visita-box-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--cobre);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .visita-box-text strong {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            display: block;
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--bege);
+            margin-bottom: 4px;
+            letter-spacing: .3px
+        }
+
+        .visita-box-text p {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: rgba(240, 235, 224, .45);
+            line-height: 1.65;
+            font-weight: 300
+        }
+
+        .contato-form-wrap {
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .corporativo-form-card {
+            background: rgba(240, 235, 224, .04);
+            border: 1px solid rgba(240, 235, 224, .08);
+            padding: 40px 36px
+        }
+
+        .corporativo-form-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px
+        }
+
+        .corporativo-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .corporativo-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px
+        }
+
+        .corporativo-form-group.full {
+            grid-column: 1/-1
+        }
+
+        .corporativo-label {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 9px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgba(240, 235, 224, .4);
+            font-weight: 300
+        }
+
+        .corporativo-input,
+        .corporativo-select,
+        .corporativo-textarea {
+            font-family: 'Inter', sans-serif;
+            padding: 13px 15px;
+            background: rgba(240, 235, 224, .06);
+            border: 1px solid rgba(240, 235, 224, .12);
+            color: var(--bege);
+            font-size: 14px;
+            font-weight: 300;
+            outline: none;
+            transition: border-color .3s, background .3s;
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%
+        }
+
+        .corporativo-input::placeholder,
+        .corporativo-textarea::placeholder {
+            color: rgba(240, 235, 224, .2)
+        }
+
+        .corporativo-input:focus,
+        .corporativo-select:focus,
+        .corporativo-textarea:focus {
+            border-color: rgba(240, 235, 224, .35);
+            background: rgba(240, 235, 224, .09)
+        }
+
+        .corporativo-input.error,
+        .corporativo-select.error,
+        .corporativo-textarea.error {
+            border-color: #c97b7b;
+            background: rgba(201, 123, 123, .06)
+        }
+
+        .corporativo-field-error {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: #c97b7b;
+            margin-top: 1px;
+            display: none;
+            line-height: 1.4
+        }
+
+        .corporativo-field-error.visible {
+            display: block
+        }
+
+        .corporativo-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(240,235,224,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+            cursor: pointer
+        }
+
+        .corporativo-select option {
+            background: var(--verde);
+            color: var(--bege)
+        }
+
+        .corporativo-input[type="number"]::-webkit-inner-spin-button,
+        .corporativo-input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0
+        }
+
+        .corporativo-input[type="number"] {
+            -moz-appearance: textfield
+        }
+
+        .corporativo-textarea {
+            resize: vertical;
+            min-height: 80px;
+            max-height: 200px;
+            line-height: 1.5
+        }
+
+        .hp-field {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+            opacity: 0;
+            pointer-events: none
+        }
+
+        .corporativo-submit {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            background: var(--cobre);
+            color: var(--branco);
+            padding: 17px 32px;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-weight: 400;
+            transition: background .3s, transform .3s;
+            width: 100%;
+            margin-top: 6px
+        }
+
+        .corporativo-submit:hover:not(:disabled) {
+            background: #9e7a4a;
+            transform: translateY(-1px)
+        }
+
+        .corporativo-submit:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+            transform: none
+        }
+
+        .corporativo-form-msg {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            text-align: center;
+            margin-top: 14px;
+            padding: 12px 16px;
+            border-radius: 3px;
+            display: none;
+            line-height: 1.5
+        }
+
+        .corporativo-form-msg.error {
+            display: block;
+            background: rgba(201, 123, 123, .1);
+            color: #e0a0a0;
+            border: 1px solid rgba(201, 123, 123, .25)
+        }
+
+        .corporativo-form-msg.error a {
+            color: var(--bege-escuro);
+            text-decoration: underline
+        }
+
+        .corporativo-form-footer {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: rgba(240, 235, 224, .22);
+            text-align: center;
+            margin-top: 14px;
+            line-height: 1.6
+        }
+
+        .corporativo-success-state {
+            display: none;
+            text-align: center;
+            padding: 48px 20px
+        }
+
+        .corporativo-success-state.active {
+            display: block
+        }
+
+        .corporativo-success-icon {
+            width: 64px;
+            height: 64px;
+            border: 1px solid rgba(139, 106, 62, .4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px
+        }
+
+        .corporativo-success-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--cobre);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .corporativo-success-title {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 22px;
+            font-weight: 300;
+            color: var(--branco);
+            margin-bottom: 14px
+        }
+
+        .corporativo-success-text {
+            font-size: 14px;
+            color: rgba(240, 235, 224, .55);
+            line-height: 1.75;
+            font-weight: 300;
+            max-width: 340px;
+            margin: 0 auto
+        }
+
+        .flatpickr-calendar {
+            background: var(--verde) !important;
+            border: 1px solid rgba(240, 235, 224, .12) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .5) !important;
+            font-family: 'Inter', sans-serif !important;
+            border-radius: 2px !important
+        }
+
+        .flatpickr-calendar.arrowTop::before {
+            border-bottom-color: rgba(240, 235, 224, .12) !important
+        }
+
+        .flatpickr-calendar.arrowTop::after {
+            border-bottom-color: var(--verde) !important
+        }
+
+        .flatpickr-calendar.arrowBottom::before {
+            border-top-color: rgba(240, 235, 224, .12) !important
+        }
+
+        .flatpickr-calendar.arrowBottom::after {
+            border-top-color: var(--verde) !important
+        }
+
+        .flatpickr-months {
+            background: var(--verde-medio) !important;
+            border-radius: 2px 2px 0 0 !important
+        }
+
+        .flatpickr-months .flatpickr-month {
+            background: transparent !important;
+            color: var(--bege) !important;
+            fill: var(--bege) !important;
+            height: 44px !important
+        }
+
+        .flatpickr-current-month .flatpickr-monthDropdown-months {
+            background: var(--verde) !important;
+            color: var(--bege) !important;
+            font-weight: 300 !important;
+            font-size: 13px !important;
+            padding: 0 8px !important;
+            border-radius: 2px !important
+        }
+
+        .flatpickr-current-month .flatpickr-monthDropdown-months option {
+            background: var(--verde) !important;
+            color: var(--bege) !important
+        }
+
+        .flatpickr-current-month input.cur-year {
+            color: var(--bege) !important;
+            font-weight: 300 !important;
+            font-size: 13px !important
+        }
+
+        .flatpickr-current-month input.cur-year:focus {
+            background: rgba(240, 235, 224, .08) !important
+        }
+
+        span.flatpickr-weekday {
+            color: rgba(240, 235, 224, .45) !important;
+            font-weight: 300 !important;
+            font-size: 11px !important;
+            background: transparent !important
+        }
+
+        .flatpickr-day {
+            color: var(--bege) !important;
+            font-weight: 300 !important;
+            font-size: 13px !important;
+            border: 1px solid transparent !important;
+            border-radius: 2px !important;
+            transition: background .15s, color .15s !important
+        }
+
+        .flatpickr-day:hover {
+            background: rgba(240, 235, 224, .08) !important;
+            color: var(--branco) !important
+        }
+
+        .flatpickr-day.selected {
+            background: var(--cobre) !important;
+            border-color: var(--cobre) !important;
+            color: var(--branco) !important
+        }
+
+        .flatpickr-day.today {
+            border-color: var(--cobre) !important
+        }
+
+        .flatpickr-day.prevMonthDay,
+        .flatpickr-day.nextMonthDay {
+            color: rgba(240, 235, 224, .12) !important
+        }
+
+        .flatpickr-day.disabled {
+            color: rgba(240, 235, 224, .1) !important;
+            cursor: default !important
+        }
+
+        .flatpickr-day.disabled:hover {
+            background: transparent !important
+        }
+
+        .flatpickr-months .flatpickr-prev-month svg,
+        .flatpickr-months .flatpickr-next-month svg {
+            fill: var(--bege) !important;
+            opacity: .6 !important;
+            transition: opacity .2s !important
+        }
+
+        .flatpickr-months .flatpickr-prev-month:hover svg,
+        .flatpickr-months .flatpickr-next-month:hover svg {
+            fill: var(--cobre) !important;
+            opacity: 1 !important
+        }
+
+        .flatpickr-innerContainer {
+            border-top: 1px solid rgba(240, 235, 224, .06) !important
+        }
+
+        .flatpickr-calendar.open {
+            z-index: 300 !important
+        }
+
+        .wpp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 90;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-decoration: none;
+            opacity: 0;
+            animation: wppFloatIn .6s ease 3s forwards;
+            transition: transform .3s
+        }
+
+        @keyframes wppFloatIn {
+            from {
+                opacity: 0;
+                transform: translateX(40px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0)
+            }
+        }
+
+        .wpp-float:hover {
+            transform: scale(1.08)
+        }
+
+        .wpp-float svg {
+            width: 60px;
+            height: 60px;
+            display: block
+        }
+
+        .wpp-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .55);
+            z-index: 200;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .3s, visibility .3s;
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px)
+        }
+
+        .wpp-overlay.open {
+            opacity: 1;
+            visibility: visible
+        }
+
+        .wpp-wrap {
+            position: fixed;
+            bottom: 96px;
+            right: 20px;
+            z-index: 201;
+            width: 370px;
+            max-width: calc(100vw - 32px);
+            transform: scale(.8) translateY(16px);
+            opacity: 0;
+            visibility: hidden;
+            transition: transform .4s cubic-bezier(.34, 1.56, .64, 1), opacity .3s, visibility .3s;
+            transform-origin: bottom right
+        }
+
+        .wpp-wrap.open {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            visibility: visible
+        }
+
+        .wpp-box {
+            background: #e5ddd5;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, .35), 0 2px 8px rgba(0, 0, 0, .15);
+            display: flex;
+            flex-direction: column;
+            max-height: calc(100vh - 140px);
+            position: relative
+        }
+
+        .wpp-box::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 26px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #f0f0f0
+        }
+
+        .wpp-hdr {
+            background: #075e54;
+            padding: 10px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0
+        }
+
+        .wpp-hdr-av {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--verde-medio);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 17px
+        }
+
+        .wpp-hdr-info {
+            flex: 1;
+            min-width: 0
+        }
+
+        .wpp-hdr-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.3
+        }
+
+        .wpp-hdr-status {
+            font-size: 11px;
+            color: rgba(255, 255, 255, .7);
+            line-height: 1.3
+        }
+
+        .wpp-hdr-close {
+            width: 28px;
+            height: 28px;
+            border: none;
+            background: 0 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background .2s;
+            flex-shrink: 0
+        }
+
+        .wpp-hdr-close:hover {
+            background: rgba(255, 255, 255, .12)
+        }
+
+        .wpp-hdr-close svg {
+            width: 15px;
+            height: 15px;
+            stroke: #fff;
+            fill: none;
+            stroke-width: 2.5;
+            stroke-linecap: round
+        }
+
+        .wpp-chat {
+            background: #e5ddd5;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5l5 10 10 2-7 7 2 10-10-5-10 5 2-10-7-7 10-2z' fill='rgba(0,0,0,0.015)'/%3E%3C/svg%3E");
+            padding: 10px 10px 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            overflow-y: auto;
+            flex: 1;
+            min-height: 60px;
+            max-height: 300px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, .15) transparent
+        }
+
+        .wpp-chat::-webkit-scrollbar {
+            width: 4px
+        }
+
+        .wpp-chat::-webkit-scrollbar-track {
+            background: transparent
+        }
+
+        .wpp-chat::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, .15);
+            border-radius: 4px
+        }
+
+        .wpp-m {
+            max-width: 82%;
+            animation: wppBubbleIn .3s ease both;
+            word-wrap: break-word
+        }
+
+        .wpp-m--r {
+            align-self: flex-start;
+            background: #fff;
+            border-radius: 0 8px 8px 8px;
+            padding: 7px 10px 3px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .06)
+        }
+
+        .wpp-m--s {
+            align-self: flex-end;
+            background: #d9fdd3;
+            border-radius: 8px 0 8px 8px;
+            padding: 5px 8px 2px
+        }
+
+        .wpp-m p {
+            margin: 0;
+            font-size: 13px;
+            color: #111;
+            line-height: 1.4
+        }
+
+        .wpp-m p+p {
+            margin-top: 3px
+        }
+
+        .wpp-m-meta {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 3px;
+            margin-top: 1px
+        }
+
+        .wpp-m-chk {
+            font-size: 10px;
+            color: #53bdeb;
+            line-height: 1
+        }
+
+        .wpp-m-time {
+            font-size: 10px;
+            color: rgba(0, 0, 0, .35);
+            line-height: 1
+        }
+
+        @keyframes wppBubbleIn {
+            from {
+                opacity: 0;
+                transform: translateY(6px) scale(.97)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1)
+            }
+        }
+
+        .wpp-typing {
+            display: flex;
+            gap: 4px;
+            padding: 4px 2px
+        }
+
+        .wpp-typing span {
+            width: 6px;
+            height: 6px;
+            background: #999;
+            border-radius: 50%;
+            animation: wppDot 1.4s infinite
+        }
+
+        .wpp-typing span:nth-child(2) {
+            animation-delay: .2s
+        }
+
+        .wpp-typing span:nth-child(3) {
+            animation-delay: .4s
+        }
+
+        @keyframes wppDot {
+
+            0%,
+            60%,
+            100% {
+                opacity: .3;
+                transform: translateY(0)
+            }
+
+            30% {
+                opacity: 1;
+                transform: translateY(-3px)
+            }
+        }
+
+        .wpp-bar {
+            background: #f0f0f0;
+            padding: 7px 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-top: 1px solid #ddd;
+            flex-shrink: 0
+        }
+
+        .wpp-bar-inp {
+            flex: 1;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #111;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 8px 13px;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            transition: border-color .2s
+        }
+
+        .wpp-bar-inp::placeholder {
+            color: #999
+        }
+
+        .wpp-bar-inp:focus {
+            border-color: #25d366
+        }
+
+        .wpp-bar-sel {
+            flex: 1;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #111;
+            background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 11px center;
+            padding: 8px 30px 8px 13px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            cursor: pointer;
+            transition: border-color .2s
+        }
+
+        .wpp-bar-sel:focus {
+            border-color: #25d366
+        }
+
+        .wpp-bar-sel option {
+            background: #fff;
+            color: #111
+        }
+
+        .wpp-bar-inp[type="number"] {
+            -moz-appearance: textfield
+        }
+
+        .wpp-bar-inp[type="number"]::-webkit-inner-spin-button,
+        .wpp-bar-inp[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none
+        }
+
+        .wpp-bar-send {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #25d366;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background .2s, transform .15s
+        }
+
+        .wpp-bar-send:hover {
+            background: #1da851;
+            transform: scale(1.06)
+        }
+
+        .wpp-bar-send:active {
+            transform: scale(.96)
+        }
+
+        .wpp-bar-send svg {
+            width: 15px;
+            height: 15px
+        }
+
+        .wpp-bar-acts {
+            display: flex;
+            gap: 6px;
+            width: 100%
+        }
+
+        .wpp-bar-abtn {
+            flex: 1;
+            border: none;
+            border-radius: 20px;
+            padding: 9px 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12.5px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: background .2s, transform .15s
+        }
+
+        .wpp-bar-abtn:active {
+            transform: scale(.97)
+        }
+
+        .wpp-bar-abtn svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0
+        }
+
+        .wpp-bar-ag {
+            background: #25d366;
+            color: #fff
+        }
+
+        .wpp-bar-ag:hover {
+            background: #1da851
+        }
+
+        .wpp-bar-ag svg {
+            fill: #fff
+        }
+
+        .wpp-bar-ad {
+            background: #1f2c2f;
+            color: #fff
+        }
+
+        .wpp-bar-ad:hover {
+            background: #2d3e42
+        }
+
+        .wpp-bar-ad svg {
+            fill: #fff
+        }
+
+        .wpp-bar-full {
+            width: 100%;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            background: #25d366;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: background .2s, transform .15s
+        }
+
+        .wpp-bar-full:hover {
+            background: #1da851;
+            transform: translateY(-1px)
+        }
+
+        .wpp-bar-full:active {
+            transform: translateY(0)
+        }
+
+        .wpp-bar-full svg {
+            width: 15px;
+            height: 15px;
+            fill: #fff
+        }
+
+        @keyframes wppShake {
+
+            0%,
+            100% {
+                transform: translateX(0)
+            }
+
+            20%,
+            60% {
+                transform: translateX(-4px)
+            }
+
+            40%,
+            80% {
+                transform: translateX(4px)
+            }
+        }
+
+        .wpp-shake {
+            animation: wppShake .35s ease;
+            border-color: #e74c3c !important
+        }
+
+        footer {
+            background: #0f1a0f;
+            padding: 72px 60px 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px
+        }
+
+        .footer-brand .nav-logo {
+            font-size: 22px;
+            display: block;
+            margin-bottom: 20px
+        }
+
+        .footer-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: rgba(240, 235, 224, .35);
+            line-height: 1.85;
+            font-weight: 300;
+            max-width: 260px
+        }
+
+        .footer-col h4 {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(240, 235, 224, .4);
+            margin-bottom: 22px;
+            font-weight: 300
+        }
+
+        .footer-col ul {
+            list-style: none
+        }
+
+        .footer-col ul li {
+            margin-bottom: 13px
+        }
+
+        .footer-col ul a {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: rgba(240, 235, 224, .5);
+            text-decoration: none;
+            font-weight: 300;
+            transition: color .3s
+        }
+
+        .footer-col ul a:hover {
+            color: var(--bege)
+        }
+
+        .footer-bottom {
+            grid-column: 1/-1;
+            padding-top: 36px;
+            border-top: 1px solid rgba(240, 235, 224, .07);
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .footer-copy {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: rgba(240, 235, 224, .2);
+            letter-spacing: .5px
+        }
+
+        .footer-dev {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .footer-dev-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: rgba(240, 235, 224, .25);
+            letter-spacing: .3px
+        }
+
+        .footer-dev-img-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none
+        }
+
+        .footer-dev-img {
+            height: 36px;
+            width: auto;
+            opacity: .5;
+            transition: opacity .3s;
+            display: block
+        }
+
+        .footer-dev-img:hover {
+            opacity: .8
+        }
+
+        @media(max-width:1200px) {
+            .espacos-grid {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .espaco-card-img {
+                aspect-ratio: 3/4
+            }
+        }
+
+        @media(max-width:1024px) {
+            nav {
+                padding: 20px 32px
+            }
+
+            .nav-links {
+                gap: 24px
+            }
+
+            .hero-content {
+                padding: 0 32px 64px
+            }
+
+            .sobre-content,
+            .gastro-content {
+                padding: 60px 48px
+            }
+
+            .espacos {
+                padding: 80px 32px
+            }
+
+            .experiencia-voss {
+                padding: 80px 32px
+            }
+
+            .exp-tipos-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .diferenciais {
+                padding: 80px 32px
+            }
+
+            .diferenciais-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .dif-last-row {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .galeria-header {
+                padding: 80px 32px 40px
+            }
+
+            .contato-info {
+                padding: 60px 40px
+            }
+
+            .contato-form-wrap {
+                padding: 20px
+            }
+
+            .corporativo-form-card {
+                padding: 36px 32px
+            }
+
+            footer {
+                padding: 60px 32px 36px;
+                gap: 40px
+            }
+        }
+
+        @media(max-height:750px) and (min-width:769px) {
+            .hero-tag {
+                margin-bottom: 14px
+            }
+
+            .hero-title {
+                margin-bottom: 18px
+            }
+
+            .hero-subtitle {
+                margin-bottom: 28px;
+                font-size: 15px;
+                line-height: 1.7
+            }
+
+            .hero-content {
+                padding-bottom: 48px
+            }
+
+            .corporativo-form-grid {
+                gap: 12px
+            }
+
+            .corporativo-form-row {
+                gap: 12px
+            }
+
+            .corporativo-input,
+            .corporativo-select,
+            .corporativo-textarea {
+                padding: 11px 14px;
+                font-size: 13px
+            }
+
+            .corporativo-textarea {
+                min-height: 60px
+            }
+
+            .corporativo-submit {
+                padding: 14px 28px;
+                margin-top: 4px
+            }
+
+            .corporativo-form-footer {
+                margin-top: 10px
+            }
+
+            .wpp-chat {
+                max-height: 240px
+            }
+        }
+
+        @media(max-height:650px) and (min-width:769px) {
+            .hero-tag {
+                margin-bottom: 10px;
+                font-size: 10px
+            }
+
+            .hero-title {
+                margin-bottom: 14px
+            }
+
+            .hero-subtitle {
+                margin-bottom: 20px;
+                font-size: 14px;
+                line-height: 1.6
+            }
+
+            .hero-content {
+                padding-bottom: 36px
+            }
+
+            .hero-actions .btn-primary {
+                padding: 12px 28px
+            }
+
+            .corporativo-form-card {
+                padding: 22px 28px
+            }
+
+            .corporativo-form-grid {
+                gap: 10px
+            }
+
+            .corporativo-form-row {
+                gap: 10px
+            }
+
+            .corporativo-label {
+                font-size: 8px
+            }
+
+            .corporativo-input,
+            .corporativo-select,
+            .corporativo-textarea {
+                padding: 10px 12px;
+                font-size: 13px
+            }
+
+            .corporativo-textarea {
+                min-height: 50px
+            }
+
+            .corporativo-submit {
+                padding: 12px 24px;
+                margin-top: 2px
+            }
+
+            .corporativo-form-footer {
+                margin-top: 8px;
+                font-size: 10px
+            }
+
+            .wpp-chat {
+                max-height: 180px
+            }
+        }
+
+        @media(max-width:768px) {
+            nav {
+                padding: 18px 24px
+            }
+
+            .nav-links,
+            .nav-cta {
+                display: none !important
+            }
+
+            .nav-hamburger {
+                display: flex
+            }
+
+            .hero-bg {
+                background-position: left center
+            }
+
+            .hero-content {
+                padding: 0 24px 48px
+            }
+
+            .hero-tag {
+                margin-bottom: 14px
+            }
+
+            .hero-title {
+                margin-bottom: 18px
+            }
+
+            .hero-subtitle {
+                max-width: 100%;
+                margin-bottom: 32px;
+                font-size: 15px
+            }
+
+            .stats-bar {
+                flex-wrap: wrap
+            }
+
+            .stat-item {
+                flex: 1 1 50%;
+                max-width: none;
+                padding: 28px 20px
+            }
+
+            .sobre {
+                grid-template-columns: 1fr
+            }
+
+            .sobre-img {
+                min-height: 320px
+            }
+
+            .sobre-content {
+                padding: 56px 32px
+            }
+
+            .espacos {
+                padding: 72px 24px
+            }
+
+            .espacos-desc {
+                max-width: 100%
+            }
+
+            .espacos-grid {
+                grid-template-columns: 1fr
+            }
+
+            .espaco-card-img {
+                aspect-ratio: 16/10
+            }
+
+            .espaco-name {
+                font-size: 17px;
+                margin-bottom: 10px
+            }
+
+            .espaco-cap {
+                -webkit-line-clamp: unset;
+                display: block;
+                opacity: .75;
+                margin-bottom: 0;
+                font-size: 13px
+            }
+
+            .espaco-card:hover .espaco-cap {
+                opacity: .75
+            }
+
+            .espaco-card-btn {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                opacity: 1;
+                transform: none;
+                pointer-events: auto;
+                margin-top: 18px
+            }
+
+            .experiencia-voss {
+                padding: 72px 24px
+            }
+
+            .exp-tipos-grid {
+                grid-template-columns: 1fr
+            }
+
+            .exp-tipo-card {
+                padding: 36px 28px
+            }
+
+            .gastronomia {
+                grid-template-columns: 1fr
+            }
+
+            .gastro-img {
+                min-height: 320px;
+                order: -1
+            }
+
+            .gastro-content {
+                padding: 56px 32px
+            }
+
+            .diferenciais {
+                padding: 72px 24px
+            }
+
+            .diferenciais-grid,
+            .dif-last-row {
+                grid-template-columns: 1fr
+            }
+
+            .galeria-header {
+                padding: 72px 24px 36px
+            }
+
+            .galeria {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto
+            }
+
+            .galeria-item.tall {
+                grid-row: span 1
+            }
+
+            .galeria-item {
+                height: 260px
+            }
+
+            .contato-section {
+                grid-template-columns: 1fr
+            }
+
+            .contato-info {
+                border-right: none;
+                border-bottom: 1px solid rgba(240, 235, 224, .08);
+                padding: 56px 32px
+            }
+
+            .contato-form-wrap {
+                padding: 0 16px 16px
+            }
+
+            .corporativo-form-card {
+                padding: 32px 28px;
+                border-color: rgba(240, 235, 224, .06)
+            }
+
+            .corporativo-form-grid {
+                gap: 16px
+            }
+
+            footer {
+                grid-template-columns: 1fr 1fr;
+                padding: 56px 24px 32px;
+                gap: 40px
+            }
+
+            .footer-brand {
+                grid-column: 1/-1
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center
+            }
+
+            .wpp-wrap {
+                bottom: 88px;
+                right: 16px;
+                width: 350px
+            }
+        }
+
+        @media(max-width:600px) {
+            .corporativo-form-row {
+                grid-template-columns: 1fr;
+                gap: 18px
+            }
+
+            .corporativo-input,
+            .corporativo-select,
+            .corporativo-textarea {
+                padding: 14px 14px;
+                font-size: 16px
+            }
+
+            .corporativo-submit {
+                padding: 16px 28px;
+                font-size: 10px
+            }
+
+            .corporativo-success-state {
+                padding: 36px 16px
+            }
+
+            .corporativo-success-title {
+                font-size: 19px
+            }
+
+            .corporativo-success-text {
+                font-size: 13px
+            }
+
+            .wpp-float {
+                bottom: 16px;
+                right: 16px;
+                width: 54px;
+                height: 54px
+            }
+
+            .wpp-float svg {
+                width: 54px;
+                height: 54px
+            }
+
+            .wpp-wrap {
+                bottom: 80px;
+                right: 10px;
+                left: 10px;
+                width: auto;
+                max-width: none;
+                transform-origin: bottom center
+            }
+
+            .wpp-wrap.open {
+                transform: scale(1) translateY(0)
+            }
+
+            .wpp-box::after {
+                right: 28px
+            }
+
+            .wpp-chat {
+                max-height: 250px
+            }
+
+            .wpp-m {
+                max-width: 88%
+            }
+        }
+
+        @media(max-width:380px) {
+            .corporativo-form-card {
+                padding: 24px 16px
+            }
+
+            .corporativo-label {
+                font-size: 8px;
+                letter-spacing: 2px
+            }
+
+            .corporativo-input,
+            .corporativo-select,
+            .corporativo-textarea {
+                padding: 12px 12px;
+                font-size: 15px
+            }
+
+            .corporativo-submit {
+                padding: 14px 24px
+            }
+
+            .corporativo-form-footer {
+                font-size: 10px
+            }
+
+            .wpp-bar {
+                padding: 6px 6px
+            }
+
+            .wpp-bar-inp,
+            .wpp-bar-sel {
+                padding: 7px 10px;
+                font-size: 12px
+            }
+
+            .wpp-bar-send {
+                width: 30px;
+                height: 30px
+            }
+
+            .wpp-bar-send svg {
+                width: 13px;
+                height: 13px
+            }
+
+            .wpp-bar-abtn {
+                padding: 8px;
+                font-size: 11.5px
+            }
+
+            .wpp-bar-full {
+                padding: 9px;
+                font-size: 12px
+            }
+        }
+
+        @media(max-height:500px) and (max-width:900px) {
+            .corporativo-form-card {
+                padding: 16px 18px
+            }
+
+            .corporativo-form-grid {
+                gap: 8px
+            }
+
+            .corporativo-form-row {
+                gap: 8px
+            }
+
+            .corporativo-label {
+                font-size: 7px;
+                letter-spacing: 2px
+            }
+
+            .corporativo-input,
+            .corporativo-select,
+            .corporativo-textarea {
+                padding: 8px 10px;
+                font-size: 13px
+            }
+
+            .corporativo-textarea {
+                min-height: 40px
+            }
+
+            .corporativo-submit {
+                padding: 10px 20px;
+                margin-top: 2px
+            }
+
+            .corporativo-form-footer {
+                margin-top: 6px;
+                font-size: 9px
+            }
+
+            .wpp-float {
+                width: 44px;
+                height: 44px;
+                bottom: 10px;
+                right: 10px
+            }
+
+            .wpp-float svg {
+                width: 44px;
+                height: 44px
+            }
+
+            .wpp-wrap {
+                bottom: 60px;
+                right: 8px;
+                left: 8px
+            }
+
+            .wpp-chat {
+                max-height: 140px;
+                padding: 6px
+            }
+
+            .wpp-bar {
+                padding: 5px 5px
+            }
+
+            .wpp-bar-inp,
+            .wpp-bar-sel {
+                padding: 6px 8px;
+                font-size: 12px
+            }
+
+            .wpp-bar-send {
+                width: 26px;
+                height: 26px
+            }
+
+            .wpp-bar-send svg {
+                width: 11px;
+                height: 11px
+            }
+
+            .wpp-bar-abtn {
+                padding: 6px;
+                font-size: 11px
+            }
+
+            .wpp-bar-full {
+                padding: 7px;
+                font-size: 11px
+            }
+        }
+
+        @media(min-width:1400px) {
+            .corporativo-form-card {
+                padding: 44px 40px
+            }
+
+            .wpp-wrap {
+                width: 390px
+            }
+
+            .wpp-chat {
+                max-height: 320px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <noscript></noscript>
+
+    <nav id="navbar">
+        <a href="#" class="nav-logo">Casa Voss</a>
+        <ul class="nav-links">
+            <li><a href="#espacos">Espaços</a></li>
+            <li><a href="#experiencia">Experiências</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        <a href="#contato" class="nav-cta" style="display:none!important;">Reservar</a>
+        <button class="nav-hamburger" id="hamburgerBtn"
+            aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#espacos" class="mobile-link">Espaços</a>
+        <a href="#experiencia" class="mobile-link">Experiências</a>
+        <a href="#galeria" class="mobile-link">Galeria</a>
+        <a href="#contato" class="mobile-link">Contato</a>
+        <a href="#contato" class="mobile-cta">Reservar</a>
+    </div>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-tag">São Paulo · Espaço Corporativo</span>
+            <h1 class="hero-title">Onde marcas <br> encontram voz,<br><em>times se conectam</em><br> e ideias ganham
+                forma.</h1>
+            <p class="hero-subtitle">Uma casa de experiências corporativas para empresas que buscam mais do que um
+                espaço: buscam presença, estética e significado.</p>
+            <div class="hero-actions"><a href="#espacos" class="btn-primary">Conhecer espaços</a></div>
+        </div>
+    </section>
+
+    <div class="stats-bar">
+        <div class="stat-item"><span class="stat-num">600m²</span><span class="stat-label">de área total</span></div>
+        <div class="stat-item"><span class="stat-num">5</span><span class="stat-label">ambientes únicos</span></div>
+        <div class="stat-item"><span class="stat-num">250</span><span class="stat-label">pessoas por evento</span></div>
+        <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">personalizado</span></div>
+    </div>
+
+    <section class="sobre">
+        <div class="sobre-img"></div>
+        <div class="sobre-content">
+            <span class="section-tag">Sobre o espaço</span>
+            <h2 class="section-title">Nem todo evento precisa <br>de um espaço. <br><em>Alguns precisam de uma
+                    casa.</em></h2>
+            <p class="section-body">Localizada no <b>Brooklin</b>, um dos <b>principais eixos corporativos de São
+                    Paulo</b>, a casa combina acesso facilitado com uma atmosfera que foge do padrão impessoal dos
+                centros de convenções. Distribuída em diferentes ambientes integrados, entre <b>auditórios, áreas de
+                    convivência, rooftop e espaços gastronômicos</b>, a Casa VOSS foi desenhada para acomodar desde
+                encontros mais intimistas até eventos completos de até 100 pessoas, com fluidez entre conteúdo,
+                experiência e relacionamento. Uma casa criada para marcas que têm alma.</p>
+        </div>
+    </section>
+
+    <section class="espacos" id="espacos">
+        <div class="espacos-header">
+            <span class="section-tag">Nossos espaços</span>
+            <h2 class="section-title">Ambientes integrados, versáteis e <br><em>pensados para diferentes dinâmicas</em>
+            </h2>
+            <p class="espacos-desc">Para eventos que precisam gerar mais do que presença. <br>Precisam gerar
+                significado.</p>
+        </div>
+        <div class="espacos-grid">
+            <div class="espaco-card">
+                <div class="espaco-card-img"><img
+                        src="https://casavoss.com.br/wp-content/uploads/2026/04/Copia-de-064VIZ_IMG_02-Auditorio.avif"
+                        alt="Espaço Âmbar Casa Voss" loading="lazy" /></div>
+                <div class="espaco-card-body"><span class="espaco-name">Espaço Âmbar</span><span class="espaco-cap">Um
+                        auditório contemporâneo e equipado, <b>ideal para apresentações, treinamentos e lançamentos</b>,
+                        com <b>capacidade para até 96 convidados</b> em formato plenária ou mesas redondas, combinando
+                        tecnologia, conforto e estética.</span><button class="espaco-card-btn"
+                        onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Solicitar
+                        orçamento</button></div>
+            </div>
+            <div class="espaco-card">
+                <div class="espaco-card-img"><img
+                        src="https://casavoss.com.br/wp-content/uploads/2026/04/ChatGPT-Image-7-de-abr.-de-2026-22_10_20_resultado.avif"
+                        alt="Espaço Sálvia Casa Voss" loading="lazy" /></div>
+                <div class="espaco-card-body"><span class="espaco-name">Espaço Sálvia</span><span
+                        class="espaco-cap">Para encontros que pedem mais conexão, um ambiente intimista <b>ideal para
+                            workshops, mentorias e reuniões estratégicas</b>, com capacidade para até <b>36
+                            convidados</b>.</span><button class="espaco-card-btn"
+                        onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Solicitar
+                        orçamento</button></div>
+            </div>
+            <div class="espaco-card">
+                <div class="espaco-card-img"><img
+                        src="https://casavoss.com.br/wp-content/uploads/2026/04/Copia-de-064VIZ_IMG_08-Gourmet_resultado.avif"
+                        alt="Espaço Gourmet Casa Voss" loading="lazy" /></div>
+                <div class="espaco-card-body"><span class="espaco-name">Espaço Gourmet</span><span class="espaco-cap">Um
+                        espaço onde o networking se mistura à gastronomia, <b>ideal para coffee breaks, almoços e
+                            ativações com chefs convidados.</b></span><button class="espaco-card-btn"
+                        onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Solicitar
+                        orçamento</button></div>
+            </div>
+            <div class="espaco-card">
+                <div class="espaco-card-img"><img
+                        src="https://casavoss.com.br/wp-content/uploads/2026/04/Copia-de-064VIZ_IMG_09-Garden-Lounge_resultado.avif"
+                        alt="Garden Lounge Casa Voss" loading="lazy" /></div>
+                <div class="espaco-card-body"><span class="espaco-name">Garden Lounge</span><span class="espaco-cap">Um
+                        espaço ao ar livre que combina natureza e acolhimento, ideal para <b>workshops, treinamentos e
+                            reuniões estratégicas mais intimistas.</b></span><button class="espaco-card-btn"
+                        onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Solicitar
+                        orçamento</button></div>
+            </div>
+            <div class="espaco-card">
+                <div class="espaco-card-img"><img
+                        src="https://casavoss.com.br/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-07-at-22.12_resultado.avif"
+                        alt="Rooftop Casa Voss" loading="lazy" /></div>
+                <div class="espaco-card-body"><span class="espaco-name">Rooftop</span><span class="espaco-cap">Com 210m²
+                        de terraço e 42m² de área coberta, um espaço amplo, versátil e cercado de verde, ideal para
+                        almoços, coquetéis e celebrações ao ar livre.</span><button class="espaco-card-btn"
+                        onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Solicitar
+                        orçamento</button></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experiencia-voss" id="experiencia">
+        <div class="experiencia-voss-header">
+            <span class="section-tag">A experiência Voss</span>
+            <h2 class="section-title">Perfeito para eventos corporativos que precisam <br><em>ir além do
+                    tradicional</em></h2>
+            <p class="section-body">Do conteúdo à celebração, cada formato encontra aqui a estrutura e a atmosfera
+                ideais para acontecer com sucesso.</p>
+        </div>
+        <div class="exp-tipos-grid">
+            <div class="exp-tipo-card">
+                <div class="exp-tipo-icon"><svg viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                        <rect x="14" y="14" width="7" height="7" rx="1" />
+                    </svg></div><span class="exp-tipo-title">Eventos corporativos e convenções</span>
+                <p class="exp-tipo-desc">Estrutura completa para congressos, palestras e encontros de grande porte com
+                    todo o suporte técnico e operacional.</p>
+            </div>
+            <div class="exp-tipo-card">
+                <div class="exp-tipo-icon"><svg viewBox="0 0 24 24">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                    </svg></div><span class="exp-tipo-title">Treinamentos e workshops</span>
+                <p class="exp-tipo-desc">Ambientes flexíveis que se adaptam a diferentes dinâmicas de aprendizado, do
+                    formato expositivo ao colaborativo.</p>
+            </div>
+            <div class="exp-tipo-card">
+                <div class="exp-tipo-icon"><svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg></div><span class="exp-tipo-title">Lançamentos de produto</span>
+                <p class="exp-tipo-desc">Cenários planejados para gerar impacto, com cenografia, iluminação e tecnologia
+                    integradas à identidade da marca.</p>
+            </div>
+            <div class="exp-tipo-card">
+                <div class="exp-tipo-icon"><svg viewBox="0 0 24 24">
+                        <polygon points="23 7 16 12 23 17 23 7" />
+                        <rect x="1" y="5" width="15" height="14" rx="2" />
+                    </svg></div><span class="exp-tipo-title">Gravações e conteúdos</span>
+                <p class="exp-tipo-desc">Espaços com acústica controlada, infraestrutura AV profissional e cenários
+                    naturais para produções audiovisuais.</p>
+            </div>
+            <div class="exp-tipo-card">
+                <div class="exp-tipo-icon"><svg viewBox="0 0 24 24">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg></div><span class="exp-tipo-title">Team building gastronômico</span>
+                <p class="exp-tipo-desc">Experiências que unem cooperação e gastronomia, com estrutura completa para
+                    dinâmicas culinárias em grupo.</p>
+            </div>
+            <div class="exp-tipo-card">
+                <div class="exp-tipo-icon"><svg viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                        <line x1="9" y1="9" x2="9.01" y2="9" />
+                        <line x1="15" y1="9" x2="15.01" y2="9" />
+                    </svg></div><span class="exp-tipo-title">Aulas e experiências culinárias</span>
+                <p class="exp-tipo-desc">Cozinha gourmet equipada para aulas práticas, demonstrações ao vivo e
+                    experiências imersivas com chefs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gastronomia">
+        <div class="gastro-img"></div>
+        <div class="gastro-content">
+            <span class="section-tag">Gastronomia</span>
+            <h2 class="section-title">Quando a gastronomia <br>deixa de ser apoio e <br><em>se torna experiência</em>
+            </h2>
+            <p class="section-body">Assinada pelo chef Eliézer Formaggio, que traz a essência italiana da sua família
+                para cada criação, e complementada por chefs parceiros, a cozinha une técnica, afeto e criatividade para
+                criar experiências que marcam.</p>
+            <p class="section-body">Aqui, o menu não é padrão, ele é construído de acordo com o momento, o público e o
+                objetivo do evento, com propostas personalizadas para cada ocasião.</p>
+            <div class="gastro-assinatura">
+                <div class="gastro-assinatura-linha"></div><span class="gastro-assinatura-text">Chef Eliézer
+                    Formaggio</span>
+                <div class="gastro-assinatura-linha"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="diferenciais">
+        <div class="diferenciais-header">
+            <span class="section-tag">Diferenciais</span>
+            <h2 class="section-title">Precisão nos detalhes. <br><em>Impacto no todo</em></h2>
+            <p class="section-body">Uma curadoria que transforma cada escolha em parte de uma experiência maior.</p>
+        </div>
+        <div class="diferenciais-grid">
+            <div class="dif-card">
+                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
+                        <path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3" />
+                        <path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0z" />
+                        <path d="M4 18v2" />
+                        <path d="M20 18v2" />
+                    </svg></div><span class="dif-card-title">Mobiliário</span>
+            </div>
+            <div class="dif-card">
+                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
+                        <path d="M8 2h8l4 10H4L8 2z" />
+                        <path d="M12 12v6" />
+                        <path d="M8 22v-2a4 4 0 0 1 8 0v2" />
+                        <line x1="7" y1="12" x2="7" y2="18" />
+                        <line x1="17" y1="12" x2="17" y2="18" />
+                    </svg></div><span class="dif-card-title">Bar de drinks</span>
+            </div>
+            <div class="dif-card">
+                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        <path d="M12 8v4" />
+                        <path d="M10 10h4" />
+                    </svg></div><span class="dif-card-title">Decoração floral</span>
+            </div>
+            <div class="dif-card">
+                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
+                        <path d="M9 18V5l12-2v13" />
+                        <circle cx="6" cy="18" r="3" />
+                        <circle cx="18" cy="16" r="3" />
+                    </svg></div><span class="dif-card-title">Som e luz</span>
+            </div>
+        </div>
+        <div class="dif-last-row">
+            <div class="dif-card">
+                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
+                        <polygon points="23 7 16 12 23 17 23 7" />
+                        <rect x="1" y="5" width="15" height="14" rx="2" />
+                        <path d="M8 2v3" />
+                        <path d="M16 2v3" />
+                    </svg></div><span class="dif-card-title">Cozinha gourmet para gravações</span>
+            </div>
+            <div class="dif-card">
+                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
+                        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                        <path d="M18 9h1.5a2.5 2.5 0 0 0-5H18" />
+                        <path d="M4 22h16" />
+                        <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                        <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                        <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                    </svg></div><span class="dif-card-title">Estrutura para Team Building "Masterchef"</span>
+            </div>
+            <div class="dif-card">
+                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                    </svg></div><span class="dif-card-title">Estrutura para aulas de gastronomia</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="depoimento">
+        <span class="dep-icon">"</span>
+        <blockquote class="dep-quote">O Casa Voss transformou nosso evento anual em algo que vai muito além do
+            corporativo. Foi uma experiência de marca.</blockquote>
+        <p class="dep-author">Diretora de Marketing · Empresa parceira</p>
+    </section>
+
+    <div class="galeria-header" id="galeria">
+        <span class="section-tag">Galeria</span>
+        <h2 class="section-title">Onde as ideias ganham forma</h2>
+    </div>
+    <div class="galeria">
+        <div class="galeria-item tall"><img
+                src="https://casavoss.com.br/wp-content/uploads/2026/04/Copia-de-064VIZ_IMG_21-Salas_resultado.avif"
+                alt="" loading="lazy" /></div>
+        <div class="galeria-item"><img
+                src="https://casavoss.com.br/wp-content/uploads/2026/04/Copia-de-064VIZ_IMG_23-Camarim_resultado.avif"
+                alt="" loading="lazy" /></div>
+        <div class="galeria-item"><img
+                src="https://casavoss.com.br/wp-content/uploads/2026/04/Copia-de-064VIZ_IMG_10-Pocket-Auditorio_resultado.avif"
+                alt="" loading="lazy" /></div>
+        <div class="galeria-item"><img
+                src="https://casavoss.com.br/wp-content/uploads/2026/04/Copia-de-064VIZ_IMG_20-Estar_resultado.avif"
+                alt="" loading="lazy" /></div>
+        <div class="galeria-item"><img
+                src="https://casavoss.com.br/wp-content/uploads/2026/04/ChatGPT-Image-7-de-abr.-de-2026-22_07_06_resultado.avif"
+                alt="" loading="lazy" /></div>
+    </div>
+
+    <!-- ═══ FORMULÁRIO COM CAMPO EMPRESA ═══ -->
+    <section class="contato-section" id="contato">
+        <div class="contato-info">
+            <span class="section-tag">Próximo passo</span>
+            <h2 class="section-title">Vamos dar forma ao seu próximo<br><em>evento corporativo?</em></h2>
+            <p class="section-body">Preencha seus dados e receba um orçamento personalizado para sua empresa.</p>
+            <a href="#" class="btn-whatsapp"
+                onclick="event.preventDefault();document.getElementById('wppFloatBtn').click()"><svg
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>Fale pelo WhatsApp</a>
+        </div>
+        <div class="contato-form-wrap">
+            <div class="corporativo-form-card">
+                <form id="form_corporativo" name="form_corporativo" novalidate>
+                    <input type="hidden" name="post_id" value="168">
+                    <input type="hidden" name="form_id" value="345d78ac">
+                    <input type="hidden" name="referer_title" value="Eventos Corporativos">
+                    <input type="hidden" name="queried_id" value="168">
+                    <div class="hp-field" aria-hidden="true"><label for="Website">Deixe este campo em
+                            branco</label><input type="text" id="Website" name="website" tabindex="-1"
+                            autocomplete="off"></div>
+                    <div class="corporativo-form-grid" id="corporativoFormGrid">
+                        <!-- NOME -->
+                        <div class="corporativo-form-group full">
+                            <label class="corporativo-label" for="Nome">Nome</label>
+                            <input class="corporativo-input" type="text" name="form_fields[nome]" id="Nome"
+                                placeholder="Nome" autocomplete="given-name" maxlength="100">
+                            <span class="corporativo-field-error" id="errNome">Informe seu nome.</span>
+                        </div>
+                        <!-- EMPRESA -->
+                        <div class="corporativo-form-group full">
+                            <label class="corporativo-label" for="Empresa">Empresa</label>
+                            <input class="corporativo-input" type="text" name="form_fields[empresa]" id="Empresa"
+                                placeholder="Nome da empresa" autocomplete="organization" maxlength="200">
+                            <span class="corporativo-field-error" id="errEmpresa">Informe sua empresa.</span>
+                        </div>
+                        <!-- WHATSAPP + E-MAIL -->
+                        <div class="corporativo-form-row">
+                            <div class="corporativo-form-group">
+                                <label class="corporativo-label" for="Telefone">WhatsApp</label>
+                                <input class="corporativo-input" type="tel" name="form_fields[telefone]" id="Telefone"
+                                    placeholder="(11) 9 0000-0000" autocomplete="tel" maxlength="20">
+                                <span class="corporativo-field-error" id="errTelefone">Informe um WhatsApp
+                                    válido.</span>
+                            </div>
+                            <div class="corporativo-form-group">
+                                <label class="corporativo-label" for="Email">E-mail</label>
+                                <input class="corporativo-input" type="email" name="form_fields[email]" id="Email"
+                                    placeholder="E-mail" autocomplete="email" maxlength="200">
+                                <span class="corporativo-field-error" id="errEmail">Informe um e-mail válido.</span>
+                            </div>
+                        </div>
+                        <!-- TIPO DE EVENTO -->
+                        <div class="corporativo-form-group full">
+                            <label class="corporativo-label" for="Tipo">Tipo de evento</label>
+                            <select class="corporativo-select" name="form_fields[tipo]" id="Tipo">
+                                <option value="" disabled selected>Tipo de evento</option>
+                                <option value="Confraternização corporativa">Confraternização corporativa</option>
+                                <option value="Corporativo">Corporativo</option>
+                                <option value="Feiras e Exposições">Feiras e Exposições</option>
+                                <option value="Happy Hour">Happy Hour</option>
+                                <option value="Masterclass e Palestras">Masterclass e Palestras</option>
+                                <option value="Mentorias e Treinamentos">Mentorias e Treinamentos</option>
+                                <option value="Offsite corporativo">Offsite corporativo</option>
+                                <option value="Reuniões de Networking">Reuniões de Networking</option>
+                                <option value="Shows e Festivais">Shows e Festivais</option>
+                                <option value="Workshops, Conferências e Seminários">Workshops, Conferências e
+                                    Seminários</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                            <span class="corporativo-field-error" id="errTipo">Selecione o tipo de evento.</span>
+                        </div>
+                        <!-- DATA -->
+                        <div class="corporativo-form-group full">
+                            <label class="corporativo-label" for="Data">Data pretendida</label>
+                            <input class="corporativo-input" type="text" name="form_fields[data]" id="Data"
+                                placeholder="Data do evento" readonly>
+                            <span class="corporativo-field-error" id="errData">Informe a data do evento.</span>
+                        </div>
+                        <!-- CONVIDADOS -->
+                        <div class="corporativo-form-group full">
+                            <label class="corporativo-label" for="Convidados">N° de convidados</label>
+                            <input class="corporativo-input" type="number" name="form_fields[convidados]"
+                                id="Convidados" placeholder="N° de Pessoas" min="" max="">
+                            <span class="corporativo-field-error" id="errConvidados">Informe o número de pessoas.</span>
+                        </div>
+                        <!-- HIDDEN FONTE -->
+                        <input type="hidden" name="form_fields[fonte]" id="Fonte"
+                            value="Site Casa Voss / Formulário de orçamento">
+                        <!-- BOTÃO -->
+                        <div class="corporativo-form-group full">
+                            <button type="submit" class="corporativo-submit" id="corporativoSubmitBtn">SOLICITAR
+                                ORÇAMENTO
+                                PERSONALIZADO</button>
+                        </div>
+                        <div class="corporativo-form-msg" id="corporativoFormMsg"></div>
+                        <p class="corporativo-form-footer">Ao enviar, você concorda com nossa política de privacidade.
+                        </p>
+                    </div>
+                    <div class="corporativo-success-state" id="corporativoSuccess">
+                        <div class="corporativo-success-icon"><svg viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg></div>
+                        <h3 class="corporativo-success-title">Solicitação recebida</h3>
+                        <p class="corporativo-success-text">Recebemos seu pedido de orçamento.<br>Em breve entraremos em
+                            contato
+                            pelo WhatsApp ou e-mail.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ WHATSAPP FLOAT + POPUP ═══ -->
+    <a href="#" id="wppFloatBtn" class="wpp-float" aria-label="Abrir WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1219.547 1225.016">
+            <path fill="#E0E0E0"
+                d="M1041.858 178.02C927.206 63.289 774.753.07 612.325 0 277.617 0 5.232 272.298 5.098 606.991c-.039 106.986 27.915 211.42 81.048 303.476L0 1225.016l321.898-84.406c88.689 48.368 188.547 73.855 290.166 73.896h.258.003c334.654 0 607.08-272.346 607.222-607.023.056-162.208-63.052-314.724-177.689-429.463zm-429.533 933.963h-.197c-90.578-.048-179.402-24.366-256.878-70.339l-18.438-10.93-191.021 50.083 51-186.176-12.013-19.087c-50.525-80.336-77.198-173.175-77.16-268.504.111-278.186 226.507-504.503 504.898-504.503 134.812.056 261.519 52.604 356.814 147.965 95.289 95.36 147.728 222.128 147.688 356.948-.118 278.195-226.522 504.543-504.693 504.543z" />
+            <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="609.77" y1="1190.114" x2="609.77" y2="21.084">
+                <stop offset="0" stop-color="#20b038" />
+                <stop offset="1" stop-color="#60d66a" />
+            </linearGradient>
+            <path fill="url(#a)"
+                d="M27.875 1190.114l82.211-300.18c-50.719-87.852-77.391-187.523-77.359-289.602.133-319.398 260.078-579.25 579.469-579.25 155.016.07 300.508 60.398 409.898 169.891 109.414 109.492 169.633 255.031 169.57 409.812-.133 319.406-260.094 579.281-579.445 579.281-.023 0 .016 0 0 0 0h-.258c-96.977-.031-192.266-24.375-276.898-70.5l-307.188 80.548z" />
+            <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFF"
+                d="M462.273 349.294c-11.234-24.977-23.062-25.477-33.75-25.914-8.742-.375-18.75-.352-28.742-.352-10 0-26.25 3.758-39.992 18.766-13.75 15.008-52.5 51.289-52.5 125.078 0 73.797 53.75 145.102 61.242 155.117 7.5 10 103.758 166.266 256.203 226.383 126.695 49.961 152.477 40.023 179.977 37.523s88.734-36.273 101.234-71.297c12.5-35.016 12.5-65.031 8.75-71.305-3.75-6.25-13.75-10-28.75-17.5s-88.734-43.789-102.484-48.789-23.75-7.5-33.75 7.516c-10 15-38.727 48.773-47.477 58.773-8.75 10.023-17.5 11.273-32.5 3.773-15-7.523-63.305-23.344-120.609-74.438-44.586-39.75-74.688-88.844-83.438-103.859-8.75-15-.938-23.125 6.586-30.602 6.734-6.719 15-17.508 22.5-26.266 7.484-8.758 9.984-15.008 14.984-25.008 5-10.016 2.5-18.773-1.25-26.273s-32.898-81.67-46.234-111.326z" />
+            <path fill="#FFF"
+                d="M1036.898 176.091C923.562 62.677 772.859.185 612.297.114 281.43.114 12.172 269.286 12.039 600.137 12 705.896 39.633 809.13 92.156 900.13L7 1211.067l318.203-83.438c87.672 47.812 186.383 73.008 286.836 73.047h.255.003c330.812 0 600.109-269.219 600.25-600.055.055-160.343-62.328-311.108-175.649-424.53zm-424.601 923.242h-.195c-89.539-.047-177.344-24.086-253.93-69.531l-18.227-10.805-188.828 49.508 50.414-184.039-11.875-18.867c-49.945-79.414-76.312-171.188-76.273-265.422.109-274.992 223.906-498.711 499.102-498.711 133.266.055 258.516 52 352.719 146.266 94.195 94.266 146.031 219.578 145.992 352.852-.118 274.999-223.923 498.749-498.899 498.749z" />
+        </svg>
+    </a>
+
+    <div class="wpp-overlay" id="wppOverlay"></div>
+    <div class="wpp-wrap" id="wppWrap">
+        <div class="wpp-box">
+            <div class="wpp-hdr">
+                <div class="wpp-hdr-av">🌿</div>
+                <div class="wpp-hdr-info">
+                    <div class="wpp-hdr-name">Casa Voss</div>
+                    <div class="wpp-hdr-status">Online</div>
+                </div>
+                <button class="wpp-hdr-close" id="wppClose" aria-label="Fechar"><svg viewBox="0 0 24 24">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg></button>
+            </div>
+            <div class="wpp-chat" id="wppChat"></div>
+            <div class="wpp-bar" id="wppBar"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-brand">
+            <a href="#" class="nav-logo">Casa Voss</a>
+            <p class="footer-desc">Espaço de eventos corporativos em São Paulo. Sofisticação, acolhimento e experiências
+                únicas para a sua marca.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Espaços</h4>
+            <ul>
+                <li><a href="#espacos">Espaço Âmbar</a></li>
+                <li><a href="#espacos">Espaço Sálvia</a></li>
+                <li><a href="#espacos">Espaço Gourmet</a></li>
+                <li><a href="#espacos">Garden Lounge</a></li>
+                <li><a href="#espacos">Rooftop</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">© 2026 Casa Voss. Todos os direitos reservados.</p>
+            <div class="footer-dev">
+                <span class="footer-dev-text">Desenvolvido por:</span>
+                <a href="https://dmove.com.br/" target="_blank" rel="noopener noreferrer"
+                    class="footer-dev-img-link"><img class="footer-dev-img"
+                        src="https://dmove.com.br/wp-content/webp-express/webp-images/uploads/2024/01/Logotipo.png.webp"
+                        alt="DMove" onerror="this.onerror=null;this.style.display='none'" /></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+    <script>
+        var N8N_WEBHOOK_URL = 'https://server3n8n.dmove.com.br/webhook/casa-voss';
+        var WPP_NUMBER = '5511999999999';
+        window.dataLayer = window.dataLayer || [];
+
+        (function () {
+            var n = document.createElement('noscript'), i = document.createElement('iframe');
+            i.src = 'https://www.googletagmanager.com/ns.html?id=' + GTM_ID;
+            i.height = '0'; i.width = '0'; i.style.cssText = 'display:none;visibility:hidden';
+            n.appendChild(i); document.body.insertBefore(n, document.body.firstChild);
+        })();
+
+        function getUTMs() {
+            var p = new URLSearchParams(window.location.search);
+            return { utm_source: p.get('utm_source') || '', utm_medium: p.get('utm_medium') || '', utm_campaign: p.get('utm_campaign') || '', utm_content: p.get('utm_content') || '', utm_term: p.get('utm_term') || '' };
+        }
+        var utms = getUTMs();
+        if (utms.utm_source) sessionStorage.setItem('casavoss_utms', JSON.stringify(utms));
+
+        var navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function () { navbar.classList.toggle('scrolled', window.scrollY > 60); });
+
+        var hamburger = document.getElementById('hamburgerBtn'), mobileMenu = document.getElementById('mobileMenu');
+        var mobileLinks = mobileMenu.querySelectorAll('a'), hamburgerSpans = hamburger.querySelectorAll('span'), menuOpen = false;
+        function toggleMenu() {
+            menuOpen = !menuOpen;
+            if (menuOpen) { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; hamburger.setAttribute('aria-label', 'Fechar menu'); hamburgerSpans[0].style.transform = 'rotate(45deg) translate(4px,4px)'; hamburgerSpans[1].style.opacity = '0'; hamburgerSpans[2].style.transform = 'rotate(-45deg) translate(4px,-4px)'; }
+            else { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; hamburger.setAttribute('aria-label', 'Abrir menu'); hamburgerSpans[0].style.transform = ''; hamburgerSpans[1].style.opacity = '1'; hamburgerSpans[2].style.transform = ''; }
+        }
+        hamburger.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(function (link) { link.addEventListener('click', function () { if (menuOpen) toggleMenu(); }); });
+
+        var fpLocale = { weekdays: { shorthand: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'], longhand: ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'] }, months: { shorthand: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'], longhand: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'] }, firstDayOfWeek: 1, rangeSeparator: ' até ', ordinal: function () { return 'º'; } };
+        var fpOpts = { disableMobile: true, dateFormat: 'd/m/Y', locale: fpLocale, minDate: 'today', allowInput: false };
+        var fpMain = flatpickr('#Data', fpOpts);
+
+        function phoneMask(e) {
+            var v = e.target.value.replace(/\D/g, '').substring(0, 11);
+            if (v.length > 6) v = '(' + v.substring(0, 2) + ') ' + v.substring(2, 7) + '-' + v.substring(7);
+            else if (v.length > 2) v = '(' + v.substring(0, 2) + ') ' + v.substring(2);
+            else if (v.length > 0) v = '(' + v;
+            e.target.value = v;
+        }
+        document.getElementById('Telefone').addEventListener('input', phoneMask);
+
+        /* ═══ VALIDAÇÃO — com campo Empresa ═══ */
+        function corporativoValidate() {
+            var ok = true;
+            function err(iid, eid, c) { var el = document.getElementById(iid), er = document.getElementById(eid); if (c) { el.classList.add('error'); er.classList.add('visible'); ok = false; } else { el.classList.remove('error'); er.classList.remove('visible'); } }
+            var n = document.getElementById('Nome').value.trim();
+            var emp = document.getElementById('Empresa').value.trim();
+            var r = document.getElementById('Telefone').value.trim();
+            if (r.slice(0, 3) === '+55') r = r.slice(3).trim();
+            var t = r.replace(/\D/g, ''), em = document.getElementById('Email').value.trim(), cv = document.getElementById('Convidados').value.trim();
+            err('Nome', 'errNome', n.length < 2);
+            err('Empresa', 'errEmpresa', emp.length < 2);
+            err('Telefone', 'errTelefone', t.length < 10 || t.length > 11);
+            err('Email', 'errEmail', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em));
+            err('Tipo', 'errTipo', document.getElementById('Tipo').value === '');
+            err('Data', 'errData', !fpMain.selectedDates.length);
+            err('Convidados', 'errConvidados', cv === '' || isNaN(Number(cv)) || Number(cv) < 1);
+            return ok;
+        }
+
+        function postRetry(url, jsonBody, retries) {
+            retries = retries || 3;
+            return new Promise(function (resolve, reject) {
+                var att = 0;
+                function go() { att++; fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Form-Token': 'casa-voss-secreta-123' }, body: JSON.stringify(jsonBody), signal: AbortSignal.timeout(8000) }).then(function (r) { if (r.ok) resolve(true); else if (r.status === 429) reject(new Error('rate_limit')); else reject(new Error('http_' + r.status)); }).catch(function (e) { if (e.message === 'rate_limit') reject(e); else if (att < retries) setTimeout(go, 1000 * att); else reject(e); }); }
+                go();
+            });
+        }
+
+        /* ═══ SUBMIT — payload com Empresa ═══ */
+        document.getElementById('form_corporativo').addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (document.getElementById('Website').value !== '') return;
+            if (!corporativoValidate()) return;
+            var btn = document.getElementById('corporativoSubmitBtn'), msg = document.getElementById('corporativoFormMsg');
+            btn.disabled = true; btn.textContent = 'ENVIANDO...'; msg.style.display = 'none'; msg.className = 'corporativo-form-msg';
+            var sU = JSON.parse(sessionStorage.getItem('casavoss_utms') || '{}'), r = document.getElementById('Telefone').value.trim();
+            if (r.slice(0, 3) === '+55') r = r.slice(3).trim();
+            var payload = {
+                post_id: '168', form_id: '345d78ac', referer_title: 'Eventos Corporativos', queried_id: '168',
+                form_fields: {
+                    "Nome": document.getElementById('Nome').value.trim(),
+                    "Empresa": document.getElementById('Empresa').value.trim(),
+                    "WhatsApp": r.replace(/\D/g, ''),
+                    "Email": document.getElementById('Email').value.trim().toLowerCase(),
+                    "Tipo de evento": document.getElementById('Tipo').value,
+                    "Data do evento": document.getElementById('Data').value.trim(),
+                    "Convidados": document.getElementById('Convidados').value.trim(),
+                    "Fonte": document.getElementById('Fonte').value
+                }
+            };
+            Object.keys(sU).forEach(function (k) { if (sU[k]) payload.form_fields[k] = sU[k]; });
+            postRetry(N8N_WEBHOOK_URL, payload).then(function () {
+                window.dataLayer.push({ event: 'corporativo_form_envio', corporativo_form_name: 'form_corporativo', corporativo_form_tipo: payload.form_fields["Tipo de evento"], corporativo_form_convidados: Number(payload.form_fields["Convidados"]), corporativo_form_data: payload.form_fields["Data do evento"] || '', corporativo_form_empresa: payload.form_fields["Empresa"] });
+                document.getElementById('corporativoFormGrid').style.display = 'none'; document.getElementById('corporativoSuccess').classList.add('active');
+            }).catch(function () { btn.disabled = false; btn.textContent = 'SOLICITAR ORÇAMENTO PERSONALIZADO'; msg.innerHTML = 'Erro ao enviar. Tente novamente ou entre em contato pelo <a href="mailto:contato@casavoss.com.br">contato@casavoss.com.br</a>.'; msg.className = 'corporativo-form-msg error'; msg.style.display = 'block'; });
+        });
+
+        document.querySelectorAll('.corporativo-input,.corporativo-select,.corporativo-textarea').forEach(function (el) {
+            function cl() { this.classList.remove('error'); var er = this.parentElement.querySelector('.corporativo-field-error'); if (er) er.classList.remove('visible'); }
+            el.addEventListener('input', cl); el.addEventListener('change', cl);
+        });
+
+        var observer = new IntersectionObserver(function (entries) { entries.forEach(function (entry) { if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; } }); }, { threshold: 0.1 });
+        document.querySelectorAll('.sobre-content,.experiencia-voss-header,.gastro-content,.diferenciais-header,.depoimento,.contato-info,.contato-form-wrap,.galeria-header').forEach(function (el) { el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; el.style.transition = 'opacity 0.8s ease, transform 0.8s ease'; observer.observe(el); });
+
+        /* ═══════════════════════════════════════════════════
+           POPUP WHATSAPP — fluxo com campo Empresa
+           Fase 1: Tipo → Data → Convidados → Seguir
+           Fase 2: Nome → Empresa → E-mail → WhatsApp → Ações
+           ═══════════════════════════════════════════════════ */
+        var TIPOS = ['Aniversário', 'Aniversário debutante', 'Bodas', 'Casamento', 'Confraternização corporativa', 'Confraternização social', 'Corporativo', 'Feiras e Exposições', 'Formatura', 'Happy Hour', 'Masterclass e Palestras', 'Mentorias e Treinamentos', 'Offsite corporativo', 'Reuniões de Networking', 'Shows e Festivais', 'Workshops, Conferências e Seminários', 'Outros'];
+        var chat = document.getElementById('wppChat'), bar = document.getElementById('wppBar'), overlay = document.getElementById('wppOverlay'), wrap = document.getElementById('wppWrap'), floatBtn = document.getElementById('wppFloatBtn'), isOpen = false, fpInst = null;
+        var dados = { tipo: '', data: '', convidados: '', nome: '', empresa: '', email: '', whatsapp: '' };
+
+        function wppTime() { var n = new Date(); return String(n.getHours()).padStart(2, '0') + ':' + String(n.getMinutes()).padStart(2, '0'); }
+        function scrollChat() { chat.scrollTop = chat.scrollHeight; }
+        function addRecv(html, ph) { var d = document.createElement('div'); d.className = 'wpp-m wpp-m--r'; d.setAttribute('data-ph', ph); d.innerHTML = html; chat.appendChild(d); scrollChat(); return d; }
+        function addSent(text, ph) { var d = document.createElement('div'); d.className = 'wpp-m wpp-m--s'; d.setAttribute('data-ph', ph); d.innerHTML = '<div class="wpp-m-text">' + text + '</div><div class="wpp-m-meta"><span class="wpp-m-chk">✓✓</span><span class="wpp-m-time">' + wppTime() + '</span></div>'; chat.appendChild(d); scrollChat(); return d; }
+        function showTyping(ph) { return new Promise(function (resolve) { var d = document.createElement('div'); d.className = 'wpp-m wpp-m--r'; d.setAttribute('data-ph', ph); d.id = 'wppTyping'; d.innerHTML = '<div class="wpp-typing"><span></span><span></span><span></span></div>'; chat.appendChild(d); scrollChat(); setTimeout(function () { d.remove(); resolve(); }, 700); }); }
+        function removePhase(n) { chat.querySelectorAll('[data-ph="' + n + '"]').forEach(function (el) { el.remove(); }); }
+        function shake(el) { el.classList.remove('wpp-shake'); void el.offsetWidth; el.classList.add('wpp-shake'); setTimeout(function () { el.classList.remove('wpp-shake'); }, 400); }
+        function clearBar() { bar.innerHTML = ''; if (fpInst) { fpInst.destroy(); fpInst = null; } }
+
+        var svgAR = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+        var svgAL = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>';
+
+        function tipoOptsHTML() { return '<option value="" disabled selected>Tipo de evento</option>' + TIPOS.map(function (t) { return '<option value="' + t + '">' + t + '</option>'; }).join(''); }
+
+        /* ── Barras de input por etapa ── */
+        function barTipo() { clearBar(); bar.innerHTML = '<select class="wpp-bar-sel" id="_wTipo">' + tipoOptsHTML() + '</select><button class="wpp-bar-send" id="_wSend">' + svgAR + '</button>'; document.getElementById('_wSend').addEventListener('click', advanceTipo); document.getElementById('_wTipo').addEventListener('keydown', function (e) { if (e.key === 'Enter') advanceTipo(); }); }
+        function barData() { clearBar(); bar.innerHTML = '<input class="wpp-bar-inp" type="text" id="_wData" placeholder="Data do evento" readonly><button class="wpp-bar-send" id="_wSend">' + svgAR + '</button>'; fpInst = flatpickr('#_wData', Object.assign({}, fpOpts, { position: 'above' })); document.getElementById('_wSend').addEventListener('click', advanceData); }
+        function barConv() { clearBar(); bar.innerHTML = '<input class="wpp-bar-inp" type="number" id="_wConv" placeholder="N° de Pessoas" min="1" max="9999"><button class="wpp-bar-send" id="_wSend">' + svgAR + '</button>'; document.getElementById('_wSend').addEventListener('click', advanceConv); document.getElementById('_wConv').addEventListener('keydown', function (e) { if (e.key === 'Enter') advanceConv(); }); }
+        function barSeguir() { clearBar(); bar.innerHTML = '<button class="wpp-bar-full" id="_wSeguir"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Seguir</button>'; document.getElementById('_wSeguir').addEventListener('click', goPhase2); }
+        function barNome() { clearBar(); bar.innerHTML = '<input class="wpp-bar-inp" type="text" id="_wNome" placeholder="Nome" autocomplete="off" maxlength="100"><button class="wpp-bar-send" id="_wSend">' + svgAR + '</button>'; document.getElementById('_wSend').addEventListener('click', advanceNome); document.getElementById('_wNome').addEventListener('keydown', function (e) { if (e.key === 'Enter') advanceNome(); }); }
+        function barEmpresa() { clearBar(); bar.innerHTML = '<input class="wpp-bar-inp" type="text" id="_wEmpresa" placeholder="Empresa" autocomplete="off" maxlength="200"><button class="wpp-bar-send" id="_wSend">' + svgAR + '</button>'; document.getElementById('_wSend').addEventListener('click', advanceEmpresa); document.getElementById('_wEmpresa').addEventListener('keydown', function (e) { if (e.key === 'Enter') advanceEmpresa(); }); }
+        function barEmail() { clearBar(); bar.innerHTML = '<input class="wpp-bar-inp" type="email" id="_wEmail" placeholder="E-mail" autocomplete="off" maxlength="200"><button class="wpp-bar-send" id="_wSend">' + svgAR + '</button>'; document.getElementById('_wSend').addEventListener('click', advanceEmail); document.getElementById('_wEmail').addEventListener('keydown', function (e) { if (e.key === 'Enter') advanceEmail(); }); }
+        function barWpp() { clearBar(); bar.innerHTML = '<input class="wpp-bar-inp" type="tel" id="_wWpp" placeholder="WhatsApp" autocomplete="off" maxlength="20"><button class="wpp-bar-send" id="_wSend">' + svgAR + '</button>'; document.getElementById('_wWpp').addEventListener('input', phoneMask); document.getElementById('_wSend').addEventListener('click', advanceWpp); document.getElementById('_wWpp').addEventListener('keydown', function (e) { if (e.key === 'Enter') advanceWpp(); }); }
+        function barActions() {
+            clearBar();
+            bar.innerHTML = '<div class="wpp-bar-acts"><button class="wpp-bar-abtn wpp-bar-ag" id="_wVoltar">' + svgAL + ' Voltar</button><button class="wpp-bar-abtn wpp-bar-ad" id="_wIniciar"><svg viewBox="0 0 1219.547 1225.016"><path fill="#fff" d="M1036.898 176.091C923.562 62.677 772.859.185 612.297.114 281.43.114 12.172 269.286 12.039 600.137 12 705.896 39.633 809.13 92.156 900.13L7 1211.067l318.203-83.438c87.672 47.812 186.383 73.008 286.836 73.047h.255.003c330.812 0 600.109-269.219 600.25-600.055.055-160.343-62.328-311.108-175.649-424.53zm-424.601 923.242h-.195c-89.539-.047-177.344-24.086-253.93-69.531l-18.227-10.805-188.828 49.508 50.414-184.039-11.875-18.867c-49.945-79.414-76.312-171.188-76.273-265.422.109-274.992 223.906-498.711 499.102-498.711 133.266.055 258.516 52 352.719 146.266 94.195 94.266 146.031 219.578 145.992 352.852-.118 274.999-223.923 498.749-498.899 498.749z"/><path fill="#fff" d="M27.875 1190.114l82.211-300.18c-50.719-87.852-77.391-187.523-77.359-289.602.133-319.398 260.078-579.25 579.469-579.25 155.016.07 300.508 60.398 409.898 169.891 109.414 109.492 169.633 255.031 169.57 409.812-.133 319.406-260.094 579.281-579.445 579.281-.023 0 .016 0 0 0 0h-.258c-96.977-.031-192.266-24.375-276.898-70.5l-307.188 80.548z"/><path fill-rule="evenodd" clip-rule="evenodd" fill="#1f2c2f" d="M462.273 349.294c-11.234-24.977-23.062-25.477-33.75-25.914-8.742-.375-18.75-.352-28.742-.352-10 0-26.25 3.758-39.992 18.766-13.75 15.008-52.5 51.289-52.5 125.078 0 73.797 53.75 145.102 61.242 155.117 7.5 10 103.758 166.266 256.203 226.383 126.695 49.961 152.477 40.023 179.977 37.523s88.734-36.273 101.234-71.297c12.5-35.016 12.5-65.031 8.75-71.305-3.75-6.25-13.75-10-28.75-17.5s-88.734-43.789-102.484-48.789-23.75-7.5-33.75 7.516c-10 15-38.727 48.773-47.477 58.773-8.75 10.023-17.5 11.273-32.5 3.773-15-7.523-63.305-23.344-120.609-74.438-44.586-39.75-74.688-88.844-83.438-103.859-8.75-15-.938-23.125 6.586-30.602 6.734-6.719 15-17.508 22.5-26.266 7.484-8.758 9.984-15.008 14.984-25.008 5-10.016 2.5-18.773-1.25-26.273s-32.898-81.67-46.234-111.326z"/></svg> Iniciar conversa</button></div>';
+            document.getElementById('_wVoltar').addEventListener('click', goBack);
+            document.getElementById('_wIniciar').addEventListener('click', openWhatsApp);
+        }
+
+        /* ── Avanços de etapa ── */
+        function advanceTipo() { var el = document.getElementById('_wTipo'), v = el.value; if (!v) { shake(el); return; } dados.tipo = v; addSent(v, 1); barData(); }
+        function advanceData() { var el = document.getElementById('_wData'); if (!fpInst || !fpInst.selectedDates.length) { shake(el); return; } dados.data = el.value; addSent(el.value, 1); barConv(); }
+        function advanceConv() { var el = document.getElementById('_wConv'), v = el.value.trim(); if (!v || isNaN(Number(v)) || Number(v) < 1) { shake(el); return; } dados.convidados = v; addSent(v + ' pessoas', 1); barSeguir(); }
+        function goPhase2() { clearBar(); bar.style.visibility = 'hidden'; showTyping(2).then(function () { addRecv('<p>Perfeito! Agora me informe seus dados de contato para continuarmos.</p>', 2); barNome(); bar.style.visibility = ''; }); }
+        function advanceNome() { var el = document.getElementById('_wNome'), v = el.value.trim(); if (v.length < 2) { shake(el); return; } dados.nome = v; addSent(v, 2); barEmpresa(); }
+        function advanceEmpresa() { var el = document.getElementById('_wEmpresa'), v = el.value.trim(); if (v.length < 2) { shake(el); return; } dados.empresa = v; addSent(v, 2); barEmail(); }
+        function advanceEmail() { var el = document.getElementById('_wEmail'), v = el.value.trim(); if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { shake(el); return; } dados.email = v; addSent(v, 2); barWpp(); }
+        function advanceWpp() { var el = document.getElementById('_wWpp'), r = el.value.trim(); if (r.slice(0, 3) === '+55') r = r.slice(3).trim(); var w = r.replace(/\D/g, ''); if (w.length < 10 || w.length > 11) { shake(el); return; } dados.whatsapp = r; addSent(r, 2); barActions(); }
+        function goBack() { removePhase(2); barSeguir(); }
+
+        /* ── Abre WhatsApp com dados + Empresa ── */
+        function openWhatsApp() {
+            var txt = 'Olá! Gostaria de saber mais sobre a Casa Voss.%0A%0A';
+            txt += '*Tipo de evento:* ' + encodeURIComponent(dados.tipo) + '%0A';
+            txt += '*Data do evento:* ' + encodeURIComponent(dados.data) + '%0A';
+            txt += '*Convidados:* ' + encodeURIComponent(dados.convidados) + '%0A%0A';
+            txt += '*Nome:* ' + encodeURIComponent(dados.nome) + '%0A';
+            txt += '*Empresa:* ' + encodeURIComponent(dados.empresa) + '%0A';
+            txt += '*E-mail:* ' + encodeURIComponent(dados.email) + '%0A';
+            txt += '*WhatsApp:* ' + encodeURIComponent(dados.whatsapp);
+            window.dataLayer.push({ event: 'wpp_popup_iniciar', wpp_popup_tipo: dados.tipo, wpp_popup_data: dados.data, wpp_popup_convidados: dados.convidados, wpp_popup_nome: dados.nome, wpp_popup_empresa: dados.empresa, wpp_popup_email: dados.email, wpp_popup_whatsapp: dados.whatsapp.replace(/\D/g, '') });
+            closePopup();
+            window.open('https://wa.me/' + WPP_NUMBER + '?text=' + txt, '_blank', 'noopener,noreferrer');
+        }
+
+        function openPopup() {
+            if (isOpen) return;
+            isOpen = true;
+            overlay.classList.add('open'); wrap.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            chat.innerHTML = '';
+            dados = { tipo: '', data: '', convidados: '', nome: '', empresa: '', email: '', whatsapp: '' };
+            addRecv('<p>Olá! 👋</p><p>Preencha as informações abaixo para iniciar a conversa e saber mais sobre o seu evento.</p>', 1);
+            barTipo();
+        }
+        function closePopup() {
+            if (!isOpen) return;
+            isOpen = false;
+            overlay.classList.remove('open'); wrap.classList.remove('open');
+            document.body.style.overflow = '';
+            clearBar();
+        }
+
+        floatBtn.addEventListener('click', function (e) { e.preventDefault(); isOpen ? closePopup() : openPopup(); });
+        document.getElementById('wppClose').addEventListener('click', closePopup);
+        overlay.addEventListener('click', closePopup);
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen) closePopup(); });
+    </script>
+</body>
+
+</html>

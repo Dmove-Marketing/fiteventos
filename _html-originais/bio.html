@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Casa Voss — Solicitação de Reserva</title>
+    <meta name="description"
+        content="Solicite sua reserva no Casa Voss. Espaço de eventos corporativos em São Paulo com auditório, salas, gourmet e lounge para até 250 pessoas." />
+    <meta property="og:title" content="Casa Voss — Solicitação de Reserva" />
+    <meta property="og:description"
+        content="Exclusividade para eventos que pedem mais. Solicite seu orçamento na Casa Voss." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://use.typekit.net/ruo8uhd.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/flatpickr.min.css" />
+
+    <script>
+        var GTM_ID = 'GTM-XXXXXXX';
+    </script>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', GTM_ID);</script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --verde: #1a2e1a;
+            --verde-medio: #2d4a2d;
+            --verde-claro: #3d5e3d;
+            --bege: #f0ebe0;
+            --bege-escuro: #d9d0be;
+            --branco: #fafaf7;
+            --cobre: #8b6a3e
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--verde);
+            color: var(--verde);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important
+            }
+
+            .bio-bg {
+                transform: scale(1) !important
+            }
+        }
+
+        .bio-hero {
+            position: relative;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden
+        }
+
+        .bio-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://casavoss.com.br/wp-content/uploads/2026/04/Copia-de-064VIZ_IMG_01-Recepcao.avif');
+            background-size: cover;
+            background-position: center;
+            background-color: var(--verde-medio);
+            opacity: .55;
+            transform: scale(1.04);
+            animation: bioZoom 14s ease-out forwards
+        }
+
+        @keyframes bioZoom {
+            to {
+                transform: scale(1)
+            }
+        }
+
+        .bio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(26, 46, 26, .25) 0%, rgba(26, 46, 26, .55) 40%, rgba(26, 46, 26, .82) 100%)
+        }
+
+        .bio-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 520px;
+            padding: 24px;
+            opacity: 0;
+            transform: translateY(28px);
+            animation: bioFadeUp .9s ease .3s forwards
+        }
+
+        @keyframes bioFadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .bio-tag {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 10px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--branco);
+            text-align: center;
+            margin-bottom: 18px;
+            display: block;
+            font-weight: 300
+        }
+
+        .bio-heading {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: clamp(22px, 4.5vw, 34px);
+            font-weight: 200;
+            color: var(--branco);
+            text-align: center;
+            line-height: 1.3;
+            margin-bottom: 14px;
+            letter-spacing: -.2px
+        }
+
+        .bio-heading em {
+            font-style: italic;
+            font-weight: 700;
+            color: var(--bege-escuro)
+        }
+
+        .bio-subheading {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: clamp(11px, 1.8vw, 13px);
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--cobre);
+            text-align: center;
+            margin-bottom: 36px;
+            opacity: .8
+        }
+
+        .bio-form-card {
+            background: rgba(26, 46, 26, .88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(240, 235, 224, .08);
+            padding: 40px 36px
+        }
+
+        .bio-form-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px
+        }
+
+        .bio-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .bio-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px
+        }
+
+        .bio-form-group.full {
+            grid-column: 1/-1
+        }
+
+        .bio-label {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 9px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgba(240, 235, 224, .4);
+            font-weight: 300
+        }
+
+        .bio-input,
+        .bio-select,
+        .bio-textarea {
+            font-family: 'Inter', sans-serif;
+            padding: 13px 15px;
+            background: rgba(240, 235, 224, .06);
+            border: 1px solid rgba(240, 235, 224, .12);
+            color: var(--bege);
+            font-size: 14px;
+            font-weight: 300;
+            outline: none;
+            transition: border-color .3s, background .3s;
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%
+        }
+
+        .bio-input::placeholder,
+        .bio-textarea::placeholder {
+            color: rgba(240, 235, 224, .2)
+        }
+
+        .bio-input:focus,
+        .bio-select:focus,
+        .bio-textarea:focus {
+            border-color: rgba(240, 235, 224, .35);
+            background: rgba(240, 235, 224, .09)
+        }
+
+        .bio-input.error,
+        .bio-select.error,
+        .bio-textarea.error {
+            border-color: #c97b7b;
+            background: rgba(201, 123, 123, .06)
+        }
+
+        .bio-field-error {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: #c97b7b;
+            margin-top: 1px;
+            display: none;
+            line-height: 1.4
+        }
+
+        .bio-field-error.visible {
+            display: block
+        }
+
+        .bio-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(240,235,224,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+            cursor: pointer
+        }
+
+        .bio-select option {
+            background: var(--verde);
+            color: var(--bege)
+        }
+
+        .bio-input[type="number"]::-webkit-inner-spin-button,
+        .bio-input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0
+        }
+
+        .bio-input[type="number"] {
+            -moz-appearance: textfield
+        }
+
+        .bio-textarea {
+            resize: vertical;
+            min-height: 80px;
+            max-height: 200px;
+            line-height: 1.5
+        }
+
+        .hp-field {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+            opacity: 0;
+            pointer-events: none
+        }
+
+        .bio-submit {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            background: var(--verde-claro);
+            color: var(--branco);
+            padding: 17px 32px;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-weight: 400;
+            transition: background .3s, transform .3s;
+            width: 100%;
+            margin-top: 6px
+        }
+
+        .bio-submit:hover:not(:disabled) {
+            background: var(--verde-medio);
+            transform: translateY(-1px)
+        }
+
+        .bio-submit:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+            transform: none
+        }
+
+        .bio-form-msg {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            text-align: center;
+            margin-top: 14px;
+            padding: 12px 16px;
+            border-radius: 3px;
+            display: none;
+            line-height: 1.5
+        }
+
+        .bio-form-msg.error {
+            display: block;
+            background: rgba(201, 123, 123, .1);
+            color: #e0a0a0;
+            border: 1px solid rgba(201, 123, 123, .25)
+        }
+
+        .bio-form-msg.error a {
+            color: var(--bege-escuro);
+            text-decoration: underline
+        }
+
+        .bio-form-footer {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: rgba(240, 235, 224, .22);
+            text-align: center;
+            margin-top: 14px;
+            line-height: 1.6
+        }
+
+        .bio-footer {
+            background: #0f1a0f;
+            padding: 40px 60px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(240, 235, 224, .05)
+        }
+
+        .bio-footer-copy {
+            font-size: 11px;
+            color: rgba(240, 235, 224, .2)
+        }
+
+        .bio-footer-dev {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .bio-footer-dev-text {
+            font-size: 10px;
+            color: rgba(240, 235, 224, .2)
+        }
+
+        .bio-footer-dev-link {
+            text-decoration: none
+        }
+
+        .bio-footer-dev-img {
+            height: 30px;
+            width: auto;
+            opacity: .4;
+            transition: opacity .3s;
+            display: block
+        }
+
+        .bio-footer-dev-img:hover {
+            opacity: .7
+        }
+
+        .bio-success-state {
+            display: none;
+            text-align: center;
+            padding: 48px 20px
+        }
+
+        .bio-success-state.active {
+            display: block
+        }
+
+        .bio-success-icon {
+            width: 64px;
+            height: 64px;
+            border: 1px solid rgba(139, 106, 62, .4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px
+        }
+
+        .bio-success-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--cobre);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .bio-success-title {
+            font-family: 'Apparat', 'Inter', sans-serif;
+            font-size: 22px;
+            font-weight: 300;
+            color: var(--branco);
+            margin-bottom: 14px
+        }
+
+        .bio-success-text {
+            font-size: 14px;
+            color: rgba(240, 235, 224, .55);
+            line-height: 1.75;
+            font-weight: 300;
+            max-width: 340px;
+            margin: 0 auto
+        }
+
+        .flatpickr-calendar {
+            background: var(--verde) !important;
+            border: 1px solid rgba(240, 235, 224, .12) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .5) !important;
+            font-family: 'Inter', sans-serif !important;
+            border-radius: 2px !important
+        }
+
+        .flatpickr-calendar.arrowTop::before {
+            border-bottom-color: rgba(240, 235, 224, .12) !important
+        }
+
+        .flatpickr-calendar.arrowTop::after {
+            border-bottom-color: var(--verde) !important
+        }
+
+        .flatpickr-calendar.arrowBottom::before {
+            border-top-color: rgba(240, 235, 224, .12) !important
+        }
+
+        .flatpickr-calendar.arrowBottom::after {
+            border-top-color: var(--verde) !important
+        }
+
+        .flatpickr-months {
+            background: var(--verde-medio) !important;
+            border-radius: 2px 2px 0 0 !important
+        }
+
+        .flatpickr-months .flatpickr-month {
+            background: transparent !important;
+            color: var(--bege) !important;
+            fill: var(--bege) !important;
+            height: 44px !important
+        }
+
+        .flatpickr-current-month .flatpickr-monthDropdown-months {
+            background: var(--verde) !important;
+            color: var(--bege) !important;
+            font-weight: 300 !important;
+            font-size: 13px !important;
+            padding: 0 8px !important;
+            border-radius: 2px !important
+        }
+
+        .flatpickr-current-month .flatpickr-monthDropdown-months option {
+            background: var(--verde) !important;
+            color: var(--bege) !important
+        }
+
+        .flatpickr-current-month input.cur-year {
+            color: var(--bege) !important;
+            font-weight: 300 !important;
+            font-size: 13px !important
+        }
+
+        .flatpickr-current-month input.cur-year:focus {
+            background: rgba(240, 235, 224, .08) !important
+        }
+
+        span.flatpickr-weekday {
+            color: rgba(240, 235, 224, .45) !important;
+            font-weight: 300 !important;
+            font-size: 11px !important;
+            background: transparent !important
+        }
+
+        .flatpickr-day {
+            color: var(--bege) !important;
+            font-weight: 300 !important;
+            font-size: 13px !important;
+            border: 1px solid transparent !important;
+            border-radius: 2px !important;
+            transition: background .15s, color .15s !important
+        }
+
+        .flatpickr-day:hover {
+            background: rgba(240, 235, 224, .08) !important;
+            color: var(--branco) !important
+        }
+
+        .flatpickr-day.selected {
+            background: var(--cobre) !important;
+            border-color: var(--cobre) !important;
+            color: var(--branco) !important
+        }
+
+        .flatpickr-day.today {
+            border-color: var(--cobre) !important
+        }
+
+        .flatpickr-day.prevMonthDay,
+        .flatpickr-day.nextMonthDay {
+            color: rgba(240, 235, 224, .12) !important
+        }
+
+        .flatpickr-day.disabled {
+            color: rgba(240, 235, 224, .1) !important;
+            cursor: default !important
+        }
+
+        .flatpickr-day.disabled:hover {
+            background: transparent !important
+        }
+
+        .flatpickr-months .flatpickr-prev-month svg,
+        .flatpickr-months .flatpickr-next-month svg {
+            fill: var(--bege) !important;
+            opacity: .6 !important;
+            transition: opacity .2s !important
+        }
+
+        .flatpickr-months .flatpickr-prev-month:hover svg,
+        .flatpickr-months .flatpickr-next-month:hover svg {
+            fill: var(--cobre) !important;
+            opacity: 1 !important
+        }
+
+        .flatpickr-innerContainer {
+            border-top: 1px solid rgba(240, 235, 224, .06) !important
+        }
+
+        .flatpickr-calendar.open {
+            z-index: 300 !important
+        }
+
+        .wpp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 90;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-decoration: none;
+            opacity: 0;
+            animation: wppFloatIn .6s ease 3s forwards;
+            transition: transform .3s
+        }
+
+        @keyframes wppFloatIn {
+            from {
+                opacity: 0;
+                transform: translateX(40px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0)
+            }
+        }
+
+        .wpp-float:hover {
+            transform: scale(1.08)
+        }
+
+        .wpp-float svg {
+            width: 60px;
+            height: 60px;
+            display: block
+        }
+
+        .wpp-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .55);
+            z-index: 200;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .3s, visibility .3s;
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px)
+        }
+
+        .wpp-overlay.open {
+            opacity: 1;
+            visibility: visible
+        }
+
+        .wpp-wrap {
+            position: fixed;
+            bottom: 96px;
+            right: 20px;
+            z-index: 201;
+            width: 370px;
+            max-width: calc(100vw - 32px);
+            transform: scale(.8) translateY(16px);
+            opacity: 0;
+            visibility: hidden;
+            transition: transform .4s cubic-bezier(.34, 1.56, .64, 1), opacity .3s, visibility .3s;
+            transform-origin: bottom right
+        }
+
+        .wpp-wrap.open {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            visibility: visible
+        }
+
+        .wpp-box {
+            background: #e5ddd5;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, .35), 0 2px 8px rgba(0, 0, 0, .15);
+            display: flex;
+            flex-direction: column;
+            max-height: calc(100vh - 140px)
+        }
+
+        .wpp-box::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 26px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #f0f0f0
+        }
+
+        .wpp-hdr {
+            background: #075e54;
+            padding: 10px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0
+        }
+
+        .wpp-hdr-av {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--verde-medio);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 17px
+        }
+
+        .wpp-hdr-info {
+            flex: 1;
+            min-width: 0
+        }
+
+        .wpp-hdr-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.3
+        }
+
+        .wpp-hdr-status {
+            font-size: 11px;
+            color: rgba(255, 255, 255, .7);
+            line-height: 1.3
+        }
+
+        .wpp-hdr-close {
+            width: 28px;
+            height: 28px;
+            border: none;
+            background: 0 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background .2s;
+            flex-shrink: 0
+        }
+
+        .wpp-hdr-close:hover {
+            background: rgba(255, 255, 255, .12)
+        }
+
+        .wpp-hdr-close svg {
+            width: 15px;
+            height: 15px;
+            stroke: #fff;
+            fill: none;
+            stroke-width: 2.5;
+            stroke-linecap: round
+        }
+
+        .wpp-chat {
+            background: #e5ddd5;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5l5 10 10 2-7 7 2 10-10-5-10 5 2-10-7-7 10-2z' fill='rgba(0,0,0,0.015)'/%3E%3C/svg%3E");
+            padding: 10px 10px 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            overflow-y: auto;
+            flex: 1;
+            min-height: 60px;
+            max-height: 300px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, .15) transparent
+        }
+
+        .wpp-chat::-webkit-scrollbar {
+            width: 4px
+        }
+
+        .wpp-chat::-webkit-scrollbar-track {
+            background: transparent
+        }
+
+        .wpp-chat::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, .15);
+            border-radius: 4px
+        }
+
+        .wpp-m {
+            max-width: 82%;
+            animation: wppBubbleIn .3s ease both;
+            word-wrap: break-word
+        }
+
+        .wpp-m--r {
+            align-self: flex-start;
+            background: #fff;
+            border-radius: 0 8px 8px 8px;
+            padding: 7px 10px 3px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .06)
+        }
+
+        .wpp-m--s {
+            align-self: flex-end;
+            background: #d9fdd3;
+            border-radius: 8px 0 8px 8px;
+            padding: 5px 8px 2px
+        }
+
+        .wpp-m p {
+            margin: 0;
+            font-size: 13px;
+            color: #111;
+            line-height: 1.4
+        }
+
+        .wpp-m p+p {
+            margin-top: 3px
+        }
+
+        .wpp-m-meta {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 3px;
+            margin-top: 1px
+        }
+
+        .wpp-m-chk {
+            font-size: 10px;
+            color: #53bdeb;
+            line-height: 1
+        }
+
+        .wpp-m-time {
+            font-size: 10px;
+            color: rgba(0, 0, 0, .35);
+            line-height: 1
+        }
+
+        @keyframes wppBubbleIn {
+            from {
+                opacity: 0;
+                transform: translateY(6px) scale(.97)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1)
+            }
+        }
+
+        .wpp-typing {
+            display: flex;
+            gap: 4px;
+            padding: 4px 2px
+        }
+
+        .wpp-typing span {
+            width: 6px;
+            height: 6px;
+            background: #999;
+            border-radius: 50%;
+            animation: wppDot 1.4s infinite
+        }
+
+        .wpp-typing span:nth-child(2) {
+            animation-delay: .2s
+        }
+
+        .wpp-typing span:nth-child(3) {
+            animation-delay: .4s
+        }
+
+        @keyframes wppDot {
+
+            0%,
+            60%,
+            100% {
+                opacity: .3;
+                transform: translateY(0)
+            }
+
+            30% {
+                opacity: 1;
+                transform: translateY(-3px)
+            }
+        }
+
+        .wpp-bar {
+            background: #f0f0f0;
+            padding: 7px 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-top: 1px solid #ddd;
+            flex-shrink: 0
+        }
+
+        .wpp-bar-inp {
+            flex: 1;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #111;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 8px 13px;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            transition: border-color .2s
+        }
+
+        .wpp-bar-inp::placeholder {
+            color: #999
+        }
+
+        .wpp-bar-inp:focus {
+            border-color: #25d366
+        }
+
+        .wpp-bar-sel {
+            flex: 1;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #111;
+            background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 11px center;
+            padding: 8px 30px 8px 13px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            cursor: pointer;
+            transition: border-color .2s
+        }
+
+        .wpp-bar-sel:focus {
+            border-color: #25d366
+        }
+
+        .wpp-bar-sel option {
+            background: #fff;
+            color: #111
+        }
+
+        .wpp-bar-inp[type="number"] {
+            -moz-appearance: textfield
+        }
+
+        .wpp-bar-inp[type="number"]::-webkit-inner-spin-button,
+        .wpp-bar-inp[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none
+        }
+
+        .wpp-bar-send {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #25d366;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background .2s, transform .15s
+        }
+
+        .wpp-bar-send:hover {
+            background: #1da851;
+            transform: scale(1.06)
+        }
+
+        .wpp-bar-send:active {
+            transform: scale(.96)
+        }
+
+        .wpp-bar-send svg {
+            width: 15px;
+            height: 15px
+        }
+
+        .wpp-bar-acts {
+            display: flex;
+            gap: 6px;
+            width: 100%
+        }
+
+        .wpp-bar-abtn {
+            flex: 1;
+            border: none;
+            border-radius: 20px;
+            padding: 9px 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12.5px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: background .2s, transform .15s
+        }
+
+        .wpp-bar-abtn:active {
+            transform: scale(.97)
+        }
+
+        .wpp-bar-abtn svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0
+        }
+
+        .wpp-bar-ag {
+            background: #25d366;
+            color: #fff
+        }
+
+        .wpp-bar-ag:hover {
+            background: #1da851
+        }
+
+        .wpp-bar-ag svg {
+            fill: #fff
+        }
+
+        .wpp-bar-ad {
+            background: #1f2c2f;
+            color: #fff
+        }
+
+        .wpp-bar-ad:hover {
+            background: #2d3e42
+        }
+
+        .wpp-bar-ad svg {
+            fill: #fff
+        }
+
+        .wpp-bar-full {
+            width: 100%;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            background: #25d366;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: background .2s, transform .15s
+        }
+
+        .wpp-bar-full:hover {
+            background: #1da851;
+            transform: translateY(-1px)
+        }
+
+        .wpp-bar-full:active {
+            transform: translateY(0)
+        }
+
+        .wpp-bar-full svg {
+            width: 15px;
+            height: 15px;
+            fill: #fff
+        }
+
+        @keyframes wppShake {
+
+            0%,
+            100% {
+                transform: translateX(0)
+            }
+
+            20%,
+            60% {
+                transform: translateX(-4px)
+            }
+
+            40%,
+            80% {
+                transform: translateX(4px)
+            }
+        }
+
+        .wpp-shake {
+            animation: wppShake .35s ease;
+            border-color: #e74c3c !important
+        }
+
+        @media(max-width:1024px) {
+            .bio-content {
+                max-width: 480px
+            }
+
+            .bio-form-card {
+                padding: 36px 32px
+            }
+        }
+
+        @media(max-width:768px) {
+            .bio-content {
+                max-width: 460px;
+                padding: 20px
+            }
+
+            .bio-form-card {
+                padding: 32px 28px
+            }
+
+            .bio-tag {
+                font-size: 9px;
+                letter-spacing: 5px;
+                margin-bottom: 14px
+            }
+
+            .bio-heading {
+                margin-bottom: 10px
+            }
+
+            .bio-subheading {
+                letter-spacing: 3px;
+                margin-bottom: 32px
+            }
+
+            .bio-footer {
+                padding: 32px 32px 28px
+            }
+
+            .wpp-wrap {
+                bottom: 88px;
+                right: 16px;
+                width: 350px
+            }
+        }
+
+        @media(max-width:600px) {
+            .bio-hero {
+                min-height: 100vh;
+                min-height: 100dvh;
+                align-items: flex-start;
+                padding-top: 48px;
+                padding-bottom: 100px
+            }
+
+            .bio-content {
+                max-width: 100%;
+                padding: 0 16px
+            }
+
+            .bio-bg {
+                background-position: center 30%;
+                opacity: .5
+            }
+
+            .bio-overlay {
+                background: linear-gradient(180deg, rgba(26, 46, 26, .35) 0%, rgba(26, 46, 26, .6) 35%, rgba(26, 46, 26, .88) 100%)
+            }
+
+            .bio-tag {
+                font-size: 9px;
+                letter-spacing: 5px;
+                margin-bottom: 12px
+            }
+
+            .bio-heading {
+                font-size: clamp(20px, 6.5vw, 28px);
+                margin-bottom: 8px
+            }
+
+            .bio-subheading {
+                font-size: 10px;
+                letter-spacing: 2.5px;
+                margin-bottom: 28px;
+                opacity: .7
+            }
+
+            .bio-form-card {
+                padding: 28px 20px;
+                border-color: rgba(240, 235, 224, .06)
+            }
+
+            .bio-form-row {
+                grid-template-columns: 1fr;
+                gap: 18px
+            }
+
+            .bio-form-grid {
+                gap: 16px
+            }
+
+            .bio-input,
+            .bio-select,
+            .bio-textarea {
+                padding: 14px 14px;
+                font-size: 16px
+            }
+
+            .bio-submit {
+                padding: 16px 28px;
+                font-size: 10px
+            }
+
+            .bio-footer {
+                flex-direction: column;
+                gap: 14px;
+                padding: 28px 24px 24px;
+                text-align: center
+            }
+
+            .bio-footer-copy {
+                font-size: 10px
+            }
+
+            .bio-footer-dev {
+                flex-direction: column;
+                gap: 8px
+            }
+
+            .bio-success-state {
+                padding: 36px 16px
+            }
+
+            .bio-success-title {
+                font-size: 19px
+            }
+
+            .bio-success-text {
+                font-size: 13px
+            }
+
+            .wpp-float {
+                bottom: 16px;
+                right: 16px;
+                width: 54px;
+                height: 54px
+            }
+
+            .wpp-float svg {
+                width: 54px;
+                height: 54px
+            }
+
+            .wpp-wrap {
+                bottom: 80px;
+                right: 10px;
+                left: 10px;
+                width: auto;
+                max-width: none;
+                transform-origin: bottom center
+            }
+
+            .wpp-wrap.open {
+                transform: scale(1) translateY(0)
+            }
+
+            .wpp-box::after {
+                right: 28px
+            }
+
+            .wpp-chat {
+                max-height: 250px
+            }
+
+            .wpp-m {
+                max-width: 88%
+            }
+        }
+
+        @media(max-width:380px) {
+            .bio-hero {
+                padding-top: 36px;
+                padding-bottom: 80px
+            }
+
+            .bio-tag {
+                font-size: 8px;
+                letter-spacing: 4px;
+                margin-bottom: 10px
+            }
+
+            .bio-heading {
+                font-size: 19px;
+                margin-bottom: 6px
+            }
+
+            .bio-subheading {
+                font-size: 9px;
+                letter-spacing: 2px;
+                margin-bottom: 24px
+            }
+
+            .bio-form-card {
+                padding: 24px 16px
+            }
+
+            .bio-label {
+                font-size: 8px;
+                letter-spacing: 2px
+            }
+
+            .bio-input,
+            .bio-select,
+            .bio-textarea {
+                padding: 12px 12px;
+                font-size: 15px
+            }
+
+            .bio-submit {
+                padding: 14px 24px
+            }
+
+            .bio-form-footer {
+                font-size: 10px
+            }
+
+            .wpp-bar {
+                padding: 6px 6px
+            }
+
+            .wpp-bar-inp,
+            .wpp-bar-sel {
+                padding: 7px 10px;
+                font-size: 12px
+            }
+
+            .wpp-bar-send {
+                width: 30px;
+                height: 30px
+            }
+
+            .wpp-bar-send svg {
+                width: 13px;
+                height: 13px
+            }
+
+            .wpp-bar-abtn {
+                padding: 8px;
+                font-size: 11.5px
+            }
+
+            .wpp-bar-full {
+                padding: 9px;
+                font-size: 12px
+            }
+        }
+
+        @media(max-height:750px) and (min-width:769px) {
+            .bio-hero {
+                min-height: auto;
+                padding: 32px 0
+            }
+
+            .bio-tag {
+                margin-bottom: 10px;
+                font-size: 9px
+            }
+
+            .bio-heading {
+                margin-bottom: 8px
+            }
+
+            .bio-subheading {
+                margin-bottom: 24px
+            }
+
+            .bio-form-card {
+                padding: 28px 32px
+            }
+
+            .bio-form-grid {
+                gap: 12px
+            }
+
+            .bio-form-row {
+                gap: 12px
+            }
+
+            .bio-input,
+            .bio-select,
+            .bio-textarea {
+                padding: 11px 14px;
+                font-size: 13px
+            }
+
+            .bio-textarea {
+                min-height: 60px
+            }
+
+            .bio-submit {
+                padding: 14px 28px;
+                margin-top: 4px
+            }
+
+            .bio-form-footer {
+                margin-top: 10px
+            }
+
+            .wpp-chat {
+                max-height: 240px
+            }
+        }
+
+        @media(max-height:620px) and (min-width:769px) {
+            .bio-hero {
+                padding: 20px 0
+            }
+
+            .bio-tag {
+                margin-bottom: 6px;
+                font-size: 8px;
+                letter-spacing: 4px
+            }
+
+            .bio-heading {
+                font-size: 20px;
+                margin-bottom: 4px
+            }
+
+            .bio-subheading {
+                font-size: 10px;
+                letter-spacing: 3px;
+                margin-bottom: 18px
+            }
+
+            .bio-form-card {
+                padding: 22px 28px
+            }
+
+            .bio-form-grid {
+                gap: 10px
+            }
+
+            .bio-form-row {
+                gap: 10px
+            }
+
+            .bio-label {
+                font-size: 8px
+            }
+
+            .bio-input,
+            .bio-select,
+            .bio-textarea {
+                padding: 10px 12px;
+                font-size: 13px
+            }
+
+            .bio-textarea {
+                min-height: 50px
+            }
+
+            .bio-submit {
+                padding: 12px 24px;
+                margin-top: 2px
+            }
+
+            .bio-form-footer {
+                margin-top: 8px;
+                font-size: 10px
+            }
+
+            .wpp-chat {
+                max-height: 180px
+            }
+        }
+
+        @media(max-height:500px) and (max-width:900px) {
+            .bio-hero {
+                min-height: auto;
+                padding: 16px 0
+            }
+
+            .bio-tag {
+                margin-bottom: 4px;
+                font-size: 8px;
+                letter-spacing: 3px
+            }
+
+            .bio-heading {
+                font-size: 17px;
+                margin-bottom: 2px
+            }
+
+            .bio-subheading {
+                font-size: 9px;
+                letter-spacing: 2px;
+                margin-bottom: 12px
+            }
+
+            .bio-form-card {
+                padding: 16px 18px
+            }
+
+            .bio-form-grid {
+                gap: 8px
+            }
+
+            .bio-form-row {
+                gap: 8px
+            }
+
+            .bio-label {
+                font-size: 7px;
+                letter-spacing: 2px
+            }
+
+            .bio-input,
+            .bio-select,
+            .bio-textarea {
+                padding: 8px 10px;
+                font-size: 13px
+            }
+
+            .bio-textarea {
+                min-height: 40px
+            }
+
+            .bio-submit {
+                padding: 10px 20px;
+                margin-top: 2px
+            }
+
+            .bio-form-footer {
+                margin-top: 6px;
+                font-size: 9px
+            }
+
+            .wpp-float {
+                width: 44px;
+                height: 44px;
+                bottom: 10px;
+                right: 10px
+            }
+
+            .wpp-float svg {
+                width: 44px;
+                height: 44px
+            }
+
+            .wpp-wrap {
+                bottom: 60px;
+                right: 8px;
+                left: 8px
+            }
+
+            .wpp-chat {
+                max-height: 140px;
+                padding: 6px
+            }
+
+            .wpp-bar {
+                padding: 5px 5px
+            }
+
+            .wpp-bar-inp,
+            .wpp-bar-sel {
+                padding: 6px 8px;
+                font-size: 12px
+            }
+
+            .wpp-bar-send {
+                width: 26px;
+                height: 26px
+            }
+
+            .wpp-bar-send svg {
+                width: 11px;
+                height: 11px
+            }
+
+            .wpp-bar-abtn {
+                padding: 6px;
+                font-size: 11px
+            }
+
+            .wpp-bar-full {
+                padding: 7px;
+                font-size: 11px
+            }
+        }
+
+        @media(min-width:1400px) {
+            .bio-content {
+                max-width: 540px
+            }
+
+            .bio-form-card {
+                padding: 44px 40px
+            }
+
+            .bio-tag {
+                font-size: 11px;
+                letter-spacing: 7px
+            }
+
+            .bio-heading {
+                font-size: 36px
+            }
+
+            .bio-subheading {
+                font-size: 14px;
+                letter-spacing: 5px
+            }
+
+            .wpp-wrap {
+                width: 390px
+            }
+
+            .wpp-chat {
+                max-height: 320px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <noscript></noscript>
+
+    <section class="bio-hero">
+        <div class="bio-bg"></div>
+        <div class="bio-overlay"></div>
+        <div class="bio-content">
+            <span class="bio-tag">Exclusividade</span>
+            <h1 class="bio-heading">Uma casa que transforma<br>encontros em<em> experiências</em></h1>
+            <h2 class="bio-subheading">Seu evento. Sua essência. Sua Voss.</h2>
+            <div class="bio-form-card">
+                <form id="form_bio" name="form_bio" novalidate>
+                    <input type="hidden" name="post_id" value="168">
+                    <input type="hidden" name="form_id" value="345d78ac">
+                    <input type="hidden" name="referer_title" value="BIO">
+                    <input type="hidden" name="queried_id" value="168">
+                    <div class="hp-field" aria-hidden="true"><label for="Website">Deixe este campo em
+                            branco</label><input type="text" id="Website" name="website" tabindex="-1"
+                            autocomplete="off"></div>
+                    <div class="bio-form-grid" id="bioFormGrid">
+                        <div class="bio-form-group full"><label class="bio-label" for="Nome">Nome</label><input
+                                class="bio-input" type="text" name="form_fields[nome]" id="Nome" placeholder="Nome"
+                                autocomplete="given-name" maxlength="100"><span class="bio-field-error"
+                                id="errNome">Informe seu nome.</span></div>
+                        <div class="bio-form-row">
+                            <div class="bio-form-group"><label class="bio-label" for="Telefone">WhatsApp</label><input
+                                    class="bio-input" type="tel" name="form_fields[telefone]" id="Telefone"
+                                    placeholder="(11) 9 0000-0000" autocomplete="tel" maxlength="20"><span
+                                    class="bio-field-error" id="errTelefone">Informe um WhatsApp válido.</span></div>
+                            <div class="bio-form-group"><label class="bio-label" for="Email">E-mail</label><input
+                                    class="bio-input" type="email" name="form_fields[email]" id="Email"
+                                    placeholder="E-mail" autocomplete="email" maxlength="200"><span
+                                    class="bio-field-error" id="errEmail">Informe um e-mail válido.</span></div>
+                        </div>
+                        <div class="bio-form-group full"><label class="bio-label" for="Tipo">Tipo de
+                                evento</label><select class="bio-select" name="form_fields[tipo]" id="Tipo">
+                                <option value="" disabled selected>Tipo de evento</option>
+                                <option value="Aniversário">Aniversário</option>
+                                <option value="Aniversário debutante">Aniversário debutante</option>
+                                <option value="Bodas">Bodas</option>
+                                <option value="Casamento">Casamento</option>
+                                <option value="Confraternização corporativa">Confraternização corporativa</option>
+                                <option value="Confraternização social">Confraternização social</option>
+                                <option value="Corporativo">Corporativo</option>
+                                <option value="Feiras e Exposições">Feiras e Exposições</option>
+                                <option value="Formatura">Formatura</option>
+                                <option value="Happy Hour">Happy Hour</option>
+                                <option value="Masterclass e Palestras">Masterclass e Palestras</option>
+                                <option value="Mentorias e Treinamentos">Mentorias e Treinamentos</option>
+                                <option value="Offsite corporativo">Offsite corporativo</option>
+                                <option value="Reuniões de Networking">Reuniões de Networking</option>
+                                <option value="Shows e Festivais">Shows e Festivais</option>
+                                <option value="Workshops, Conferências e Seminários">Workshops, Conferências e
+                                    Seminários</option>
+                                <option value="Outros">Outros</option>
+                            </select><span class="bio-field-error" id="errTipo">Selecione o tipo de evento.</span></div>
+                        <div class="bio-form-group full"><label class="bio-label" for="Data">Data do
+                                evento</label><input class="bio-input" type="text" name="form_fields[data]" id="Data"
+                                placeholder="Data do evento" readonly><span class="bio-field-error" id="errData">Informe
+                                a data do evento.</span></div>
+                        <div class="bio-form-group full"><label class="bio-label"
+                                for="Convidados">Convidados</label><input class="bio-input" type="number"
+                                name="form_fields[convidados]" id="Convidados" placeholder="N° de Pessoas" min=""
+                                max=""><span class="bio-field-error" id="errConvidados">Informe o número de
+                                pessoas.</span></div>
+                        <div class="bio-form-group full"><label class="bio-label"
+                                for="Mensagem">Mensagem</label><textarea class="bio-textarea"
+                                name="form_fields[mensagem]" id="Mensagem" rows="4"
+                                placeholder="Detalhes adicionais: (Não obrigatório)"></textarea></div>
+                        <input type="hidden" name="form_fields[fonte]" id="Fonte" value="Landing page/bio">
+                        <div class="bio-form-group full elementor-col-100 e-form__buttons"><button type="submit"
+                                class="bio-submit" id="bioSubmitBtn">ENVIAR SOLICITAÇÃO</button></div>
+                        <div class="bio-form-msg" id="bioFormMsg"></div>
+                        <p class="bio-form-footer">Ao enviar, você concorda com nossa política de privacidade.</p>
+                    </div>
+                    <div class="bio-success-state" id="bioSuccess">
+                        <div class="bio-success-icon"><svg viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg></div>
+                        <h3 class="bio-success-title">Solicitação recebida</h3>
+                        <p class="bio-success-text">Recebemos seu pedido de orçamento.<br>Em breve entraremos em contato
+                            pelo WhatsApp ou e-mail.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <a href="#" id="wppFloatBtn" class="wpp-float" aria-label="Abrir WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1219.547 1225.016">
+            <path fill="#E0E0E0"
+                d="M1041.858 178.02C927.206 63.289 774.753.07 612.325 0 277.617 0 5.232 272.298 5.098 606.991c-.039 106.986 27.915 211.42 81.048 303.476L0 1225.016l321.898-84.406c88.689 48.368 188.547 73.855 290.166 73.896h.258.003c334.654 0 607.08-272.346 607.222-607.023.056-162.208-63.052-314.724-177.689-429.463zm-429.533 933.963h-.197c-90.578-.048-179.402-24.366-256.878-70.339l-18.438-10.93-191.021 50.083 51-186.176-12.013-19.087c-50.525-80.336-77.198-173.175-77.16-268.504.111-278.186 226.507-504.503 504.898-504.503 134.812.056 261.519 52.604 356.814 147.965 95.289 95.36 147.728 222.128 147.688 356.948-.118 278.195-226.522 504.543-504.693 504.543z" />
+            <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="609.77" y1="1190.114" x2="609.77" y2="21.084">
+                <stop offset="0" stop-color="#20b038" />
+                <stop offset="1" stop-color="#60d66a" />
+            </linearGradient>
+            <path fill="url(#a)"
+                d="M27.875 1190.114l82.211-300.18c-50.719-87.852-77.391-187.523-77.359-289.602.133-319.398 260.078-579.25 579.469-579.25 155.016.07 300.508 60.398 409.898 169.891 109.414 109.492 169.633 255.031 169.57 409.812-.133 319.406-260.094 579.281-579.445 579.281-.023 0 .016 0 0 0 0h-.258c-96.977-.031-192.266-24.375-276.898-70.5l-307.188 80.548z" />
+            <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFF"
+                d="M462.273 349.294c-11.234-24.977-23.062-25.477-33.75-25.914-8.742-.375-18.75-.352-28.742-.352-10 0-26.25 3.758-39.992 18.766-13.75 15.008-52.5 51.289-52.5 125.078 0 73.797 53.75 145.102 61.242 155.117 7.5 10 103.758 166.266 256.203 226.383 126.695 49.961 152.477 40.023 179.977 37.523s88.734-36.273 101.234-71.297c12.5-35.016 12.5-65.031 8.75-71.305-3.75-6.25-13.75-10-28.75-17.5s-88.734-43.789-102.484-48.789-23.75-7.5-33.75 7.516c-10 15-38.727 48.773-47.477 58.773-8.75 10.023-17.5 11.273-32.5 3.773-15-7.523-63.305-23.344-120.609-74.438-44.586-39.75-74.688-88.844-83.438-103.859-8.75-15-.938-23.125 6.586-30.602 6.734-6.719 15-17.508 22.5-26.266 7.484-8.758 9.984-15.008 14.984-25.008 5-10.016 2.5-18.773-1.25-26.273s-32.898-81.67-46.234-111.326z" />
+            <path fill="#FFF"
+                d="M1036.898 176.091C923.562 62.677 772.859.185 612.297.114 281.43.114 12.172 269.286 12.039 600.137 12 705.896 39.633 809.13 92.156 900.13L7 1211.067l318.203-83.438c87.672 47.812 186.383 73.008 286.836 73.047h.255.003c330.812 0 600.109-269.219 600.25-600.055.055-160.343-62.328-311.108-175.649-424.53zm-424.601 923.242h-.195c-89.539-.047-177.344-24.086-253.93-69.531l-18.227-10.805-188.828 49.508 50.414-184.039-11.875-18.867c-49.945-79.414-76.312-171.188-76.273-265.422.109-274.992 223.906-498.711 499.102-498.711 133.266.055 258.516 52 352.719 146.266 94.195 94.266 146.031 219.578 145.992 352.852-.118 274.999-223.923 498.749-498.899 498.749z" />
+        </svg>
+    </a>
+
+    <div class="wpp-overlay" id="wppOverlay"></div>
+    <div class="wpp-wrap" id="wppWrap">
+        <div class="wpp-box">
+            <div class="wpp-hdr">
+                <div class="wpp-hdr-av">🌿</div>
+                <div class="wpp-hdr-info">
+                    <div class="wpp-hdr-name">Casa Voss</div>
+                    <div class="wpp-hdr-status">Online</div>
+                </div><button class="wpp-hdr-close" id="wppClose" aria-label="Fechar"><svg viewBox="0 0 24 24">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg></button>
+            </div>
+            <div class="wpp-chat" id="wppChat"></div>
+            <div class="wpp-bar" id="wppBar"></div>
+        </div>
+    </div>
+
+    <footer class="bio-footer">
+        <p class="bio-footer-copy">© 2026 Casa Voss. Todos os direitos reservados.</p>
+        <div class="bio-footer-dev">
+            <span class="bio-footer-dev-text">Desenvolvido por:</span>
+            <a href="https://dmove.com.br/" target="_blank" rel="noopener noreferrer" class="bio-footer-dev-link"><img
+                    class="bio-footer-dev-img"
+                    src="https://dmove.com.br/wp-content/webp-express/webp-images/uploads/2024/01/Logotipo.png.webp"
+                    alt="DMove" onerror="this.onerror=null;this.style.display='none'" /></a>
+        </div>
+    </footer>
+
+    <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+    <script>
+        var N8N_WEBHOOK_URL = 'https://server3n8n.dmove.com.br/webhook/casa-voss';
+        var WPP_NUMBER = '5511999999999';
+        window.dataLayer = window.dataLayer || [];
+
+        (function () {
+            var n = document.createElement('noscript'), i = document.createElement('iframe');
+            i.src = 'https://www.googletagmanager.com/ns.html?id=' + GTM_ID;
+            i.height = '0';
+            i.width = '0';
+            i.style.cssText = 'display:none;visibility:hidden';
+            n.appendChild(i);
+            document.body.insertBefore(n, document.body.firstChild)
+        })();
+
+        function getUTMs() {
+            var p = new URLSearchParams(window.location.search);
+            return {
+                utm_source: p.get('utm_source') || '',
+                utm_medium: p.get('utm_medium') || '',
+                utm_campaign: p.get('utm_campaign') || '',
+                utm_content: p.get('utm_content') || '',
+                utm_term: p.get('utm_term') || ''
+            }
+        }
+        var utms = getUTMs();
+        if (utms.utm_source) sessionStorage.setItem('casavoss_utms', JSON.stringify(utms));
+
+        var fpLocale = {
+            weekdays: {
+                shorthand: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+                longhand: ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado']
+            },
+            months: {
+                shorthand: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                longhand: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+            },
+            firstDayOfWeek: 1,
+            rangeSeparator: ' até ',
+            ordinal: function () { return 'º' }
+        };
+        var fpOpts = { disableMobile: true, dateFormat: 'd/m/Y', locale: fpLocale, minDate: 'today', allowInput: false };
+        var fpMain = flatpickr('#Data', fpOpts);
+
+        function phoneMask(e) {
+            var v = e.target.value.replace(/\D/g, '').substring(0, 11);
+            if (v.length > 6) v = '(' + v.substring(0, 2) + ') ' + v.substring(2, 7) + '-' + v.substring(7);
+            else if (v.length > 2) v = '(' + v.substring(0, 2) + ') ' + v.substring(2);
+            else if (v.length > 0) v = '(' + v;
+            e.target.value = v
+        }
+        document.getElementById('Telefone').addEventListener('input', phoneMask);
+
+        document.addEventListener('input', function (e) {
+            if (e.target.id === '_wConv') e.target.value = e.target.value.replace(/[^0-9]/g, '')
+        });
+
+        function bioValidate() {
+            var ok = true;
+            function err(iid, eid, c) {
+                var el = document.getElementById(iid), er = document.getElementById(eid);
+                if (c) { el.classList.add('error'); er.classList.add('visible'); ok = false }
+                else { el.classList.remove('error'); er.classList.remove('visible') }
+            }
+            var n = document.getElementById('Nome').value.trim(),
+                r = document.getElementById('Telefone').value.trim();
+            if (r.slice(0, 3) === '+55') r = r.slice(3).trim();
+            var t = r.replace(/\D/g, ''),
+                em = document.getElementById('Email').value.trim(),
+                cv = document.getElementById('Convidados').value.trim();
+            err('Nome', 'errNome', n.length < 2);
+            err('Telefone', 'errTelefone', t.length < 10 || t.length > 11);
+            err('Email', 'errEmail', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em));
+            err('Tipo', 'errTipo', document.getElementById('Tipo').value === '');
+            err('Data', 'errData', !fpMain.selectedDates.length);
+            err('Convidados', 'errConvidados', cv === '' || isNaN(Number(cv)) || Number(cv) < 1);
+            return ok
+        }
+
+        function postRetry(url, jsonBody, retries) {
+            retries = retries || 3;
+            return new Promise(function (resolve, reject) {
+                var att = 0;
+                function go() {
+                    att++;
+                    fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Form-Token': 'casa-voss-secreta-123'
+                        },
+                        body: JSON.stringify(jsonBody),
+                        signal: AbortSignal.timeout(8000)
+                    }).then(function (r) {
+                        if (r.ok) resolve(true);
+                        else if (r.status === 429) reject(new Error('rate_limit'));
+                        else reject(new Error('http_' + r.status))
+                    }).catch(function (e) {
+                        if (e.message === 'rate_limit') reject(e);
+                        else if (att < retries) setTimeout(go, 1000 * att);
+                        else reject(e)
+                    })
+                }
+                go()
+            })
+        }
+
+        document.getElementById('form_bio').addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (document.getElementById('Website').value !== '') return;
+            if (!bioValidate()) return;
+
+            var btn = document.getElementById('bioSubmitBtn'),
+                msg = document.getElementById('bioFormMsg');
+            btn.disabled = true;
+            btn.textContent = 'ENVIANDO...';
+            msg.style.display = 'none';
+            msg.className = 'bio-form-msg';
+
+            var sU = JSON.parse(sessionStorage.getItem('casavoss_utms') || '{}'),
+                r = document.getElementById('Telefone').value.trim();
+            if (r.slice(0, 3) === '+55') r = r.slice(3).trim();
+
+            var payload = {
+                post_id: '168',
+                form_id: '345d78ac',
+                referer_title: 'BIO',
+                queried_id: '168',
+                form_fields: {
+                    "Nome": document.getElementById('Nome').value.trim(),
+                    "WhatsApp": r.replace(/\D/g, ''),
+                    "Email": document.getElementById('Email').value.trim().toLowerCase(),
+                    "Tipo de evento": document.getElementById('Tipo').value,
+                    "Data do evento": document.getElementById('Data').value.trim(),
+                    "Convidados": document.getElementById('Convidados').value.trim(),
+                    "Mensagem": document.getElementById('Mensagem').value.trim(),
+                    "Fonte": document.getElementById('Fonte').value
+                }
+            };
+
+            Object.keys(sU).forEach(function (k) {
+                if (sU[k]) payload.form_fields[k] = sU[k]
+            });
+
+            postRetry(N8N_WEBHOOK_URL, payload).then(function () {
+                window.dataLayer.push({
+                    event: 'bio_form_envio',
+                    bio_form_name: 'form_bio',
+                    bio_form_tipo: payload.form_fields["Tipo de evento"],
+                    bio_form_convidados: Number(payload.form_fields["Convidados"]),
+                    bio_form_data: payload.form_fields["Data do evento"] || ''
+                });
+                document.getElementById('bioFormGrid').style.display = 'none';
+                document.getElementById('bioSuccess').classList.add('active')
+            }).catch(function () {
+                btn.disabled = false;
+                btn.textContent = 'ENVIAR SOLICITAÇÃO';
+                msg.innerHTML = 'Erro ao enviar. Tente novamente ou entre em contato pelo <a href="mailto:contato@casavoss.com.br">contato@casavoss.com.br</a>.';
+                msg.className = 'bio-form-msg error';
+                msg.style.display = 'block'
+            })
+        });
+
+        document.querySelectorAll('.bio-input,.bio-select,.bio-textarea').forEach(function (el) {
+            function cl() {
+                this.classList.remove('error');
+                var er = this.parentElement.querySelector('.bio-field-error');
+                if (er) er.classList.remove('visible')
+            }
+            el.addEventListener('input', cl);
+            el.addEventListener('change', cl)
+        });
+
+        /* POPUP WHATSAPP */
+        var TIPOS = [
+            'Aniversário', 'Aniversário debutante', 'Bodas', 'Casamento',
+            'Confraternização corporativa', 'Confraternização social', 'Corporativo',
+            'Feiras e Exposições', 'Formatura', 'Happy Hour',
+            'Masterclass e Palestras', 'Mentorias e Treinamentos',
+            'Offsite corporativo', 'Reuniões de Networking',
+            'Shows e Festivais', 'Workshops, Conferências e Seminários', 'Outros'
+        ];
+        var chat = document.getElementById('wppChat'),
+            bar = document.getElementById('wppBar'),
+            overlay = document.getElementById('wppOverlay'),
+            wrap = document.getElementById('wppWrap'),
+            floatBtn = document.getElementById('wppFloatBtn'),
+            isOpen = false,
+            fpInst = null,
+            dados = { tipo: '', data: '', convidados: '', nome: '', email: '', whatsapp: '' };
+
+        function wppTime() {
+            var n = new Date();
+            return String(n.getHours()).padStart(2, '0') + ':' + String(n.getMinutes()).padStart(2, '0')
+        }
+        function scrollChat() { chat.scrollTop = chat.scrollHeight }
+        function addRecv(html, ph) {
+            var d = document.createElement('div');
+            d.className = 'wpp-m wpp-m--r';
+            d.setAttribute('data-ph', ph);
+            d.innerHTML = html;
+            chat.appendChild(d);
+            scrollChat();
+            return d
+        }
+        function addSent(text, ph) {
+            var d = document.createElement('div');
+            d.className = 'wpp-m wpp-m--s';
+            d.setAttribute('data-ph', ph);
+            d.innerHTML = '<div class="wpp-m-text">' + text + '</div><div class="wpp-m-meta"><span class="wpp-m-chk">✓✓</span><span class="wpp-m-time">' + wppTime() + '</span></div>';
+            chat.appendChild(d);
+            scrollChat();
+            return d
+        }
+        function showTyping(ph) {
+            return new Promise(function (resolve) {
+                var d = document.createElement('div');
+                d.className = 'wpp-m wpp-m--r';
+                d.setAttribute('data-ph', ph);
+                d.id = 'wppTyping';
+                d.innerHTML = '<div class="wpp-typing"><span></span><span></span><span></span></div>';
+                chat.appendChild(d);
+                scrollChat();
+                setTimeout(function () { d.remove(); resolve() }, 700)
+            })
+        }
+        function removePhase(n) {
+            chat.querySelectorAll('[data-ph="' + n + '"]').forEach(function (el) { el.remove() })
+        }
+        function shake(el) {
+            el.classList.remove('wpp-shake');
+            void el.offsetWidth;
+            el.classList.add('wpp-shake');
+            setTimeout(function () { el.classList.remove('wpp-shake') }, 400)
+        }
+        function clearBar() {
+            bar.innerHTML = '';
+            if (fpInst) { fpInst.destroy(); fpInst = null }
+        }
+
+        var svgAR = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+        var svgAL = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>';
+
+        function tipoOptsHTML() {
+            return '<option value="" disabled selected>Tipo de evento</option>' + TIPOS.map(function (t) {
+                return '<option value="' + t + '">' + t + '</option>'
+            }).join('')
+        }
+
+        function barTipo() {
+            clearBar();
+            bar.innerHTML = '<select class="wpp-bar-sel" id="_wTipo">' + tipoOptsHTML() + '</select><button class="wpp-bar-send" id="_wSend">' + svgAR + '</button>';
+            document.getElementById('_wSend').addEventListener('click', advanceTipo);
+            document.getElementById('_wTipo').addEventListener('keydown', function (e) { if (e.key === 'Enter') advanceTipo() })
+        }
+        function barData() {
+            clearBar();
+            bar.innerHTML = '<input class="wpp-bar-inp" type="text" id="_wData" placeholder="Data do evento" readonly><button class="wpp-bar-send" id="_wSend">' + svgAR + '</button>';
+            fpInst = flatpickr('#_wData', Object.assign({}, fpOpts, { position: 'above' }));
+            document.getElementById('_wSend').addEventListener('click', advanceData)
+        }
+        function barConv() {
+            clearBar();
+            bar.innerHTML = '<input class="wpp-bar-inp" type="number" id="_wConv" placeholder="N° de Pessoas" min="1" max="9999"><button class="wpp-bar-send" id="_wSend">' + svgAR + '</button>';
+            document.getElementById('_wSend').addEventListener('click', advanceConv);
+            document.getElementById('_wConv').addEventListener('keydown', function (e) { if (e.key === 'Enter') advanceConv() })
+        }
+        function barSeguir() {
+            clearBar();
+            bar.innerHTML = '<button class="wpp-bar-full" id="_wSeguir"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Seguir</button>';
+            document.getElementById('_wSeguir').addEventListener('click', goPhase2)
+        }
+        function barNome() {
+            clearBar();
+            bar.innerHTML = '<input class="wpp-bar-inp" type="text" id="_wNome" placeholder="Nome" autocomplete="off" maxlength="100"><button class="wpp-bar-send" id="_wSend">' + svgAR + '</button>';
+            document.getElementById('_wSend').addEventListener('click', advanceNome);
+            document.getElementById('_wNome').addEventListener('keydown', function (e) { if (e.key === 'Enter') advanceNome() })
+        }
+        function barEmail() {
+            clearBar();
+            bar.innerHTML = '<input class="wpp-bar-inp" type="email" id="_wEmail" placeholder="E-mail" autocomplete="off" maxlength="200"><button class="wpp-bar-send" id="_wSend">' + svgAR + '</button>';
+            document.getElementById('_wSend').addEventListener('click', advanceEmail);
+            document.getElementById('_wEmail').addEventListener('keydown', function (e) { if (e.key === 'Enter') advanceEmail() })
+        }
+        function barWpp() {
+            clearBar();
+            bar.innerHTML = '<input class="wpp-bar-inp" type="tel" id="_wWpp" placeholder="WhatsApp" autocomplete="off" maxlength="20"><button class="wpp-bar-send" id="_wSend">' + svgAR + '</button>';
+            document.getElementById('_wWpp').addEventListener('input', phoneMask);
+            document.getElementById('_wSend').addEventListener('click', advanceWpp);
+            document.getElementById('_wWpp').addEventListener('keydown', function (e) { if (e.key === 'Enter') advanceWpp() })
+        }
+        function barActions() {
+            clearBar();
+            bar.innerHTML = '<div class="wpp-bar-acts"><button class="wpp-bar-abtn wpp-bar-ag" id="_wVoltar">' + svgAL + ' Voltar</button><button class="wpp-bar-abtn wpp-bar-ad" id="_wIniciar"><svg viewBox="0 0 1219.547 1225.016"><path fill="#fff" d="M1036.898 176.091C923.562 62.677 772.859.185 612.297.114 281.43.114 12.172 269.286 12.039 600.137 12 705.896 39.633 809.13 92.156 900.13L7 1211.067l318.203-83.438c87.672 47.812 186.383 73.008 286.836 73.047h.255.003c330.812 0 600.109-269.219 600.25-600.055.055-160.343-62.328-311.108-175.649-424.53zm-424.601 923.242h-.195c-89.539-.047-177.344-24.086-253.93-69.531l-18.227-10.805-188.828 49.508 50.414-184.039-11.875-18.867c-49.945-79.414-76.312-171.188-76.273-265.422.109-274.992 223.906-498.711 499.102-498.711 133.266.055 258.516 52 352.719 146.266 94.195 94.266 146.031 219.578 145.992 352.852-.118 274.999-223.923 498.749-498.899 498.749z"/><path fill="#fff" d="M27.875 1190.114l82.211-300.18c-50.719-87.852-77.391-187.523-77.359-289.602.133-319.398 260.078-579.25 579.469-579.25 155.016.07 300.508 60.398 409.898 169.891 109.414 109.492 169.633 255.031 169.57 409.812-.133 319.406-260.094 579.281-579.445 579.281-.023 0 .016 0 0 0 0h-.258c-96.977-.031-192.266-24.375-276.898-70.5l-307.188 80.548z"/><path fill-rule="evenodd" clip-rule="evenodd" fill="#1f2c2f" d="M462.273 349.294c-11.234-24.977-23.062-25.477-33.75-25.914-8.742-.375-18.75-.352-28.742-.352-10 0-26.25 3.758-39.992 18.766-13.75 15.008-52.5 51.289-52.5 125.078 0 73.797 53.75 145.102 61.242 155.117 7.5 10 103.758 166.266 256.203 226.383 126.695 49.961 152.477 40.023 179.977 37.523s88.734-36.273 101.234-71.297c12.5-35.016 12.5-65.031 8.75-71.305-3.75-6.25-13.75-10-28.75-17.5s-88.734-43.789-102.484-48.789-23.75-7.5-33.75 7.516c-10 15-38.727 48.773-47.477 58.773-8.75 10.023-17.5 11.273-32.5 3.773-15-7.523-63.305-23.344-120.609-74.438-44.586-39.75-74.688-88.844-83.438-103.859-8.75-15-.938-23.125 6.586-30.602 6.734-6.719 15-17.508 22.5-26.266 7.484-8.758 9.984-15.008 14.984-25.008 5-10.016 2.5-18.773-1.25-26.273s-32.898-81.67-46.234-111.326z"/></svg> Iniciar conversa</button></div></div>';
+            document.getElementById('_wVoltar').addEventListener('click', goBack);
+            document.getElementById('_wIniciar').addEventListener('click', openWhatsApp)
+        }
+
+        function advanceTipo() {
+            var el = document.getElementById('_wTipo'), v = el.value;
+            if (!v) { shake(el); return }
+            dados.tipo = v;
+            addSent(v, 1);
+            barData()
+        }
+        function advanceData() {
+            var el = document.getElementById('_wData');
+            if (!fpInst || !fpInst.selectedDates.length) { shake(el); return }
+            dados.data = el.value;
+            addSent(el.value, 1);
+            barConv()
+        }
+        function advanceConv() {
+            var el = document.getElementById('_wConv'), v = el.value.trim();
+            if (!v || isNaN(Number(v)) || Number(v) < 1) { shake(el); return }
+            dados.convidados = v;
+            addSent(v + ' pessoas', 1);
+            barSeguir()
+        }
+        function goPhase2() {
+            clearBar();
+            bar.style.visibility = 'hidden';
+            showTyping(2).then(function () {
+                addRecv('<p>Perfeito! Agora me informe seus dados de contato para continuarmos.</p>', 2);
+                barNome();
+                bar.style.visibility = ''
+            })
+        }
+        function advanceNome() {
+            var el = document.getElementById('_wNome'), v = el.value.trim();
+            if (v.length < 2) { shake(el); return }
+            dados.nome = v;
+            addSent(v, 2);
+            barEmail()
+        }
+        function advanceEmail() {
+            var el = document.getElementById('_wEmail'), v = el.value.trim();
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { shake(el); return }
+            dados.email = v;
+            addSent(v, 2);
+            barWpp()
+        }
+        function advanceWpp() {
+            var el = document.getElementById('_wWpp'), r = el.value.trim();
+            if (r.slice(0, 3) === '+55') r = r.slice(3).trim();
+            var w = r.replace(/\D/g, '');
+            if (w.length < 10 || w.length > 11) { shake(el); return }
+            dados.whatsapp = r;
+            addSent(r, 2);
+            barActions()
+        }
+        function goBack() {
+            removePhase(2);
+            barSeguir()
+        }
+        function openWhatsApp() {
+            var txt = 'Olá! Gostaria de saber mais sobre a Casa Voss.%0A%0A';
+            txt += '*Tipo de evento:* ' + encodeURIComponent(dados.tipo) + '%0A';
+            txt += '*Data do evento:* ' + encodeURIComponent(dados.data) + '%0A';
+            txt += '*Convidados:* ' + encodeURIComponent(dados.convidados) + '%0A%0A';
+            txt += '*Nome:* ' + encodeURIComponent(dados.nome) + '%0A';
+            txt += '*E-mail:* ' + encodeURIComponent(dados.email) + '%0A';
+            txt += '*WhatsApp:* ' + encodeURIComponent(dados.whatsapp);
+            window.dataLayer.push({
+                event: 'wpp_popup_iniciar',
+                wpp_popup_tipo: dados.tipo,
+                wpp_popup_data: dados.data,
+                wpp_popup_convidados: dados.convidados,
+                wpp_popup_nome: dados.nome,
+                wpp_popup_email: dados.email,
+                wpp_popup_whatsapp: dados.whatsapp.replace(/\D/g, '')
+            });
+            closePopup();
+            window.open('https://wa.me/' + WPP_NUMBER + '?text=' + txt, '_blank', 'noopener,noreferrer')
+        }
+
+        function openPopup() {
+            if (isOpen) return;
+            isOpen = true;
+            overlay.classList.add('open');
+            wrap.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            chat.innerHTML = '';
+            dados = { tipo: '', data: '', convidados: '', nome: '', email: '', whatsapp: '' };
+            addRecv('<p>Olá! 👋</p><p>Preencha as informações abaixo para iniciar a conversa e saber mais sobre o seu evento.</p>', 1);
+            barTipo()
+        }
+        function closePopup() {
+            if (!isOpen) return;
+            isOpen = false;
+            overlay.classList.remove('open');
+            wrap.classList.remove('open');
+            document.body.style.overflow = '';
+            clearBar()
+        }
+
+        floatBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            isOpen ? closePopup() : openPopup()
+        });
+        document.getElementById('wppClose').addEventListener('click', closePopup);
+        overlay.addEventListener('click', closePopup);
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && isOpen) closePopup()
+        });
+    </script>
+</body>
+
+</html>

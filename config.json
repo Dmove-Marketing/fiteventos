@@ -1,0 +1,26 @@
+{
+  "project_name": "cliente-exemplo",
+  "project_slug": "cliente-exemplo",
+  "client": "Nome do Cliente",
+  "environment": "development",
+  "api_url": "https://api.eventos.dmove.com.br",
+  "tracking": {
+    "gtm_id": "",
+    "enabled": false
+  },
+  "forms": {
+    "lead-form": {
+      "id": "lead-form",
+      "redirect_on_success": "/obrigado",
+      "webhooks": [
+        "https://server3n8n.dmove.com.br/webhook/casa-voss"
+      ],
+      "fields_required": ["nome", "email", "telefone"]
+    }
+  },
+  "meta": {
+    "created_at": "2026-04-25",
+    "last_updated": "2026-04-25",
+    "owner": "Michel"
+  }
+}
