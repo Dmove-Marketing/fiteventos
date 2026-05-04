@@ -1,0 +1,2248 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debutantes – Espaço Fit Eventos</title>
+    <meta name="description"
+        content="Espaço Fit Eventos — Debutantes. 17 ambientes, 10 andares, capacidade para até 530 convidados.">
+
+    <meta property="og:title" content="Debutantes – Espaço Fit Eventos">
+    <meta property="og:description"
+        content="17 ambientes, 10 andares, capacidade para até 530 convidados. Desde 2012 realizando festas de 15 anos inesquecíveis em São Paulo.">
+    <meta property="og:image"
+        content="https://z-cdn-media.chatglm.cn/files/b6141e8a-26b2-4a98-a24a-572b061dd41b.png?auth_key=1877922266-df2ae6e359504c07865ef1b88ffe0071-0-b77a9ed1bade15d816a52e89c390d77c">
+    <meta property="og:url" content="https://eventos.espacofiteventos.com.br/debutantes">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Espaço Fit Eventos">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Debutantes – Espaço Fit Eventos">
+    <meta name="twitter:description" content="17 ambientes, 10 andares, capacidade para até 530 convidados.">
+    <meta name="twitter:image"
+        content="https://z-cdn-media.chatglm.cn/files/b6141e8a-26b2-4a98-a24a-572b061dd41b.png?auth_key=1877922266-df2ae6e359504c07865ef1b88ffe0071-0-b77a9ed1bade15d816a52e89c390d77c">
+
+    <!-- ============================================================
+         GTM (HEAD) — Cole o snippet do Google Tag Manager AQUI
+         Exemplo: substitua GTM-XXXXXXX pelo ID real do seu container
+    ============================================================= -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-XXXXXXX');</script>
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --preto: #000000;
+            --preto-medio: #111111;
+            --bege: #F0EBE0;
+            --bege-escuro: #d9d0be;
+            --branco: #FFFFFF;
+            --cobre: #8B6A3E;
+            --dourado: #C49C4C;
+            --dourado-escuro: #a8832e;
+            --dourado-claro: #f0d896;
+            --dourado-bg: #FDF8EE;
+            --dourado-bg2: #F7F0DC;
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--branco);
+            color: var(--preto);
+            overflow-x: hidden
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important
+            }
+
+            .hero-bg {
+                transform: scale(1) !important;
+                opacity: .45 !important
+            }
+
+            .hero-content {
+                opacity: 1 !important;
+                transform: none !important
+            }
+        }
+
+        /* ========== NAV DOURADA ========== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 60px;
+            background: rgba(196, 156, 76, 0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(168, 131, 46, 0.5);
+            transition: padding .4s, background .3s, box-shadow .3s
+        }
+
+        nav.scrolled {
+            padding: 16px 60px;
+            background: rgba(184, 142, 62, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15)
+        }
+
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--branco);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .nav-logo img {
+            height: 32px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none
+        }
+
+        .nav-links a {
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color .3s
+        }
+
+        .nav-links a:hover {
+            color: var(--branco)
+        }
+
+        .nav-cta {
+            background: var(--branco);
+            border: 1px solid var(--branco);
+            color: var(--dourado-escuro);
+            padding: 10px 24px;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all .3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600
+        }
+
+        .nav-cta:hover {
+            background: transparent;
+            border-color: var(--branco);
+            color: var(--branco)
+        }
+
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+            z-index: 110
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: var(--branco);
+            transition: all .3s;
+            transform-origin: center
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 105;
+            background: rgba(196, 156, 76, 0.98);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            opacity: 0;
+            transition: opacity .35s ease
+        }
+
+        .mobile-menu.open {
+            display: flex;
+            opacity: 1
+        }
+
+        .mobile-menu a {
+            font-size: 26px;
+            font-weight: 300;
+            color: var(--branco);
+            text-decoration: none;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            transition: color .3s
+        }
+
+        .mobile-menu a:hover {
+            color: var(--dourado-claro)
+        }
+
+        .mobile-menu .mobile-cta {
+            margin-top: 16px;
+            background: var(--branco);
+            color: var(--dourado-escuro);
+            padding: 14px 36px;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background .3s, color .3s
+        }
+
+        .mobile-menu .mobile-cta:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--branco)
+        }
+
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            background: var(--preto)
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/03/2DECOR_1571_DSC08215_resultado.avif');
+            background-size: cover;
+            background-position: center;
+            background-color: var(--preto-medio);
+            opacity: .6;
+            transform: scale(1.04);
+            animation: heroZoom 12s ease-out forwards
+        }
+
+        @keyframes heroZoom {
+            to {
+                transform: scale(1)
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .2) 55%, rgba(0, 0, 0, .05) 100%)
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 60px 80px;
+            max-width: 800px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease .4s forwards
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .hero-tag {
+            font-size: 11px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--dourado-claro);
+            margin-bottom: 20px;
+            display: block;
+            font-weight: 400
+        }
+
+        .hero-title {
+            font-size: clamp(26px, min(5vw, 5.8vh), 62px);
+            font-weight: 300;
+            color: var(--branco);
+            line-height: 1.15;
+            margin-bottom: 28px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-title em {
+            font-style: normal;
+            font-weight: 700;
+            color: var(--dourado-claro);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.85;
+            max-width: 520px;
+            margin-bottom: 48px;
+            font-weight: 300
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap
+        }
+
+        .btn-primary {
+            background: var(--dourado);
+            color: var(--branco);
+            padding: 16px 36px;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all .3s;
+            text-decoration: none;
+            display: inline-block
+        }
+
+        .btn-primary:hover {
+            background: var(--dourado-escuro);
+            transform: translateY(-1px)
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 16px 0;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: color .3s, gap .3s;
+            font-weight: 300;
+            text-decoration: none
+        }
+
+        .btn-ghost:hover {
+            color: var(--branco);
+            gap: 18px
+        }
+
+        .btn-ghost::after {
+            content: '→';
+            font-size: 18px
+        }
+
+        .stats-bar {
+            background: linear-gradient(135deg, #D4A843 0%, #C49C4C 40%, #B8892F 100%);
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 12px rgba(196, 156, 76, 0.25)
+        }
+
+        .stat-item {
+            padding: 36px 60px;
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+            flex: 1;
+            max-width: 240px
+        }
+
+        .stat-item:last-child {
+            border-right: none
+        }
+
+        .stat-num {
+            font-size: 38px;
+            font-weight: 300;
+            color: var(--branco);
+            display: block;
+            line-height: 1;
+            letter-spacing: -.5px
+        }
+
+        .stat-label {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 8px;
+            display: block;
+            font-weight: 400
+        }
+
+        .sobre {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px
+        }
+
+        .sobre-media {
+            background-color: var(--preto-medio);
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden
+        }
+
+        .sobre-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .sobre-content {
+            background: var(--dourado-bg);
+            border-left: 4px solid var(--dourado);
+            padding: 80px 72px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .section-tag {
+            font-size: 10px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--dourado);
+            margin-bottom: 20px;
+            display: block;
+            font-weight: 500
+        }
+
+        .section-title {
+            font-size: clamp(22px, 2vw, 38px);
+            font-weight: 300;
+            color: var(--preto);
+            line-height: 1.25;
+            margin-bottom: 28px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title em {
+            font-style: normal;
+            font-weight: 700;
+            color: var(--dourado);
+            display: block;
+        }
+
+        .section-body {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #444;
+            font-weight: 300;
+            margin-bottom: 36px
+        }
+
+        .section-body b {
+            font-weight: 600;
+            color: var(--preto)
+        }
+
+        .ambientes {
+            background: var(--branco);
+            padding: 100px 60px;
+            scroll-margin-top: 80px
+        }
+
+        .ambientes-header {
+            margin-bottom: 56px;
+            text-align: center
+        }
+
+        .ambientes-header .section-title {
+            margin-bottom: 16px
+        }
+
+        .ambientes-desc {
+            max-width: 600px;
+            font-size: 15px;
+            line-height: 1.85;
+            color: #555;
+            font-weight: 300;
+            margin: 0 auto
+        }
+
+        .ambientes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3px
+        }
+
+        .ambientes-item {
+            overflow: hidden;
+            background-color: var(--preto-medio);
+            aspect-ratio: 4/3;
+            position: relative;
+        }
+
+        .ambientes-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .7s ease, opacity .4s;
+            opacity: .92
+        }
+
+        .ambientes-item:hover img {
+            transform: scale(1.04);
+            opacity: 1
+        }
+
+        .estrutura {
+            background: var(--branco);
+            padding: 100px 60px;
+            scroll-margin-top: 80px;
+            border-top: 4px solid var(--dourado);
+        }
+
+        .estrutura-header {
+            max-width: 920px;
+            margin: 0 auto 60px;
+            text-align: center
+        }
+
+        .estrutura-header .section-title {
+            color: var(--preto)
+        }
+
+        .estrutura-header .section-body {
+            color: #555;
+            font-size: 16px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300
+        }
+
+        .estrutura-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3px
+        }
+
+        .estrutura-card {
+            position: relative;
+            overflow: hidden;
+            background-color: var(--preto-medio);
+            aspect-ratio: 3/2;
+            cursor: pointer
+        }
+
+        .estrutura-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .7s ease, opacity .5s;
+            opacity: .75
+        }
+
+        .estrutura-card:hover img {
+            transform: scale(1.06);
+            opacity: .5
+        }
+
+        .estrutura-card-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 28px 24px;
+            background: linear-gradient(to top, rgba(0, 0, 0, .85) 0%, transparent 100%);
+            z-index: 2
+        }
+
+        .estrutura-card-label span {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--branco);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.4
+        }
+
+        .gastronomia {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 580px
+        }
+
+        .gastro-img {
+            background-image: url('https://espacofiteventos.com.br/wp-content/uploads/2decor-1598-dsc08270-resultado.webp');
+            background-size: cover;
+            background-position: center;
+            background-color: var(--preto-medio);
+            min-height: 480px
+        }
+
+        .gastro-content {
+            background: var(--dourado-bg2);
+            border-left: 4px solid var(--dourado);
+            padding: 80px 72px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .gastro-content .section-body {
+            margin-bottom: 0
+        }
+
+        .gastro-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 28px
+        }
+
+        .gastro-tag {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dourado-escuro);
+            border: 1px solid rgba(196, 156, 76, .5);
+            background: rgba(196, 156, 76, .06);
+            padding: 8px 16px;
+            font-weight: 400;
+            transition: background .3s, border-color .3s
+        }
+
+        .gastro-tag:hover {
+            background: rgba(196, 156, 76, .15);
+            border-color: var(--dourado)
+        }
+
+        .diferenciais {
+            background: var(--branco);
+            padding: 100px 60px;
+            scroll-margin-top: 80px;
+            border-top: 4px solid var(--dourado);
+        }
+
+        .diferenciais-header {
+            max-width: 920px;
+            margin: 0 auto 60px;
+            text-align: center
+        }
+
+        .diferenciais-header .section-body {
+            margin-left: auto;
+            margin-right: auto;
+            color: #555;
+        }
+
+        .diferenciais-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px
+        }
+
+        .dif-card {
+            background: var(--dourado-bg);
+            border: 1px solid rgba(196, 156, 76, 0.2);
+            padding: 44px 36px;
+            text-align: center;
+            transition: background .4s, border-color .4s, transform .3s
+        }
+
+        .dif-card:hover {
+            background: var(--dourado-bg2);
+            border-color: var(--dourado);
+            transform: translateY(-2px)
+        }
+
+        .dif-card-icon {
+            width: 58px;
+            height: 58px;
+            background: rgba(196, 156, 76, .12);
+            border: 1px solid rgba(196, 156, 76, .4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            transition: background .3s, border-color .3s
+        }
+
+        .dif-card:hover .dif-card-icon {
+            background: rgba(196, 156, 76, .22);
+            border-color: var(--dourado)
+        }
+
+        .dif-card-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--dourado);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .dif-card-title {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--preto);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: block;
+            line-height: 1.6
+        }
+
+        .depoimentos {
+            background: var(--dourado);
+            padding: 120px 60px;
+            overflow: hidden
+        }
+
+        .depoimentos-header {
+            text-align: center;
+            margin-bottom: 60px
+        }
+
+        .depoimentos-header .section-tag {
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 6px;
+        }
+
+        .depoimentos-header .section-title {
+            color: var(--branco);
+            margin-bottom: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .depoimentos-header .section-title em {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .dep-carousel {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto
+        }
+
+        .dep-track {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            padding: 10px 0
+        }
+
+        .dep-track::-webkit-scrollbar {
+            display: none
+        }
+
+        .dep-card {
+            scroll-snap-align: start;
+            flex: 0 0 100%;
+            background: var(--branco);
+            padding: 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            border-top: 3px solid var(--dourado-escuro);
+        }
+
+        @media(min-width:768px) {
+            .dep-card {
+                flex: 0 0 calc(50% - 10px)
+            }
+        }
+
+        @media(min-width:1024px) {
+            .dep-card {
+                flex: 0 0 calc(33.333% - 14px)
+            }
+        }
+
+        .dep-card-text {
+            font-weight: 300;
+            font-style: normal;
+            color: #444;
+            font-size: 15px;
+            margin-bottom: 24px;
+            line-height: 1.75
+        }
+
+        .dep-card-author {
+            font-weight: 600;
+            color: var(--dourado);
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase
+        }
+
+        .dep-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--branco);
+            color: var(--dourado);
+            border: 1px solid rgba(255, 255, 255, .5);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .3s, border-color .3s;
+            font-size: 18px
+        }
+
+        .dep-btn:hover {
+            background: var(--dourado-bg);
+            border-color: var(--branco)
+        }
+
+        .dep-btn-prev {
+            left: -22px
+        }
+
+        .dep-btn-next {
+            right: -22px
+        }
+
+        @media(max-width:767px) {
+            .dep-btn {
+                display: none
+            }
+        }
+
+        .galeria-header {
+            background: var(--branco);
+            text-align: center;
+            padding: 100px 60px 48px;
+            scroll-margin-top: 80px;
+            border-top: 4px solid var(--dourado);
+        }
+
+        .galeria-header .section-title {
+            margin-bottom: 0
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 320px 320px;
+            gap: 3px
+        }
+
+        .galeria-item {
+            overflow: hidden;
+            background-color: var(--preto-medio)
+        }
+
+        .galeria-item.tall {
+            grid-row: span 2
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .7s ease, opacity .4s;
+            opacity: .92
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.04);
+            opacity: 1
+        }
+
+        .contato-section {
+            background: var(--branco);
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            scroll-margin-top: 80px;
+            border-top: 4px solid var(--dourado);
+        }
+
+        .contato-info {
+            background: var(--dourado-bg);
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 1px solid rgba(196, 156, 76, .2)
+        }
+
+        .contato-info .section-title {
+            color: var(--preto);
+            margin-bottom: 20px
+        }
+
+        .contato-info .section-body {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.85;
+            margin-bottom: 40px;
+            font-weight: 300
+        }
+
+        .contato-form-wrap {
+            background: var(--branco);
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 20px
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+
+        .form-group.full {
+            grid-column: 1/-1
+        }
+
+        .form-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            font-family: 'Inter', sans-serif;
+            padding: 14px 16px;
+            background: var(--dourado-bg);
+            border: 1px solid rgba(196, 156, 76, .3);
+            color: var(--preto);
+            font-size: 15px;
+            font-weight: 300;
+            outline: none;
+            transition: border-color .3s, background .3s;
+            -webkit-appearance: none;
+            appearance: none
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: #aaa
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: var(--dourado);
+            background: var(--dourado-bg2)
+        }
+
+        .form-input.error,
+        .form-select.error {
+            border-color: #c97b7b;
+            background: rgba(201, 123, 123, .05)
+        }
+
+        .field-error {
+            font-size: 11px;
+            color: #c97b7b;
+            margin-top: 2px;
+            display: none;
+            line-height: 1.4
+        }
+
+        .field-error.visible {
+            display: block
+        }
+
+        .hp-field {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+            opacity: 0;
+            pointer-events: none
+        }
+
+        .form-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(196,156,76,0.8)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-color: var(--dourado-bg);
+            padding-right: 40px;
+            cursor: pointer
+        }
+
+        .form-select option {
+            background: var(--branco);
+            color: var(--preto)
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 80px
+        }
+
+        .form-submit {
+            background: var(--dourado);
+            color: var(--branco);
+            padding: 18px 36px;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background .3s, transform .3s;
+            margin-top: 8px;
+            width: 100%
+        }
+
+        .form-submit:hover:not(:disabled) {
+            background: var(--dourado-escuro);
+            transform: translateY(-1px)
+        }
+
+        .form-submit:disabled {
+            opacity: .65;
+            cursor: not-allowed;
+            transform: none
+        }
+
+        .form-msg {
+            font-size: 13px;
+            text-align: center;
+            margin-top: 14px;
+            padding: 12px 16px;
+            display: none;
+            line-height: 1.5
+        }
+
+        .form-msg.error {
+            display: block;
+            background: rgba(201, 123, 123, .08);
+            color: #c05050;
+            border: 1px solid rgba(201, 123, 123, .25)
+        }
+
+        .form-msg.success {
+            display: block;
+            background: rgba(196, 156, 76, .1);
+            color: var(--dourado-escuro);
+            border: 1px solid rgba(196, 156, 76, .3)
+        }
+
+        .form-footer-msg {
+            font-size: 12px;
+            color: #aaa;
+            letter-spacing: .3px;
+            margin-top: 14px;
+            line-height: 1.6
+        }
+
+        .mapa-section {
+            background: var(--bege-escuro);
+            padding: 0
+        }
+
+        .mapa-wrapper {
+            position: relative;
+            height: 400px
+        }
+
+        .mapa-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+            filter: grayscale(.2) contrast(1.05);
+            pointer-events: none
+        }
+
+        .mapa-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            cursor: default
+        }
+
+        .mapa-fallback {
+            display: none;
+            background: var(--dourado-bg);
+            height: 400px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 16px;
+            text-align: center;
+            padding: 40px
+        }
+
+        .mapa-fallback p {
+            color: #666;
+            font-size: 14px;
+            font-weight: 300
+        }
+
+        .mapa-fallback a {
+            color: var(--dourado-escuro);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid rgba(196, 156, 76, .5);
+            padding: 10px 24px;
+            text-decoration: none;
+            transition: background .3s
+        }
+
+        .mapa-fallback a:hover {
+            background: rgba(196, 156, 76, .1)
+        }
+
+        footer {
+            background: #0a0a0a;
+            padding: 48px 60px;
+            border-top: 3px solid var(--dourado);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy {
+            font-size: 11px;
+            color: rgba(240, 235, 224, .2);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .footer-logo-bottom img {
+            height: 40px;
+            width: auto;
+            opacity: .55;
+            transition: opacity .3s;
+            display: block;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-logo-bottom:hover img {
+            opacity: .8
+        }
+
+        .footer-dev {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .footer-dev-text {
+            font-size: 11px;
+            color: rgba(240, 235, 224, .25);
+            letter-spacing: .3px
+        }
+
+        .footer-dev-img {
+            height: 36px;
+            width: auto;
+            opacity: .5;
+            transition: opacity .3s;
+            display: block
+        }
+
+        .footer-dev-img:hover {
+            opacity: .8
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 90;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #25d366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, .35);
+            transition: transform .3s, box-shadow .3s;
+            cursor: pointer;
+            text-decoration: none;
+            opacity: 0;
+            animation: fadeInRight .6s ease 5s forwards
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 28px rgba(37, 211, 102, .45)
+        }
+
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0)
+            }
+        }
+
+        @media(max-width:1200px) {
+            .ambientes-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .estrutura-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media(max-width:1024px) {
+            nav {
+                padding: 20px 32px
+            }
+
+            .nav-links {
+                gap: 24px
+            }
+
+            .hero-content {
+                padding: 0 32px 64px
+            }
+
+            .sobre-content,
+            .gastro-content {
+                padding: 60px 48px
+            }
+
+            .ambientes,
+            .estrutura,
+            .diferenciais {
+                padding: 80px 32px
+            }
+
+            .contato-info,
+            .contato-form-wrap {
+                padding: 60px 40px
+            }
+        }
+
+        @media(max-height:750px) and (min-width:769px) {
+            .hero-tag {
+                margin-bottom: 14px
+            }
+
+            .hero-title {
+                margin-bottom: 18px
+            }
+
+            .hero-subtitle {
+                margin-bottom: 28px;
+                font-size: 15px
+            }
+
+            .hero-content {
+                padding-bottom: 48px
+            }
+        }
+
+        @media(max-height:650px) and (min-width:769px) {
+            .hero-tag {
+                margin-bottom: 10px;
+                font-size: 10px
+            }
+
+            .hero-title {
+                margin-bottom: 14px
+            }
+
+            .hero-subtitle {
+                margin-bottom: 20px;
+                font-size: 14px
+            }
+
+            .hero-content {
+                padding-bottom: 36px
+            }
+        }
+
+        @media(max-width:768px) {
+            nav {
+                padding: 18px 24px
+            }
+
+            .nav-links,
+            .nav-cta {
+                display: none !important
+            }
+
+            .nav-hamburger {
+                display: flex
+            }
+
+            .nav-logo img {
+                height: 26px;
+            }
+
+            .hero-bg {
+                background-position: left center
+            }
+
+            .hero-content {
+                padding: 0 24px 48px
+            }
+
+            .hero-subtitle {
+                max-width: 100%;
+                margin-bottom: 32px;
+                font-size: 15px
+            }
+
+            .stats-bar {
+                flex-wrap: wrap
+            }
+
+            .stat-item {
+                flex: 1 1 50%;
+                max-width: none;
+                padding: 28px 20px
+            }
+
+            .sobre {
+                grid-template-columns: 1fr
+            }
+
+            .sobre-media {
+                min-height: 280px;
+                order: -1
+            }
+
+            .sobre-content {
+                padding: 56px 32px;
+                border-left: none;
+                border-top: 4px solid var(--dourado);
+            }
+
+            .ambientes {
+                padding: 72px 24px
+            }
+
+            .ambientes-grid {
+                grid-template-columns: 1fr
+            }
+
+            .ambientes-item {
+                aspect-ratio: 16/10
+            }
+
+            .estrutura {
+                padding: 72px 24px
+            }
+
+            .estrutura-grid {
+                grid-template-columns: 1fr
+            }
+
+            .estrutura-card {
+                aspect-ratio: 16/9
+            }
+
+            .gastronomia {
+                grid-template-columns: 1fr
+            }
+
+            .gastro-img {
+                min-height: 320px;
+                order: -1
+            }
+
+            .gastro-content {
+                padding: 56px 32px;
+                border-left: none;
+                border-top: 4px solid var(--dourado);
+            }
+
+            .diferenciais {
+                padding: 72px 24px
+            }
+
+            .diferenciais-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .depoimentos {
+                padding: 80px 24px
+            }
+
+            .galeria-header {
+                padding: 72px 24px 36px
+            }
+
+            .galeria {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto
+            }
+
+            .galeria-item.tall {
+                grid-row: span 1
+            }
+
+            .galeria-item {
+                height: 260px
+            }
+
+            .contato-section {
+                grid-template-columns: 1fr
+            }
+
+            .contato-info {
+                border-right: none;
+                border-bottom: 1px solid rgba(196, 156, 76, .2);
+                padding: 56px 32px
+            }
+
+            .contato-form-wrap {
+                padding: 56px 32px
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr
+            }
+
+            footer {
+                padding: 36px 24px
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center
+            }
+
+            .footer-logo-bottom img {
+                height: 32px;
+            }
+        }
+
+        .flatpickr-calendar {
+            background: var(--branco) !important;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, .12) !important;
+            border: 1px solid rgba(196, 156, 76, .3) !important;
+            border-radius: 0 !important
+        }
+
+        .flatpickr-months,
+        .flatpickr-months .flatpickr-month,
+        .flatpickr-current-month {
+            background: var(--dourado-bg) !important;
+            color: var(--preto) !important;
+            fill: var(--preto) !important
+        }
+
+        .flatpickr-current-month .flatpickr-monthDropdown-months {
+            background: var(--dourado-bg) !important;
+            color: var(--preto) !important
+        }
+
+        .flatpickr-current-month input.cur-year {
+            background: transparent !important;
+            color: var(--preto) !important
+        }
+
+        .flatpickr-months .flatpickr-prev-month,
+        .flatpickr-months .flatpickr-next-month {
+            fill: var(--dourado) !important;
+            color: var(--dourado) !important
+        }
+
+        .flatpickr-months .flatpickr-prev-month:hover,
+        .flatpickr-months .flatpickr-next-month:hover {
+            fill: var(--dourado-escuro) !important;
+            color: var(--dourado-escuro) !important
+        }
+
+        span.flatpickr-weekday {
+            color: #888 !important
+        }
+
+        .flatpickr-day {
+            color: #333 !important;
+            border-radius: 0 !important
+        }
+
+        .flatpickr-day:hover {
+            background: rgba(196, 156, 76, .12) !important;
+            color: var(--preto) !important
+        }
+
+        .flatpickr-day.selected,
+        .flatpickr-day.startRange,
+        .flatpickr-day.endRange {
+            background: var(--dourado) !important;
+            color: var(--branco) !important;
+            border-color: var(--dourado) !important
+        }
+
+        .flatpickr-day.today {
+            border-color: var(--dourado) !important
+        }
+
+        .flatpickr-day.prevMonthDay,
+        .flatpickr-day.nextMonthDay {
+            color: #ccc !important
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============================================================
+         GTM (BODY) — Cole o segundo snippet do Google Tag Manager AQUI
+         Substitua GTM-XXXXXXX pelo ID real do seu container
+    ============================================================= -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+
+    <nav id="navbar">
+        <a href="#" class="nav-logo">
+            <img src="https://z-cdn-media.chatglm.cn/files/b6141e8a-26b2-4a98-a24a-572b061dd41b.png?auth_key=1877922266-df2ae6e359504c07865ef1b88ffe0071-0-b77a9ed1bade15d816a52e89c390d77c"
+                alt="Espaço Fit Eventos">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#ambientes">Ambientes</a></li>
+            <li><a href="#estrutura">Estrutura</a></li>
+            <li><a href="#gastronomia">Gastronomia</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        <a href="#contato" class="nav-cta">Solicitar orçamento</a>
+        <button class="nav-hamburger" id="hamburgerBtn" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#ambientes">Ambientes</a>
+        <a href="#estrutura">Estrutura</a>
+        <a href="#gastronomia">Gastronomia</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#contato">Contato</a>
+        <a href="#contato" class="mobile-cta">Solicitar orçamento</a>
+    </div>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-tag">São Paulo · Debutantes</span>
+            <h1 class="hero-title">Cada detalhe pensado<br><em>para você brilhar</em></h1>
+            <p class="hero-subtitle">Desde 2012, o Espaço Fit Eventos transforma sonhos em
+                celebrações memoráveis. Com mais de uma década de experiência e
+                milhares de eventos realizados, reconhecido pela organização impecável, estrutura
+                completa e pela capacidade de criar eventos únicos e cheios de significado.</p>
+            <div class="hero-actions">
+                <a href="#contato" class="btn-primary">Solicitar orçamento</a>
+                <a href="#ambientes" class="btn-ghost">Conhecer os ambientes</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-bar">
+        <div class="stat-item"><span class="stat-num">10</span><span class="stat-label">andares</span></div>
+        <div class="stat-item"><span class="stat-num">17</span><span class="stat-label">ambientes</span></div>
+        <div class="stat-item"><span class="stat-num">530</span><span class="stat-label">convidados</span></div>
+        <div class="stat-item"><span class="stat-num">12+</span><span class="stat-label">anos de experiência</span>
+        </div>
+    </div>
+
+    <section class="sobre">
+        <div class="sobre-media">
+            <video autoplay muted loop playsinline controlslist="nodownload">
+                <source src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/04/Untitled.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+        <div class="sobre-content" style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
+            <span class="section-tag">Sobre o espaço</span>
+            <h2 class="section-title">17 ambientes distribuídos em <br><em>10 andares de versatilidade</em></h2>
+            <p class="section-body">Com 17 ambientes distribuídos em 10 andares, oferecemos flexibilidade para
+                criar desde festas intimistas até grandes celebrações de debutantes. Cada
+                espaço foi pensado para acompanhar cada momento da festa — da recepção à
+                pista de dança.</p>
+            <p class="section-body" style="margin-bottom:0">Com capacidade de <b>50 a 530 convidados</b>, os
+                salões se adaptam a diferentes formatos, como recepção, jantar, cerimônia,
+                valsa e pista de dança. O ambiente também conta com lounges para fotos e vídeos,
+                além de áreas de recepção ideais para welcome drinks e experiências
+                interativas.</p>
+        </div>
+    </section>
+
+    <section class="ambientes" id="ambientes">
+        <div class="ambientes-header">
+            <span class="section-tag">Nossos ambientes</span>
+            <h2 class="section-title">Ambientes modernos para uma <br><em>festa de debutante única</em></h2>
+            <p class="ambientes-desc">Os espaços são pensados para acompanhar cada momento da festa, com
+                integração entre os ambientes que garante uma experiência fluida para todos os
+                convidados.</p>
+        </div>
+        <div class="ambientes-grid">
+            <div class="ambientes-item"><img
+                    src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/03/2DECOR_1064_RICK6215-Copia_resultado.avif"
+                    alt="Ambiente decorado para debutante" loading="lazy"></div>
+            <div class="ambientes-item"><img
+                    src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/03/2DECOR_1065_RICK6217-31-03-2026-13-26-01_resultado.avif"
+                    alt="Decoração de festa de 15 anos" loading="lazy"></div>
+            <div class="ambientes-item"><img
+                    src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/03/2DECOR_1145_DSC07536_resultado.avif"
+                    alt="Espaço para cerimônia de debutante" loading="lazy"></div>
+            <div class="ambientes-item"><img
+                    src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/03/2DECOR_1289_0W1A0209_resultado.avif"
+                    alt="Sala de eventos decorada" loading="lazy"></div>
+            <div class="ambientes-item"><img
+                    src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/03/2DECOR_1269_DSC07655_resultado.avif"
+                    alt="Ambiente de recepção" loading="lazy"></div>
+            <div class="ambientes-item"><img
+                    src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/03/2DECOR_1288_0W1A0207_resultado.avif"
+                    alt="Espaço para pista de dança" loading="lazy"></div>
+        </div>
+    </section>
+
+    <section class="estrutura" id="estrutura">
+        <div class="estrutura-header" style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
+            <span class="section-tag">Infraestrutura</span>
+            <h2 class="section-title">Estrutura completa para transformar <br>sua festa de 15 anos<br><em>em um
+                    verdadeiro
+                    espetáculo</em></h2>
+            <p class="section-body">Da iluminação à sonorização, tudo contribui para
+                criar uma experiência envolvente, emocionante e inesquecível.</p>
+        </div>
+        <div class="estrutura-grid">
+            <div class="estrutura-card"><img
+                    src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/04/2DECOR_1067_RICK6219-Copia_resultado-1024x685.avif"
+                    alt="Painéis de LED e projeção mapeada" loading="lazy">
+                <div class="estrutura-card-label"><span>Painéis de LED e projeção mapeada</span></div>
+            </div>
+            <div class="estrutura-card"><img
+                    src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/03/5FES_2825_RICK7651_resultado-1024x684.avif"
+                    alt="Estrutura para DJ e pista de dança" loading="lazy">
+                <div class="estrutura-card-label"><span>Estrutura para DJ e pista de dança</span></div>
+            </div>
+            <div class="estrutura-card"><img
+                    src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/03/2DECOR_1571_DSC08215_resultado-1024x684.avif"
+                    alt="Estrutura audiovisual completa" loading="lazy">
+                <div class="estrutura-card-label"><span>Estrutura audiovisual completa</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gastronomia" id="gastronomia">
+        <div class="gastro-img"></div>
+        <div class="gastro-content" style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
+            <span class="section-tag">Gastronomia</span>
+            <h2 class="section-title">Uma experiência gastronômica <br><em>à altura da sua noite</em></h2>
+            <p class="section-body">Da recepção ao grande momento da festa, a gastronomia é pensada
+                para surpreender. Oferecemos menus personalizados para festas de debutantes, incluindo coquetéis,
+                ilhas gastronômicas, finger foods e jantar completo, sempre adaptados ao estilo da debutante e ao
+                perfil dos convidados.</p>
+            <p class="section-body" style="margin-bottom:0">Opções inclusivas, como menus vegetarianos e
+                veganos, também fazem parte da experiência.</p>
+            <div class="gastro-tags">
+                <span class="gastro-tag">Coquetéis</span>
+                <span class="gastro-tag">Ilhas gastronômicas</span>
+                <span class="gastro-tag">Finger foods</span>
+                <span class="gastro-tag">Jantar completo</span>
+                <span class="gastro-tag">Menus vegetarianos</span>
+                <span class="gastro-tag">Menus veganos</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="diferenciais">
+        <div class="diferenciais-header"
+            style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
+            <span class="section-tag">Diferenciais</span>
+            <h2 class="section-title">Diferenciais que tornam sua festa <br><em>de 15 anos extraordinária</em></h2>
+            <p class="section-body">Uma combinação de estrutura, personalização e
+                atendimento que faz toda a diferença.</p>
+        </div>
+        <div class="diferenciais-grid">
+            <div class="dif-card">
+                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg></div><span class="dif-card-title">Personalização do evento conforme seu estilo</span>
+            </div>
+            <div class="dif-card">
+                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
+                        <path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"></path>
+                        <path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0z"></path>
+                        <path d="M4 18v2"></path>
+                        <path d="M20 18v2"></path>
+                    </svg></div><span class="dif-card-title">Camarim exclusivo para a debutante</span>
+            </div>
+            <div class="dif-card">
+                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg></div><span class="dif-card-title">Espaço para até 530 convidados</span>
+            </div>
+            <div class="dif-card">
+                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg></div><span class="dif-card-title">Atendimento altamente elogiado</span>
+            </div>
+            <div class="dif-card">
+                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg></div><span class="dif-card-title">Localização privilegiada em São Paulo</span>
+            </div>
+            <div class="dif-card">
+                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg></div><span class="dif-card-title">Excelente custo-benefício</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="depoimentos" style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
+        <div class="depoimentos-header">
+            <span class="section-tag">Depoimentos</span>
+            <h2 class="section-title">Momentos especiais contados por quem já <br><em>celebrou no Fit Eventos</em></h2>
+        </div>
+        <div class="dep-carousel">
+            <button class="dep-btn dep-btn-prev" id="depPrev" aria-label="Anterior">&lsaquo;</button>
+            <div class="dep-track" id="depTrack">
+                <div class="dep-card">
+                    <p class="dep-card-text">Realizamos nosso primeiro evento (Tax &amp; Pay Summit 2025) sem nenhuma
+                        experiência. Só foi possível graças a todo suporte e atendimento dado
+                        pelo Daniel e Time da Espaço Fit Eventos. A equipe de áudio visual foi atenciosa e
+                        muito profissional. Serviço de cozinha impecável. Recomendamos de olhos fechados.</p>
+                    <span class="dep-card-author">Marco Polo Viana</span>
+                </div>
+                <div class="dep-card">
+                    <p class="dep-card-text">Tivemos a oportunidade de realizar um evento na sala 12 para 70 pessoas.
+                        Fomos bem recebidos e atendidos pela Paula Lima e equipe. Do café ao áudio visual,
+                        não tivemos nenhum tipo de problema, sempre proativos, pontuais e muito solícitos.
+                        Super recomendamos o Espaço Fit Eventos.</p>
+                    <span class="dep-card-author">Aline Amaral</span>
+                </div>
+                <div class="dep-card">
+                    <p class="dep-card-text">Espaço muito bacana, comida gostosa, único ponto de
+                        atenção é os elevadores que comportam apenas 6 pessoas o que pode gerar
+                        filas. De modo geral comunicação com o time de organização sempre
+                        foi claro e transparente. Adoramos tudo no evento.</p>
+                    <span class="dep-card-author">Kelly Andraade</span>
+                </div>
+                <div class="dep-card">
+                    <p class="dep-card-text">Lugar bastante agradável. Moderno, clean e aconchegante. Participei
+                        do evento Inabalável da equipe Empoderamento Adolescente e foi maravilhoso. O local
+                        possui estacionamento e fácil acesso pela Nações Unidas.</p>
+                    <span class="dep-card-author">Mark</span>
+                </div>
+                <div class="dep-card">
+                    <p class="dep-card-text">Organizamos um grande evento no espaço, para aproximadamente 400
+                        pessoas. O espaço é muito bem localizado, amplo e com diversas
+                        opções de salas e personalizações. Destaco principalmente o
+                        atendimento da equipe comercial e também da prestatividade do time de
+                        operações.</p>
+                    <span class="dep-card-author">Alex Pereira</span>
+                </div>
+                <div class="dep-card">
+                    <p class="dep-card-text">O local é bem moderno, com excelente tamanho para eventos de
+                        apresentações e até mesmo teambuilding. O serviço é muito
+                        bom, funcionários educados e bem prestativos. Gastronomia também excelente.</p>
+                    <span class="dep-card-author">Natalia Gonçalves</span>
+                </div>
+                <div class="dep-card">
+                    <p class="dep-card-text">Honesto e eficiente. Ótimo receptivo, atendimento, catering, tudo
+                        muito limpo e ajeitado. Apesar de longe, tem vantagens, como pé direito alto e tudo o que
+                        citei. Ótimo para eventos!</p>
+                    <span class="dep-card-author">Carol Herling Grinbaum</span>
+                </div>
+                <div class="dep-card">
+                    <p class="dep-card-text">Estive presente em um evento da minha empresa no espaço Fit e
+                        saí de lá encantada com tudo. Quero deixar o meu elogio à colaboradora
+                        Paula que me atendeu com excelência e simpatia. Tudo que era solicitado ela fazia e
+                        resolvia de bom grado.</p>
+                    <span class="dep-card-author">Maria Eduarda França</span>
+                </div>
+            </div>
+            <button class="dep-btn dep-btn-next" id="depNext" aria-label="Próximo">&rsaquo;</button>
+        </div>
+    </section>
+
+    <div class="galeria-header" id="galeria"
+        style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
+        <span class="section-tag">Galeria</span>
+        <h2 class="section-title">Veja como sua festa de 15 anos<br><em>pode ganhar vida</em></h2>
+    </div>
+
+    <div class="galeria">
+        <div class="galeria-item tall"><img
+                src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/04/3RECEP_1620_RICK6734_resultado.avif"
+                alt="Recepção de debutante" loading="lazy"></div>
+        <div class="galeria-item"><img
+                src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/04/2DECOR_1075_RICK6232_resultado.avif"
+                alt="Decoração de festa" loading="lazy"></div>
+        <div class="galeria-item"><img
+                src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/03/2DECOR_1289_0W1A0209_resultado.avif"
+                alt="Ambiente de recepção" loading="lazy"></div>
+        <div class="galeria-item"><img
+                src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/04/1MKOF_1129_RICK6291_resultado.avif"
+                alt="Momento da festa" loading="lazy"></div>
+        <div class="galeria-item"><img
+                src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/03/2DECOR_1571_DSC08215_resultado.avif"
+                alt="Detalhes da decoração" loading="lazy"></div>
+    </div>
+
+    <section class="contato-section" id="contato">
+        <div class="contato-info" style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
+            <span class="section-tag">Próximo passo</span>
+            <h2 class="section-title">Vamos começar a planejar<br><em>sua festa dos sonhos?</em></h2>
+            <p class="section-body">Preencha os dados para receber um orçamento com disponibilidade, valores e
+                opções para o seu evento.</p>
+        </div>
+        <div class="contato-form-wrap"
+            style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
+            <form id="orcamentoForm" novalidate>
+                <div class="hp-field" aria-hidden="true">
+                    <label for="website">Deixe este campo em branco</label>
+                    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label class="form-label" for="formNome">Nome</label>
+                        <input class="form-input" type="text" id="formNome" name="nome" placeholder="Seu nome completo"
+                            autocomplete="given-name" maxlength="100" required>
+                        <span class="field-error" id="err-nome">Por favor, informe seu nome.</span>
+                    </div>
+                    <div class="form-group full">
+                        <label class="form-label" for="formEmail">E-mail</label>
+                        <input class="form-input" type="email" id="formEmail" name="email" placeholder="seu@email.com"
+                            autocomplete="email" maxlength="200" required>
+                        <span class="field-error" id="err-email">Informe um e-mail válido.</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="formWhatsapp">WhatsApp</label>
+                        <input class="form-input" type="tel" id="formWhatsapp" name="whatsapp"
+                            placeholder="(11) 9 0000-0000" autocomplete="tel" maxlength="20" required>
+                        <span class="field-error" id="err-whatsapp">Informe um celular válido com DDD.</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="formTipo">Tipo de evento</label>
+                        <select class="form-select" id="formTipo" name="tipo_evento" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="Aniversário">Aniversário</option>
+                            <option value="Aniversário debutante">Aniversário debutante</option>
+                            <option value="Confraternização social">Confraternização social</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                        <span class="field-error" id="err-tipo">Selecione o tipo de evento.</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="formData">Data do evento</label>
+                        <input class="form-input" type="text" id="formData" name="data" placeholder="Data do evento"
+                            required>
+                        <span class="field-error" id="err-data">Selecione a data do evento.</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="formConvidados">Nº de convidados</label>
+                        <input class="form-input" type="number" id="formConvidados" name="convidados"
+                            placeholder="Nº de pessoas" min="1" required>
+                        <span class="field-error" id="err-convidados">Informe o número de convidados.</span>
+                    </div>
+                    <div class="form-group full">
+                        <label class="form-label" for="formMensagem">Mensagem</label>
+                        <textarea class="form-textarea" id="formMensagem" name="mensagem" rows="3"
+                            placeholder="Detalhes adicionais (não obrigatório)"></textarea>
+                    </div>
+                </div>
+                <input type="hidden" id="formFonte" name="fonte" value="Landing page/debutantes">
+                <input type="hidden" name="origem" value="site-fit-eventos-debutantes">
+                <input type="hidden" name="pagina" value="">
+                <button type="submit" class="form-submit" id="formSubmitBtn">Enviar solicitação</button>
+                <div class="form-msg" id="formMsg"></div>
+                <p class="form-footer-msg">Seus dados são usados apenas para retorno de contato e orçamento.</p>
+            </form>
+        </div>
+    </section>
+
+    <section class="mapa-section">
+        <div class="mapa-wrapper">
+            <iframe id="mapIframe"
+                src="https://maps.google.com/maps?q=Espa%C3%A7o%20Fit%20Eventos%20-%20Na%C3%A7%C3%B5es%20Unidas&t=m&z=14&output=embed&iwloc=near"
+                title="Espaço Fit Eventos — Localização" aria-label="Mapa do Espaço Fit Eventos" loading="lazy">
+            </iframe>
+            <div class="mapa-overlay"></div>
+        </div>
+        <div class="mapa-fallback" id="mapaFallback">
+            <p>Não foi possível carregar o mapa.</p>
+            <a href="https://maps.google.com/?q=Espa%C3%A7o+Fit+Eventos+Nações+Unidas+São+Paulo" target="_blank"
+                rel="noopener noreferrer">Ver no Google Maps →</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 Fit Eventos — Todos os direitos reservados.</p>
+            <a href="#" class="footer-logo-bottom" aria-label="Espaço Fit Eventos">
+                <img src="https://z-cdn-media.chatglm.cn/files/b6141e8a-26b2-4a98-a24a-572b061dd41b.png?auth_key=1877922266-df2ae6e359504c07865ef1b88ffe0071-0-b77a9ed1bade15d816a52e89c390d77c"
+                    alt="Espaço Fit Eventos">
+            </a>
+            <div class="footer-dev">
+                <span class="footer-dev-text">Desenvolvido por:</span>
+                <a href="http://dmove.com.br" target="_blank" rel="noopener noreferrer">
+                    <img class="footer-dev-img"
+                        src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/03/Versao-Principal-Negativo-scaled-e1750426923582.avif"
+                        alt="DMove">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="whatsapp-float"
+        aria-label="Fale conosco pelo WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1219.547 1225.016">
+            <path fill="#25d366"
+                d="M1041.858 178.02C927.206 63.289 774.753.07 612.325 0 277.617 0 5.232 272.298 5.098 606.991c-.039 106.986 27.915 211.42 81.048 303.476L0 1225.016l321.898-84.406c88.689 48.368 188.547 73.855 290.166 73.896h.258.003c334.654 0 607.08-272.346 607.222-607.023.056-162.208-63.052-314.724-177.689-429.463zm-429.533 933.963h-.197c-90.578-.048-179.402-24.366-256.878-70.339l-18.438-10.93-191.021 50.083 51-186.176-12.013-19.087c-50.525-80.336-77.198-173.175-77.16-268.504.111-278.186 226.507-504.503 504.898-504.503 134.812.056 261.519 52.604 356.814 147.965 95.289 95.36 147.728 222.128 147.688 356.948-.118 278.195-226.522 504.543-504.693 504.543z">
+            </path>
+            <path fill="#fff"
+                d="M462.273 349.294c-11.234-24.977-23.062-25.477-33.75-25.914-8.742-.375-18.75-.352-28.742-.352-10 0-26.25 3.758-39.992 18.766-13.75 15.008-52.5 51.289-52.5 125.078 0 73.797 53.75 145.102 61.242 155.117 7.5 10 103.758 166.266 256.203 226.383 126.695 49.961 152.477 40.023 179.977 37.523s88.734-36.273 101.234-71.297c12.5-35.016 12.5-65.031 8.75-71.305-3.75-6.25-13.75-10-28.75-17.5s-88.734-43.789-102.484-48.789-23.75-7.5-33.75 7.516c-10 15-38.727 48.773-47.477 58.773-8.75 10.023-17.5 11.273-32.5 3.773-15-7.523-63.305-23.344-120.609-74.438-44.586-39.75-74.688-88.844-83.438-103.859-8.75-15-.938-23.125 6.586-30.602 6.734-6.719 15-17.508 22.5-26.266 7.484-8.758 9.984-15.008 14.984-25.008 5-10.016 2.5-18.773-1.25-26.273s-32.898-81.67-46.234-111.326z">
+            </path>
+        </svg>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+    <script>
+        (function () {
+            window.dataLayer = window.dataLayer || [];
+
+            var navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', function () {
+                navbar.classList.toggle('scrolled', window.scrollY > 60);
+            });
+
+            var hamburger = document.getElementById('hamburgerBtn');
+            var mobileMenu = document.getElementById('mobileMenu');
+            var mobileLinks = mobileMenu.querySelectorAll('a');
+            var hamburgerSpans = hamburger.querySelectorAll('span');
+            var menuOpen = false;
+
+            function toggleMenu() {
+                menuOpen = !menuOpen;
+                if (menuOpen) {
+                    mobileMenu.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                    hamburger.setAttribute('aria-label', 'Fechar menu');
+                    hamburgerSpans[0].style.transform = 'rotate(45deg) translate(4px,4px)';
+                    hamburgerSpans[1].style.opacity = '0';
+                    hamburgerSpans[2].style.transform = 'rotate(-45deg) translate(4px,-4px)';
+                } else {
+                    mobileMenu.classList.remove('open');
+                    document.body.style.overflow = '';
+                    hamburger.setAttribute('aria-label', 'Abrir menu');
+                    hamburgerSpans[0].style.transform = '';
+                    hamburgerSpans[1].style.opacity = '1';
+                    hamburgerSpans[2].style.transform = '';
+                }
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+
+            mobileLinks.forEach(function (l) {
+                l.addEventListener('click', function () {
+                    if (menuOpen) setTimeout(toggleMenu, 100);
+                });
+            });
+
+            var dataInput = document.getElementById('formData');
+            if (typeof flatpickr !== 'undefined') {
+                flatpickr(dataInput, {
+                    locale: 'pt',
+                    dateFormat: 'd/m/Y',
+                    disableMobile: true,
+                    minDate: 'today'
+                });
+                dataInput.setAttribute('readonly', 'readonly');
+            } else {
+                dataInput.type = 'date';
+                dataInput.min = new Date().toISOString().split('T')[0];
+            }
+
+            document.getElementById('formWhatsapp').addEventListener('input', function (e) {
+                var v = e.target.value.replace(/\D/g, '').substring(0, 11);
+                if (v.length > 6) v = '(' + v.substring(0, 2) + ') ' + v.substring(2, 7) + '-' + v.substring(7);
+                else if (v.length > 2) v = '(' + v.substring(0, 2) + ') ' + v.substring(2);
+                else if (v.length > 0) v = '(' + v;
+                e.target.value = v;
+            });
+
+            document.querySelector('input[name="pagina"]').value = window.location.href;
+
+            function validate() {
+                var valid = true;
+                function err(id, errId, cond) {
+                    var el = document.getElementById(id);
+                    var errEl = document.getElementById(errId);
+                    if (cond) { el.classList.add('error'); errEl.classList.add('visible'); valid = false; }
+                    else { el.classList.remove('error'); errEl.classList.remove('visible'); }
+                }
+                var nome = document.getElementById('formNome').value.trim();
+                var raw = document.getElementById('formWhatsapp').value.trim();
+                var whatsapp = raw.replace(/\D/g, '');
+                var email = document.getElementById('formEmail').value.trim();
+                var tipo = document.getElementById('formTipo').value;
+                var data = document.getElementById('formData').value.trim();
+                var convidados = document.getElementById('formConvidados').value;
+                err('formNome', 'err-nome', nome.length < 2);
+                err('formWhatsapp', 'err-whatsapp', whatsapp.length < 10 || whatsapp.length > 11);
+                err('formEmail', 'err-email', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+                err('formTipo', 'err-tipo', tipo === '');
+                err('formData', 'err-data', data === '');
+                err('formConvidados', 'err-convidados', !convidados || parseInt(convidados) < 1);
+                return valid;
+            }
+
+            document.getElementById('orcamentoForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (document.getElementById('website').value !== '') return;
+                if (!validate()) return;
+
+                var btn = document.getElementById('formSubmitBtn');
+                var msg = document.getElementById('formMsg');
+                btn.disabled = true;
+                btn.textContent = 'Enviando...';
+                msg.style.display = 'none';
+                msg.className = 'form-msg';
+
+                var raw = document.getElementById('formWhatsapp').value.trim().replace(/\D/g, '');
+                var payload = {
+                    nome: document.getElementById('formNome').value.trim(),
+                    whatsapp: raw,
+                    email: document.getElementById('formEmail').value.trim().toLowerCase(),
+                    tipo_evento: document.getElementById('formTipo').value,
+                    data: document.getElementById('formData').value,
+                    convidados: document.getElementById('formConvidados').value,
+                    mensagem: document.getElementById('formMensagem').value.trim(),
+                    fonte: document.getElementById('formFonte').value,
+                    origem: 'site-fit-eventos-debutantes',
+                    pagina: window.location.href,
+                    timestamp: new Date().toISOString()
+                };
+
+                var sp = new URLSearchParams(window.location.search);
+                ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) {
+                    var v = sp.get(k) || sessionStorage.getItem('fit_utm_' + k) || '';
+                    if (v) payload[k] = v;
+                });
+
+                window.dataLayer.push({
+                    event: 'form_envio',
+                    form_name: 'debutantes',
+                    form_tipo_evento: payload.tipo_evento,
+                    form_origem: payload.origem
+                });
+
+                // ============================================================
+                // WEBHOOK — Substitua a URL abaixo pela URL do seu webhook
+                // Ex: https://n8n.seudominio.com/webhook/abc123
+                // Ex: https://hook.make.com/xyz789
+                // Ex: https://api.zapier.com/hooks/catch/12345/abcde
+                // ============================================================
+                fetch('https://COLE-A-URL-DO-SEU-WEBHOOK-AQUI.com/lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                })
+                    .then(function (res) {
+                        if (!res.ok) throw new Error('Resposta do servidor: ' + res.status);
+                        var grid = document.querySelector('.form-grid');
+                        grid.style.display = 'none';
+                        btn.style.display = 'none';
+                        msg.innerHTML = 'Recebemos seu pedido de orçamento.<br>Em breve entraremos em contato.';
+                        msg.className = 'form-msg success';
+                        msg.style.display = 'block';
+                    })
+                    .catch(function (err) {
+                        console.error('Erro ao enviar formulário:', err);
+                        btn.disabled = false;
+                        btn.textContent = 'Enviar solicitação';
+                        msg.innerHTML = 'Ocorreu um erro ao enviar. Tente novamente ou entre em contato pelo WhatsApp.';
+                        msg.className = 'form-msg error';
+                        msg.style.display = 'block';
+                    });
+            });
+
+            (function () {
+                var track = document.getElementById('depTrack');
+                var prevBtn = document.getElementById('depPrev');
+                var nextBtn = document.getElementById('depNext');
+                var autoInterval;
+
+                function moveNext() {
+                    var item = track.querySelector('.dep-card');
+                    var w = item.offsetWidth + 20;
+                    if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+                        track.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        track.scrollBy({ left: w, behavior: 'smooth' });
+                    }
+                }
+
+                function movePrev() {
+                    var w = track.querySelector('.dep-card').offsetWidth + 20;
+                    track.scrollBy({ left: -w, behavior: 'smooth' });
+                }
+
+                nextBtn.addEventListener('click', moveNext);
+                prevBtn.addEventListener('click', movePrev);
+
+                function startAuto() { autoInterval = setInterval(moveNext, 5000); }
+                function stopAuto() { clearInterval(autoInterval); }
+
+                startAuto();
+                track.addEventListener('mouseenter', stopAuto);
+                track.addEventListener('mouseleave', startAuto);
+                track.addEventListener('touchstart', stopAuto, { passive: true });
+                track.addEventListener('touchend', startAuto);
+            })();
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll(
+                '.sobre-content, .estrutura-header, .gastro-content, .diferenciais-header, .depoimentos, .contato-info, .contato-form-wrap, .galeria-header'
+            ).forEach(function (el) {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(24px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(el);
+            });
+
+            (function () {
+                var sp = new URLSearchParams(window.location.search);
+                ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) {
+                    var v = sp.get(k);
+                    if (v) sessionStorage.setItem('fit_utm_' + k, v);
+                });
+            })();
+
+            (function () {
+                var iframe = document.getElementById('mapIframe');
+                var fallback = document.getElementById('mapaFallback');
+                if (!iframe) return;
+                iframe.addEventListener('error', function () {
+                    iframe.parentElement.style.display = 'none';
+                    fallback.style.display = 'flex';
+                });
+                setTimeout(function () {
+                    try {
+                        if (iframe.contentDocument === null) {
+                            iframe.parentElement.style.display = 'none';
+                            fallback.style.display = 'flex';
+                        }
+                    } catch (e) { }
+                }, 5000);
+            })();
+
+        })();
+    </script>
+</body>
+
+</html>

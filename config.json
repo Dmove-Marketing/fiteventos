@@ -1,9 +1,8 @@
 {
-  "project_name": "cliente-exemplo",
-  "project_slug": "cliente-exemplo",
-  "client": "Nome do Cliente",
+  "project_name": "fit-eventos",
+  "project_slug": "fit-eventos",
+  "client": "Espaço Fit Eventos",
   "environment": "development",
-  "api_url": "https://api.eventos.dmove.com.br",
   "tracking": {
     "gtm_id": "",
     "enabled": false
@@ -11,16 +10,25 @@
   "forms": {
     "lead-form": {
       "id": "lead-form",
-      "redirect_on_success": "/obrigado",
+      "redirect_on_success": "",
       "webhooks": [
-        "https://server3n8n.dmove.com.br/webhook/casa-voss"
+        "https://server3n8n.dmove.com.br/webhook/fit-eventos"
       ],
-      "fields_required": ["nome", "email", "telefone"]
+      "fields_required": [
+        "nome",
+        "email",
+        "telefone"
+      ]
     }
   },
+  "deploy": {
+    "user": "root",
+    "server": "157.173.197.116",
+    "remote_path": "/var/www/lp.espacofiteventos.com.br"
+  },
   "meta": {
-    "created_at": "2026-04-25",
-    "last_updated": "2026-04-25",
-    "owner": "Michel"
+    "created_at": "2026-05-04",
+    "last_updated": "2026-05-04",
+    "owner": "Rodrigo"
   }
 }
