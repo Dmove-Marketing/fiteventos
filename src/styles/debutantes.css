@@ -1477,13 +1477,28 @@
             font-family: 'Inter', sans-serif;
             border-radius: 8px;
             box-shadow: 0 8px 32px rgba(0,0,0,.15);
-            border: 1px solid var(--dourado-escuro);
+            border: 1px solid #a8832e;
         }
-        .flatpickr-months .flatpickr-month,
-        .flatpickr-weekdays,
-        span.flatpickr-weekday {
-            background: var(--dourado);
+        .flatpickr-months .flatpickr-month {
+            background: #C49C4C;
             color: #fff;
+        }
+        .flatpickr-months .flatpickr-prev-month,
+        .flatpickr-months .flatpickr-next-month {
+            fill: #fff;
+            color: #fff;
+        }
+        .flatpickr-months .flatpickr-prev-month:hover svg,
+        .flatpickr-months .flatpickr-next-month:hover svg {
+            fill: #f0d896;
+        }
+        .flatpickr-weekdays {
+            background: #b8892f;
+        }
+        span.flatpickr-weekday {
+            background: #b8892f;
+            color: #fff;
+            font-weight: 600;
         }
         .flatpickr-current-month .flatpickr-monthDropdown-months,
         .flatpickr-current-month input.cur-year {
@@ -1491,20 +1506,24 @@
         }
         .flatpickr-day.selected,
         .flatpickr-day.selected:hover {
-            background: var(--dourado);
-            border-color: var(--dourado);
+            background: #C49C4C;
+            border-color: #C49C4C;
             color: #fff;
         }
         .flatpickr-day:hover {
-            background: var(--dourado-bg2);
-            border-color: var(--dourado-claro);
+            background: #F7F0DC;
+            border-color: #f0d896;
         }
         .flatpickr-day.today {
-            border-color: var(--dourado);
+            border-color: #C49C4C;
         }
         .flatpickr-day.today:hover {
-            background: var(--dourado-bg2);
-            color: var(--preto);
+            background: #F7F0DC;
+            color: #000;
+        }
+        .flatpickr-day.flatpickr-disabled,
+        .flatpickr-day.flatpickr-disabled:hover {
+            color: rgba(0,0,0,.2);
         }
 
         .flatpickr-calendar {
