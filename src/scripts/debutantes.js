@@ -155,14 +155,6 @@ import 'flatpickr/dist/flatpickr.min.css';
                     iframe.parentElement.style.display = 'none';
                     fallback.style.display = 'flex';
                 });
-                setTimeout(function () {
-                    try {
-                        if (iframe.contentDocument === null) {
-                            iframe.parentElement.style.display = 'none';
-                            fallback.style.display = 'flex';
-                        }
-                    } catch (e) { }
-                }, 5000);
             })();
 
         })();
