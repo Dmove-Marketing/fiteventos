@@ -21,7 +21,8 @@
         }
 
         html {
-            scroll-behavior: smooth
+            scroll-behavior: smooth;
+            overflow-x: hidden
         }
 
         body {
@@ -224,7 +225,7 @@
             background-size: cover;
             background-position: center;
             background-color: var(--preto-medio);
-            opacity: .6;
+            opacity: .75;
             transform: scale(1.04);
             animation: heroZoom 12s ease-out forwards
         }
@@ -238,7 +239,7 @@
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .2) 55%, rgba(0, 0, 0, .05) 100%)
+            background: linear-gradient(to top, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .15) 55%, rgba(0, 0, 0, .02) 100%)
         }
 
         .hero-content {
@@ -1315,7 +1316,8 @@
         }
 
         @media(max-width:768px) {
-            nav {
+            nav,
+            nav.scrolled {
                 padding: 18px 24px
             }
 
@@ -1333,7 +1335,7 @@
             }
 
             .hero-bg {
-                background-position: left center
+                background-position: right center
             }
 
             .hero-content {
