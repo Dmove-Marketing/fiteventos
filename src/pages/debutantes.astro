@@ -6,16 +6,17 @@ import Img from '../components/ui/Img.astro';
 import Video from '../components/ui/Video.astro';
 import LeadForm from '../components/forms/LeadForm.astro';
 import '../styles/debutantes.css';
+import videoThumb from '../assets/images/2DECOR_1571_DSC08215_resultado.avif';
 ---
 
 <Base
   title="Debutantes – Espaço Fit Eventos"
   description="Espaço Fit Eventos — Debutantes. 17 ambientes, 10 andares, capacidade para até 530 convidados."
-  ogImage="https://z-cdn-media.chatglm.cn/files/b6141e8a-26b2-4a98-a24a-572b061dd41b.png?auth_key=1877922266-df2ae6e359504c07865ef1b88ffe0071-0-b77a9ed1bade15d816a52e89c390d77c"
+  ogImage="https://z-cdn-media.chatglm.cn/files/logo.fiteventos.webp?auth_key=1877922266-df2ae6e359504c07865ef1b88ffe0071-0-b77a9ed1bade15d816a52e89c390d77c"
 >
 <nav id="navbar">
         <a href="#" class="nav-logo">
-            <Img src="b6141e8a-26b2-4a98-a24a-572b061dd41b.png" alt="Espaço Fit Eventos" priority />
+            <Img src="logo.fiteventos.webp" alt="Espaço Fit Eventos" priority />
         </a>
         <ul class="nav-links">
             <li><a href="#ambientes">Ambientes</a></li>
@@ -45,13 +46,9 @@ import '../styles/debutantes.css';
         <div class="hero-content">
             <span class="hero-tag">São Paulo · Debutantes</span>
             <h1 class="hero-title">Cada detalhe pensado<br><em>para você brilhar</em></h1>
-            <p class="hero-subtitle">Desde 2012, o Espaço Fit Eventos transforma sonhos em
-                celebrações memoráveis. Com mais de uma década de experiência e
-                milhares de eventos realizados, reconhecido pela organização impecável, estrutura
-                completa e pela capacidade de criar eventos únicos e cheios de significado.</p>
+            <p class="hero-subtitle">Estrutura e serviços completos para transformar sua festa de 15 anos em uma experiência inesquecível.</p>
             <div class="hero-actions">
                 <a href="#contato" class="btn-primary">Solicitar orçamento</a>
-                <a href="#ambientes" class="btn-ghost">Conhecer os ambientes</a>
             </div>
         </div>
     </section>
@@ -66,14 +63,14 @@ import '../styles/debutantes.css';
 
     <section class="sobre">
         <div class="sobre-media">
-            <Video src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/04/Untitled.mp4" poster="" title="Vídeo" description="" uploadDate="2025-01-01" duration="PT1M" />
+            <Video src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/04/Untitled.mp4" poster={videoThumb.src} title="Vídeo" description="" uploadDate="2025-01-01" duration="PT1M" />
         </div>
         <div class="sobre-content" style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
             <span class="section-tag">Sobre o espaço</span>
             <h2 class="section-title">17 ambientes distribuídos em <br><em>10 andares de versatilidade</em></h2>
             <p class="section-body">Com 17 ambientes distribuídos em 10 andares, oferecemos flexibilidade para
                 criar desde festas intimistas até grandes celebrações de debutantes. Cada
-                espaço foi pensado para acompanhar cada momento da festa — da recepção à
+                espaço foi pensado para acompanhar cada momento da festa, da recepção à
                 pista de dança.</p>
             <p class="section-body" style="margin-bottom:0">Com capacidade de <b>50 a 530 convidados</b>, os
                 salões se adaptam a diferentes formatos, como recepção, jantar, cerimônia,
@@ -128,7 +125,7 @@ import '../styles/debutantes.css';
         <div class="gastro-content" style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
             <span class="section-tag">Gastronomia</span>
             <h2 class="section-title">Uma experiência gastronômica <br><em>à altura da sua noite</em></h2>
-            <p class="section-body">Da recepção ao grande momento da festa, a gastronomia é pensada
+            <p class="section-body">Da recepção ao grande momento da festa, a gastronomia, assinada pelo Chef Dalton Rangel, é pensada
                 para surpreender. Oferecemos menus personalizados para festas de debutantes, incluindo coquetéis,
                 ilhas gastronômicas, finger foods e jantar completo, sempre adaptados ao estilo da debutante e ao
                 perfil dos convidados.</p>
@@ -159,7 +156,7 @@ import '../styles/debutantes.css';
                         <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
                         <path d="M2 17l10 5 10-5"></path>
                         <path d="M2 12l10 5 10-5"></path>
-                    </svg></div><span class="dif-card-title">Personalização do evento conforme seu estilo</span>
+                    </svg></div><span class="dif-card-title">Personalização do evento<br>conforme seu estilo</span>
             </div>
             <div class="dif-card">
                 <div class="dif-card-icon"><svg viewBox="0 0 24 24">
@@ -306,7 +303,7 @@ import '../styles/debutantes.css';
                     { value: 'Confraternização social', label: 'Confraternização social' },
                     { value: 'Outros',                  label: 'Outros' },
                   ] },
-                { name: 'data',       type: 'text',     placeholder: 'Data do evento',                       required: true  },
+                { name: 'data',       type: 'text',     placeholder: 'Data do evento',                       required: true, readonly: true  },
                 { name: 'convidados', type: 'number',   placeholder: 'Nº de convidados',                     required: true  },
                 { name: 'mensagem',   type: 'textarea', placeholder: 'Detalhes adicionais (não obrigatório)', required: false, full: true },
               ]}
@@ -333,7 +330,7 @@ import '../styles/debutantes.css';
         <div class="footer-bottom">
             <p class="footer-copy">&copy; 2026 Fit Eventos — Todos os direitos reservados.</p>
             <a href="#" class="footer-logo-bottom" aria-label="Espaço Fit Eventos">
-                <Img src="b6141e8a-26b2-4a98-a24a-572b061dd41b.png" alt="Espaço Fit Eventos" />
+                <Img src="logo.fiteventos.webp" alt="Espaço Fit Eventos" />
             </a>
             <div class="footer-dev">
                 <span class="footer-dev-text">Desenvolvido por:</span>

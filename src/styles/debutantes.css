@@ -91,7 +91,6 @@
         .nav-logo img {
             height: 32px;
             width: auto;
-            filter: brightness(0) invert(1);
         }
 
         .nav-links {
@@ -221,7 +220,7 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background-image: url('https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/03/2DECOR_1571_DSC08215_resultado.avif');
+            background-image: url('../assets/images/hero.fiteventos.jpg.jpeg');
             background-size: cover;
             background-position: center;
             background-color: var(--preto-medio);
@@ -397,9 +396,16 @@
             background-color: var(--preto-medio);
             min-height: 520px;
             display: flex;
-            align-items: center;
+            align-items: stretch;
             justify-content: center;
             overflow: hidden
+        }
+
+        .sobre-media .video-wrap {
+            width: 100%;
+            aspect-ratio: unset;
+            height: 100%;
+            min-height: 520px
         }
 
         .sobre-media video {
@@ -1156,7 +1162,6 @@
             opacity: .55;
             transition: opacity .3s;
             display: block;
-            filter: brightness(0) invert(1);
         }
 
         .footer-logo-bottom:hover img {
@@ -1465,6 +1470,41 @@
             .footer-logo-bottom img {
                 height: 32px;
             }
+        }
+
+        /* Flatpickr – tema dourado */
+        .flatpickr-calendar {
+            font-family: 'Inter', sans-serif;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0,0,0,.15);
+            border: 1px solid var(--dourado-escuro);
+        }
+        .flatpickr-months .flatpickr-month,
+        .flatpickr-weekdays,
+        span.flatpickr-weekday {
+            background: var(--dourado);
+            color: #fff;
+        }
+        .flatpickr-current-month .flatpickr-monthDropdown-months,
+        .flatpickr-current-month input.cur-year {
+            color: #fff;
+        }
+        .flatpickr-day.selected,
+        .flatpickr-day.selected:hover {
+            background: var(--dourado);
+            border-color: var(--dourado);
+            color: #fff;
+        }
+        .flatpickr-day:hover {
+            background: var(--dourado-bg2);
+            border-color: var(--dourado-claro);
+        }
+        .flatpickr-day.today {
+            border-color: var(--dourado);
+        }
+        .flatpickr-day.today:hover {
+            background: var(--dourado-bg2);
+            color: var(--preto);
         }
 
         .flatpickr-calendar {

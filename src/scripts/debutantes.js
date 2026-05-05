@@ -1,4 +1,7 @@
 /* Scripts extraídos de debutantes.html */
+import flatpickr from 'flatpickr';
+import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
+import 'flatpickr/dist/flatpickr.min.css';
 
 (function () {
             window.dataLayer = window.dataLayer || [];
@@ -73,6 +76,57 @@
                 track.addEventListener('mouseleave', startAuto);
                 track.addEventListener('touchstart', stopAuto, { passive: true });
                 track.addEventListener('touchend', startAuto);
+            })();
+
+            (function () {
+                var dataEl = document.getElementById('data');
+                if (dataEl) {
+                    flatpickr(dataEl, {
+                        locale: Portuguese,
+                        dateFormat: 'd/m/Y',
+                        minDate: 'today',
+                        disableMobile: true,
+                    });
+                }
+            })();
+
+            (function () {
+                var tel = document.getElementById('telefone');
+                if (!tel) return;
+                tel.setAttribute('inputmode', 'numeric');
+                tel.setAttribute('maxlength', '15');
+
+                function maskPhone(v) {
+                    v = v.replace(/\D/g, '').slice(0, 11);
+                    if (v.length <= 10) {
+                        return v.replace(/^(\d{0,2})(\d{0,4})(\d{0,4})$/, function (_, a, b, c) {
+                            if (!a) return '';
+                            if (!b) return '(' + a;
+                            if (!c) return '(' + a + ') ' + b;
+                            return '(' + a + ') ' + b + '-' + c;
+                        });
+                    }
+                    return v.replace(/^(\d{0,2})(\d{0,5})(\d{0,4})$/, function (_, a, b, c) {
+                        if (!a) return '';
+                        if (!b) return '(' + a;
+                        if (!c) return '(' + a + ') ' + b;
+                        return '(' + a + ') ' + b + '-' + c;
+                    });
+                }
+
+                tel.addEventListener('input', function () {
+                    var pos = tel.selectionStart;
+                    var prev = tel.value;
+                    tel.value = maskPhone(tel.value);
+                    var diff = tel.value.length - prev.length;
+                    tel.setSelectionRange(pos + diff, pos + diff);
+                });
+
+                tel.addEventListener('keydown', function (e) {
+                    if (e.key && e.key.length === 1 && !/\d/.test(e.key) && !e.ctrlKey && !e.metaKey) {
+                        e.preventDefault();
+                    }
+                });
             })();
 
             var observer = new IntersectionObserver(function (entries) {
