@@ -1,0 +1,654 @@
+---
+interface Props {
+  submitUrl: string;
+  project: string;
+  whatsappPhone?: string;
+  showAfterMs?: number;
+}
+
+const {
+  submitUrl,
+  project,
+  whatsappPhone = '',
+  showAfterMs = 2500,
+} = Astro.props;
+---
+
+<div class="wfw-wrap" id="wfwWrap" data-submit-url={submitUrl} data-project={project} data-wa-phone={whatsappPhone} data-show-after={showAfterMs} aria-live="polite">
+
+  <!-- Botão flutuante -->
+  <button class="wfw-trigger" id="wfwTrigger" aria-label="Solicitar orçamento" aria-expanded="false" aria-controls="wfwPopup">
+    <svg class="wfw-trigger-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M16.004 2.667A13.28 13.28 0 002.667 15.907a13.18 13.18 0 001.794 6.64L2.667 29.333l7.03-1.842a13.28 13.28 0 006.307 1.604h.005A13.28 13.28 0 0029.333 15.92 13.28 13.28 0 0016.004 2.667zm0 24.32a11.04 11.04 0 01-5.626-1.54l-.404-.24-4.186 1.098 1.116-4.08-.264-.42a11.01 11.01 0 01-1.69-5.898A11.05 11.05 0 0116.004 4.902 11.05 11.05 0 0127.1 15.92a11.05 11.05 0 01-11.096 11.067zm6.073-8.287c-.333-.167-1.972-.973-2.278-1.084-.306-.111-.53-.167-.752.167-.223.333-.862 1.084-1.057 1.306-.195.223-.39.25-.723.083-.333-.167-1.406-.518-2.678-1.652-.99-.882-1.658-1.972-1.852-2.305-.195-.333-.021-.514.146-.68.15-.15.333-.39.5-.584.167-.195.222-.334.333-.556.111-.223.056-.417-.028-.584-.083-.167-.751-1.812-1.03-2.48-.27-.65-.546-.562-.751-.573-.195-.01-.417-.012-.64-.012a1.228 1.228 0 00-.89.417c-.305.334-1.168 1.14-1.168 2.779 0 1.64 1.196 3.224 1.363 3.446.167.223 2.352 3.593 5.7 5.038.796.344 1.418.55 1.903.704.8.254 1.527.218 2.102.132.641-.096 1.972-.806 2.25-1.584.278-.779.278-1.446.195-1.585-.083-.139-.306-.223-.64-.39z" fill="currentColor"/>
+    </svg>
+    <span class="wfw-pulse" aria-hidden="true"></span>
+  </button>
+
+  <!-- Popup -->
+  <div class="wfw-popup" id="wfwPopup" role="dialog" aria-modal="true" aria-label="Formulário de orçamento" hidden>
+
+    <!-- Header estilo WhatsApp -->
+    <div class="wfw-header">
+      <div class="wfw-header-avatar" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="#128C7E"/>
+          <path d="M20 10.667A9.28 9.28 0 0010.667 19.907a9.18 9.18 0 001.254 4.64L10.667 29.333l5.03-1.342a9.28 9.28 0 004.307 1.104h.002A9.28 9.28 0 0029.333 19.92 9.28 9.28 0 0020 10.667zm0 17.32a7.04 7.04 0 01-3.626-1.04l-.304-.14-3.086.898.716-2.88-.164-.32a7.01 7.01 0 01-.99-3.698A7.05 7.05 0 0120 13.102a7.05 7.05 0 017.1 7.018A7.05 7.05 0 0120 27.987zm4.073-5.487c-.233-.117-1.372-.673-1.578-.751-.206-.077-.37-.116-.552.116-.183.233-.602.751-.734.906-.133.155-.27.174-.503.058-.233-.116-.98-.36-1.878-1.152-.69-.612-1.157-1.372-1.292-1.605-.135-.233-.014-.359.1-.474.105-.105.233-.27.35-.406.117-.135.155-.233.233-.388.077-.155.038-.29-.02-.407-.058-.116-.522-1.262-.718-1.72-.188-.45-.38-.39-.523-.397-.135-.007-.29-.009-.445-.009a.856.856 0 00-.621.29c-.213.233-.813.794-.813 1.936 0 1.14.833 2.243.949 2.398.116.155 1.637 2.499 3.97 3.506.555.24.988.383 1.327.49.557.177 1.065.152 1.466.092.447-.067 1.372-.561 1.566-1.102.193-.542.193-1.006.135-1.102-.058-.097-.213-.155-.445-.271z" fill="white"/>
+        </svg>
+      </div>
+      <div class="wfw-header-info">
+        <span class="wfw-header-name">Espaço Fit Eventos</span>
+        <span class="wfw-header-status">Online agora</span>
+      </div>
+      <button class="wfw-close" id="wfwClose" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Balão de boas-vindas (estilo mensagem recebida) -->
+    <div class="wfw-body">
+      <div class="wfw-bubble-in">
+        <p>Olá! 👋 Para solicitar um orçamento, preencha os dados abaixo. É rapidinho!</p>
+      </div>
+
+      <!-- Formulário -->
+      <form class="wfw-form" id="wfwForm" novalidate autocomplete="off">
+        <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <!-- Etapa 1 -->
+        <div class="wfw-step" id="wfwStep1" data-step="1">
+          <p class="wfw-step-label">Etapa 1 de 2 — Seus dados</p>
+          <div class="wfw-field-group">
+            <label class="wfw-label" for="wfw-nome">Nome completo <span aria-hidden="true">*</span></label>
+            <input class="wfw-input" id="wfw-nome" type="text" name="nome" placeholder="Seu nome completo" required autocomplete="name">
+            <span class="wfw-error" id="wfw-nome-err" role="alert" hidden>Informe seu nome.</span>
+          </div>
+          <div class="wfw-field-group">
+            <label class="wfw-label" for="wfw-telefone">WhatsApp <span aria-hidden="true">*</span></label>
+            <input class="wfw-input" id="wfw-telefone" type="tel" name="telefone" placeholder="(11) 9 0000-0000" required autocomplete="tel">
+            <span class="wfw-error" id="wfw-tel-err" role="alert" hidden>Informe seu telefone.</span>
+          </div>
+          <div class="wfw-field-group">
+            <label class="wfw-label" for="wfw-email">E-mail <span aria-hidden="true">*</span></label>
+            <input class="wfw-input" id="wfw-email" type="email" name="email" placeholder="seu@email.com" required autocomplete="email">
+            <span class="wfw-error" id="wfw-email-err" role="alert" hidden>Informe um e-mail válido.</span>
+          </div>
+          <button type="button" class="wfw-btn" id="wfwNext">Próximo →</button>
+        </div>
+
+        <!-- Etapa 2 -->
+        <div class="wfw-step" id="wfwStep2" data-step="2" hidden>
+          <p class="wfw-step-label">Etapa 2 de 2 — Detalhes do evento</p>
+          <div class="wfw-field-group">
+            <label class="wfw-label" for="wfw-tipo">Tipo de evento <span aria-hidden="true">*</span></label>
+            <select class="wfw-input wfw-select" id="wfw-tipo" name="tipo" required>
+              <option value="" disabled selected>Selecione o tipo</option>
+              <option value="Aniversário">Aniversário</option>
+              <option value="Aniversário debutante">Aniversário debutante</option>
+              <option value="Confraternização social">Confraternização social</option>
+              <option value="Outros">Outros</option>
+            </select>
+            <span class="wfw-error" id="wfw-tipo-err" role="alert" hidden>Selecione o tipo de evento.</span>
+          </div>
+          <div class="wfw-field-group">
+            <label class="wfw-label" for="wfw-data">Data do evento <span aria-hidden="true">*</span></label>
+            <input class="wfw-input" id="wfw-data" type="date" name="data" required>
+            <span class="wfw-error" id="wfw-data-err" role="alert" hidden>Informe a data do evento.</span>
+          </div>
+          <div class="wfw-field-group">
+            <label class="wfw-label" for="wfw-convidados">Nº de convidados <span aria-hidden="true">*</span></label>
+            <input class="wfw-input" id="wfw-convidados" type="number" name="convidados" placeholder="Ex: 150" min="1" required>
+            <span class="wfw-error" id="wfw-conv-err" role="alert" hidden>Informe o número de convidados.</span>
+          </div>
+          <div class="wfw-step2-actions">
+            <button type="button" class="wfw-btn wfw-btn-back" id="wfwBack">← Voltar</button>
+            <button type="submit" class="wfw-btn" id="wfwSubmit">Enviar</button>
+          </div>
+          <span class="wfw-error wfw-error-global" id="wfw-global-err" role="alert" hidden>Erro ao enviar. Tente novamente.</span>
+        </div>
+
+        <!-- Sucesso -->
+        <div class="wfw-step wfw-success" id="wfwSuccess" hidden>
+          <div class="wfw-success-icon" aria-hidden="true">✓</div>
+          <p class="wfw-success-title">Solicitação enviada!</p>
+          <p class="wfw-success-text">Em breve nossa equipe entrará em contato pelo WhatsApp para apresentar as opções e disponibilidade.</p>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Progress dots -->
+    <div class="wfw-progress" id="wfwProgress" aria-hidden="true">
+      <span class="wfw-dot wfw-dot-active" data-dot="1"></span>
+      <span class="wfw-dot" data-dot="2"></span>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  /* --- Wrap e posicionamento --- */
+  .wfw-wrap {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+  .wfw-wrap.wfw-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* --- Botão flutuante --- */
+  .wfw-trigger {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .wfw-trigger:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 28px rgba(37, 211, 102, 0.6);
+  }
+  .wfw-trigger-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .wfw-pulse {
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    background: rgba(37, 211, 102, 0.28);
+    animation: wfw-pulse 2.2s ease-in-out infinite;
+    z-index: -1;
+  }
+  @keyframes wfw-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.18); opacity: 0; }
+  }
+
+  /* --- Popup --- */
+  .wfw-popup {
+    width: 320px;
+    background: #ECE5DD;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.22);
+    overflow: hidden;
+    transform-origin: bottom right;
+    animation: wfw-open 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .wfw-popup[hidden] { display: none; }
+
+  @keyframes wfw-open {
+    from { opacity: 0; transform: scale(0.85) translateY(12px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  /* --- Header --- */
+  .wfw-header {
+    background: #075E54;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    color: #fff;
+  }
+  .wfw-header-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .wfw-header-avatar svg { display: block; }
+  .wfw-header-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .wfw-header-name {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .wfw-header-status {
+    font-size: 12px;
+    opacity: 0.85;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .wfw-header-status::before {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4FC3F7;
+  }
+  .wfw-close {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+  .wfw-close:hover { background: rgba(255,255,255,0.28); }
+  .wfw-close svg { width: 16px; height: 16px; }
+
+  /* --- Body / chat area --- */
+  .wfw-body {
+    padding: 12px;
+    max-height: 480px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Balão de mensagem recebida */
+  .wfw-bubble-in {
+    background: #fff;
+    border-radius: 0 10px 10px 10px;
+    padding: 10px 13px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #333;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    position: relative;
+    max-width: 90%;
+  }
+  .wfw-bubble-in::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -8px;
+    border: 8px solid transparent;
+    border-right-color: #fff;
+    border-top-color: #fff;
+    border-top-left-radius: 2px;
+  }
+  .wfw-bubble-in p { margin: 0; }
+
+  /* Formulário dentro de um balão "enviado" */
+  .wfw-form {
+    background: #dcf8c6;
+    border-radius: 10px 10px 0 10px;
+    padding: 14px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-self: flex-end;
+    width: 100%;
+  }
+
+  /* --- Etapas --- */
+  .wfw-step { display: flex; flex-direction: column; gap: 8px; }
+  .wfw-step[hidden] { display: none; }
+
+  .wfw-step-label {
+    margin: 0 0 4px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* --- Campos --- */
+  .wfw-field-group { display: flex; flex-direction: column; gap: 3px; }
+  .wfw-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #444;
+  }
+  .wfw-label span { color: #e53e3e; }
+  .wfw-input {
+    width: 100%;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 13.5px;
+    background: #fff;
+    color: #222;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+    font-family: inherit;
+  }
+  .wfw-input:focus { border-color: #25D366; }
+  .wfw-input.wfw-input-error { border-color: #e53e3e; }
+  .wfw-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px; cursor: pointer; }
+  .wfw-textarea { resize: none; }
+
+  .wfw-error {
+    font-size: 11.5px;
+    color: #e53e3e;
+    margin: 0;
+  }
+  .wfw-error-global { margin-top: 4px; text-align: center; }
+  .wfw-error[hidden] { display: none; }
+
+  /* --- Botões --- */
+  .wfw-btn {
+    background: #25D366;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, opacity 0.2s;
+    font-family: inherit;
+    align-self: stretch;
+  }
+  .wfw-btn:hover { background: #1ebc5a; }
+  .wfw-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .wfw-step2-actions {
+    display: flex;
+    gap: 8px;
+  }
+  .wfw-btn-back {
+    background: rgba(0,0,0,0.08);
+    color: #333;
+    flex: 0 0 auto;
+    padding: 10px 12px;
+  }
+  .wfw-btn-back:hover { background: rgba(0,0,0,0.14); }
+  #wfwSubmit { flex: 1; }
+
+  /* --- Sucesso --- */
+  .wfw-success {
+    align-items: center;
+    text-align: center;
+    padding: 8px 0;
+    gap: 10px;
+  }
+  .wfw-success[hidden] { display: none; }
+  .wfw-success-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .wfw-success-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #075E54;
+  }
+  .wfw-success-text {
+    margin: 0;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  /* --- Progress --- */
+  .wfw-progress {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px;
+    background: #ECE5DD;
+  }
+  .wfw-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #bbb;
+    transition: background 0.25s;
+  }
+  .wfw-dot-active { background: #075E54; }
+
+  /* --- Mobile --- */
+  @media (max-width: 480px) {
+    .wfw-wrap {
+      bottom: 16px;
+      right: 16px;
+    }
+    .wfw-popup {
+      width: calc(100vw - 32px);
+      max-width: 340px;
+    }
+    .wfw-body { max-height: 420px; }
+    .wfw-trigger { width: 54px; height: 54px; }
+    .wfw-trigger-icon { width: 28px; height: 28px; }
+  }
+</style>
+
+<script>
+  import flatpickr from 'flatpickr';
+  import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
+
+  function maskPhone(v: string): string {
+    v = v.replace(/\D/g, '').slice(0, 11);
+    if (v.length <= 10) {
+      return v.replace(/^(\d{0,2})(\d{0,4})(\d{0,4})$/, (_, a, b, c) => {
+        if (!a) return '';
+        if (!b) return '(' + a;
+        if (!c) return '(' + a + ') ' + b;
+        return '(' + a + ') ' + b + '-' + c;
+      });
+    }
+    return v.replace(/^(\d{0,2})(\d{0,5})(\d{0,4})$/, (_, a, b, c) => {
+      if (!a) return '';
+      if (!b) return '(' + a;
+      if (!c) return '(' + a + ') ' + b;
+      return '(' + a + ') ' + b + '-' + c;
+    });
+  }
+
+  function initWFW() {
+    const wrap     = document.getElementById('wfwWrap') as HTMLElement;
+    const trigger  = document.getElementById('wfwTrigger') as HTMLButtonElement;
+    const popup    = document.getElementById('wfwPopup') as HTMLElement;
+    const closeBtn = document.getElementById('wfwClose') as HTMLButtonElement;
+    const form     = document.getElementById('wfwForm') as HTMLFormElement;
+    const step1    = document.getElementById('wfwStep1') as HTMLElement;
+    const step2    = document.getElementById('wfwStep2') as HTMLElement;
+    const success  = document.getElementById('wfwSuccess') as HTMLElement;
+    const nextBtn  = document.getElementById('wfwNext') as HTMLButtonElement;
+    const backBtn  = document.getElementById('wfwBack') as HTMLButtonElement;
+    const submitBtn= document.getElementById('wfwSubmit') as HTMLButtonElement;
+    const progress = document.getElementById('wfwProgress') as HTMLElement;
+    const dots     = progress.querySelectorAll<HTMLElement>('.wfw-dot');
+    const globalErr= document.getElementById('wfw-global-err') as HTMLElement;
+
+    if (!wrap) return;
+
+    const delay   = parseInt(wrap.dataset.showAfter || '2500');
+    const waPhone = (wrap.dataset.waPhone || '').replace(/\D/g, '');
+
+    setTimeout(() => wrap.classList.add('wfw-visible'), delay);
+
+    // Flatpickr no campo de data
+    const dataInput = form.querySelector<HTMLInputElement>('#wfw-data');
+    if (dataInput) {
+      flatpickr(dataInput, {
+        locale: Portuguese,
+        dateFormat: 'd/m/Y',
+        minDate: 'today',
+        disableMobile: true,
+      });
+    }
+
+    // Máscara de telefone
+    const telInput = form.querySelector<HTMLInputElement>('#wfw-telefone');
+    if (telInput) {
+      telInput.setAttribute('inputmode', 'numeric');
+      telInput.setAttribute('maxlength', '15');
+      telInput.addEventListener('input', () => {
+        const pos  = telInput.selectionStart ?? 0;
+        const prev = telInput.value;
+        telInput.value = maskPhone(telInput.value);
+        const diff = telInput.value.length - prev.length;
+        telInput.setSelectionRange(pos + diff, pos + diff);
+      });
+      telInput.addEventListener('keydown', (e) => {
+        if (e.key && e.key.length === 1 && !/\d/.test(e.key) && !e.ctrlKey && !e.metaKey) {
+          e.preventDefault();
+        }
+      });
+    }
+
+    function openPopup() {
+      popup.hidden = false;
+      trigger.setAttribute('aria-expanded', 'true');
+      form.querySelector<HTMLInputElement>('#wfw-nome')?.focus();
+    }
+    function closePopup() {
+      popup.hidden = true;
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.focus();
+    }
+
+    trigger.addEventListener('click', () => {
+      popup.hidden ? openPopup() : closePopup();
+    });
+    closeBtn.addEventListener('click', closePopup);
+
+    function setDot(step: number) {
+      dots.forEach((d, i) => d.classList.toggle('wfw-dot-active', i + 1 === step));
+    }
+
+    function validateField(input: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement, errorId: string, msg: string): boolean {
+      const err = document.getElementById(errorId) as HTMLElement;
+      const empty = !input.value.trim();
+      const emailBad = input.type === 'email' && !empty && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
+      const invalid = empty || emailBad;
+      input.classList.toggle('wfw-input-error', invalid);
+      if (err) { err.hidden = !invalid; err.textContent = emailBad ? 'E-mail inválido.' : msg; }
+      return !invalid;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      const nome  = form.querySelector<HTMLInputElement>('#wfw-nome')!;
+      const tel   = form.querySelector<HTMLInputElement>('#wfw-telefone')!;
+      const email = form.querySelector<HTMLInputElement>('#wfw-email')!;
+      const v1 = validateField(nome,  'wfw-nome-err',  'Informe seu nome.');
+      const v2 = validateField(tel,   'wfw-tel-err',   'Informe seu telefone.');
+      const v3 = validateField(email, 'wfw-email-err', 'Informe um e-mail válido.');
+      if (!v1 || !v2 || !v3) return;
+      step1.hidden = true;
+      step2.hidden = false;
+      setDot(2);
+      form.querySelector<HTMLElement>('#wfw-tipo')?.focus();
+    });
+
+    backBtn.addEventListener('click', () => {
+      step2.hidden = true;
+      step1.hidden = false;
+      setDot(1);
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const honeypot = form.querySelector<HTMLInputElement>('[name="website"]');
+      if (honeypot?.value) return;
+
+      const tipo      = form.querySelector<HTMLSelectElement>('#wfw-tipo')!;
+      const dataEl    = form.querySelector<HTMLInputElement>('#wfw-data')!;
+      const convidados= form.querySelector<HTMLInputElement>('#wfw-convidados')!;
+
+      const v1 = validateField(tipo,       'wfw-tipo-err', 'Selecione o tipo de evento.');
+      const v2 = validateField(dataEl,     'wfw-data-err', 'Informe a data do evento.');
+      const v3 = validateField(convidados, 'wfw-conv-err', 'Informe o número de convidados.');
+      if (!v1 || !v2 || !v3) return;
+
+      const submitUrl = wrap.dataset.submitUrl!;
+      const project   = wrap.dataset.project!;
+      const formData  = new FormData(form);
+      const fields: Record<string, string> = {};
+      formData.forEach((val, key) => { if (key !== 'website') fields[key] = val as string; });
+
+      let tracking: Record<string, unknown> = {};
+      try { tracking = JSON.parse(sessionStorage.getItem('dmove_tracking') || '{}'); } catch {}
+
+      const payload = {
+        project,
+        form_id: 'wfw-widget',
+        data: fields,
+        tracking: {
+          ...tracking,
+          submitted_at: new Date().toISOString(),
+          page_url: window.location.href,
+        },
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando…';
+      globalErr.hidden = true;
+
+      try {
+        const res = await fetch(submitUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error('server');
+
+        if (typeof (window as any).dataLayer !== 'undefined') {
+          (window as any).dataLayer.push({ event: 'form_submit', form_id: 'wfw-widget' });
+        }
+
+        if (waPhone) {
+          window.location.href = `https://wa.me/${waPhone}`;
+        } else {
+          step2.hidden = true;
+          success.hidden = false;
+          progress.hidden = true;
+        }
+      } catch {
+        globalErr.hidden = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !popup.hidden) closePopup();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWFW);
+  } else {
+    initWFW();
+  }
+</script>
