@@ -157,4 +157,44 @@ import 'flatpickr/dist/flatpickr.min.css';
                 });
             })();
 
+            (function () {
+                var front = document.getElementById('heroBgFront');
+                var back = document.getElementById('heroBgBack');
+                if (!front || !back) return;
+
+                var slides = JSON.parse(front.dataset.slides);
+                var idx = 0;
+                var busy = false;
+
+                front.style.backgroundImage = 'url(' + slides[0] + ')';
+
+                setInterval(function () {
+                    if (busy) return;
+                    busy = true;
+                    idx = (idx + 1) % slides.length;
+
+                    // Carrega próxima no back e faz crossfade simultâneo
+                    back.style.backgroundImage = 'url(' + slides[idx] + ')';
+                    back.style.opacity = '.75';
+                    front.style.opacity = '0';
+
+                    setTimeout(function () {
+                        // Snap: front assume a nova imagem sem transição visível
+                        front.style.transition = 'none';
+                        back.style.transition = 'none';
+                        front.style.backgroundImage = 'url(' + slides[idx] + ')';
+                        front.style.opacity = '.75';
+                        back.style.opacity = '0';
+
+                        requestAnimationFrame(function () {
+                            requestAnimationFrame(function () {
+                                front.style.transition = '';
+                                back.style.transition = '';
+                                busy = false;
+                            });
+                        });
+                    }, 1000);
+                }, 5000);
+            })();
+
         })();

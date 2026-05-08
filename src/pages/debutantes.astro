@@ -8,12 +8,20 @@ import LeadForm from '../components/forms/LeadForm.astro';
 import WhatsAppFormWidget from '../components/ui/WhatsAppFormWidget.astro';
 import '../styles/debutantes.css';
 import videoThumb from '../assets/images/2DECOR_1571_DSC08215_resultado.avif';
+import ogImg from '../assets/images/compartilhamento.fiteventos.webp';
+import heroSlide1 from '../assets/images/hero_carrossel.01.webp';
+import heroSlide2 from '../assets/images/hero_carrossel.02.webp';
+import heroSlide3 from '../assets/images/hero_carrossel.03.webp';
+import heroSlide4 from '../assets/images/hero_carrossel.04.webp';
+import heroSlide5 from '../assets/images/hero_carrossel.05.webp';
+import heroSlide6 from '../assets/images/hero_carrossel.06.webp';
+const heroSlides = [heroSlide1.src, heroSlide2.src, heroSlide3.src, heroSlide4.src, heroSlide5.src, heroSlide6.src];
 ---
 
 <Base
   title="Debutantes – Espaço Fit Eventos"
   description="Espaço Fit Eventos — Debutantes. 17 ambientes, 10 andares, capacidade para até 530 convidados."
-  ogImage="https://z-cdn-media.chatglm.cn/files/logo.fiteventos.webp?auth_key=1877922266-df2ae6e359504c07865ef1b88ffe0071-0-b77a9ed1bade15d816a52e89c390d77c"
+  ogImage={ogImg.src}
 >
 <nav id="navbar">
         <a href="#" class="nav-logo">
@@ -42,7 +50,8 @@ import videoThumb from '../assets/images/2DECOR_1571_DSC08215_resultado.avif';
     </div>
 
     <section class="hero">
-        <div class="hero-bg"></div>
+        <div class="hero-bg hero-bg-front" id="heroBgFront" data-slides={JSON.stringify(heroSlides)}></div>
+        <div class="hero-bg hero-bg-back" id="heroBgBack"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <span class="hero-tag">São Paulo · Debutantes</span>
@@ -94,7 +103,7 @@ import videoThumb from '../assets/images/2DECOR_1571_DSC08215_resultado.avif';
             <div class="ambientes-item"><Img src="2DECOR_1065_RICK6217-31-03-2026-13-26-01_resultado.avif" alt="Decoração de festa de 15 anos" /></div>
             <div class="ambientes-item"><Img src="2DECOR_1145_DSC07536_resultado.avif" alt="Espaço para cerimônia de debutante" /></div>
             <div class="ambientes-item"><Img src="WhatsApp Image 2026-05-05 at 18.10.55.jpeg" alt="Ambiente do Espaço Fit Eventos" /></div>
-            <div class="ambientes-item"><Img src="WhatsApp Image 2026-05-05 at 18.10.56 (1).jpeg" alt="Ambiente do Espaço Fit Eventos" /></div>
+            <div class="ambientes-item"><Img src="camarim.fit.webp" alt="Camarim do Espaço Fit Eventos" /></div>
             <div class="ambientes-item"><Img src="WhatsApp Image 2026-05-05 at 18.10.57.jpeg" alt="Ambiente do Espaço Fit Eventos" /></div>
         </div>
     </section>
@@ -126,7 +135,7 @@ import videoThumb from '../assets/images/2DECOR_1571_DSC08215_resultado.avif';
         <div class="gastro-content" style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
             <span class="section-tag">Gastronomia</span>
             <h2 class="section-title">Uma experiência gastronômica <br><em>à altura da sua noite</em></h2>
-            <p class="section-body">Da recepção ao grande momento da festa, a gastronomia, assinada pelo Chef Dalton Rangel, é pensada
+            <p class="section-body">Da recepção ao grande momento da festa, a gastronomia, assinada pelo <b>Chef Dalton Rangel</b>, é pensada
                 para surpreender. Oferecemos menus personalizados para festas de debutantes, incluindo coquetéis,
                 ilhas gastronômicas, finger foods e jantar completo, sempre adaptados ao estilo da debutante e ao
                 perfil dos convidados.</p>
@@ -298,11 +307,17 @@ import videoThumb from '../assets/images/2DECOR_1571_DSC08215_resultado.avif';
                 { name: 'email',      type: 'email',    placeholder: 'seu@email.com',                        required: true,  full: true },
                 { name: 'telefone',   type: 'tel',      placeholder: '(11) 9 0000-0000',                     required: true  },
                 { name: 'tipo',       type: 'select',   placeholder: '',                                     required: true,  options: [
-                    { value: '',                        label: 'Tipo de evento',           disabled: true, selected: true },
-                    { value: 'Aniversário',             label: 'Aniversário' },
-                    { value: 'Aniversário debutante',   label: 'Aniversário debutante' },
-                    { value: 'Confraternização social', label: 'Confraternização social' },
-                    { value: 'Outros',                  label: 'Outros' },
+                    { value: '',                  label: 'Tipo de evento',    disabled: true, selected: true },
+                    { value: 'Eventos sociais',   label: 'Eventos sociais'   },
+                    { value: 'Casamentos',        label: 'Casamentos'        },
+                    { value: 'Mini Wedding',      label: 'Mini Wedding'      },
+                    { value: 'Aniversários',      label: 'Aniversários'      },
+                    { value: 'Debutantes',        label: 'Debutantes'        },
+                    { value: 'Formatura',         label: 'Formatura'         },
+                    { value: 'Bodas',             label: 'Bodas'             },
+                    { value: 'Festas Judaicas',   label: 'Festas Judaicas'   },
+                    { value: 'Bar Mitzvah',       label: 'Bar Mitzvah'       },
+                    { value: 'Bat Mitzvah',       label: 'Bat Mitzvah'       },
                   ] },
                 { name: 'data',       type: 'text',     placeholder: 'Data do evento',                       required: true, readonly: true  },
                 { name: 'convidados', type: 'number',   placeholder: 'Nº de convidados',                     required: true  },
@@ -329,7 +344,7 @@ import videoThumb from '../assets/images/2DECOR_1571_DSC08215_resultado.avif';
 
     <footer>
         <div class="footer-bottom">
-            <p class="footer-copy">&copy; 2026 Fit Eventos — Todos os direitos reservados.</p>
+            <p class="footer-copy">&copy; 2026 Espaço Fit Eventos — Todos os direitos reservados.</p>
             <a href="#" class="footer-logo-bottom" aria-label="Espaço Fit Eventos">
                 <Img src="logo.fiteventos.webp" alt="Espaço Fit Eventos" />
             </a>
