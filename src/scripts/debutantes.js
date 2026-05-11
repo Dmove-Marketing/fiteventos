@@ -162,7 +162,8 @@ import 'flatpickr/dist/flatpickr.min.css';
                 var back = document.getElementById('heroBgBack');
                 if (!front || !back) return;
 
-                var slides = JSON.parse(front.dataset.slides);
+                var isMobile = window.matchMedia('(max-width: 768px)').matches;
+                var slides = JSON.parse(isMobile && front.dataset.slidesMobile ? front.dataset.slidesMobile : front.dataset.slides);
                 var idx = 0;
                 var busy = false;
 

@@ -16,6 +16,14 @@ import heroSlide4 from '../assets/images/hero_carrossel.04.webp';
 import heroSlide5 from '../assets/images/hero_carrossel.05.webp';
 import heroSlide6 from '../assets/images/hero_carrossel.06.webp';
 const heroSlides = [heroSlide1.src, heroSlide2.src, heroSlide3.src, heroSlide4.src, heroSlide5.src, heroSlide6.src];
+
+import heroMobile1 from '../assets/images/heromobile-01_resultado.webp';
+import heroMobile2 from '../assets/images/heromobile-02_resultado.webp';
+import heroMobile3 from '../assets/images/heromobile-03_resultado.webp';
+import heroMobile4 from '../assets/images/heromobile-04_resultado.webp';
+import heroMobile5 from '../assets/images/heromobile-05_resultado.webp';
+import heroMobile6 from '../assets/images/heromobile-06_resultado.webp';
+const heroSlidesMobile = [heroMobile1.src, heroMobile2.src, heroMobile3.src, heroMobile4.src, heroMobile5.src, heroMobile6.src];
 ---
 
 <Base
@@ -50,7 +58,7 @@ const heroSlides = [heroSlide1.src, heroSlide2.src, heroSlide3.src, heroSlide4.s
     </div>
 
     <section class="hero">
-        <div class="hero-bg hero-bg-front" id="heroBgFront" data-slides={JSON.stringify(heroSlides)}></div>
+        <div class="hero-bg hero-bg-front" id="heroBgFront" data-slides={JSON.stringify(heroSlides)} data-slides-mobile={JSON.stringify(heroSlidesMobile)}></div>
         <div class="hero-bg hero-bg-back" id="heroBgBack"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -64,11 +72,8 @@ const heroSlides = [heroSlide1.src, heroSlide2.src, heroSlide3.src, heroSlide4.s
     </section>
 
     <div class="stats-bar">
-        <div class="stat-item"><span class="stat-num">10</span><span class="stat-label">andares</span></div>
-        <div class="stat-item"><span class="stat-num">17</span><span class="stat-label">ambientes</span></div>
-        <div class="stat-item"><span class="stat-num">530</span><span class="stat-label">convidados</span></div>
-        <div class="stat-item"><span class="stat-num">12+</span><span class="stat-label">anos de experiência</span>
-        </div>
+        <div class="stat-item"><span class="stat-num">+500</span><span class="stat-label">convidados em pé</span></div>
+        <div class="stat-item"><span class="stat-num">+10</span><span class="stat-label">anos de experiência</span></div>
     </div>
 
     <section class="sobre">
@@ -329,16 +334,8 @@ const heroSlides = [heroSlide1.src, heroSlide2.src, heroSlide3.src, heroSlide4.s
 
     <section class="mapa-section">
         <div class="mapa-wrapper">
-            <iframe id="mapIframe"
-                src="https://maps.google.com/maps?q=Espa%C3%A7o%20Fit%20Eventos%20-%20Na%C3%A7%C3%B5es%20Unidas&t=m&z=14&output=embed&iwloc=near"
-                title="Espaço Fit Eventos — Localização" aria-label="Mapa do Espaço Fit Eventos" loading="lazy">
-            </iframe>
+            <Img src="mapa.png" alt="Localização do Espaço Fit Eventos" class="mapa-img" />
             <div class="mapa-overlay"></div>
-        </div>
-        <div class="mapa-fallback" id="mapaFallback">
-            <p>Não foi possível carregar o mapa.</p>
-            <a href="https://maps.google.com/?q=Espa%C3%A7o+Fit+Eventos+Nações+Unidas+São+Paulo" target="_blank"
-                rel="noopener noreferrer">Ver no Google Maps →</a>
         </div>
     </section>
 
