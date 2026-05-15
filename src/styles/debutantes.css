@@ -21,8 +21,7 @@
         }
 
         html {
-            scroll-behavior: smooth;
-            overflow-x: hidden
+            scroll-behavior: smooth
         }
 
         body {
@@ -92,6 +91,7 @@
         .nav-logo img {
             height: 32px;
             width: auto;
+            filter: brightness(0) invert(1);
         }
 
         .nav-links {
@@ -221,22 +221,13 @@
         .hero-bg {
             position: absolute;
             inset: 0;
+            background-image: url('https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/03/2DECOR_1571_DSC08215_resultado.avif');
             background-size: cover;
             background-position: center;
             background-color: var(--preto-medio);
-            opacity: .75;
-            transition: opacity 1s ease;
-        }
-
-        .hero-bg-front {
-            z-index: 1;
+            opacity: .6;
             transform: scale(1.04);
-            animation: heroZoom 12s ease-out forwards;
-        }
-
-        .hero-bg-back {
-            z-index: 0;
-            opacity: 0;
+            animation: heroZoom 12s ease-out forwards
         }
 
         @keyframes heroZoom {
@@ -248,13 +239,12 @@
         .hero-overlay {
             position: absolute;
             inset: 0;
-            z-index: 3;
-            background: linear-gradient(to top, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .15) 55%, rgba(0, 0, 0, .02) 100%)
+            background: linear-gradient(to top, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .2) 55%, rgba(0, 0, 0, .05) 100%)
         }
 
         .hero-content {
             position: relative;
-            z-index: 4;
+            z-index: 2;
             padding: 0 60px 80px;
             max-width: 800px;
             opacity: 0;
@@ -359,28 +349,57 @@
             font-size: 18px
         }
 
+        .stats-bar {
+            background: linear-gradient(135deg, #D4A843 0%, #C49C4C 40%, #B8892F 100%);
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 12px rgba(196, 156, 76, 0.25)
+        }
+
+        .stat-item {
+            padding: 36px 60px;
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+            flex: 1;
+            max-width: 240px
+        }
+
+        .stat-item:last-child {
+            border-right: none
+        }
+
+        .stat-num {
+            font-size: 38px;
+            font-weight: 300;
+            color: var(--branco);
+            display: block;
+            line-height: 1;
+            letter-spacing: -.5px
+        }
+
+        .stat-label {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 8px;
+            display: block;
+            font-weight: 400
+        }
 
         .sobre {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            min-height: 600px;
-            padding: 30px 30px 0
+            min-height: 600px
         }
 
         .sobre-media {
             background-color: var(--preto-medio);
             min-height: 520px;
             display: flex;
-            align-items: stretch;
+            align-items: center;
             justify-content: center;
             overflow: hidden
-        }
-
-        .sobre-media .video-wrap {
-            width: 100%;
-            aspect-ratio: unset;
-            height: 100%;
-            min-height: 520px
         }
 
         .sobre-media video {
@@ -1060,16 +1079,16 @@
 
         .mapa-wrapper {
             position: relative;
-            height: 380px;
-            overflow: hidden
+            height: 400px
         }
 
-        .mapa-img {
+        .mapa-wrapper iframe {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            border: 0;
             display: block;
-            filter: grayscale(.2) contrast(1.05)
+            filter: grayscale(.2) contrast(1.05);
+            pointer-events: none
         }
 
         .mapa-overlay {
@@ -1137,6 +1156,7 @@
             opacity: .55;
             transition: opacity .3s;
             display: block;
+            filter: brightness(0) invert(1);
         }
 
         .footer-logo-bottom:hover img {
@@ -1290,8 +1310,7 @@
         }
 
         @media(max-width:768px) {
-            nav,
-            nav.scrolled {
+            nav {
                 padding: 18px 24px
             }
 
@@ -1309,7 +1328,7 @@
             }
 
             .hero-bg {
-                background-position: center center
+                background-position: left center
             }
 
             .hero-content {
@@ -1322,10 +1341,18 @@
                 font-size: 15px
             }
 
+            .stats-bar {
+                flex-wrap: wrap
+            }
+
+            .stat-item {
+                flex: 1 1 50%;
+                max-width: none;
+                padding: 28px 20px
+            }
 
             .sobre {
-                grid-template-columns: 1fr;
-                padding: 30px 0 0
+                grid-template-columns: 1fr
             }
 
             .sobre-media {
@@ -1431,67 +1458,13 @@
 
             .footer-bottom {
                 flex-direction: column;
-                gap: 32px;
+                gap: 20px;
                 text-align: center
             }
 
             .footer-logo-bottom img {
                 height: 32px;
             }
-        }
-
-        /* Flatpickr – tema dourado */
-        .flatpickr-calendar {
-            font-family: 'Inter', sans-serif;
-            border-radius: 8px;
-            box-shadow: 0 8px 32px rgba(0,0,0,.15);
-            border: 1px solid #a8832e;
-        }
-        .flatpickr-months .flatpickr-month {
-            background: #C49C4C;
-            color: #fff;
-        }
-        .flatpickr-months .flatpickr-prev-month,
-        .flatpickr-months .flatpickr-next-month {
-            fill: #fff;
-            color: #fff;
-        }
-        .flatpickr-months .flatpickr-prev-month:hover svg,
-        .flatpickr-months .flatpickr-next-month:hover svg {
-            fill: #f0d896;
-        }
-        .flatpickr-weekdays {
-            background: #b8892f;
-        }
-        span.flatpickr-weekday {
-            background: #b8892f;
-            color: #fff;
-            font-weight: 600;
-        }
-        .flatpickr-current-month .flatpickr-monthDropdown-months,
-        .flatpickr-current-month input.cur-year {
-            color: #fff;
-        }
-        .flatpickr-day.selected,
-        .flatpickr-day.selected:hover {
-            background: #C49C4C;
-            border-color: #C49C4C;
-            color: #fff;
-        }
-        .flatpickr-day:hover {
-            background: #F7F0DC;
-            border-color: #f0d896;
-        }
-        .flatpickr-day.today {
-            border-color: #C49C4C;
-        }
-        .flatpickr-day.today:hover {
-            background: #F7F0DC;
-            color: #000;
-        }
-        .flatpickr-day.flatpickr-disabled,
-        .flatpickr-day.flatpickr-disabled:hover {
-            color: rgba(0,0,0,.2);
         }
 
         .flatpickr-calendar {
@@ -1561,195 +1534,3 @@
         .flatpickr-day.nextMonthDay {
             color: #ccc !important
         }
-
-/* ─── LeadForm prefix="fit" — estilos do formulário original ───────────────────
-   Com prefix, o componente não aplica nenhum estilo próprio.
-   Todo o visual é definido aqui, replicando fielmente o tema dourado original.
-   ─────────────────────────────────────────────────────────────────────────── */
-
-.fit-form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 20px;
-}
-
-.fit-form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.fit-form-group.full {
-    grid-column: 1 / -1;
-}
-
-.fit-label {
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #666;
-    font-weight: 500;
-}
-
-.fit-input,
-.fit-select,
-.fit-textarea {
-    font-family: 'Inter', sans-serif;
-    padding: 14px 16px;
-    background: var(--dourado-bg);
-    border: 1px solid rgba(196, 156, 76, .3);
-    color: var(--preto);
-    font-size: 15px;
-    font-weight: 300;
-    outline: none;
-    transition: border-color .3s, background .3s;
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    border-radius: 0;
-}
-
-.fit-input::placeholder,
-.fit-textarea::placeholder {
-    color: #aaa;
-}
-
-.fit-input:focus,
-.fit-select:focus,
-.fit-textarea:focus {
-    border-color: var(--dourado);
-    background: var(--dourado-bg2);
-}
-
-.fit-select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(196,156,76,0.8)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-    padding-right: 40px;
-    cursor: pointer;
-}
-
-.fit-select option {
-    background: var(--branco);
-    color: var(--preto);
-}
-
-.fit-textarea {
-    resize: vertical;
-    min-height: 80px;
-}
-
-.fit-field-error {
-    font-size: 11px;
-    color: #c05050;
-    letter-spacing: .3px;
-    display: none;
-}
-
-.fit-field-error.visible {
-    display: block;
-}
-
-.fit-submit {
-    background: var(--dourado);
-    color: var(--branco);
-    padding: 18px 36px;
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-    transition: background .3s, transform .3s;
-    margin-top: 8px;
-    width: 100%;
-    display: block;
-}
-
-.fit-submit:hover:not(:disabled) {
-    background: var(--dourado-escuro);
-    transform: translateY(-1px);
-}
-
-.fit-submit:disabled {
-    opacity: .65;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.fit-form-msg {
-    font-size: 13px;
-    text-align: center;
-    margin-top: 14px;
-    padding: 12px 16px;
-    line-height: 1.5;
-    display: none;
-}
-
-.fit-form-msg:not(:empty) {
-    display: block;
-    background: rgba(201, 123, 123, .08);
-    color: #c05050;
-    border: 1px solid rgba(201, 123, 123, .25);
-}
-
-.fit-form-footer {
-    font-size: 12px;
-    color: #aaa;
-    letter-spacing: .3px;
-    margin-top: 14px;
-    line-height: 1.6;
-}
-
-.fit-success-state {
-    display: none;
-    text-align: center;
-    padding: 48px 24px;
-    background: rgba(196, 156, 76, .05);
-    border: 1px solid rgba(196, 156, 76, .2);
-}
-
-.fit-success-state.active {
-    display: block;
-}
-
-.fit-success-icon {
-    width: 56px;
-    height: 56px;
-    margin: 0 auto 16px;
-    background: var(--dourado);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.fit-success-icon svg {
-    stroke: var(--branco);
-    width: 26px;
-    height: 26px;
-    fill: none;
-    stroke-width: 2.5;
-}
-
-.fit-success-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--preto);
-    letter-spacing: 0;
-    margin-bottom: 8px;
-}
-
-.fit-success-text {
-    color: #666;
-    font-size: .9rem;
-    line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-    .fit-form-grid {
-        grid-template-columns: 1fr;
-    }
-}

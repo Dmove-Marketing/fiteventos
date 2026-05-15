@@ -1,0 +1,859 @@
+---
+// Gerado a partir de: eventos-corporativos.html
+import Base from '../layouts/Base.astro';
+import config from '../../config.json';
+import Img from '../components/ui/Img.astro';
+import Video from '../components/ui/Video.astro';
+import LeadForm from '../components/forms/LeadForm.astro';
+import '../styles/eventos-corporativos.css';
+---
+
+<Base
+  title="Eventos Corporativos – Espaço Fit Eventos"
+  description="Salas versáteis, tecnologia integrada e uma operação preparada para receber desde encontros estratégicos até grandes convenções corporativas."
+  ogImage="/images/og-eventos-corporativos.webp"
+>
+<!-- HEADER -->
+<header id="header">
+  <div class="container">
+    <a href="#" class="logo">
+      <Img src="logo.fiteventos.webp" alt="Espaço Fit Eventos" priority />
+    </a>
+    <nav id="nav">
+      <a href="#espacos">Ambientes</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="#gastronomia">Gastronomia</a>
+      <a href="#galeria">Galeria</a>
+    </nav>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div id="hero-slides">
+    <div class="hero-slide active"><Img src="hero.eventos-corporativos01.webp" alt="" priority width={1920} /></div>
+    <div class="hero-slide"><Img src="hero.eventos-corporativos02.webp" alt="" width={1920} /></div>
+    <div class="hero-slide"><Img src="hero.eventos-corporativos03.webp" alt="" width={1920} /></div>
+    <div class="hero-slide"><Img src="hero.eventos-corporativos04.webp" alt="" width={1920} /></div>
+    <div class="hero-slide"><Img src="hero.eventos-corporativos05.webp" alt="" width={1920} /></div>
+    <div class="hero-slide"><Img src="hero.eventos-corporativos06.webp" alt="" width={1920} /></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-tag">São Paulo · Eventos Corporativos</div>
+      <h1>O espaço ideal para<br class="br-d">eventos corporativos<br class="br-d">que exigem impacto,<br class="br-d"><em>flexibilidade e<br class="br-d">excelência</em></h1>
+      <p>Salas versáteis, tecnologia integrada e uma operação preparada para receber desde encontros estratégicos até grandes convenções corporativas.</p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn btn-primary">Solicite orçamento</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROVA SOCIAL -->
+<section id="prova-social">
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number">10</div>
+      <div class="stat-label">Andares</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">17</div>
+      <div class="stat-label">Ambientes</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">+500</div>
+      <div class="stat-label">Convidados</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">+10</div>
+      <div class="stat-label">Anos de experiência</div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTORIDADE -->
+<section id="autoridade">
+  <div class="autoridade-media">
+    <Video
+      src="/sobre.eventos-corporativos.mp4"
+      poster=""
+      title="Espaço Fit Eventos — Eventos Corporativos"
+      description="Conheça a estrutura do Espaço Fit Eventos para eventos corporativos."
+      uploadDate="2026-05-14"
+      duration="PT1M"
+    />
+  </div>
+  <div class="autoridade-content">
+    <span class="label">Sobre o espaço</span>
+    <h2>Uma estrutura que se<br class="br-d">adapta ao formato do<br class="br-d"><em>seu evento</em></h2>
+    <p>Desde 2012, o Espaço Fit Eventos atende empresas de médio e grande porte que buscam estrutura, organização e excelência na execução de seus eventos.</p>
+    <p>Com uma operação ativa e ambientes preparados para alta demanda, o espaço se consolidou como uma escolha confiável para treinamentos, convenções e eventos empresariais de grande porte.</p>
+  </div>
+</section>
+
+<!-- ESPAÇOS -->
+<section id="espacos">
+  <div class="section-header container">
+    <span class="label">Nossos ambientes</span>
+    <h2>Flexibilidade para criar o<br class="br-d"><em style="color:var(--rose)">evento do seu jeito</em></h2>
+    <p>Espaços versáteis, funcionais e prontos para diferentes dinâmicas corporativas, de reuniões estratégicas a grandes apresentações.</p>
+  </div>
+  <div class="espacos-grid">
+    <div class="espaco-card wide">
+      <div class="card-slides">
+        <div class="card-slide active"><Img src="salas_treinamento.eventos-corporativos01.webp" alt="Salas de Treinamento e Auditórios" /></div>
+        <div class="card-slide"><Img src="salas_treinamento.eventos-corporativos02.webp" alt="Salas de Treinamento e Auditórios" /></div>
+        <div class="card-slide"><Img src="salas_treinamento.eventos-corporativos03.webp" alt="Salas de Treinamento e Auditórios" /></div>
+        <div class="card-slide"><Img src="salas_treinamento.eventos-corporativos04.webp" alt="Salas de Treinamento e Auditórios" /></div>
+        <div class="card-slide"><Img src="salas_treinamento.eventos-corporativos05.webp" alt="Salas de Treinamento e Auditórios" /></div>
+      </div>
+      <div class="espaco-overlay">
+        <div class="espaco-info">
+          <h3>Salas de Treinamento e Auditórios</h3>
+          <p>Layouts flexíveis — auditório, U, escolar, mesas redondas — com capacidade para 10 a 530 convidados</p>
+        </div>
+      </div>
+    </div>
+    <div class="espaco-card">
+      <div class="card-slides">
+        <div class="card-slide active"><Img src="Sala_Design.eventos-corporativos01.webp" alt="Salas Design Thinking" /></div>
+        <div class="card-slide"><Img src="Sala_Design.eventos-corporativos02.webp" alt="Salas Design Thinking" /></div>
+        <div class="card-slide"><Img src="Sala_Design.eventos-corporativos03.webp" alt="Salas Design Thinking" /></div>
+        <div class="card-slide"><Img src="Sala_Design.eventos-corporativos04.webp" alt="Salas Design Thinking" /></div>
+        <div class="card-slide"><Img src="Sala_Design.eventos-corporativos05.webp" alt="Salas Design Thinking" /></div>
+        <div class="card-slide"><Img src="Sala_Design.eventos-corporativos06.webp" alt="Salas Design Thinking" /></div>
+      </div>
+      <div class="espaco-overlay">
+        <div class="espaco-info">
+          <h3>Salas Design Thinking</h3>
+          <p>Espaços que estimulam troca, criatividade e construção coletiva</p>
+        </div>
+      </div>
+    </div>
+    <div class="espaco-card">
+      <div class="card-slides">
+        <div class="card-slide active"><Img src="salas_vip.eventos-corporativos01.webp" alt="Sala VIP" /></div>
+        <div class="card-slide"><Img src="salas_vip.eventos-corporativos02.webp" alt="Sala VIP" /></div>
+        <div class="card-slide"><Img src="salas_vip.eventos-corporativos03.webp" alt="Sala VIP" /></div>
+      </div>
+      <div class="espaco-overlay">
+        <div class="espaco-info">
+          <h3>Sala VIP</h3>
+          <p>Ambiente exclusivo para receber convidados com conforto e privacidade</p>
+        </div>
+      </div>
+    </div>
+    <div class="espaco-card">
+      <div class="card-slides">
+        <div class="card-slide active"><Img src="salas_reuniao.eventos-corporativos01.webp" alt="Sala de Reunião" /></div>
+        <div class="card-slide"><Img src="salas_reuniao.eventos-corporativos02.webp" alt="Sala de Reunião" /></div>
+      </div>
+      <div class="espaco-overlay">
+        <div class="espaco-info">
+          <h3>Sala de Reunião</h3>
+          <p>Ideal para reuniões executivas, alinhamentos e apresentações estratégicas</p>
+        </div>
+      </div>
+    </div>
+    <div class="espaco-card">
+      <div class="card-slides">
+        <div class="card-slide active"><Img src="camarim.eventos-corporativos01.webp" alt="Camarim" /></div>
+        <div class="card-slide"><Img src="camarim.eventos-corporativos02.webp" alt="Camarim" /></div>
+        <div class="card-slide"><Img src="camarim.eventos-corporativos03.webp" alt="Camarim" /></div>
+      </div>
+      <div class="espaco-overlay">
+        <div class="espaco-info">
+          <h3>Camarim</h3>
+          <p>Estrutura de apoio para palestrantes, produções e convidados especiais</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="espaco-cta container">
+    <a href="#contato" class="btn btn-gold">Descubra o espaço ideal para o seu evento</a>
+  </div>
+</section>
+
+<!-- ESTRUTURA + TECNOLOGIA -->
+<section id="estrutura">
+  <div class="estrutura-lead container">
+    <span class="label" style="color:var(--rose)">Infraestrutura</span>
+    <h2>Soluções integradas<br class="br-m"> para eventos<br class="br-d"><em>presenciais,<br class="br-m"> híbridos e digitais</em></h2>
+    <p>Do audiovisual à circulação entre ambientes, cada detalhe é planejado para garantir fluidez, conforto e eficiência durante todo o evento.</p>
+  </div>
+  <div class="estrutura-grid">
+    <div class="estrutura-item">
+      <Img src="Painéis.eventos-corporativos.webp" alt="Painéis de LED e projeção mapeada" />
+      <div class="estrutura-caption">Painéis de LED e projeção mapeada</div>
+    </div>
+    <div class="estrutura-item">
+      <Img src="Transmissão.eventos-corporativos.webp" alt="Transmissão ao vivo e streaming" />
+      <div class="estrutura-caption">Transmissão ao vivo e streaming</div>
+    </div>
+    <div class="estrutura-item">
+      <Img src="Audiovisual.eventos-corporativos.webp" alt="Estrutura audiovisual completa" />
+      <div class="estrutura-caption">Estrutura audiovisual completa</div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPOS DE EVENTOS -->
+<section id="eventos">
+  <div class="section-header container">
+    <span class="label">Versatilidade</span>
+    <h2>Versatilidade para<br class="br-m"> eventos de<br class="br-d"><em style="color:var(--white)">todos os formatos</em></h2>
+  </div>
+  <div class="eventos-grid">
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+            <path d="M7 8l3 3 5-5"/>
+          </svg>
+        </div>
+        <h3>Treinamentos e capacitações</h3>
+      </div>
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3>Convenções e encontros empresariais</h3>
+      </div>
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18h6M10 22h4"/>
+            <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/>
+          </svg>
+        </div>
+        <h3>Workshops e imersões</h3>
+      </div>
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+            <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/>
+          </svg>
+        </div>
+        <h3>Eventos híbridos e transmissões ao vivo</h3>
+      </div>
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+            <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+          </svg>
+        </div>
+        <h3>Lançamentos e ativações de marca</h3>
+      </div>
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m11 17 2 2a1 1 0 1 0 3-3"/>
+            <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/>
+            <path d="m21 3 1 11h-1"/>
+            <path d="M3 3 2 14l6.5 6.5"/>
+            <path d="M3 4h8"/>
+          </svg>
+        </div>
+        <h3>Confraternizações corporativas</h3>
+      </div>
+    </div>
+  <div class="eventos-cta container">
+    <a href="#contato" class="btn btn-gold">Reserve sua data</a>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="diferenciais-head container">
+      <span class="label" style="color:var(--rose)">Por que escolher o Fit</span>
+      <h2>Os diferenciais que elevam a<br class="br-d"><em>experiência do seu evento</em></h2>
+  </div>
+  <div class="diferenciais-grid">
+      <div class="diferencial-item">
+        <div class="diferencial-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <h3>Localização estratégica</h3>
+      </div>
+      <div class="diferencial-item">
+        <div class="diferencial-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <h3>Estrutura completa e tecnológica</h3>
+      </div>
+      <div class="diferencial-item">
+        <div class="diferencial-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3>Flexibilidade de layouts</h3>
+      </div>
+      <div class="diferencial-item">
+        <div class="diferencial-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3>Atendimento altamente elogiado</h3>
+      </div>
+      <div class="diferencial-item">
+        <div class="diferencial-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
+          </svg>
+        </div>
+        <h3>Gastronomia própria e personalizada</h3>
+      </div>
+      <div class="diferencial-item">
+        <div class="diferencial-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <h3>Sala VIP e camarim exclusivo</h3>
+      </div>
+      <div class="diferencial-item">
+        <div class="diferencial-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <h3>Excelente custo-benefício</h3>
+      </div>
+  </div>
+</section>
+
+<!-- GASTRONOMIA -->
+<section id="gastronomia">
+  <div class="gastro-grid container">
+      <div class="gastro-text">
+        <span class="label">Gastronomia</span>
+        <h2>Gastronomia pensada para <em style="color:var(--rose)">impressionar</em></h2>
+        <p>Do coffee break ao jantar corporativo, o Espaço Fit oferece uma experiência gastronômica versátil e personalizada, assinada pelo <b>Chef Dalton Rangel</b>.</p>
+        <p>Menus adaptados ao perfil do evento e dos convidados, incluindo <b>alternativas veganas e vegetarianas</b>.</p>
+        <div class="gastro-tags">
+          <span class="gastro-tag">Coffee break</span>
+          <span class="gastro-tag">Almoço corporativo</span>
+          <span class="gastro-tag">Finger foods</span>
+          <span class="gastro-tag">Jantar completo</span>
+          <span class="gastro-tag">Menu vegano</span>
+          <span class="gastro-tag">Menu vegetariano</span>
+        </div>
+      </div>
+      <div class="gastro-image">
+        <div class="gastro-slides">
+          <div class="gastro-slide active"><Img src="galeria.eventos-corporativos01.webp" alt="Gastronomia 1" priority /></div>
+          <div class="gastro-slide"><Img src="galeria.eventos-corporativos02.webp" alt="Gastronomia 2" /></div>
+          <div class="gastro-slide"><Img src="galeria.eventos-corporativos03.webp" alt="Gastronomia 3" /></div>
+          <div class="gastro-slide"><Img src="galeria.eventos-corporativos04.webp" alt="Gastronomia 4" /></div>
+          <div class="gastro-slide"><Img src="galeria.eventos-corporativos05.webp" alt="Gastronomia 5" /></div>
+          <div class="gastro-slide"><Img src="galeria.eventos-corporativos06.webp" alt="Gastronomia 6" /></div>
+          <div class="gastro-slide"><Img src="galeria.eventos-corporativos07.webp" alt="Gastronomia 7" /></div>
+          <div class="gastro-slide"><Img src="galeria.eventos-corporativos08.webp" alt="Gastronomia 8" /></div>
+          <div class="gastro-slide"><Img src="galeria.eventos-corporativos09.webp" alt="Gastronomia 9" /></div>
+          <div class="gastro-slide"><Img src="galeria.eventos-corporativos10.webp" alt="Gastronomia 10" /></div>
+          <div class="gastro-slide"><Img src="galeria.eventos-corporativos11.webp" alt="Gastronomia 11" /></div>
+          <div class="gastro-slide"><Img src="galeria.eventos-corporativos12.webp" alt="Gastronomia 12" /></div>
+          <div class="gastro-slide"><Img src="galeria.eventos-corporativos13.webp" alt="Gastronomia 13" /></div>
+          <div class="gastro-slide"><Img src="galeria.eventos-corporativos14.webp" alt="Gastronomia 14" /></div>
+          <div class="gastro-slide"><Img src="galeria.eventos-corporativos15.webp" alt="Gastronomia 15" /></div>
+          <div class="gastro-slide"><Img src="galeria.eventos-corporativos16.webp" alt="Gastronomia 16" /></div>
+        </div>
+        <div class="gastro-badge">
+          Assinado por<strong>Chef Dalton Rangel</strong>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- CLIENTES -->
+<section id="clientes">
+  <div class="clientes-header container">
+    <span class="label">Parceiros</span>
+    <h2>Seu evento no mesmo espaço de<br class="br-d"><br class="br-m"><em>grandes empresas</em></h2>
+  </div>
+
+  {/* Fileira 1 — logos 01 a 66 */}
+  <div class="marquee-wrap">
+    <div class="marquee-track marquee-esquerda">
+      <div class="logo-item"><img src="/logos/logo-cliente01.png" alt="Cliente 1" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente02.png" alt="Cliente 2" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente03.png" alt="Cliente 3" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente04.png" alt="Cliente 4" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente05.png" alt="Cliente 5" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente06.png" alt="Cliente 6" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente07.png" alt="Cliente 7" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente08.png" alt="Cliente 8" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente09.png" alt="Cliente 9" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente10.png" alt="Cliente 10" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente11.png" alt="Cliente 11" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente12.png" alt="Cliente 12" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente13.png" alt="Cliente 13" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente14.png" alt="Cliente 14" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente15.png" alt="Cliente 15" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente16.png" alt="Cliente 16" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente17.png" alt="Cliente 17" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente18.png" alt="Cliente 18" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente19.png" alt="Cliente 19" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente20.png" alt="Cliente 20" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente21.png" alt="Cliente 21" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente22.png" alt="Cliente 22" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente23.png" alt="Cliente 23" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente24.png" alt="Cliente 24" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente25.png" alt="Cliente 25" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente26.png" alt="Cliente 26" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente27.png" alt="Cliente 27" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente28.png" alt="Cliente 28" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente29.png" alt="Cliente 29" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente30.png" alt="Cliente 30" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente31.png" alt="Cliente 31" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente32.png" alt="Cliente 32" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente33.png" alt="Cliente 33" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente34.png" alt="Cliente 34" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente35.png" alt="Cliente 35" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente36.png" alt="Cliente 36" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente37.png" alt="Cliente 37" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente38.png" alt="Cliente 38" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente39.png" alt="Cliente 39" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente40.png" alt="Cliente 40" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente41.png" alt="Cliente 41" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente42.png" alt="Cliente 42" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente43.png" alt="Cliente 43" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente44.png" alt="Cliente 44" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente45.png" alt="Cliente 45" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente46.png" alt="Cliente 46" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente47.png" alt="Cliente 47" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente48.png" alt="Cliente 48" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente49.png" alt="Cliente 49" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente50.png" alt="Cliente 50" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente51.png" alt="Cliente 51" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente52.png" alt="Cliente 52" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente53.png" alt="Cliente 53" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente54.png" alt="Cliente 54" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente55.png" alt="Cliente 55" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente56.png" alt="Cliente 56" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente57.png" alt="Cliente 57" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente58.png" alt="Cliente 58" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente59.png" alt="Cliente 59" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente60.png" alt="Cliente 60" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente61.png" alt="Cliente 61" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente62.png" alt="Cliente 62" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente63.png" alt="Cliente 63" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente64.png" alt="Cliente 64" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente65.png" alt="Cliente 65" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente66.png" alt="Cliente 66" /></div>
+      <!-- duplicado para loop infinito -->
+      <div class="logo-item"><img src="/logos/logo-cliente01.png" alt="Cliente 1" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente02.png" alt="Cliente 2" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente03.png" alt="Cliente 3" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente04.png" alt="Cliente 4" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente05.png" alt="Cliente 5" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente06.png" alt="Cliente 6" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente07.png" alt="Cliente 7" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente08.png" alt="Cliente 8" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente09.png" alt="Cliente 9" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente10.png" alt="Cliente 10" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente11.png" alt="Cliente 11" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente12.png" alt="Cliente 12" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente13.png" alt="Cliente 13" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente14.png" alt="Cliente 14" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente15.png" alt="Cliente 15" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente16.png" alt="Cliente 16" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente17.png" alt="Cliente 17" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente18.png" alt="Cliente 18" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente19.png" alt="Cliente 19" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente20.png" alt="Cliente 20" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente21.png" alt="Cliente 21" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente22.png" alt="Cliente 22" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente23.png" alt="Cliente 23" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente24.png" alt="Cliente 24" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente25.png" alt="Cliente 25" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente26.png" alt="Cliente 26" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente27.png" alt="Cliente 27" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente28.png" alt="Cliente 28" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente29.png" alt="Cliente 29" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente30.png" alt="Cliente 30" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente31.png" alt="Cliente 31" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente32.png" alt="Cliente 32" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente33.png" alt="Cliente 33" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente34.png" alt="Cliente 34" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente35.png" alt="Cliente 35" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente36.png" alt="Cliente 36" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente37.png" alt="Cliente 37" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente38.png" alt="Cliente 38" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente39.png" alt="Cliente 39" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente40.png" alt="Cliente 40" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente41.png" alt="Cliente 41" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente42.png" alt="Cliente 42" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente43.png" alt="Cliente 43" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente44.png" alt="Cliente 44" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente45.png" alt="Cliente 45" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente46.png" alt="Cliente 46" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente47.png" alt="Cliente 47" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente48.png" alt="Cliente 48" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente49.png" alt="Cliente 49" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente50.png" alt="Cliente 50" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente51.png" alt="Cliente 51" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente52.png" alt="Cliente 52" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente53.png" alt="Cliente 53" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente54.png" alt="Cliente 54" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente55.png" alt="Cliente 55" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente56.png" alt="Cliente 56" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente57.png" alt="Cliente 57" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente58.png" alt="Cliente 58" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente59.png" alt="Cliente 59" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente60.png" alt="Cliente 60" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente61.png" alt="Cliente 61" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente62.png" alt="Cliente 62" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente63.png" alt="Cliente 63" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente64.png" alt="Cliente 64" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente65.png" alt="Cliente 65" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente66.png" alt="Cliente 66" /></div>
+    </div>
+  </div>
+
+  {/* Fileira 2 — logos 67 a 131 */}
+  <div class="marquee-wrap">
+    <div class="marquee-track marquee-direita">
+      <div class="logo-item"><img src="/logos/logo-cliente67.png" alt="Cliente 67" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente68.png" alt="Cliente 68" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente69.png" alt="Cliente 69" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente70.png" alt="Cliente 70" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente71.png" alt="Cliente 71" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente72.png" alt="Cliente 72" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente73.png" alt="Cliente 73" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente74.png" alt="Cliente 74" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente75.png" alt="Cliente 75" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente76.png" alt="Cliente 76" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente77.png" alt="Cliente 77" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente78.png" alt="Cliente 78" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente79.png" alt="Cliente 79" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente80.png" alt="Cliente 80" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente81.png" alt="Cliente 81" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente82.png" alt="Cliente 82" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente83.png" alt="Cliente 83" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente84.png" alt="Cliente 84" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente85.png" alt="Cliente 85" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente86.png" alt="Cliente 86" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente87.png" alt="Cliente 87" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente88.png" alt="Cliente 88" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente89.png" alt="Cliente 89" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente90.png" alt="Cliente 90" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente91.png" alt="Cliente 91" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente92.png" alt="Cliente 92" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente93.png" alt="Cliente 93" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente94.png" alt="Cliente 94" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente95.png" alt="Cliente 95" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente96.png" alt="Cliente 96" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente97.png" alt="Cliente 97" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente98.png" alt="Cliente 98" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente99.png" alt="Cliente 99" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente100.png" alt="Cliente 100" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente101.png" alt="Cliente 101" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente102.png" alt="Cliente 102" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente103.png" alt="Cliente 103" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente104.png" alt="Cliente 104" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente105.png" alt="Cliente 105" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente106.png" alt="Cliente 106" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente107.png" alt="Cliente 107" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente108.png" alt="Cliente 108" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente109.png" alt="Cliente 109" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente110.png" alt="Cliente 110" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente111.png" alt="Cliente 111" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente112.png" alt="Cliente 112" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente113.png" alt="Cliente 113" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente114.png" alt="Cliente 114" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente115.png" alt="Cliente 115" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente116.png" alt="Cliente 116" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente117.png" alt="Cliente 117" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente118.png" alt="Cliente 118" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente119.png" alt="Cliente 119" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente120.png" alt="Cliente 120" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente121.png" alt="Cliente 121" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente122.png" alt="Cliente 122" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente123.png" alt="Cliente 123" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente124.png" alt="Cliente 124" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente125.png" alt="Cliente 125" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente126.png" alt="Cliente 126" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente127.png" alt="Cliente 127" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente128.png" alt="Cliente 128" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente129.png" alt="Cliente 129" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente130.png" alt="Cliente 130" /></div>
+      <!-- duplicado para loop infinito -->
+      <div class="logo-item"><img src="/logos/logo-cliente67.png" alt="Cliente 67" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente68.png" alt="Cliente 68" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente69.png" alt="Cliente 69" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente70.png" alt="Cliente 70" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente71.png" alt="Cliente 71" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente72.png" alt="Cliente 72" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente73.png" alt="Cliente 73" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente74.png" alt="Cliente 74" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente75.png" alt="Cliente 75" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente76.png" alt="Cliente 76" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente77.png" alt="Cliente 77" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente78.png" alt="Cliente 78" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente79.png" alt="Cliente 79" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente80.png" alt="Cliente 80" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente81.png" alt="Cliente 81" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente82.png" alt="Cliente 82" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente83.png" alt="Cliente 83" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente84.png" alt="Cliente 84" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente85.png" alt="Cliente 85" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente86.png" alt="Cliente 86" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente87.png" alt="Cliente 87" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente88.png" alt="Cliente 88" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente89.png" alt="Cliente 89" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente90.png" alt="Cliente 90" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente91.png" alt="Cliente 91" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente92.png" alt="Cliente 92" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente93.png" alt="Cliente 93" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente94.png" alt="Cliente 94" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente95.png" alt="Cliente 95" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente96.png" alt="Cliente 96" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente97.png" alt="Cliente 97" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente98.png" alt="Cliente 98" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente99.png" alt="Cliente 99" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente100.png" alt="Cliente 100" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente101.png" alt="Cliente 101" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente102.png" alt="Cliente 102" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente103.png" alt="Cliente 103" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente104.png" alt="Cliente 104" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente105.png" alt="Cliente 105" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente106.png" alt="Cliente 106" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente107.png" alt="Cliente 107" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente108.png" alt="Cliente 108" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente109.png" alt="Cliente 109" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente110.png" alt="Cliente 110" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente111.png" alt="Cliente 111" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente112.png" alt="Cliente 112" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente113.png" alt="Cliente 113" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente114.png" alt="Cliente 114" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente115.png" alt="Cliente 115" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente116.png" alt="Cliente 116" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente117.png" alt="Cliente 117" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente118.png" alt="Cliente 118" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente119.png" alt="Cliente 119" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente120.png" alt="Cliente 120" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente121.png" alt="Cliente 121" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente122.png" alt="Cliente 122" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente123.png" alt="Cliente 123" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente124.png" alt="Cliente 124" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente125.png" alt="Cliente 125" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente126.png" alt="Cliente 126" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente127.png" alt="Cliente 127" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente128.png" alt="Cliente 128" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente129.png" alt="Cliente 129" /></div>
+      <div class="logo-item"><img src="/logos/logo-cliente130.png" alt="Cliente 130" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="section-header container">
+    <span class="label" style="color:var(--rose)">Depoimentos</span>
+    <h2>A experiência de quem já<br class="br-m"> escolheu<br class="br-d"><em style="color:var(--rose)">o Espaço Fit</em></h2>
+  </div>
+  <div class="depoimentos-grid">
+      <div class="depoimento-card depoimento-destaque">
+        <div class="stars">★★★★★</div>
+        <blockquote>Realizamos nosso primeiro evento (Tax &amp; Pay Summit 2025) sem nenhuma experiência. Só foi possível graças a todo suporte e atendimento dado pelo Daniel e Time da Espaço Fit. A equipe de audiovisual foi atenciosa e muito profissional. Serviço de cozinha impecável.</blockquote>
+        <div class="depoimento-autor">
+          <div class="avatar">MP</div>
+          <span>Marco Polo Viana</span>
+        </div>
+      </div>
+      <div class="depoimento-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>Organizamos um grande evento para aproximadamente 400 pessoas. O espaço é muito bem localizado, amplo e com diversas opções de salas e personalizações. Destaco principalmente o atendimento da equipe comercial e a prestatividade do time de operações.</blockquote>
+        <div class="depoimento-autor">
+          <div class="avatar">AP</div>
+          <span>Alex Pereira</span>
+        </div>
+      </div>
+      <div class="depoimento-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>Tivemos a oportunidade de realizar um evento na sala 12 para 70 pessoas. Fomos muito bem recebidos. Do café ao audiovisual, não tivemos nenhum tipo de problema, sempre proativos, pontuais e muito solícitos. Super recomendamos!</blockquote>
+        <div class="depoimento-autor">
+          <div class="avatar">AA</div>
+          <span>Aline Amaral</span>
+        </div>
+      </div>
+      <div class="depoimento-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>O local é bem moderno, com excelente tamanho para eventos de apresentações e até mesmo team building. O serviço é muito bom, funcionários educados e bem prestativos. Gastronomia também excelente.</blockquote>
+        <div class="depoimento-autor">
+          <div class="avatar">NG</div>
+          <span>Natalia Gonçalves</span>
+        </div>
+      </div>
+      <div class="depoimento-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>Honesto e eficiente. Ótimo receptivo, atendimento, catering, tudo muito limpo e ajeitado. Ótimo pé direito e tudo o que citei. Perfeito para eventos corporativos de alto padrão!</blockquote>
+        <div class="depoimento-autor">
+          <div class="avatar">CH</div>
+          <span>Carol Herling Grinbaum</span>
+        </div>
+      </div>
+      <div class="depoimento-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>Estive presente em um evento da minha empresa no espaço Fit e saí de lá encantada com tudo. Quero deixar o meu elogio à colaboradora Paula que me atendeu com excelência e simpatia. Tudo que era solicitado ela fazia e resolvia de bom grado.</blockquote>
+        <div class="depoimento-autor">
+          <div class="avatar">MF</div>
+          <span>Maria Eduarda França</span>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria">
+  <div class="section-header container">
+    <span class="label">Galeria</span>
+    <h2 style="color:var(--white)">Um espaço preparado para<br class="br-d"><br class="br-m">valorizar cada<br class="br-m"> detalhe<br class="br-d"><br class="br-m"><em style="color:var(--rose)">do seu evento corporativo</em></h2>
+  </div>
+  <div class="galeria-grid">
+    <div class="galeria-item"><Img src="galeria-one.eventos-corporativos01.webp" alt="Galeria 1" /></div>
+    <div class="galeria-item"><Img src="galeria-one.eventos-corporativos02.webp" alt="Galeria 2" /></div>
+    <div class="galeria-item"><Img src="galeria-one.eventos-corporativos03.webp" alt="Galeria 3" /></div>
+    <div class="galeria-item"><Img src="galeria-one.eventos-corporativos04.webp" alt="Galeria 4" /></div>
+    <div class="galeria-item"><Img src="galeria-one.eventos-corporativos05.webp" alt="Galeria 5" /></div>
+    <div class="galeria-item"><Img src="galeria-one.eventos-corporativos06.webp" alt="Galeria 6" /></div>
+    <div class="galeria-item"><Img src="galeria-one.eventos-corporativos07.webp" alt="Galeria 7" /></div>
+    <div class="galeria-item"><Img src="galeria-one.eventos-corporativos08.webp" alt="Galeria 8" /></div>
+    <div class="galeria-item"><Img src="galeria-one.eventos-corporativos09.webp" alt="Galeria 9" /></div>
+  </div>
+
+  <div class="galeria-carousel">
+    <div class="galeria-carousel-track">
+      <div class="galeria-carousel-slide"><Img src="galeria-one.eventos-corporativos01.webp" alt="Galeria 1" /></div>
+      <div class="galeria-carousel-slide"><Img src="galeria-one.eventos-corporativos02.webp" alt="Galeria 2" /></div>
+      <div class="galeria-carousel-slide"><Img src="galeria-one.eventos-corporativos03.webp" alt="Galeria 3" /></div>
+      <div class="galeria-carousel-slide"><Img src="galeria-one.eventos-corporativos04.webp" alt="Galeria 4" /></div>
+      <div class="galeria-carousel-slide"><Img src="galeria-one.eventos-corporativos05.webp" alt="Galeria 5" /></div>
+      <div class="galeria-carousel-slide"><Img src="galeria-one.eventos-corporativos06.webp" alt="Galeria 6" /></div>
+      <div class="galeria-carousel-slide"><Img src="galeria-one.eventos-corporativos07.webp" alt="Galeria 7" /></div>
+      <div class="galeria-carousel-slide"><Img src="galeria-one.eventos-corporativos08.webp" alt="Galeria 8" /></div>
+      <div class="galeria-carousel-slide"><Img src="galeria-one.eventos-corporativos09.webp" alt="Galeria 9" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="contato-left">
+    <span class="label" style="color:var(--rose)">Próximo passo</span>
+    <h2>Vamos planejar seu próximo<br class="br-m"> <em>evento corporativo?</em></h2>
+    <p>Preencha seus dados e receba um orçamento personalizado para sua empresa.</p>
+    <div class="contato-address">
+      <div class="contato-address-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span>Av. Alfredo Egídio de Souza Aranha, 384<br>Chácara Santo Antônio, São Paulo – SP</span>
+      </div>
+      <div class="contato-address-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/>
+        </svg>
+        <span>Fácil acesso pela Marginal Pinheiros · Próximo ao Aeroporto de Congonhas</span>
+      </div>
+    </div>
+  </div>
+  <div class="contato-form-wrap">
+    <LeadForm
+      formId="lead-form"
+      project={config.project_slug}
+      submitUrl={config.forms['lead-form'].webhooks[0]}
+      redirectUrl={config.forms['lead-form'].redirect_on_success}
+      submitText="Solicitar orçamento"
+      honeypot
+      fields={[
+        { name: 'nome', type: 'text', placeholder: 'Seu nome completo', required: true, full: true },
+        { name: 'email', type: 'email', placeholder: 'seu@email.com', required: true, full: true },
+        { name: 'telefone', type: 'tel', placeholder: '(11) 9 0000-0000', required: true },
+        { name: 'data', type: 'text', placeholder: 'Data do evento', required: true },
+        { name: 'convidados', type: 'number', placeholder: 'Nº de pessoas', required: true },
+        { name: 'tipo_evento', type: 'select', placeholder: '', required: true, options: [
+          { value: '', label: 'Tipo de evento...' },
+          { value: 'Treinamento / Capacitação', label: 'Treinamento / Capacitação' },
+          { value: 'Convenção / Encontro empresarial', label: 'Convenção / Encontro empresarial' },
+          { value: 'Workshop / Imersão', label: 'Workshop / Imersão' },
+          { value: 'Evento híbrido / Transmissão ao vivo', label: 'Evento híbrido / Transmissão ao vivo' },
+          { value: 'Lançamento / Ativação de marca', label: 'Lançamento / Ativação de marca' },
+          { value: 'Confraternização corporativa', label: 'Confraternização corporativa' },
+          { value: 'Outros', label: 'Outros' }
+        ] },
+        { name: 'mensagem', type: 'textarea', placeholder: 'Detalhes adicionais (não obrigatório)', required: false, full: true },
+      ]}
+    />
+  </div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section id="localizacao">
+  <div class="container">
+    <div class="loc-head">
+      <span class="label">Localização</span>
+      <h2>Localização estratégica para<br class="br-d"><br class="br-m"><em>sua empresa e convidados</em></h2>
+      <p>Fácil acesso pela Marginal Pinheiros, ao lado da estação Granja Julieta e próximo ao Aeroporto de Congonhas</p>
+    </div>
+    <div class="map-wrap">
+      <Img src="mapa.png" alt="Mapa Espaço Fit Eventos" />
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Espaço Fit Eventos — Todos os direitos reservados.</p>
+      <a href="#" class="footer-logo-bottom" aria-label="Espaço Fit Eventos">
+        <Img src="logo.fiteventos.webp" alt="Espaço Fit Eventos" />
+      </a>
+      <div class="footer-dev">
+        <span class="footer-dev-text">Desenvolvido por:</span>
+        <a href="http://dmove.com.br" target="_blank" rel="noopener noreferrer">
+          <Img src="logo.dmove.avif" alt="DMove" class="footer-dev-img" />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+  </svg>
+</a>
+
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Fechar">&times;</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+</Base>
+<script>
+  import '../scripts/eventos-corporativos.js';
+</script>

@@ -1,7 +1,4 @@
 /* Scripts extraídos de debutantes.html */
-import flatpickr from 'flatpickr';
-import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
-import 'flatpickr/dist/flatpickr.min.css';
 
 (function () {
             window.dataLayer = window.dataLayer || [];
@@ -44,6 +41,124 @@ import 'flatpickr/dist/flatpickr.min.css';
                 });
             });
 
+            var dataInput = document.getElementById('formData');
+            if (typeof flatpickr !== 'undefined') {
+                flatpickr(dataInput, {
+                    locale: 'pt',
+                    dateFormat: 'd/m/Y',
+                    disableMobile: true,
+                    minDate: 'today'
+                });
+                dataInput.setAttribute('readonly', 'readonly');
+            } else {
+                dataInput.type = 'date';
+                dataInput.min = new Date().toISOString().split('T')[0];
+            }
+
+            document.getElementById('formWhatsapp').addEventListener('input', function (e) {
+                var v = e.target.value.replace(/\D/g, '').substring(0, 11);
+                if (v.length > 6) v = '(' + v.substring(0, 2) + ') ' + v.substring(2, 7) + '-' + v.substring(7);
+                else if (v.length > 2) v = '(' + v.substring(0, 2) + ') ' + v.substring(2);
+                else if (v.length > 0) v = '(' + v;
+                e.target.value = v;
+            });
+
+            document.querySelector('input[name="pagina"]').value = window.location.href;
+
+            function validate() {
+                var valid = true;
+                function err(id, errId, cond) {
+                    var el = document.getElementById(id);
+                    var errEl = document.getElementById(errId);
+                    if (cond) { el.classList.add('error'); errEl.classList.add('visible'); valid = false; }
+                    else { el.classList.remove('error'); errEl.classList.remove('visible'); }
+                }
+                var nome = document.getElementById('formNome').value.trim();
+                var raw = document.getElementById('formWhatsapp').value.trim();
+                var whatsapp = raw.replace(/\D/g, '');
+                var email = document.getElementById('formEmail').value.trim();
+                var tipo = document.getElementById('formTipo').value;
+                var data = document.getElementById('formData').value.trim();
+                var convidados = document.getElementById('formConvidados').value;
+                err('formNome', 'err-nome', nome.length < 2);
+                err('formWhatsapp', 'err-whatsapp', whatsapp.length < 10 || whatsapp.length > 11);
+                err('formEmail', 'err-email', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+                err('formTipo', 'err-tipo', tipo === '');
+                err('formData', 'err-data', data === '');
+                err('formConvidados', 'err-convidados', !convidados || parseInt(convidados) < 1);
+                return valid;
+            }
+
+            document.getElementById('orcamentoForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (document.getElementById('website').value !== '') return;
+                if (!validate()) return;
+
+                var btn = document.getElementById('formSubmitBtn');
+                var msg = document.getElementById('formMsg');
+                btn.disabled = true;
+                btn.textContent = 'Enviando...';
+                msg.style.display = 'none';
+                msg.className = 'form-msg';
+
+                var raw = document.getElementById('formWhatsapp').value.trim().replace(/\D/g, '');
+                var payload = {
+                    nome: document.getElementById('formNome').value.trim(),
+                    whatsapp: raw,
+                    email: document.getElementById('formEmail').value.trim().toLowerCase(),
+                    tipo_evento: document.getElementById('formTipo').value,
+                    data: document.getElementById('formData').value,
+                    convidados: document.getElementById('formConvidados').value,
+                    mensagem: document.getElementById('formMensagem').value.trim(),
+                    fonte: document.getElementById('formFonte').value,
+                    origem: 'site-fit-eventos-debutantes',
+                    pagina: window.location.href,
+                    timestamp: new Date().toISOString()
+                };
+
+                var sp = new URLSearchParams(window.location.search);
+                ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) {
+                    var v = sp.get(k) || sessionStorage.getItem('fit_utm_' + k) || '';
+                    if (v) payload[k] = v;
+                });
+
+                window.dataLayer.push({
+                    event: 'form_envio',
+                    form_name: 'debutantes',
+                    form_tipo_evento: payload.tipo_evento,
+                    form_origem: payload.origem
+                });
+
+                // ============================================================
+                // WEBHOOK — Substitua a URL abaixo pela URL do seu webhook
+                // Ex: https://n8n.seudominio.com/webhook/abc123
+                // Ex: https://hook.make.com/xyz789
+                // Ex: https://api.zapier.com/hooks/catch/12345/abcde
+                // ============================================================
+                fetch('https://COLE-A-URL-DO-SEU-WEBHOOK-AQUI.com/lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                })
+                    .then(function (res) {
+                        if (!res.ok) throw new Error('Resposta do servidor: ' + res.status);
+                        var grid = document.querySelector('.form-grid');
+                        grid.style.display = 'none';
+                        btn.style.display = 'none';
+                        msg.innerHTML = 'Recebemos seu pedido de orçamento.<br>Em breve entraremos em contato.';
+                        msg.className = 'form-msg success';
+                        msg.style.display = 'block';
+                    })
+                    .catch(function (err) {
+                        console.error('Erro ao enviar formulário:', err);
+                        btn.disabled = false;
+                        btn.textContent = 'Enviar solicitação';
+                        msg.innerHTML = 'Ocorreu um erro ao enviar. Tente novamente ou entre em contato pelo WhatsApp.';
+                        msg.className = 'form-msg error';
+                        msg.style.display = 'block';
+                    });
+            });
+
             (function () {
                 var track = document.getElementById('depTrack');
                 var prevBtn = document.getElementById('depPrev');
@@ -78,57 +193,6 @@ import 'flatpickr/dist/flatpickr.min.css';
                 track.addEventListener('touchend', startAuto);
             })();
 
-            (function () {
-                var dataEl = document.getElementById('data');
-                if (dataEl) {
-                    flatpickr(dataEl, {
-                        locale: Portuguese,
-                        dateFormat: 'd/m/Y',
-                        minDate: 'today',
-                        disableMobile: true,
-                    });
-                }
-            })();
-
-            (function () {
-                var tel = document.getElementById('telefone');
-                if (!tel) return;
-                tel.setAttribute('inputmode', 'numeric');
-                tel.setAttribute('maxlength', '15');
-
-                function maskPhone(v) {
-                    v = v.replace(/\D/g, '').slice(0, 11);
-                    if (v.length <= 10) {
-                        return v.replace(/^(\d{0,2})(\d{0,4})(\d{0,4})$/, function (_, a, b, c) {
-                            if (!a) return '';
-                            if (!b) return '(' + a;
-                            if (!c) return '(' + a + ') ' + b;
-                            return '(' + a + ') ' + b + '-' + c;
-                        });
-                    }
-                    return v.replace(/^(\d{0,2})(\d{0,5})(\d{0,4})$/, function (_, a, b, c) {
-                        if (!a) return '';
-                        if (!b) return '(' + a;
-                        if (!c) return '(' + a + ') ' + b;
-                        return '(' + a + ') ' + b + '-' + c;
-                    });
-                }
-
-                tel.addEventListener('input', function () {
-                    var pos = tel.selectionStart;
-                    var prev = tel.value;
-                    tel.value = maskPhone(tel.value);
-                    var diff = tel.value.length - prev.length;
-                    tel.setSelectionRange(pos + diff, pos + diff);
-                });
-
-                tel.addEventListener('keydown', function (e) {
-                    if (e.key && e.key.length === 1 && !/\d/.test(e.key) && !e.ctrlKey && !e.metaKey) {
-                        e.preventDefault();
-                    }
-                });
-            })();
-
             var observer = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
@@ -148,6 +212,14 @@ import 'flatpickr/dist/flatpickr.min.css';
             });
 
             (function () {
+                var sp = new URLSearchParams(window.location.search);
+                ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) {
+                    var v = sp.get(k);
+                    if (v) sessionStorage.setItem('fit_utm_' + k, v);
+                });
+            })();
+
+            (function () {
                 var iframe = document.getElementById('mapIframe');
                 var fallback = document.getElementById('mapaFallback');
                 if (!iframe) return;
@@ -155,46 +227,13 @@ import 'flatpickr/dist/flatpickr.min.css';
                     iframe.parentElement.style.display = 'none';
                     fallback.style.display = 'flex';
                 });
-            })();
-
-            (function () {
-                var front = document.getElementById('heroBgFront');
-                var back = document.getElementById('heroBgBack');
-                if (!front || !back) return;
-
-                var isMobile = window.matchMedia('(max-width: 768px)').matches;
-                var slides = JSON.parse(isMobile && front.dataset.slidesMobile ? front.dataset.slidesMobile : front.dataset.slides);
-                var idx = 0;
-                var busy = false;
-
-                front.style.backgroundImage = 'url(' + slides[0] + ')';
-
-                setInterval(function () {
-                    if (busy) return;
-                    busy = true;
-                    idx = (idx + 1) % slides.length;
-
-                    // Carrega próxima no back e faz crossfade simultâneo
-                    back.style.backgroundImage = 'url(' + slides[idx] + ')';
-                    back.style.opacity = '.75';
-                    front.style.opacity = '0';
-
-                    setTimeout(function () {
-                        // Snap: front assume a nova imagem sem transição visível
-                        front.style.transition = 'none';
-                        back.style.transition = 'none';
-                        front.style.backgroundImage = 'url(' + slides[idx] + ')';
-                        front.style.opacity = '.75';
-                        back.style.opacity = '0';
-
-                        requestAnimationFrame(function () {
-                            requestAnimationFrame(function () {
-                                front.style.transition = '';
-                                back.style.transition = '';
-                                busy = false;
-                            });
-                        });
-                    }, 1000);
+                setTimeout(function () {
+                    try {
+                        if (iframe.contentDocument === null) {
+                            iframe.parentElement.style.display = 'none';
+                            fallback.style.display = 'flex';
+                        }
+                    } catch (e) { }
                 }, 5000);
             })();
 

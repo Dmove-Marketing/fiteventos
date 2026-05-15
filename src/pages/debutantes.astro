@@ -5,35 +5,17 @@ import config from '../../config.json';
 import Img from '../components/ui/Img.astro';
 import Video from '../components/ui/Video.astro';
 import LeadForm from '../components/forms/LeadForm.astro';
-import WhatsAppFormWidget from '../components/ui/WhatsAppFormWidget.astro';
 import '../styles/debutantes.css';
-import videoThumb from '../assets/images/2DECOR_1571_DSC08215_resultado.avif';
-import ogImg from '../assets/images/compartilhamento.fiteventos.webp';
-import heroSlide1 from '../assets/images/hero_carrossel.01.webp';
-import heroSlide2 from '../assets/images/hero_carrossel.02.webp';
-import heroSlide3 from '../assets/images/hero_carrossel.03.webp';
-import heroSlide4 from '../assets/images/hero_carrossel.04.webp';
-import heroSlide5 from '../assets/images/hero_carrossel.05.webp';
-import heroSlide6 from '../assets/images/hero_carrossel.06.webp';
-const heroSlides = [heroSlide1.src, heroSlide2.src, heroSlide3.src, heroSlide4.src, heroSlide5.src, heroSlide6.src];
-
-import heroMobile1 from '../assets/images/heromobile-01_resultado.webp';
-import heroMobile2 from '../assets/images/heromobile-02_resultado.webp';
-import heroMobile3 from '../assets/images/heromobile-03_resultado.webp';
-import heroMobile4 from '../assets/images/heromobile-04_resultado.webp';
-import heroMobile5 from '../assets/images/heromobile-05_resultado.webp';
-import heroMobile6 from '../assets/images/heromobile-06_resultado.webp';
-const heroSlidesMobile = [heroMobile1.src, heroMobile2.src, heroMobile3.src, heroMobile4.src, heroMobile5.src, heroMobile6.src];
 ---
 
 <Base
   title="Debutantes – Espaço Fit Eventos"
   description="Espaço Fit Eventos — Debutantes. 17 ambientes, 10 andares, capacidade para até 530 convidados."
-  ogImage={ogImg.src}
+  ogImage="https://z-cdn-media.chatglm.cn/files/b6141e8a-26b2-4a98-a24a-572b061dd41b.png?auth_key=1877922266-df2ae6e359504c07865ef1b88ffe0071-0-b77a9ed1bade15d816a52e89c390d77c"
 >
 <nav id="navbar">
         <a href="#" class="nav-logo">
-            <Img src="logo.fiteventos.webp" alt="Espaço Fit Eventos" priority />
+            <Img src="b6141e8a-26b2-4a98-a24a-572b061dd41b.png" alt="Espaço Fit Eventos" priority />
         </a>
         <ul class="nav-links">
             <li><a href="#ambientes">Ambientes</a></li>
@@ -58,29 +40,46 @@ const heroSlidesMobile = [heroMobile1.src, heroMobile2.src, heroMobile3.src, her
     </div>
 
     <section class="hero">
-        <div class="hero-bg hero-bg-front" id="heroBgFront" data-slides={JSON.stringify(heroSlides)} data-slides-mobile={JSON.stringify(heroSlidesMobile)}></div>
-        <div class="hero-bg hero-bg-back" id="heroBgBack"></div>
+        <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <span class="hero-tag">São Paulo · Debutantes</span>
             <h1 class="hero-title">Cada detalhe pensado<br><em>para você brilhar</em></h1>
-            <p class="hero-subtitle">Estrutura e serviços completos para transformar sua festa de 15 anos em uma experiência inesquecível.</p>
+            <p class="hero-subtitle">Desde 2012, o Espaço Fit Eventos transforma sonhos em
+                celebrações memoráveis. Com mais de uma década de experiência e
+                milhares de eventos realizados, reconhecido pela organização impecável, estrutura
+                completa e pela capacidade de criar eventos únicos e cheios de significado.</p>
             <div class="hero-actions">
                 <a href="#contato" class="btn-primary">Solicitar orçamento</a>
+                <a href="#ambientes" class="btn-ghost">Conhecer os ambientes</a>
             </div>
         </div>
     </section>
 
+    <div class="stats-bar">
+        <div class="stat-item"><span class="stat-num">10</span><span class="stat-label">andares</span></div>
+        <div class="stat-item"><span class="stat-num">17</span><span class="stat-label">ambientes</span></div>
+        <div class="stat-item"><span class="stat-num">530</span><span class="stat-label">convidados</span></div>
+        <div class="stat-item"><span class="stat-num">12+</span><span class="stat-label">anos de experiência</span>
+        </div>
+    </div>
 
     <section class="sobre">
         <div class="sobre-media">
-            <Video src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/04/Untitled.mp4" poster={videoThumb.src} title="Vídeo" description="" uploadDate="2025-01-01" duration="PT1M" />
+            <Video src="https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/04/Untitled.mp4" poster="" title="Vídeo" description="" uploadDate="2025-01-01" duration="PT1M" />
         </div>
         <div class="sobre-content" style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
             <span class="section-tag">Sobre o espaço</span>
-            <h2 class="section-title">Detalhes pensados<br><em>para você brilhar</em></h2>
-            <p class="section-body">Ambientes pensados para transformar cada momento da festa em uma experiência única. Da recepção à pista de dança, os espaços se adaptam com facilidade a diferentes formatos e estilos de celebração.</p>
-            <p class="section-body" style="margin-bottom:0">Com capacidade de <b>50 a 530 convidados</b>, os salões se adaptam a diferentes formatos, como recepção, jantar, cerimônia, valsa e pista de dança. O ambiente também conta com lounges para fotos e vídeos, além de áreas de recepção ideais para welcome drinks e experiências interativas.</p>
+            <h2 class="section-title">17 ambientes distribuídos em <br><em>10 andares de versatilidade</em></h2>
+            <p class="section-body">Com 17 ambientes distribuídos em 10 andares, oferecemos flexibilidade para
+                criar desde festas intimistas até grandes celebrações de debutantes. Cada
+                espaço foi pensado para acompanhar cada momento da festa — da recepção à
+                pista de dança.</p>
+            <p class="section-body" style="margin-bottom:0">Com capacidade de <b>50 a 530 convidados</b>, os
+                salões se adaptam a diferentes formatos, como recepção, jantar, cerimônia,
+                valsa e pista de dança. O ambiente também conta com lounges para fotos e vídeos,
+                além de áreas de recepção ideais para welcome drinks e experiências
+                interativas.</p>
         </div>
     </section>
 
@@ -96,9 +95,9 @@ const heroSlidesMobile = [heroMobile1.src, heroMobile2.src, heroMobile3.src, her
             <div class="ambientes-item"><Img src="2DECOR_1064_RICK6215-Copia_resultado.avif" alt="Ambiente decorado para debutante" /></div>
             <div class="ambientes-item"><Img src="2DECOR_1065_RICK6217-31-03-2026-13-26-01_resultado.avif" alt="Decoração de festa de 15 anos" /></div>
             <div class="ambientes-item"><Img src="2DECOR_1145_DSC07536_resultado.avif" alt="Espaço para cerimônia de debutante" /></div>
-            <div class="ambientes-item"><Img src="WhatsApp Image 2026-05-05 at 18.10.55.jpeg" alt="Ambiente do Espaço Fit Eventos" /></div>
-            <div class="ambientes-item"><Img src="camarim.fit.webp" alt="Camarim do Espaço Fit Eventos" /></div>
-            <div class="ambientes-item"><Img src="WhatsApp Image 2026-05-05 at 18.10.57.jpeg" alt="Ambiente do Espaço Fit Eventos" /></div>
+            <div class="ambientes-item"><Img src="2DECOR_1289_0W1A0209_resultado.avif" alt="Sala de eventos decorada" /></div>
+            <div class="ambientes-item"><Img src="2DECOR_1269_DSC07655_resultado.avif" alt="Ambiente de recepção" /></div>
+            <div class="ambientes-item"><Img src="2DECOR_1288_0W1A0207_resultado.avif" alt="Espaço para pista de dança" /></div>
         </div>
     </section>
 
@@ -129,7 +128,7 @@ const heroSlidesMobile = [heroMobile1.src, heroMobile2.src, heroMobile3.src, her
         <div class="gastro-content" style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
             <span class="section-tag">Gastronomia</span>
             <h2 class="section-title">Uma experiência gastronômica <br><em>à altura da sua noite</em></h2>
-            <p class="section-body">Da recepção ao grande momento da festa, a gastronomia, assinada pelo <b>Chef Dalton Rangel</b>, é pensada
+            <p class="section-body">Da recepção ao grande momento da festa, a gastronomia é pensada
                 para surpreender. Oferecemos menus personalizados para festas de debutantes, incluindo coquetéis,
                 ilhas gastronômicas, finger foods e jantar completo, sempre adaptados ao estilo da debutante e ao
                 perfil dos convidados.</p>
@@ -160,7 +159,7 @@ const heroSlidesMobile = [heroMobile1.src, heroMobile2.src, heroMobile3.src, her
                         <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
                         <path d="M2 17l10 5 10-5"></path>
                         <path d="M2 12l10 5 10-5"></path>
-                    </svg></div><span class="dif-card-title">Personalização do evento<br>conforme seu estilo</span>
+                    </svg></div><span class="dif-card-title">Personalização do evento conforme seu estilo</span>
             </div>
             <div class="dif-card">
                 <div class="dif-card-icon"><svg viewBox="0 0 24 24">
@@ -290,32 +289,25 @@ const heroSlidesMobile = [heroMobile1.src, heroMobile2.src, heroMobile3.src, her
             style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
             <LeadForm
               formId="lead-form"
-              prefix="fit"
               project={config.project_slug}
               submitUrl={config.forms['lead-form'].webhooks[0]}
               redirectUrl={config.forms['lead-form'].redirect_on_success}
               submitText="Enviar solicitação"
               honeypot
               fields={[
-                { name: 'nome',       type: 'text',     placeholder: 'Seu nome completo',                    required: true,  full: true },
-                { name: 'email',      type: 'email',    placeholder: 'seu@email.com',                        required: true,  full: true },
-                { name: 'telefone',   type: 'tel',      placeholder: '(11) 9 0000-0000',                     required: true  },
-                { name: 'tipo',       type: 'select',   placeholder: '',                                     required: true,  options: [
-                    { value: '',                  label: 'Tipo de evento',    disabled: true, selected: true },
-                    { value: 'Eventos sociais',   label: 'Eventos sociais'   },
-                    { value: 'Casamentos',        label: 'Casamentos'        },
-                    { value: 'Mini Wedding',      label: 'Mini Wedding'      },
-                    { value: 'Aniversários',      label: 'Aniversários'      },
-                    { value: 'Debutantes',        label: 'Debutantes'        },
-                    { value: 'Formatura',         label: 'Formatura'         },
-                    { value: 'Bodas',             label: 'Bodas'             },
-                    { value: 'Festas Judaicas',   label: 'Festas Judaicas'   },
-                    { value: 'Bar Mitzvah',       label: 'Bar Mitzvah'       },
-                    { value: 'Bat Mitzvah',       label: 'Bat Mitzvah'       },
-                  ] },
-                { name: 'data',       type: 'text',     placeholder: 'Data do evento',                       required: true, readonly: true  },
-                { name: 'convidados', type: 'number',   placeholder: 'Nº de convidados',                     required: true  },
-                { name: 'mensagem',   type: 'textarea', placeholder: 'Detalhes adicionais (não obrigatório)', required: false, full: true },
+                { name: 'nome', type: 'text', placeholder: 'Seu nome completo', required: true },
+                { name: 'email', type: 'email', placeholder: 'seu@email.com', required: true },
+                { name: 'telefone', type: 'tel', placeholder: '(11) 9 0000-0000', required: true },
+                { name: 'data', type: 'text', placeholder: 'Data do evento', required: true },
+                { name: 'convidados', type: 'number', placeholder: 'Nº de pessoas', required: true },
+                { name: 'mensagem', type: 'textarea', placeholder: 'Detalhes adicionais (não obrigatório)', required: false },
+                { name: 'tipo_evento', type: 'select', placeholder: '', required: true, options: [
+                  { value: '', label: 'Selecione...' },
+                  { value: 'Aniversário', label: 'Aniversário' },
+                  { value: 'Aniversário debutante', label: 'Aniversário debutante' },
+                  { value: 'Confraternização social', label: 'Confraternização social' },
+                  { value: 'Outros', label: 'Outros' }
+                ] }
               ]}
             />
         </div>
@@ -323,16 +315,24 @@ const heroSlidesMobile = [heroMobile1.src, heroMobile2.src, heroMobile3.src, her
 
     <section class="mapa-section">
         <div class="mapa-wrapper">
-            <Img src="mapa.png" alt="Localização do Espaço Fit Eventos" class="mapa-img" />
+            <iframe id="mapIframe"
+                src="https://maps.google.com/maps?q=Espa%C3%A7o%20Fit%20Eventos%20-%20Na%C3%A7%C3%B5es%20Unidas&t=m&z=14&output=embed&iwloc=near"
+                title="Espaço Fit Eventos — Localização" aria-label="Mapa do Espaço Fit Eventos" loading="lazy">
+            </iframe>
             <div class="mapa-overlay"></div>
+        </div>
+        <div class="mapa-fallback" id="mapaFallback">
+            <p>Não foi possível carregar o mapa.</p>
+            <a href="https://maps.google.com/?q=Espa%C3%A7o+Fit+Eventos+Nações+Unidas+São+Paulo" target="_blank"
+                rel="noopener noreferrer">Ver no Google Maps →</a>
         </div>
     </section>
 
     <footer>
         <div class="footer-bottom">
-            <p class="footer-copy">&copy; 2026 Espaço Fit Eventos — Todos os direitos reservados.</p>
+            <p class="footer-copy">&copy; 2026 Fit Eventos — Todos os direitos reservados.</p>
             <a href="#" class="footer-logo-bottom" aria-label="Espaço Fit Eventos">
-                <Img src="logo.fiteventos.webp" alt="Espaço Fit Eventos" />
+                <Img src="b6141e8a-26b2-4a98-a24a-572b061dd41b.png" alt="Espaço Fit Eventos" />
             </a>
             <div class="footer-dev">
                 <span class="footer-dev-text">Desenvolvido por:</span>
@@ -343,10 +343,17 @@ const heroSlidesMobile = [heroMobile1.src, heroMobile2.src, heroMobile3.src, her
         </div>
     </footer>
 
-    <WhatsAppFormWidget
-      submitUrl={config.forms['lead-form'].webhooks[0]}
-      project={config.project_slug}
-    />
+    <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="whatsapp-float"
+        aria-label="Fale conosco pelo WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1219.547 1225.016">
+            <path fill="#25d366"
+                d="M1041.858 178.02C927.206 63.289 774.753.07 612.325 0 277.617 0 5.232 272.298 5.098 606.991c-.039 106.986 27.915 211.42 81.048 303.476L0 1225.016l321.898-84.406c88.689 48.368 188.547 73.855 290.166 73.896h.258.003c334.654 0 607.08-272.346 607.222-607.023.056-162.208-63.052-314.724-177.689-429.463zm-429.533 933.963h-.197c-90.578-.048-179.402-24.366-256.878-70.339l-18.438-10.93-191.021 50.083 51-186.176-12.013-19.087c-50.525-80.336-77.198-173.175-77.16-268.504.111-278.186 226.507-504.503 504.898-504.503 134.812.056 261.519 52.604 356.814 147.965 95.289 95.36 147.728 222.128 147.688 356.948-.118 278.195-226.522 504.543-504.693 504.543z">
+            </path>
+            <path fill="#fff"
+                d="M462.273 349.294c-11.234-24.977-23.062-25.477-33.75-25.914-8.742-.375-18.75-.352-28.742-.352-10 0-26.25 3.758-39.992 18.766-13.75 15.008-52.5 51.289-52.5 125.078 0 73.797 53.75 145.102 61.242 155.117 7.5 10 103.758 166.266 256.203 226.383 126.695 49.961 152.477 40.023 179.977 37.523s88.734-36.273 101.234-71.297c12.5-35.016 12.5-65.031 8.75-71.305-3.75-6.25-13.75-10-28.75-17.5s-88.734-43.789-102.484-48.789-23.75-7.5-33.75 7.516c-10 15-38.727 48.773-47.477 58.773-8.75 10.023-17.5 11.273-32.5 3.773-15-7.523-63.305-23.344-120.609-74.438-44.586-39.75-74.688-88.844-83.438-103.859-8.75-15-.938-23.125 6.586-30.602 6.734-6.719 15-17.508 22.5-26.266 7.484-8.758 9.984-15.008 14.984-25.008 5-10.016 2.5-18.773-1.25-26.273s-32.898-81.67-46.234-111.326z">
+            </path>
+        </svg>
+    </a>
 
     
     
