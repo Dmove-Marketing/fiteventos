@@ -36,9 +36,11 @@
     line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    text-wrap: balance;
   }
 
   em { font-style: italic; color: var(--rose); }
+  h1 em, h2 em { font-style: normal; }
 
   img { display: block; max-width: 100%; }
 
@@ -847,7 +849,7 @@
     background: var(--rose-bg);
     border: 1px solid rgba(196, 30, 76, .25);
     border-radius: 0;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 300;
     color: var(--charcoal);
     outline: none;
@@ -1070,7 +1072,6 @@
 
   @media (max-width: 900px) {
     .br-d { display: none; }
-    #hero .br-d { display: inline; }
     .hero-content { max-width: 100%; padding: 80px 0 60px; }
     .hero-content h1 { font-size: clamp(24px, 5.5vw, 48px); letter-spacing: 1px; }
     h1, h2, h3 { letter-spacing: 2px; }
