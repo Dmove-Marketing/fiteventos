@@ -1,1839 +1,2657 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Espaço Fit Eventos – São Paulo</title>
-<meta name="description" content="O espaço ideal para eventos que exigem excelência. 17 ambientes, gastronomia assinada e tecnologia integrada em São Paulo.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-<style>
-/* ─── RESET + ROOT ─── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espaço Fit Eventos – São Paulo</title>
+  <meta name="description"
+    content="O espaço ideal para eventos que exigem excelência. 17 ambientes, gastronomia assinada e tecnologia integrada em São Paulo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ─── RESET + ROOT ─── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-:root {
-  --rose:        #C41E4C;
-  --rose-dark:   #9E1840;
-  --rose-light:  #E8637F;
-  --rose-pale:   #FDF0F3;
-  --rose-mid:    #F5D5DC;
-  --white:       #FFFFFF;
-  --off-white:   #FAF9F7;
-  --cream:       #F3F0EC;
-  --charcoal:    #1A1A19;
-  --gray-dark:   #3D3D3C;
-  --gray:        #575756;
-  --gray-mid:    #888786;
-  --gray-light:  #C8C5C0;
-  --text:        #2A2A29;
-  --text-muted:  #6B6866;
-  --border:      #E8E4DF;
-  --pad-section: clamp(72px, 10vw, 120px) 0;
-}
+    :root {
+      --rose: #C41E4C;
+      --rose-dark: #9E1840;
+      --rose-light: #E8637F;
+      --rose-pale: #FDF0F3;
+      --rose-mid: #F5D5DC;
+      --white: #FFFFFF;
+      --off-white: #FAF9F7;
+      --cream: #F3F0EC;
+      --charcoal: #1A1A19;
+      --gray-dark: #3D3D3C;
+      --gray: #575756;
+      --gray-mid: #888786;
+      --gray-light: #C8C5C0;
+      --text: #2A2A29;
+      --text-muted: #6B6866;
+      --border: #E8E4DF;
+      --pad-section: clamp(72px, 10vw, 120px) 0;
+    }
 
-html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  color: var(--text);
-  background: var(--white);
-  line-height: 1.7;
-  font-size: 16px;
-  overflow-x: hidden;
-}
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
 
-h1, h2, h3, h4 {
-  font-family: 'Cormorant Garamond', serif;
-  line-height: 1.15;
-  font-weight: 600;
-}
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.15;
+      font-weight: 600;
+    }
 
-em { font-style: italic; color: var(--rose); }
+    em {
+      font-style: italic;
+      color: var(--rose);
+    }
 
-img { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; }
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-/* ─── UTILITIES ─── */
-.label {
-  display: inline-block;
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--rose);
-  margin-bottom: 16px;
-}
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 15px 34px;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  border: none;
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-.btn-primary { background: var(--rose); color: var(--white); }
-.btn-primary:hover { background: var(--rose-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196,30,76,0.3); }
-.btn-outline { background: transparent; color: var(--rose); border: 1.5px solid var(--rose); }
-.btn-outline:hover { background: var(--rose); color: var(--white); }
-.btn-outline-white { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.55); }
-.btn-outline-white:hover { background: rgba(255,255,255,0.12); border-color: var(--white); }
-.btn-dark { background: var(--charcoal); color: var(--white); }
-.btn-dark:hover { background: var(--gray-dark); transform: translateY(-2px); }
-.btn svg { transition: transform 0.25s; }
-.btn:hover svg { transform: translateX(3px); }
+    /* ─── UTILITIES ─── */
+    .label {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 16px;
+    }
 
-/* ─── HEADER ─── */
-header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 200;
-  padding: 0;
-  transition: all 0.35s ease;
-}
-header.scrolled {
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 var(--border), 0 4px 24px rgba(0,0,0,0.06);
-}
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 0;
-  transition: padding 0.35s ease;
-}
-header.scrolled .header-inner { padding: 14px 0; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 15px 34px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
 
-.logo img { height: 42px; width: auto; }
-.logo-dark { display: none; }
-.logo-light { display: block; }
-header.scrolled .logo-light { display: none; }
-header.scrolled .logo-dark { display: block; }
+    .btn-primary {
+      background: var(--rose);
+      color: var(--white);
+    }
 
-nav { display: flex; align-items: center; gap: 36px; }
-nav a {
-  color: rgba(255,255,255,0.85);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  position: relative;
-  transition: color 0.2s;
-}
-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px; left: 0; right: 100%;
-  height: 1.5px;
-  background: var(--rose);
-  transition: right 0.28s ease;
-}
-nav a:hover { color: var(--white); }
-nav a:hover::after { right: 0; }
-header.scrolled nav a { color: var(--gray-dark); }
-header.scrolled nav a:hover { color: var(--rose); }
-.nav-cta {
-  background: var(--rose);
-  color: var(--white) !important;
-  padding: 11px 24px;
-  font-size: 12.5px !important;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-}
-.nav-cta::after { display: none !important; }
-.nav-cta:hover { background: var(--rose-dark) !important; }
+    .btn-primary:hover {
+      background: var(--rose-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(196, 30, 76, 0.3);
+    }
 
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-.hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.3s; }
-header.scrolled .hamburger span { background: var(--charcoal); }
+    .btn-outline {
+      background: transparent;
+      color: var(--rose);
+      border: 1.5px solid var(--rose);
+    }
 
-/* ─── HERO ─── */
-#hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  background: var(--charcoal);
-  overflow: hidden;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background-image: url('https://lp.espacofiteventos.com.br/_astro/3RECEP_1620_RICK6734_resultado.B-BMXWxB_ZUk99Q.webp');
-  background-size: cover;
-  background-position: center 30%;
-  opacity: 0.42;
-  animation: heroZoom 16s ease-out forwards;
-}
-@keyframes heroZoom { from { transform: scale(1.08); } to { transform: scale(1); opacity: 0.35; } }
-.hero-gradient {
-  position: absolute; inset: 0;
-  background: linear-gradient(
-    120deg,
-    rgba(26,26,25,0.92) 0%,
-    rgba(26,26,25,0.65) 45%,
-    rgba(196,30,76,0.18) 100%
-  );
-}
-/* decorative rose line accent */
-.hero-accent {
-  position: absolute;
-  top: 0; right: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(180deg, var(--rose) 0%, transparent 100%);
-  opacity: 0.6;
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-  padding: 130px 0 100px;
-  max-width: 780px;
-}
-.hero-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 28px;
-  opacity: 0;
-  animation: fadeUp 0.9s 0.1s forwards;
-}
-.hero-eyebrow span {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
-}
-.hero-eyebrow::before {
-  content: '';
-  display: block;
-  width: 36px;
-  height: 1px;
-  background: var(--rose);
-  flex-shrink: 0;
-}
-.hero-content h1 {
-  font-size: clamp(40px, 5.8vw, 72px);
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 28px;
-  letter-spacing: -0.01em;
-  line-height: 1.1;
-  opacity: 0;
-  animation: fadeUp 0.95s 0.25s forwards;
-}
-.hero-content p {
-  font-size: clamp(15px, 1.7vw, 18px);
-  color: rgba(255,255,255,0.7);
-  max-width: 540px;
-  margin-bottom: 44px;
-  font-weight: 300;
-  line-height: 1.85;
-  opacity: 0;
-  animation: fadeUp 0.95s 0.4s forwards;
-}
-.hero-actions {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: fadeUp 0.95s 0.55s forwards;
-}
-.hero-stats {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  z-index: 2;
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(8px);
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-.hero-stats-inner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-.hero-stat {
-  padding: 28px 32px;
-  border-right: 1px solid rgba(255,255,255,0.1);
-  text-align: center;
-}
-.hero-stat:last-child { border-right: none; }
-.hero-stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(34px, 4vw, 52px);
-  font-weight: 600;
-  color: var(--white);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.hero-stat-num em { color: var(--rose-light); }
-.hero-stat-label {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-}
+    .btn-outline:hover {
+      background: var(--rose);
+      color: var(--white);
+    }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255, 255, 255, 0.55);
+    }
 
-/* ─── SOBRE ─── */
-#sobre {
-  padding: var(--pad-section);
-  background: var(--white);
-}
-.sobre-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 96px;
-  align-items: center;
-}
-.sobre-text h2 {
-  font-size: clamp(30px, 3.8vw, 50px);
-  color: var(--charcoal);
-  margin-bottom: 28px;
-}
-.sobre-text p {
-  color: var(--text-muted);
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 1.9;
-  margin-bottom: 18px;
-}
-.sobre-text p:last-of-type { margin-bottom: 36px; }
-.sobre-visual {
-  position: relative;
-}
-.sobre-img-main {
-  width: 100%;
-  aspect-ratio: 4/5;
-  overflow: hidden;
-}
-.sobre-img-main img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s ease;
-}
-.sobre-img-main:hover img { transform: scale(1.04); }
-.sobre-badge {
-  position: absolute;
-  bottom: -28px;
-  left: -28px;
-  background: var(--rose);
-  color: var(--white);
-  padding: 24px 28px;
-  width: 180px;
-  text-align: center;
-  box-shadow: 0 12px 40px rgba(196,30,76,0.35);
-}
-.sobre-badge-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 1;
-}
-.sobre-badge-txt {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.85;
-  margin-top: 4px;
-}
+    .btn-outline-white:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--white);
+    }
 
-/* ─── ESPAÇOS ─── */
-#espacos {
-  padding: var(--pad-section);
-  background: var(--off-white);
-}
-.espacos-header {
-  text-align: center;
-  max-width: 660px;
-  margin: 0 auto 72px;
-}
-.espacos-header h2 { font-size: clamp(28px, 3.6vw, 48px); margin-bottom: 16px; }
-.espacos-header p { color: var(--text-muted); font-weight: 300; line-height: 1.85; }
+    .btn-dark {
+      background: var(--charcoal);
+      color: var(--white);
+    }
 
-.espaco-block {
-  margin-bottom: 80px;
-}
-.espaco-block:last-child { margin-bottom: 0; }
-.espaco-block-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 28px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--border);
-}
-.espaco-block-head h3 {
-  font-size: clamp(24px, 3vw, 38px);
-  color: var(--charcoal);
-}
-.espaco-block-head p {
-  max-width: 420px;
-  color: var(--text-muted);
-  font-weight: 300;
-  font-size: 15px;
-  line-height: 1.7;
-  text-align: right;
-}
+    .btn-dark:hover {
+      background: var(--gray-dark);
+      transform: translateY(-2px);
+    }
 
-.espaco-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3px;
-}
-.espaco-card {
-  position: relative;
-  aspect-ratio: 3/4;
-  overflow: hidden;
-  cursor: pointer;
-  background: var(--gray-dark);
-}
-.espaco-card.tall { aspect-ratio: 2/3; grid-row: span 2; }
-.espaco-card img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.65s ease, opacity 0.4s;
-  opacity: 0.82;
-}
-.espaco-card:hover img { transform: scale(1.07); opacity: 1; }
-.espaco-card-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(0deg, rgba(26,26,25,0.88) 0%, rgba(26,26,25,0.05) 55%);
-  display: flex; align-items: flex-end;
-  padding: 24px;
-}
-.espaco-card-info h4 {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 5px;
-}
-.espaco-card-info p {
-  font-size: 12.5px;
-  color: rgba(255,255,255,0.6);
-  font-weight: 300;
-  line-height: 1.5;
-}
+    .btn svg {
+      transition: transform 0.25s;
+    }
 
-.espaco-cta-row {
-  margin-top: 36px;
-  text-align: center;
-}
+    .btn:hover svg {
+      transform: translateX(3px);
+    }
 
-/* ─── EVENTOS ─── */
-#eventos {
-  padding: var(--pad-section);
-  background: var(--white);
-}
-.eventos-header {
-  max-width: 560px;
-  margin-bottom: 60px;
-}
-.eventos-header h2 { font-size: clamp(28px, 3.6vw, 48px); margin-bottom: 16px; }
-.eventos-header p { color: var(--text-muted); font-weight: 300; line-height: 1.85; }
+    /* ─── HEADER ─── */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      padding: 0;
+      transition: all 0.35s ease;
+    }
 
-.eventos-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3px;
-}
-.evento-card {
-  position: relative;
-  overflow: hidden;
-  background: var(--gray-dark);
-  cursor: pointer;
-}
-.evento-card-img {
-  aspect-ratio: 2/3;
-  overflow: hidden;
-}
-.evento-card-img img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.65s ease;
-  filter: brightness(0.75);
-}
-.evento-card:hover .evento-card-img img { transform: scale(1.08); filter: brightness(0.6); }
-.evento-card-body {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 28px 22px;
-  background: linear-gradient(0deg, rgba(26,26,25,0.9) 0%, rgba(26,26,25,0.05) 60%);
-}
-.evento-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 36px;
-  color: rgba(255,255,255,0.15);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.evento-card-body h3 {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 8px;
-}
-.evento-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--rose-light);
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.3s, transform 0.3s;
-}
-.evento-card:hover .evento-link { opacity: 1; transform: translateY(0); }
-.eventos-note {
-  margin-top: 36px;
-  text-align: center;
-  font-size: 15px;
-  color: var(--text-muted);
-  font-weight: 300;
-}
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--border), 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
 
-/* ─── ESTRUTURA ─── */
-#estrutura {
-  padding: var(--pad-section);
-  background: var(--rose);
-  position: relative;
-  overflow: hidden;
-}
-.estrutura-bg-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(120px, 18vw, 220px);
-  font-weight: 700;
-  color: rgba(255,255,255,0.06);
-  white-space: nowrap;
-  pointer-events: none;
-  letter-spacing: -0.04em;
-  line-height: 1;
-}
-.estrutura-inner { position: relative; z-index: 1; }
-.estrutura-head {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: end;
-  margin-bottom: 64px;
-}
-.estrutura-head h2 {
-  font-size: clamp(28px, 3.5vw, 48px);
-  color: var(--white);
-}
-.estrutura-head p {
-  color: rgba(255,255,255,0.75);
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 1.85;
-}
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      transition: padding 0.35s ease;
+    }
 
-.estrutura-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(255,255,255,0.15);
-}
-.estrutura-item {
-  background: rgba(255,255,255,0.0);
-  padding: 36px 32px;
-  transition: background 0.25s;
-}
-.estrutura-item:hover { background: rgba(255,255,255,0.08); }
-.estrutura-icon {
-  width: 48px; height: 48px;
-  border: 1.5px solid rgba(255,255,255,0.4);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 18px;
-  transition: border-color 0.25s, background 0.25s;
-}
-.estrutura-item:hover .estrutura-icon {
-  border-color: var(--white);
-  background: rgba(255,255,255,0.1);
-}
-.estrutura-icon svg { color: var(--white); }
-.estrutura-item h3 {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--white);
-  line-height: 1.45;
-}
-.estrutura-cta { margin-top: 56px; text-align: center; }
+    header.scrolled .header-inner {
+      padding: 14px 0;
+    }
 
-/* ─── GASTRONOMIA ─── */
-#gastronomia {
-  padding: var(--pad-section);
-  background: var(--off-white);
-}
-.gastro-grid {
-  display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: 80px;
-  align-items: center;
-}
-.gastro-visual {
-  position: relative;
-}
-.gastro-img {
-  aspect-ratio: 3/4;
-  overflow: hidden;
-}
-.gastro-img img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s;
-}
-.gastro-img:hover img { transform: scale(1.04); }
-.gastro-chef-badge {
-  position: absolute;
-  top: 32px;
-  right: -24px;
-  background: var(--white);
-  border-left: 4px solid var(--rose);
-  padding: 18px 22px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-}
-.gastro-chef-badge .sub {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--rose);
-  margin-bottom: 4px;
-}
-.gastro-chef-badge .name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--charcoal);
-  white-space: nowrap;
-}
-.gastro-text h2 { font-size: clamp(28px, 3.5vw, 46px); margin-bottom: 22px; }
-.gastro-text p {
-  color: var(--text-muted);
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 1.9;
-  margin-bottom: 18px;
-}
-.gastro-menu {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 36px;
-}
-.gastro-menu-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 18px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  font-size: 14px;
-  color: var(--text);
-  font-weight: 400;
-  transition: border-color 0.2s, color 0.2s;
-}
-.gastro-menu-item:hover { border-color: var(--rose); color: var(--rose); }
-.gastro-menu-item::before {
-  content: '';
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--rose);
-  flex-shrink: 0;
-}
+    .logo img {
+      height: 42px;
+      width: auto;
+    }
 
-/* ─── GALERIA ─── */
-#galeria {
-  padding: var(--pad-section);
-  background: var(--white);
-}
-.galeria-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 40px;
-}
-.galeria-header h2 { font-size: clamp(26px, 3.3vw, 44px); max-width: 480px; }
-.galeria-mosaic {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 260px 260px;
-  gap: 4px;
-}
-.gal-item { overflow: hidden; background: var(--cream); }
-.gal-item img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease, filter 0.4s;
-  filter: brightness(0.92);
-}
-.gal-item:hover img { transform: scale(1.07); filter: brightness(1); }
-.gal-item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
-.gal-item:nth-child(2) { grid-column: span 4; }
-.gal-item:nth-child(3) { grid-column: span 3; }
-.gal-item:nth-child(4) { grid-column: span 3; }
-.gal-item:nth-child(5) { grid-column: span 4; }
+    .logo-dark {
+      display: none;
+    }
 
-/* ─── PARCEIROS ─── */
-#parceiros {
-  padding: clamp(48px, 7vw, 80px) 0;
-  background: var(--cream);
-  overflow: hidden;
-}
-.parceiros-head { text-align: center; margin-bottom: 48px; }
-.parceiros-head h2 { font-size: clamp(24px, 3vw, 40px); }
-.parceiros-track-wrap { overflow: hidden; }
-.parceiros-track {
-  display: flex;
-  gap: 60px;
-  align-items: center;
-  animation: scrollTrack 28s linear infinite;
-  width: max-content;
-}
-@keyframes scrollTrack { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.parceiro-logo {
-  height: 36px;
-  opacity: 0.35;
-  filter: grayscale(1);
-  transition: opacity 0.3s, filter 0.3s;
-  flex-shrink: 0;
-}
-.parceiro-logo:hover { opacity: 0.7; filter: grayscale(0); }
-/* text-based placeholders for partner logos */
-.parceiro-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--gray-mid);
-  white-space: nowrap;
-  opacity: 0.45;
-  letter-spacing: 0.04em;
-  flex-shrink: 0;
-  transition: opacity 0.3s, color 0.3s;
-}
-.parceiro-name:hover { opacity: 0.9; color: var(--rose); }
+    .logo-light {
+      display: block;
+    }
 
-/* ─── DEPOIMENTOS ─── */
-#depoimentos {
-  padding: var(--pad-section);
-  background: var(--white);
-}
-.depoimentos-header { margin-bottom: 56px; }
-.depoimentos-header h2 { font-size: clamp(26px, 3.3vw, 44px); }
+    header.scrolled .logo-light {
+      display: none;
+    }
 
-.depo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-}
-.depo-card {
-  padding: 36px 30px;
-  background: var(--off-white);
-  transition: background 0.25s;
-  position: relative;
-}
-.depo-card:hover { background: var(--rose-pale); }
-.depo-card.featured {
-  background: var(--rose);
-  color: var(--white);
-}
-.depo-stars {
-  color: var(--rose);
-  font-size: 13px;
-  letter-spacing: 3px;
-  margin-bottom: 18px;
-}
-.depo-card.featured .depo-stars { color: rgba(255,255,255,0.7); }
-.depo-card blockquote {
-  font-size: 15px;
-  color: var(--gray-dark);
-  line-height: 1.85;
-  font-weight: 300;
-  margin-bottom: 26px;
-  font-style: italic;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px;
-}
-.depo-card.featured blockquote { color: rgba(255,255,255,0.88); }
-.depo-author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.depo-avatar {
-  width: 38px; height: 38px;
-  border-radius: 50%;
-  background: var(--rose-mid);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--rose);
-  flex-shrink: 0;
-}
-.depo-card.featured .depo-avatar { background: rgba(255,255,255,0.2); color: var(--white); }
-.depo-author-name { font-size: 13.5px; font-weight: 500; }
-.depo-card.featured .depo-author-name { color: var(--white); }
+    header.scrolled .logo-dark {
+      display: block;
+    }
 
-/* ─── CONTATO ─── */
-#contato {
-  padding: var(--pad-section);
-  background: var(--charcoal);
-  position: relative;
-  overflow: hidden;
-}
-.contato-accent {
-  position: absolute;
-  top: 0; left: 0;
-  width: 50%;
-  height: 4px;
-  background: var(--rose);
-}
-.contato-grid {
-  display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: 80px;
-  align-items: start;
-}
-.contato-text h2 {
-  font-size: clamp(28px, 3.5vw, 48px);
-  color: var(--white);
-  margin-bottom: 18px;
-}
-.contato-text > p {
-  color: rgba(255,255,255,0.6);
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 1.85;
-  margin-bottom: 44px;
-}
-.contato-info-list { display: flex; flex-direction: column; gap: 20px; }
-.contato-info-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-.contato-info-icon {
-  width: 38px; height: 38px;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-.contato-info-icon svg { color: var(--rose-light); }
-.contato-info-item-text { font-size: 14.5px; color: rgba(255,255,255,0.65); font-weight: 300; line-height: 1.7; }
-.contato-info-item-text strong { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 3px; }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
 
-/* Form */
-.form-box {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: 44px 40px;
-}
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
-.form-group:last-child { margin-bottom: 0; }
-.form-label {
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-}
-.form-group input,
-.form-group select,
-.form-group textarea {
-  padding: 13px 16px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.12);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14.5px;
-  color: var(--white);
-  outline: none;
-  transition: border-color 0.2s, background 0.2s;
-  -webkit-appearance: none;
-  appearance: none;
-  resize: none;
-}
-.form-group input::placeholder,
-.form-group textarea::placeholder { color: rgba(255,255,255,0.22); }
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: var(--rose);
-  background: rgba(255,255,255,0.07);
-}
-.form-group select option { background: #2A2A29; color: var(--white); }
-.form-submit { margin-top: 4px; }
-.form-submit .btn { width: 100%; justify-content: center; padding: 17px; }
-.form-note { margin-top: 12px; font-size: 11.5px; color: rgba(255,255,255,0.3); }
+    nav a {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      position: relative;
+      transition: color 0.2s;
+    }
 
-/* ─── LOCALIZAÇÃO ─── */
-#localizacao {
-  background: var(--off-white);
-  padding: var(--pad-section);
-}
-.loc-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  align-items: center;
-}
-.loc-text h2 { font-size: clamp(26px, 3.2vw, 42px); margin-bottom: 16px; }
-.loc-text p { color: var(--text-muted); font-weight: 300; line-height: 1.85; font-size: 16px; margin-bottom: 28px; }
-.loc-details { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
-.loc-detail {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 14.5px;
-  color: var(--text);
-}
-.loc-detail svg { color: var(--rose); flex-shrink: 0; margin-top: 2px; }
-.loc-map {
-  border-radius: 0;
-  overflow: hidden;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.12);
-}
-.loc-map iframe { display: block; width: 100%; height: 400px; border: none; filter: grayscale(20%) contrast(1.05); }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 100%;
+      height: 1.5px;
+      background: var(--rose);
+      transition: right 0.28s ease;
+    }
 
-/* ─── FOOTER ─── */
-footer {
-  background: var(--charcoal);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 56px 0 36px;
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 56px;
-  margin-bottom: 48px;
-}
-.footer-brand .logo-footer img { height: 36px; opacity: 0.8; margin-bottom: 18px; }
-.footer-brand p { font-size: 14px; color: rgba(255,255,255,0.4); font-weight: 300; line-height: 1.7; max-width: 280px; }
-.footer-col h4 {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-  margin-bottom: 18px;
-}
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-col ul li a { font-size: 14px; color: rgba(255,255,255,0.55); transition: color 0.2s; }
-.footer-col ul li a:hover { color: var(--white); }
-.footer-col-contact { display: flex; flex-direction: column; gap: 12px; }
-.footer-contact-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.55); }
-.footer-contact-item svg { color: var(--rose-light); flex-shrink: 0; }
-.footer-bottom {
-  padding-top: 28px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.footer-copy { font-size: 12.5px; color: rgba(255,255,255,0.28); }
-.footer-social { display: flex; gap: 14px; }
-.footer-social a {
-  width: 36px; height: 36px;
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.45);
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
-}
-.footer-social a:hover { border-color: var(--rose); color: var(--white); background: var(--rose); }
-.footer-dev { font-size: 12px; color: rgba(255,255,255,0.25); }
-.footer-dev a { color: rgba(255,255,255,0.4); }
-.footer-dev a:hover { color: var(--rose-light); }
+    nav a:hover {
+      color: var(--white);
+    }
 
-/* ─── WHATSAPP ─── */
-.wa-float {
-  position: fixed;
-  bottom: 28px; right: 28px;
-  z-index: 300;
-  width: 56px; height: 56px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 6px 20px rgba(37,211,102,0.45);
-  transition: transform 0.25s, box-shadow 0.25s;
-  cursor: pointer;
-}
-.wa-float:hover { transform: scale(1.1); box-shadow: 0 8px 28px rgba(37,211,102,0.55); }
-.wa-float svg { color: var(--white); }
+    nav a:hover::after {
+      right: 0;
+    }
 
-/* ─── SCROLL REVEAL ─── */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
+    header.scrolled nav a {
+      color: var(--gray-dark);
+    }
 
-/* ─── MOBILE ─── */
-@media (max-width: 1024px) {
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-  .footer-brand { grid-column: span 2; }
-}
-@media (max-width: 900px) {
-  .sobre-grid, .gastro-grid, .contato-grid, .loc-grid,
-  .estrutura-head { grid-template-columns: 1fr; gap: 44px; }
-  .sobre-badge { left: 0; bottom: -20px; }
-  .gastro-chef-badge { right: 12px; }
-  .espaco-cards { grid-template-columns: 1fr 1fr; }
-  .espaco-card.tall { aspect-ratio: 3/4; grid-row: auto; }
-  .eventos-cards { grid-template-columns: 1fr 1fr; }
-  .depo-grid { grid-template-columns: 1fr 1fr; }
-  .galeria-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-  .gal-item { grid-column: auto !important; grid-row: auto !important; aspect-ratio: 4/3; }
-  .hero-stats-inner { grid-template-columns: 1fr 1fr; }
-  .hero-stat { border-bottom: 1px solid rgba(255,255,255,0.1); }
-  .estrutura-grid { grid-template-columns: 1fr 1fr; }
-  nav { display: none; }
-  nav.open {
-    display: flex; flex-direction: column;
-    position: fixed; inset: 0;
-    background: rgba(26,26,25,0.98);
-    align-items: center; justify-content: center;
-    gap: 36px; z-index: 199;
-  }
-  nav.open a { font-size: 20px; color: rgba(255,255,255,0.85); }
-  nav.open a::after { display: none; }
-  .hamburger { display: flex; }
-  .espaco-block-head { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .espaco-block-head p { text-align: left; }
-  .galeria-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-}
-@media (max-width: 580px) {
-  .espaco-cards, .eventos-cards, .depo-grid, .estrutura-grid { grid-template-columns: 1fr; }
-  .hero-stats-inner { grid-template-columns: 1fr 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .footer-brand { grid-column: auto; }
-  .gastro-menu { grid-template-columns: 1fr; }
-  .contato-grid { gap: 44px; }
-  .form-box { padding: 28px 22px; }
-}
-</style>
+    header.scrolled nav a:hover {
+      color: var(--rose);
+    }
+
+    .nav-cta {
+      background: var(--rose);
+      color: var(--white) !important;
+      padding: 11px 24px;
+      font-size: 12.5px !important;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--rose-dark) !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+
+    header.scrolled .hamburger span {
+      background: var(--charcoal);
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--charcoal);
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://lp.espacofiteventos.com.br/_astro/3RECEP_1620_RICK6734_resultado.B-BMXWxB_ZUk99Q.webp');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.42;
+      animation: heroZoom 16s ease-out forwards;
+    }
+
+    @keyframes heroZoom {
+      from {
+        transform: scale(1.08);
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 0.35;
+      }
+    }
+
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg,
+          rgba(26, 26, 25, 0.92) 0%,
+          rgba(26, 26, 25, 0.65) 45%,
+          rgba(196, 30, 76, 0.18) 100%);
+    }
+
+    /* decorative rose line accent */
+    .hero-accent {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--rose) 0%, transparent 100%);
+      opacity: 0.6;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 130px 0 100px;
+      max-width: 780px;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.1s forwards;
+    }
+
+    .hero-eyebrow span {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: var(--rose);
+      flex-shrink: 0;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(40px, 5.8vw, 72px);
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      opacity: 0;
+      animation: fadeUp 0.95s 0.25s forwards;
+    }
+
+    .hero-content p {
+      font-size: clamp(15px, 1.7vw, 18px);
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 540px;
+      margin-bottom: 44px;
+      font-weight: 300;
+      line-height: 1.85;
+      opacity: 0;
+      animation: fadeUp 0.95s 0.4s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.95s 0.55s forwards;
+    }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-stats-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .hero-stat {
+      padding: 28px 32px;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+
+    .hero-stat:last-child {
+      border-right: none;
+    }
+
+    .hero-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .hero-stat-num em {
+      color: var(--rose-light);
+    }
+
+    .hero-stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ─── SOBRE ─── */
+    #sobre {
+      padding: var(--pad-section);
+      background: var(--white);
+    }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: center;
+    }
+
+    .sobre-text h2 {
+      font-size: clamp(30px, 3.8vw, 50px);
+      color: var(--charcoal);
+      margin-bottom: 28px;
+    }
+
+    .sobre-text p {
+      color: var(--text-muted);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    .sobre-text p:last-of-type {
+      margin-bottom: 36px;
+    }
+
+    .sobre-visual {
+      position: relative;
+    }
+
+    .sobre-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      overflow: hidden;
+    }
+
+    .sobre-img-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .sobre-img-main:hover img {
+      transform: scale(1.04);
+    }
+
+    .sobre-badge {
+      position: absolute;
+      bottom: -28px;
+      left: -28px;
+      background: var(--rose);
+      color: var(--white);
+      padding: 24px 28px;
+      width: 180px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(196, 30, 76, 0.35);
+    }
+
+    .sobre-badge-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .sobre-badge-txt {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-top: 4px;
+    }
+
+    /* ─── ESPAÇOS ─── */
+    #espacos {
+      padding: var(--pad-section);
+      background: var(--off-white);
+    }
+
+    .espacos-header {
+      text-align: center;
+      max-width: 660px;
+      margin: 0 auto 72px;
+    }
+
+    .espacos-header h2 {
+      font-size: clamp(28px, 3.6vw, 48px);
+      margin-bottom: 16px;
+    }
+
+    .espacos-header p {
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.85;
+    }
+
+    .espaco-block {
+      margin-bottom: 80px;
+    }
+
+    .espaco-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .espaco-block-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .espaco-block-head h3 {
+      font-size: clamp(24px, 3vw, 38px);
+      color: var(--charcoal);
+    }
+
+    .espaco-block-head p {
+      max-width: 420px;
+      color: var(--text-muted);
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+      text-align: right;
+    }
+
+    .espaco-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+
+    .espaco-card {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--gray-dark);
+    }
+
+    .espaco-card.tall {
+      aspect-ratio: 2/3;
+      grid-row: span 2;
+    }
+
+    .espaco-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.65s ease, opacity 0.4s;
+      opacity: 0.82;
+    }
+
+    .espaco-card:hover img {
+      transform: scale(1.07);
+      opacity: 1;
+    }
+
+    .espaco-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(26, 26, 25, 0.88) 0%, rgba(26, 26, 25, 0.05) 55%);
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+    }
+
+    .espaco-card-info h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 5px;
+    }
+
+    .espaco-card-info p {
+      font-size: 12.5px;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .espaco-cta-row {
+      margin-top: 36px;
+      text-align: center;
+    }
+
+    /* ─── EVENTOS ─── */
+    #eventos {
+      padding: var(--pad-section);
+      background: var(--white);
+    }
+
+    .eventos-header {
+      max-width: 560px;
+      margin-bottom: 60px;
+    }
+
+    .eventos-header h2 {
+      font-size: clamp(28px, 3.6vw, 48px);
+      margin-bottom: 16px;
+    }
+
+    .eventos-header p {
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.85;
+    }
+
+    .eventos-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+    }
+
+    .evento-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--gray-dark);
+      cursor: pointer;
+    }
+
+    .evento-card-img {
+      aspect-ratio: 2/3;
+      overflow: hidden;
+    }
+
+    .evento-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.65s ease;
+      filter: brightness(0.75);
+    }
+
+    .evento-card:hover .evento-card-img img {
+      transform: scale(1.08);
+      filter: brightness(0.6);
+    }
+
+    .evento-card-body {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px 22px;
+      background: linear-gradient(0deg, rgba(26, 26, 25, 0.9) 0%, rgba(26, 26, 25, 0.05) 60%);
+    }
+
+    .evento-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      color: rgba(255, 255, 255, 0.15);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .evento-card-body h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .evento-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rose-light);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .evento-card:hover .evento-link {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .eventos-note {
+      margin-top: 36px;
+      text-align: center;
+      font-size: 15px;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* ─── ESTRUTURA ─── */
+    #estrutura {
+      padding: var(--pad-section);
+      background: var(--rose);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .estrutura-bg-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(120px, 18vw, 220px);
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.06);
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .estrutura-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .estrutura-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+
+    .estrutura-head h2 {
+      font-size: clamp(28px, 3.5vw, 48px);
+      color: var(--white);
+    }
+
+    .estrutura-head p {
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .estrutura-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .estrutura-item {
+      background: rgba(255, 255, 255, 0.0);
+      padding: 36px 32px;
+      transition: background 0.25s;
+    }
+
+    .estrutura-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .estrutura-icon {
+      width: 48px;
+      height: 48px;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      transition: border-color 0.25s, background 0.25s;
+    }
+
+    .estrutura-item:hover .estrutura-icon {
+      border-color: var(--white);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .estrutura-icon svg {
+      color: var(--white);
+    }
+
+    .estrutura-item h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.45;
+    }
+
+    .estrutura-cta {
+      margin-top: 56px;
+      text-align: center;
+    }
+
+    /* ─── GASTRONOMIA ─── */
+    #gastronomia {
+      padding: var(--pad-section);
+      background: var(--off-white);
+    }
+
+    .gastro-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .gastro-visual {
+      position: relative;
+    }
+
+    .gastro-img {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+
+    .gastro-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s;
+    }
+
+    .gastro-img:hover img {
+      transform: scale(1.04);
+    }
+
+    .gastro-chef-badge {
+      position: absolute;
+      top: 32px;
+      right: -24px;
+      background: var(--white);
+      border-left: 4px solid var(--rose);
+      padding: 18px 22px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    .gastro-chef-badge .sub {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 4px;
+    }
+
+    .gastro-chef-badge .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--charcoal);
+      white-space: nowrap;
+    }
+
+    .gastro-text h2 {
+      font-size: clamp(28px, 3.5vw, 46px);
+      margin-bottom: 22px;
+    }
+
+    .gastro-text p {
+      color: var(--text-muted);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    .gastro-menu {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 36px;
+    }
+
+    .gastro-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 400;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .gastro-menu-item:hover {
+      border-color: var(--rose);
+      color: var(--rose);
+    }
+
+    .gastro-menu-item::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--rose);
+      flex-shrink: 0;
+    }
+
+    /* ─── GALERIA ─── */
+    #galeria {
+      padding: var(--pad-section);
+      background: var(--white);
+    }
+
+    .galeria-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .galeria-header h2 {
+      font-size: clamp(26px, 3.3vw, 44px);
+      max-width: 480px;
+    }
+
+    .galeria-mosaic {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 260px 260px;
+      gap: 4px;
+    }
+
+    .gal-item {
+      overflow: hidden;
+      background: var(--cream);
+    }
+
+    .gal-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease, filter 0.4s;
+      filter: brightness(0.92);
+    }
+
+    .gal-item:hover img {
+      transform: scale(1.07);
+      filter: brightness(1);
+    }
+
+    .gal-item:nth-child(1) {
+      grid-column: span 5;
+      grid-row: span 2;
+    }
+
+    .gal-item:nth-child(2) {
+      grid-column: span 4;
+    }
+
+    .gal-item:nth-child(3) {
+      grid-column: span 3;
+    }
+
+    .gal-item:nth-child(4) {
+      grid-column: span 3;
+    }
+
+    .gal-item:nth-child(5) {
+      grid-column: span 4;
+    }
+
+    /* ─── PARCEIROS ─── */
+    #parceiros {
+      padding: clamp(48px, 7vw, 80px) 0;
+      background: var(--cream);
+      overflow: hidden;
+    }
+
+    .parceiros-head {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .parceiros-head h2 {
+      font-size: clamp(24px, 3vw, 40px);
+    }
+
+    .parceiros-track-wrap {
+      overflow: hidden;
+    }
+
+    .parceiros-track {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      animation: scrollTrack 28s linear infinite;
+      width: max-content;
+    }
+
+    @keyframes scrollTrack {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .parceiro-logo {
+      height: 36px;
+      opacity: 0.35;
+      filter: grayscale(1);
+      transition: opacity 0.3s, filter 0.3s;
+      flex-shrink: 0;
+    }
+
+    .parceiro-logo:hover {
+      opacity: 0.7;
+      filter: grayscale(0);
+    }
+
+    /* text-based placeholders for partner logos */
+    .parceiro-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--gray-mid);
+      white-space: nowrap;
+      opacity: 0.45;
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+      transition: opacity 0.3s, color 0.3s;
+    }
+
+    .parceiro-name:hover {
+      opacity: 0.9;
+      color: var(--rose);
+    }
+
+    /* ─── DEPOIMENTOS ─── */
+    #depoimentos {
+      padding: var(--pad-section);
+      background: var(--white);
+    }
+
+    .depoimentos-header {
+      margin-bottom: 56px;
+    }
+
+    .depoimentos-header h2 {
+      font-size: clamp(26px, 3.3vw, 44px);
+    }
+
+    .depo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .depo-card {
+      padding: 36px 30px;
+      background: var(--off-white);
+      transition: background 0.25s;
+      position: relative;
+    }
+
+    .depo-card:hover {
+      background: var(--rose-pale);
+    }
+
+    .depo-card.featured {
+      background: var(--rose);
+      color: var(--white);
+    }
+
+    .depo-stars {
+      color: var(--rose);
+      font-size: 13px;
+      letter-spacing: 3px;
+      margin-bottom: 18px;
+    }
+
+    .depo-card.featured .depo-stars {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .depo-card blockquote {
+      font-size: 15px;
+      color: var(--gray-dark);
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 26px;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+    }
+
+    .depo-card.featured blockquote {
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .depo-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .depo-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--rose-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--rose);
+      flex-shrink: 0;
+    }
+
+    .depo-card.featured .depo-avatar {
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--white);
+    }
+
+    .depo-author-name {
+      font-size: 13.5px;
+      font-weight: 500;
+    }
+
+    .depo-card.featured .depo-author-name {
+      color: var(--white);
+    }
+
+    /* ─── CONTATO ─── */
+    #contato {
+      padding: var(--pad-section);
+      background: var(--charcoal);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contato-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 4px;
+      background: var(--rose);
+    }
+
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contato-text h2 {
+      font-size: clamp(28px, 3.5vw, 48px);
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    .contato-text>p {
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.85;
+      margin-bottom: 44px;
+    }
+
+    .contato-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contato-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .contato-info-icon {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .contato-info-icon svg {
+      color: var(--rose-light);
+    }
+
+    .contato-info-item-text {
+      font-size: 14.5px;
+      color: rgba(255, 255, 255, 0.65);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .contato-info-item-text strong {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 3px;
+    }
+
+    /* Form */
+    .form-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 44px 40px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 16px;
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 13px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+      resize: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.22);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--rose);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .form-group select option {
+      background: #2A2A29;
+      color: var(--white);
+    }
+
+    .form-submit {
+      margin-top: 4px;
+    }
+
+    .form-submit .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 17px;
+    }
+
+    .form-note {
+      margin-top: 12px;
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* ─── LOCALIZAÇÃO ─── */
+    #localizacao {
+      background: var(--off-white);
+      padding: var(--pad-section);
+    }
+
+    .loc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .loc-text h2 {
+      font-size: clamp(26px, 3.2vw, 42px);
+      margin-bottom: 16px;
+    }
+
+    .loc-text p {
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.85;
+      font-size: 16px;
+      margin-bottom: 28px;
+    }
+
+    .loc-details {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .loc-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14.5px;
+      color: var(--text);
+    }
+
+    .loc-detail svg {
+      color: var(--rose);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .loc-map {
+      border-radius: 0;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+    }
+
+    .loc-map iframe {
+      display: block;
+      width: 100%;
+      height: 400px;
+      border: none;
+      filter: grayscale(20%) contrast(1.05);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--charcoal);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 56px 0 36px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 56px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand .logo-footer img {
+      height: 36px;
+      opacity: 0.8;
+      margin-bottom: 18px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul li a {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.55);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--white);
+    }
+
+    .footer-col-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .footer-contact-item svg {
+      color: var(--rose-light);
+      flex-shrink: 0;
+    }
+
+    .footer-bottom {
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 12.5px;
+      color: rgba(255, 255, 255, 0.28);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 14px;
+    }
+
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.45);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .footer-social a:hover {
+      border-color: var(--rose);
+      color: var(--white);
+      background: var(--rose);
+    }
+
+    .footer-dev {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .footer-dev a {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .footer-dev a:hover {
+      color: var(--rose-light);
+    }
+
+    /* ─── WHATSAPP ─── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 300;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.55);
+    }
+
+    .wa-float svg {
+      color: var(--white);
+    }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .footer-brand {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 900px) {
+
+      .sobre-grid,
+      .gastro-grid,
+      .contato-grid,
+      .loc-grid,
+      .estrutura-head {
+        grid-template-columns: 1fr;
+        gap: 44px;
+      }
+
+      .sobre-badge {
+        left: 0;
+        bottom: -20px;
+      }
+
+      .gastro-chef-badge {
+        right: 12px;
+      }
+
+      .espaco-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .espaco-card.tall {
+        aspect-ratio: 3/4;
+        grid-row: auto;
+      }
+
+      .eventos-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .depo-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .galeria-mosaic {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+
+      .gal-item {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        aspect-ratio: 4/3;
+      }
+
+      .hero-stats-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-stat {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .estrutura-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+
+      nav.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        inset: 0;
+        background: rgba(26, 26, 25, 0.98);
+        align-items: center;
+        justify-content: center;
+        gap: 36px;
+        z-index: 199;
+      }
+
+      nav.open a {
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      nav.open a::after {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .espaco-block-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .espaco-block-head p {
+        text-align: left;
+      }
+
+      .galeria-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 580px) {
+
+      .espaco-cards,
+      .eventos-cards,
+      .depo-grid,
+      .estrutura-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-brand {
+        grid-column: auto;
+      }
+
+      .gastro-menu {
+        grid-template-columns: 1fr;
+      }
+
+      .contato-grid {
+        gap: 44px;
+      }
+
+      .form-box {
+        padding: 28px 22px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- HEADER -->
-<header id="header">
-  <div class="container">
-    <div class="header-inner">
-      <a href="#" class="logo">
-        <!-- Light logo (for dark hero bg) -->
-        <img class="logo-light" src="https://lp.espacofiteventos.com.br/_astro/logo.fiteventos.CuQpwyAd_1n3wmb.webp" alt="Espaço Fit Eventos">
-        <!-- Dark logo (for scrolled white header) -->
-        <img class="logo-dark" src="https://lp.espacofiteventos.com.br/_astro/logo.fiteventos.CuQpwyAd_1n3wmb.webp" alt="Espaço Fit Eventos" style="filter:invert(1) sepia(1) saturate(3) hue-rotate(300deg) brightness(0.6);">
-      </a>
-      <nav id="nav">
-        <a href="#sobre">Espaço</a>
-        <a href="#eventos">Eventos</a>
-        <a href="#gastronomia">Gastronomia</a>
-        <a href="#galeria">Galeria</a>
-        <a href="#localizacao">Localização</a>
-        <a href="#contato" class="nav-cta">Solicitar orçamento</a>
-      </nav>
-      <div class="hamburger" id="hamburger" onclick="toggleNav()">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-gradient"></div>
-  <div class="hero-accent"></div>
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span>São Paulo · Desde 2012</span>
-      </div>
-      <h1>Um espaço preparado para eventos que exigem <em>excelência</em></h1>
-      <p>17 ambientes versáteis, gastronomia assinada e tecnologia integrada — para eventos corporativos e sociais que ficam na memória.</p>
-      <div class="hero-actions">
-        <a href="#contato" class="btn btn-primary">
-          Solicite orçamento
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#sobre" class="btn btn-outline-white">Conheça o espaço</a>
-      </div>
-    </div>
-  </div>
-  <div class="hero-stats">
+  <!-- HEADER -->
+  <header id="header">
     <div class="container">
-      <div class="hero-stats-inner">
-        <div class="hero-stat">
-          <div class="hero-stat-num"><em>10</em></div>
-          <div class="hero-stat-label">Andares</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num"><em>17</em></div>
-          <div class="hero-stat-label">Ambientes</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num"><em>+500</em></div>
-          <div class="hero-stat-label">Convidados</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num"><em>+10</em></div>
-          <div class="hero-stat-label">Anos de experiência</div>
+      <div class="header-inner">
+        <a href="#" class="logo">
+          <!-- Light logo (for dark hero bg) -->
+          <img class="logo-light" src="https://lp.espacofiteventos.com.br/_astro/logo.fiteventos.CuQpwyAd_1n3wmb.webp"
+            alt="Espaço Fit Eventos">
+          <!-- Dark logo (for scrolled white header) -->
+          <img class="logo-dark" src="https://lp.espacofiteventos.com.br/_astro/logo.fiteventos.CuQpwyAd_1n3wmb.webp"
+            alt="Espaço Fit Eventos" style="filter:invert(1) sepia(1) saturate(3) hue-rotate(300deg) brightness(0.6);">
+        </a>
+        <nav id="nav">
+          <a href="#sobre">Espaço</a>
+          <a href="#eventos">Eventos</a>
+          <a href="#gastronomia">Gastronomia</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#localizacao">Localização</a>
+          <a href="#contato" class="nav-cta">Solicitar orçamento</a>
+        </nav>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+          <span></span><span></span><span></span>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- SOBRE -->
-<section id="sobre">
-  <div class="container">
-    <div class="sobre-grid">
-      <div class="sobre-text reveal">
-        <span class="label">Sobre o espaço</span>
-        <h2>Uma trajetória sólida na realização de eventos <em>bem executados</em></h2>
-        <p>O Espaço Fit Eventos nasceu com foco no mercado corporativo e se consolidou atendendo empresas exigentes, que valorizam organização, estrutura e previsibilidade.</p>
-        <p>Desde 2012, vem construindo uma operação sólida, com múltiplos ambientes e capacidade para realizar eventos simultâneos com profissionalismo e eficiência, sempre com atendimento validado por grandes empresas.</p>
-        <p>Hoje, essa mesma expertise é aplicada na realização de eventos sociais, mantendo o padrão de qualidade que construiu sua reputação ao longo dos anos.</p>
-        <a href="#contato" class="btn btn-primary">
-          Solicite orçamento
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-gradient"></div>
+    <div class="hero-accent"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span>São Paulo · Desde 2012</span>
+        </div>
+        <h1>Um espaço preparado para eventos que <em>exigem excelência</em></h1>
+        <p>17 ambientes versáteis, gastronomia assinada e tecnologia integrada para eventos corporativos e sociais que
+          ficam na memória.</p>
+        <div class="hero-actions">
+          <a href="#contato" class="btn btn-primary">
+            Solicite orçamento
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="#sobre" class="btn btn-outline-white">Conheça o espaço</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="container">
+        <div class="hero-stats-inner">
+          <div class="hero-stat">
+            <div class="hero-stat-num"><em>10</em></div>
+            <div class="hero-stat-label">Andares</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num"><em>17</em></div>
+            <div class="hero-stat-label">Ambientes</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num"><em>+500</em></div>
+            <div class="hero-stat-label">Convidados</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num"><em>+10</em></div>
+            <div class="hero-stat-label">Anos de experiência</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="container">
+      <div class="sobre-grid">
+        <div class="sobre-text reveal">
+          <span class="label">Sobre o espaço</span>
+          <h2>Uma trajetória sólida na realização de <em>eventos bem executados</em></h2>
+          <p>O Espaço Fit Eventos nasceu com foco no mercado corporativo e se consolidou atendendo empresas exigentes,
+            que valorizam organização, estrutura e previsibilidade.</p>
+          <p>Desde 2012, vem construindo uma operação sólida, com múltiplos ambientes e capacidade para realizar eventos
+            simultâneos com profissionalismo e eficiência, sempre com atendimento validado por grandes empresas.</p>
+          <p>Hoje, essa mesma expertise é aplicada na realização de eventos sociais, mantendo o padrão de qualidade que
+            construiu sua reputação ao longo dos anos.</p>
+          <a href="#contato" class="btn btn-primary">
+            Solicite orçamento
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+        <div class="sobre-visual reveal">
+          <div class="sobre-img-main">
+            <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1289_0W1A0209_resultado.prCdexM4_Z1ozwx2.webp"
+              alt="Espaço Fit Eventos – Ambiente">
+          </div>
+          <div class="sobre-badge">
+            <div class="sobre-badge-num">+10</div>
+            <div class="sobre-badge-txt">anos de excelência</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPAÇOS -->
+  <section id="espacos">
+    <div class="container">
+      <div class="espacos-header reveal">
+        <span class="label">Nossos ambientes</span>
+        <h2>Tudo o que seu evento corporativo precisa, em um só lugar</h2>
+        <p>17 salas versáteis, layouts para até 530 pessoas e tecnologia integrada com painéis de LED e projeção mapeada
+          — para experiências presenciais, híbridas ou online.</p>
+      </div>
+
+      <!-- Bloco Corporativo -->
+      <div class="espaco-block reveal">
+        <div class="espaco-block-head">
+          <div>
+            <span class="label">Eventos Corporativos</span>
+            <h3>Seu evento corporativo em um espaço de alto padrão</h3>
+          </div>
+          <p>Salas equipadas com tecnologia de ponta, flexíveis e preparadas para atender qualquer dinâmica empresarial.
+          </p>
+        </div>
+        <div class="espaco-cards">
+          <div class="espaco-card" style="grid-column: span 2; aspect-ratio: 16/9;">
+            <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1145_DSC07536_resultado.DhsCbRY9_1sIwmk.webp"
+              alt="Salas de Treinamento e Auditórios">
+            <div class="espaco-card-overlay">
+              <div class="espaco-card-info">
+                <h4>Salas de Treinamento e Auditórios</h4>
+                <p>Layouts flexíveis para 10 a 530 convidados — auditório, U, escolar ou mesas redondas</p>
+              </div>
+            </div>
+          </div>
+          <div class="espaco-card">
+            <img
+              src="https://lp.espacofiteventos.com.br/_astro/WhatsApp%20Image%202026-05-05%20at%2018.10.55.BLLPb5xy_26QQIa.webp"
+              alt="Salas Design Thinking">
+            <div class="espaco-card-overlay">
+              <div class="espaco-card-info">
+                <h4>Salas Design Thinking</h4>
+                <p>Ambientes que estimulam criatividade e construção coletiva</p>
+              </div>
+            </div>
+          </div>
+          <div class="espaco-card">
+            <img
+              src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1064_RICK6215-Copia_resultado.BPcJay4L_Z4GEH6.webp"
+              alt="Sala VIP">
+            <div class="espaco-card-overlay">
+              <div class="espaco-card-info">
+                <h4>Sala VIP</h4>
+                <p>Exclusividade e conforto para seus convidados especiais</p>
+              </div>
+            </div>
+          </div>
+          <div class="espaco-card">
+            <img
+              src="https://lp.espacofiteventos.com.br/_astro/WhatsApp%20Image%202026-05-05%20at%2018.10.57.C3bAXZoe_2rsENo.webp"
+              alt="Sala de Reunião">
+            <div class="espaco-card-overlay">
+              <div class="espaco-card-info">
+                <h4>Sala de Reunião</h4>
+                <p>Reuniões executivas e apresentações estratégicas</p>
+              </div>
+            </div>
+          </div>
+          <div class="espaco-card">
+            <img src="https://lp.espacofiteventos.com.br/_astro/camarim.fit.D85xx5qO_goUau.webp" alt="Camarim">
+            <div class="espaco-card-overlay">
+              <div class="espaco-card-info">
+                <h4>Camarim</h4>
+                <p>Apoio completo para palestrantes e convidados especiais</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="espaco-cta-row">
+          <a href="https://lp.espacofiteventos.com.br/" class="btn btn-outline">Saiba mais
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bloco Social -->
+      <div class="espaco-block reveal">
+        <div class="espaco-block-head">
+          <div>
+            <span class="label">Eventos Sociais</span>
+            <h3>Seu evento social em um espaço <em>surpreendente</em></h3>
+          </div>
+          <p>Celebre com a mesma excelência, estrutura e cuidado que consolidam o Espaço Fit como referência no mercado.
+          </p>
+        </div>
+        <div class="espaco-cards">
+          <div class="espaco-card" style="aspect-ratio: 4/3;">
+            <img src="https://lp.espacofiteventos.com.br/_astro/3RECEP_1620_RICK6734_resultado.B-BMXWxB_ZUk99Q.webp"
+              alt="Recepção e Festa">
+            <div class="espaco-card-overlay">
+              <div class="espaco-card-info">
+                <h4>Espaços para Celebrações</h4>
+                <p>Ambientes elegantes para casamentos, festas e comemorações</p>
+              </div>
+            </div>
+          </div>
+          <div class="espaco-card" style="aspect-ratio: 4/3;">
+            <img
+              src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1571_DSC08215_resultado-1024x684.hpA5PRrm_6W83Q.webp"
+              alt="Decoração">
+            <div class="espaco-card-overlay">
+              <div class="espaco-card-info">
+                <h4>Decoração e Cenografia</h4>
+                <p>Estrutura completa para transformar o ambiente no seu estilo</p>
+              </div>
+            </div>
+          </div>
+          <div class="espaco-card" style="aspect-ratio: 4/3;">
+            <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1075_RICK6232_resultado.MFzMmg7C_Z1CdBdt.webp"
+              alt="Gastronomia Social">
+            <div class="espaco-card-overlay">
+              <div class="espaco-card-info">
+                <h4>Gastronomia para Festas</h4>
+                <p>Menus personalizados assinados pelo Chef Dalton Rangel</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="espaco-cta-row">
+          <a href="https://lp.espacofiteventos.com.br/debutantes/" class="btn btn-outline">Saiba mais
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPOS DE EVENTOS -->
+  <section id="eventos">
+    <div class="container">
+      <div class="eventos-header reveal">
+        <span class="label">Versatilidade</span>
+        <h2>Um espaço preparado para atender <em>múltiplos formatos com eficiência</em></h2>
+        <p>Todos os formatos contam com suporte completo, da estrutura à execução do evento.</p>
+      </div>
+      <div class="eventos-cards reveal">
+        <div class="evento-card">
+          <div class="evento-card-img">
+            <img
+              src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1065_RICK6217-31-03-2026-13-26-01_resultado.BWiOm5Ol_Z1hzEkc.webp"
+              alt="Festa de 15 anos">
+          </div>
+          <div class="evento-card-body">
+            <div class="evento-num">01</div>
+            <h3>Festa de 15 anos</h3>
+            <a href="https://lp.espacofiteventos.com.br/debutantes/" class="evento-link">
+              Ver detalhes
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="evento-card">
+          <div class="evento-card-img">
+            <img src="https://lp.espacofiteventos.com.br/_astro/3RECEP_1620_RICK6734_resultado.B-BMXWxB_ZUk99Q.webp"
+              alt="Casamentos">
+          </div>
+          <div class="evento-card-body">
+            <div class="evento-num">02</div>
+            <h3>Casamentos</h3>
+            <a href="#contato" class="evento-link">
+              Ver detalhes
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="evento-card">
+          <div class="evento-card-img">
+            <img src="https://lp.espacofiteventos.com.br/_astro/1MKOF_1129_RICK6291_resultado.BwfnzROJ_1dReEL.webp"
+              alt="Aniversários">
+          </div>
+          <div class="evento-card-body">
+            <div class="evento-num">03</div>
+            <h3>Aniversários</h3>
+            <a href="#contato" class="evento-link">
+              Ver detalhes
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="evento-card">
+          <div class="evento-card-img">
+            <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1145_DSC07536_resultado.DhsCbRY9_1sIwmk.webp"
+              alt="Corporativos">
+          </div>
+          <div class="evento-card-body">
+            <div class="evento-num">04</div>
+            <h3>Corporativos</h3>
+            <a href="https://lp.espacofiteventos.com.br/" class="evento-link">
+              Ver detalhes
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTRUTURA -->
+  <section id="estrutura">
+    <div class="estrutura-bg-text">ESTRUTURA</div>
+    <div class="container">
+      <div class="estrutura-inner">
+        <div class="estrutura-head reveal">
+          <div>
+            <span class="label" style="color:rgba(255,255,255,0.6)">Infraestrutura</span>
+            <h2>Tudo o que seu evento precisa, <em style="color:rgba(255,255,255,0.7)">em um só lugar</em></h2>
+          </div>
+          <div>
+            <p>Soluções integradas para experiências presenciais, híbridas e digitais — do mobiliário ao audiovisual,
+              cada detalhe planejado para garantir fluidez e eficiência.</p>
+            <div style="margin-top: 32px;">
+              <a href="#contato" class="btn btn-outline-white">Agende uma visita</a>
+            </div>
+          </div>
+        </div>
+        <div class="estrutura-grid reveal">
+          <div class="estrutura-item">
+            <div class="estrutura-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="7" width="20" height="14" rx="2" />
+                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                <line x1="12" y1="12" x2="12" y2="16" />
+                <line x1="10" y1="14" x2="14" y2="14" />
+              </svg>
+            </div>
+            <h3>Mobiliário completo</h3>
+          </div>
+          <div class="estrutura-item">
+            <div class="estrutura-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+              </svg>
+            </div>
+            <h3>Equipamentos de som, luz e tecnologia</h3>
+          </div>
+          <div class="estrutura-item">
+            <div class="estrutura-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+            </div>
+            <h3>10 andares com múltiplos ambientes</h3>
+          </div>
+          <div class="estrutura-item">
+            <div class="estrutura-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M3 9h18M9 21V9" />
+              </svg>
+            </div>
+            <h3>17 salas versáteis</h3>
+          </div>
+          <div class="estrutura-item">
+            <div class="estrutura-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                <path d="M2 17l10 5 10-5" />
+                <path d="M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <h3>Espaços adaptáveis para diferentes públicos</h3>
+          </div>
+          <div class="estrutura-item">
+            <div class="estrutura-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </div>
+            <h3>Operação para eventos simultâneos</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GASTRONOMIA -->
+  <section id="gastronomia">
+    <div class="container">
+      <div class="gastro-grid">
+        <div class="gastro-visual reveal">
+          <div class="gastro-img">
+            <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1075_RICK6232_resultado.MFzMmg7C_Z1CdBdt.webp"
+              alt="Gastronomia Espaço Fit">
+          </div>
+          <div class="gastro-chef-badge">
+            <div class="sub">Assinado por</div>
+            <div class="name">Chef Dalton Rangel</div>
+          </div>
+        </div>
+        <div class="gastro-text reveal">
+          <span class="label">Gastronomia</span>
+          <h2>Gastronomia que acompanha <em>a experiência do seu evento</em></h2>
+          <p>Assinada pelo Chef Dalton Rangel, a gastronomia é um dos destaques do Espaço Fit, com opções pensadas para
+            diferentes tipos de evento, mantendo qualidade, consistência e integração total com a dinâmica da
+            experiência.</p>
+          <p>Cardápios com opções vegetarianas e veganas, adaptados ao perfil do evento e dos convidados.</p>
+          <div class="gastro-menu">
+            <div class="gastro-menu-item">Coffee break</div>
+            <div class="gastro-menu-item">Almoço corporativo</div>
+            <div class="gastro-menu-item">Finger foods</div>
+            <div class="gastro-menu-item">Jantar completo</div>
+            <div class="gastro-menu-item">Menu vegano</div>
+            <div class="gastro-menu-item">Menu vegetariano</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section id="galeria">
+    <div class="container">
+      <div class="galeria-header reveal">
+        <div>
+          <span class="label">Galeria</span>
+          <h2>Um espaço, diversas formas de realizar <em>seu evento</em></h2>
+        </div>
+        <a href="#contato" class="btn btn-dark">
+          Ver todos os espaços
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
         </a>
       </div>
-      <div class="sobre-visual reveal">
-        <div class="sobre-img-main">
-          <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1289_0W1A0209_resultado.prCdexM4_Z1ozwx2.webp" alt="Espaço Fit Eventos – Ambiente">
+      <div class="galeria-mosaic reveal">
+        <div class="gal-item">
+          <img src="https://lp.espacofiteventos.com.br/_astro/3RECEP_1620_RICK6734_resultado.B-BMXWxB_ZUk99Q.webp"
+            alt="Galeria Fit Eventos">
         </div>
-        <div class="sobre-badge">
-          <div class="sobre-badge-num">+10</div>
-          <div class="sobre-badge-txt">anos de excelência</div>
+        <div class="gal-item">
+          <img
+            src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1065_RICK6217-31-03-2026-13-26-01_resultado.BWiOm5Ol_Z1hzEkc.webp"
+            alt="Galeria Fit Eventos">
+        </div>
+        <div class="gal-item">
+          <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1289_0W1A0209_resultado.prCdexM4_Z1ozwx2.webp"
+            alt="Galeria Fit Eventos">
+        </div>
+        <div class="gal-item">
+          <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1571_DSC08215_resultado.BlCv41oT_Z1eQagB.webp"
+            alt="Galeria Fit Eventos">
+        </div>
+        <div class="gal-item">
+          <img src="https://lp.espacofiteventos.com.br/_astro/1MKOF_1129_RICK6291_resultado.BwfnzROJ_1dReEL.webp"
+            alt="Galeria Fit Eventos">
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ESPAÇOS -->
-<section id="espacos">
-  <div class="container">
-    <div class="espacos-header reveal">
-      <span class="label">Nossos ambientes</span>
-      <h2>Tudo o que seu evento precisa, <em>em um só lugar</em></h2>
-      <p>17 salas versáteis, layouts para até 530 pessoas e tecnologia integrada com painéis de LED e projeção mapeada — para experiências presenciais, híbridas ou online.</p>
+  <!-- PARCEIROS -->
+  <section id="parceiros">
+    <div class="container">
+      <div class="parceiros-head reveal">
+        <span class="label">Parceiros</span>
+        <h2>Onde grandes marcas realizam <em>experiências memoráveis</em></h2>
+      </div>
     </div>
+    <div class="parceiros-track-wrap">
+      <div class="parceiros-track">
+        <span class="parceiro-name">Bradesco</span>
+        <span class="parceiro-name">·</span>
+        <span class="parceiro-name">Natura</span>
+        <span class="parceiro-name">·</span>
+        <span class="parceiro-name">Itaú</span>
+        <span class="parceiro-name">·</span>
+        <span class="parceiro-name">Ambev</span>
+        <span class="parceiro-name">·</span>
+        <span class="parceiro-name">Magazine Luiza</span>
+        <span class="parceiro-name">·</span>
+        <span class="parceiro-name">Vivo</span>
+        <span class="parceiro-name">·</span>
+        <span class="parceiro-name">B3</span>
+        <span class="parceiro-name">·</span>
+        <span class="parceiro-name">Santander</span>
+        <span class="parceiro-name">·</span>
+        <span class="parceiro-name">Embraer</span>
+        <span class="parceiro-name">·</span>
+        <!-- duplicated for infinite loop -->
+        <span class="parceiro-name">Bradesco</span>
+        <span class="parceiro-name">·</span>
+        <span class="parceiro-name">Natura</span>
+        <span class="parceiro-name">·</span>
+        <span class="parceiro-name">Itaú</span>
+        <span class="parceiro-name">·</span>
+        <span class="parceiro-name">Ambev</span>
+        <span class="parceiro-name">·</span>
+        <span class="parceiro-name">Magazine Luiza</span>
+        <span class="parceiro-name">·</span>
+        <span class="parceiro-name">Vivo</span>
+        <span class="parceiro-name">·</span>
+        <span class="parceiro-name">B3</span>
+        <span class="parceiro-name">·</span>
+        <span class="parceiro-name">Santander</span>
+        <span class="parceiro-name">·</span>
+        <span class="parceiro-name">Embraer</span>
+        <span class="parceiro-name">·</span>
+      </div>
+    </div>
+  </section>
 
-    <!-- Bloco Corporativo -->
-    <div class="espaco-block reveal">
-      <div class="espaco-block-head">
-        <div>
-          <span class="label">Eventos Corporativos</span>
-          <h3>Seu evento corporativo em um espaço de alto padrão</h3>
-        </div>
-        <p>Salas equipadas com tecnologia de ponta, flexíveis e preparadas para atender qualquer dinâmica empresarial.</p>
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos">
+    <div class="container">
+      <div class="depoimentos-header reveal">
+        <span class="label">Depoimentos</span>
+        <h2>A experiência de quem já realizou eventos <em>no Espaço Fit</em></h2>
       </div>
-      <div class="espaco-cards">
-        <div class="espaco-card" style="grid-column: span 2; aspect-ratio: 16/9;">
-          <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1145_DSC07536_resultado.DhsCbRY9_1sIwmk.webp" alt="Salas de Treinamento e Auditórios">
-          <div class="espaco-card-overlay">
-            <div class="espaco-card-info">
-              <h4>Salas de Treinamento e Auditórios</h4>
-              <p>Layouts flexíveis para 10 a 530 convidados — auditório, U, escolar ou mesas redondas</p>
-            </div>
+      <div class="depo-grid">
+        <div class="depo-card featured reveal">
+          <div class="depo-stars">★★★★★</div>
+          <blockquote>"O espaço é muito bem localizado, amplo e com diversas opções de salas e personalizações. Destaco
+            principalmente o atendimento da equipe comercial e a prestatividade do time de operações."</blockquote>
+          <div class="depo-author">
+            <div class="depo-avatar">AP</div>
+            <span class="depo-author-name">Alex Pereira</span>
           </div>
         </div>
-        <div class="espaco-card">
-          <img src="https://lp.espacofiteventos.com.br/_astro/WhatsApp%20Image%202026-05-05%20at%2018.10.55.BLLPb5xy_26QQIa.webp" alt="Salas Design Thinking">
-          <div class="espaco-card-overlay">
-            <div class="espaco-card-info">
-              <h4>Salas Design Thinking</h4>
-              <p>Ambientes que estimulam criatividade e construção coletiva</p>
-            </div>
+        <div class="depo-card reveal">
+          <div class="depo-stars">★★★★★</div>
+          <blockquote>"O lugar é super aconchegante e o espaço foi perfeito para acomodar a todos e as dinâmicas. Super
+            recomendo."</blockquote>
+          <div class="depo-author">
+            <div class="depo-avatar">FC</div>
+            <span class="depo-author-name">Fernanda Costa</span>
           </div>
         </div>
-        <div class="espaco-card">
-          <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1064_RICK6215-Copia_resultado.BPcJay4L_Z4GEH6.webp" alt="Sala VIP">
-          <div class="espaco-card-overlay">
-            <div class="espaco-card-info">
-              <h4>Sala VIP</h4>
-              <p>Exclusividade e conforto para seus convidados especiais</p>
-            </div>
+        <div class="depo-card reveal">
+          <div class="depo-stars">★★★★★</div>
+          <blockquote>"Lugar incrível! Amplo, moderno e acolhedor. A equipe é atenciosa e muito gente boa. Amei."
+          </blockquote>
+          <div class="depo-author">
+            <div class="depo-avatar">NN</div>
+            <span class="depo-author-name">Nestor Neto</span>
           </div>
         </div>
-        <div class="espaco-card">
-          <img src="https://lp.espacofiteventos.com.br/_astro/WhatsApp%20Image%202026-05-05%20at%2018.10.57.C3bAXZoe_2rsENo.webp" alt="Sala de Reunião">
-          <div class="espaco-card-overlay">
-            <div class="espaco-card-info">
-              <h4>Sala de Reunião</h4>
-              <p>Reuniões executivas e apresentações estratégicas</p>
-            </div>
+        <div class="depo-card reveal">
+          <div class="depo-stars">★★★★★</div>
+          <blockquote>"Espaço muito bacana para evento, estrutura ótima. Ambientes bonitos e funcionários educados."
+          </blockquote>
+          <div class="depo-author">
+            <div class="depo-avatar">EC</div>
+            <span class="depo-author-name">Evelin Castro</span>
           </div>
         </div>
-        <div class="espaco-card">
-          <img src="https://lp.espacofiteventos.com.br/_astro/camarim.fit.D85xx5qO_goUau.webp" alt="Camarim">
-          <div class="espaco-card-overlay">
-            <div class="espaco-card-info">
-              <h4>Camarim</h4>
-              <p>Apoio completo para palestrantes e convidados especiais</p>
-            </div>
+        <div class="depo-card reveal">
+          <div class="depo-stars">★★★★★</div>
+          <blockquote>"Lugar excepcional. Amplo espaço, salas bem iluminadas e climatizadas. Atendimento muito bom."
+          </blockquote>
+          <div class="depo-author">
+            <div class="depo-avatar">DP</div>
+            <span class="depo-author-name">Diego Pacheco</span>
           </div>
         </div>
-      </div>
-      <div class="espaco-cta-row">
-        <a href="https://lp.espacofiteventos.com.br/" class="btn btn-outline">Saiba mais sobre eventos corporativos
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <div class="depo-card reveal">
+          <div class="depo-stars">★★★★★</div>
+          <blockquote>"Espaço incrível, equipe alinhada, coffee maravilhoso — tive uma ótima experiência."</blockquote>
+          <div class="depo-author">
+            <div class="depo-avatar">VB</div>
+            <span class="depo-author-name">Vitória Barbosa</span>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Bloco Social -->
-    <div class="espaco-block reveal">
-      <div class="espaco-block-head">
-        <div>
-          <span class="label">Eventos Sociais</span>
-          <h3>Seu evento social em um espaço <em>surpreendente</em></h3>
-        </div>
-        <p>Celebre com a mesma excelência, estrutura e cuidado que consolidam o Espaço Fit como referência no mercado.</p>
-      </div>
-      <div class="espaco-cards">
-        <div class="espaco-card" style="aspect-ratio: 4/3;">
-          <img src="https://lp.espacofiteventos.com.br/_astro/3RECEP_1620_RICK6734_resultado.B-BMXWxB_ZUk99Q.webp" alt="Recepção e Festa">
-          <div class="espaco-card-overlay">
-            <div class="espaco-card-info">
-              <h4>Espaços para Celebrações</h4>
-              <p>Ambientes elegantes para casamentos, festas e comemorações</p>
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="contato-accent"></div>
+    <div class="container">
+      <div class="contato-grid">
+        <div class="contato-text reveal">
+          <span class="label" style="color:var(--rose-light)">Próximo passo</span>
+          <h2>Planeje seu evento com <em style="color:var(--rose-light)">quem entende do assunto</em></h2>
+          <p>Fale com nossa equipe e conheça as possibilidades de espaço, estrutura e serviços disponíveis para o seu
+            evento.</p>
+          <div class="contato-info-list">
+            <div class="contato-info-item">
+              <div class="contato-info-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div class="contato-info-item-text">
+                <strong>Endereço</strong>
+                Av. Alfredo Egídio de Souza Aranha, 384<br>Chácara Santo Antônio, São Paulo – SP
+              </div>
+            </div>
+            <div class="contato-info-item">
+              <div class="contato-info-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z" />
+                </svg>
+              </div>
+              <div class="contato-info-item-text">
+                <strong>Telefone</strong>
+                (11) 3262-0938
+              </div>
+            </div>
+            <div class="contato-info-item">
+              <div class="contato-info-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+              </div>
+              <div class="contato-info-item-text">
+                <strong>WhatsApp</strong>
+                (11) 3262-0819
+              </div>
+            </div>
+            <div class="contato-info-item">
+              <div class="contato-info-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div class="contato-info-item-text">
+                <strong>E-mail</strong>
+                contato@espacofiteventos.com.br
+              </div>
             </div>
           </div>
         </div>
-        <div class="espaco-card" style="aspect-ratio: 4/3;">
-          <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1571_DSC08215_resultado-1024x684.hpA5PRrm_6W83Q.webp" alt="Decoração">
-          <div class="espaco-card-overlay">
-            <div class="espaco-card-info">
-              <h4>Decoração e Cenografia</h4>
-              <p>Estrutura completa para transformar o ambiente no seu estilo</p>
-            </div>
+        <div class="reveal">
+          <div class="form-box">
+            <form id="form-contato" onsubmit="handleSubmit(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="nome">Nome</label>
+                  <input type="text" id="nome" placeholder="Seu nome completo" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="telefone">Telefone / WhatsApp</label>
+                  <input type="tel" id="telefone" placeholder="(11) 99999-9999" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">E-mail</label>
+                <input type="email" id="email" placeholder="seu@email.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="tipo">Tipo de evento</label>
+                <select id="tipo">
+                  <option value="" disabled selected>Selecione o tipo de evento</option>
+                  <option>Corporativo</option>
+                  <option>Casamento</option>
+                  <option>Festa de 15 anos</option>
+                  <option>Aniversário</option>
+                  <option>Outro</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="data">Data do evento</label>
+                  <input type="date" id="data">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="convidados">Quantidade de convidados</label>
+                  <input type="number" id="convidados" placeholder="Ex: 150" min="1">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="detalhes">Detalhes adicionais</label>
+                <textarea id="detalhes" rows="3" placeholder="Conte-nos mais sobre o seu evento..."></textarea>
+              </div>
+              <div class="form-submit">
+                <button type="submit" class="btn btn-primary">
+                  Solicitar orçamento
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+              <p class="form-note">Ao enviar, você concorda com nossa política de privacidade.</p>
+            </form>
           </div>
         </div>
-        <div class="espaco-card" style="aspect-ratio: 4/3;">
-          <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1075_RICK6232_resultado.MFzMmg7C_Z1CdBdt.webp" alt="Gastronomia Social">
-          <div class="espaco-card-overlay">
-            <div class="espaco-card-info">
-              <h4>Gastronomia para Festas</h4>
-              <p>Menus personalizados assinados pelo Chef Dalton Rangel</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="espaco-cta-row">
-        <a href="https://lp.espacofiteventos.com.br/debutantes/" class="btn btn-outline">Saiba mais sobre eventos sociais
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- TIPOS DE EVENTOS -->
-<section id="eventos">
-  <div class="container">
-    <div class="eventos-header reveal">
-      <span class="label">Versatilidade</span>
-      <h2>Um espaço preparado para atender <em>múltiplos formatos</em> com eficiência</h2>
-      <p>Todos os formatos contam com suporte completo, da estrutura à execução do evento.</p>
-    </div>
-    <div class="eventos-cards reveal">
-      <div class="evento-card">
-        <div class="evento-card-img">
-          <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1065_RICK6217-31-03-2026-13-26-01_resultado.BWiOm5Ol_Z1hzEkc.webp" alt="Festa de 15 anos">
-        </div>
-        <div class="evento-card-body">
-          <div class="evento-num">01</div>
-          <h3>Festa de 15 anos</h3>
-          <a href="https://lp.espacofiteventos.com.br/debutantes/" class="evento-link">
-            Ver detalhes
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  <!-- LOCALIZAÇÃO -->
+  <section id="localizacao">
+    <div class="container">
+      <div class="loc-grid">
+        <div class="loc-text reveal">
+          <span class="label">Localização</span>
+          <h2>Localização <em>prática e acessível</em></h2>
+          <p>Um ponto estratégico que facilita a chegada de convidados e a operação do evento do início ao fim.</p>
+          <div class="loc-details">
+            <div class="loc-detail">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              Av. Alfredo Egídio de Souza Aranha, 384 – Chácara Santo Antônio, São Paulo – SP, 04730-090
+            </div>
+            <div class="loc-detail">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              Fácil acesso pela Marginal Pinheiros · Próximo ao Aeroporto de Congonhas
+            </div>
+            <div class="loc-detail">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="3" width="15" height="13" />
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                <circle cx="5.5" cy="18.5" r="2.5" />
+                <circle cx="18.5" cy="18.5" r="2.5" />
+              </svg>
+              Ao lado da estação Granja Julieta · Estacionamento disponível
+            </div>
+          </div>
+          <a href="https://maps.google.com/?q=Av.+Alfredo+Egídio+de+Souza+Aranha,+384,+São+Paulo" target="_blank"
+            class="btn btn-primary">
+            Agende sua visita
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
           </a>
         </div>
-      </div>
-      <div class="evento-card">
-        <div class="evento-card-img">
-          <img src="https://lp.espacofiteventos.com.br/_astro/3RECEP_1620_RICK6734_resultado.B-BMXWxB_ZUk99Q.webp" alt="Casamentos">
+        <div class="loc-map reveal">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.9!2d-46.7200!3d-23.6120!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce51f8a6e0b8a5%3A0x0!2sAv.%20Alfredo%20Eg%C3%ADdio%20de%20Souza%20Aranha%2C%20384%20-%20Ch%C3%A1cara%20Santo%20Ant%C3%B4nio%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Localização Espaço Fit Eventos">
+          </iframe>
         </div>
-        <div class="evento-card-body">
-          <div class="evento-num">02</div>
-          <h3>Casamentos</h3>
-          <a href="#contato" class="evento-link">
-            Ver detalhes
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo-footer">
+            <img src="https://lp.espacofiteventos.com.br/_astro/logo.fiteventos.CuQpwyAd_1n3wmb.webp"
+              alt="Espaço Fit Eventos">
           </a>
         </div>
-      </div>
-      <div class="evento-card">
-        <div class="evento-card-img">
-          <img src="https://lp.espacofiteventos.com.br/_astro/1MKOF_1129_RICK6291_resultado.BwfnzROJ_1dReEL.webp" alt="Aniversários">
+        <div class="footer-col">
+          <h4>Menu</h4>
+          <ul>
+            <li><a href="#sobre">Espaço</a></li>
+            <li><a href="#eventos">Eventos</a></li>
+            <li><a href="#estrutura">Estrutura</a></li>
+            <li><a href="#gastronomia">Gastronomia</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#localizacao">Localização</a></li>
+          </ul>
         </div>
-        <div class="evento-card-body">
-          <div class="evento-num">03</div>
-          <h3>Aniversários</h3>
-          <a href="#contato" class="evento-link">
-            Ver detalhes
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+        <div class="footer-col">
+          <h4>Eventos</h4>
+          <ul>
+            <li><a href="https://lp.espacofiteventos.com.br/">Corporativos</a></li>
+            <li><a href="https://lp.espacofiteventos.com.br/debutantes/">Festa de 15 anos</a></li>
+            <li><a href="#contato">Casamentos</a></li>
+            <li><a href="#contato">Aniversários</a></li>
+          </ul>
         </div>
-      </div>
-      <div class="evento-card">
-        <div class="evento-card-img">
-          <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1145_DSC07536_resultado.DhsCbRY9_1sIwmk.webp" alt="Corporativos">
-        </div>
-        <div class="evento-card-body">
-          <div class="evento-num">04</div>
-          <h3>Corporativos</h3>
-          <a href="https://lp.espacofiteventos.com.br/" class="evento-link">
-            Ver detalhes
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ESTRUTURA -->
-<section id="estrutura">
-  <div class="estrutura-bg-text">ESTRUTURA</div>
-  <div class="container">
-    <div class="estrutura-inner">
-      <div class="estrutura-head reveal">
-        <div>
-          <span class="label" style="color:rgba(255,255,255,0.6)">Infraestrutura</span>
-          <h2>Tudo o que seu evento precisa, <em style="color:rgba(255,255,255,0.7)">em um só lugar</em></h2>
-        </div>
-        <div>
-          <p>Soluções integradas para experiências presenciais, híbridas e digitais — do mobiliário ao audiovisual, cada detalhe planejado para garantir fluidez e eficiência.</p>
-          <div style="margin-top: 32px;">
-            <a href="#contato" class="btn btn-outline-white">Agende uma visita</a>
-          </div>
-        </div>
-      </div>
-      <div class="estrutura-grid reveal">
-        <div class="estrutura-item">
-          <div class="estrutura-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
-          </div>
-          <h3>Mobiliário completo</h3>
-        </div>
-        <div class="estrutura-item">
-          <div class="estrutura-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-          </div>
-          <h3>Equipamentos de som, luz e tecnologia</h3>
-        </div>
-        <div class="estrutura-item">
-          <div class="estrutura-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <h3>10 andares com múltiplos ambientes</h3>
-        </div>
-        <div class="estrutura-item">
-          <div class="estrutura-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          </div>
-          <h3>17 salas versáteis</h3>
-        </div>
-        <div class="estrutura-item">
-          <div class="estrutura-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          </div>
-          <h3>Espaços adaptáveis para diferentes públicos</h3>
-        </div>
-        <div class="estrutura-item">
-          <div class="estrutura-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h3>Operação para eventos simultâneos</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GASTRONOMIA -->
-<section id="gastronomia">
-  <div class="container">
-    <div class="gastro-grid">
-      <div class="gastro-visual reveal">
-        <div class="gastro-img">
-          <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1075_RICK6232_resultado.MFzMmg7C_Z1CdBdt.webp" alt="Gastronomia Espaço Fit">
-        </div>
-        <div class="gastro-chef-badge">
-          <div class="sub">Assinado por</div>
-          <div class="name">Chef Dalton Rangel</div>
-        </div>
-      </div>
-      <div class="gastro-text reveal">
-        <span class="label">Gastronomia</span>
-        <h2>Gastronomia que acompanha a <em>experiência do seu evento</em></h2>
-        <p>Assinada pelo Chef Dalton Rangel, a gastronomia é um dos destaques do Espaço Fit, com opções pensadas para diferentes tipos de evento, mantendo qualidade, consistência e integração total com a dinâmica da experiência.</p>
-        <p>Cardápios com opções vegetarianas e veganas, adaptados ao perfil do evento e dos convidados.</p>
-        <div class="gastro-menu">
-          <div class="gastro-menu-item">Coffee break</div>
-          <div class="gastro-menu-item">Almoço corporativo</div>
-          <div class="gastro-menu-item">Finger foods</div>
-          <div class="gastro-menu-item">Jantar completo</div>
-          <div class="gastro-menu-item">Menu vegano</div>
-          <div class="gastro-menu-item">Menu vegetariano</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GALERIA -->
-<section id="galeria">
-  <div class="container">
-    <div class="galeria-header reveal">
-      <div>
-        <span class="label">Galeria</span>
-        <h2>Um espaço, diversas formas de realizar <em>seu evento</em></h2>
-      </div>
-      <a href="#contato" class="btn btn-dark">
-        Ver todos os espaços
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-    <div class="galeria-mosaic reveal">
-      <div class="gal-item">
-        <img src="https://lp.espacofiteventos.com.br/_astro/3RECEP_1620_RICK6734_resultado.B-BMXWxB_ZUk99Q.webp" alt="Galeria Fit Eventos">
-      </div>
-      <div class="gal-item">
-        <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1065_RICK6217-31-03-2026-13-26-01_resultado.BWiOm5Ol_Z1hzEkc.webp" alt="Galeria Fit Eventos">
-      </div>
-      <div class="gal-item">
-        <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1289_0W1A0209_resultado.prCdexM4_Z1ozwx2.webp" alt="Galeria Fit Eventos">
-      </div>
-      <div class="gal-item">
-        <img src="https://lp.espacofiteventos.com.br/_astro/2DECOR_1571_DSC08215_resultado.BlCv41oT_Z1eQagB.webp" alt="Galeria Fit Eventos">
-      </div>
-      <div class="gal-item">
-        <img src="https://lp.espacofiteventos.com.br/_astro/1MKOF_1129_RICK6291_resultado.BwfnzROJ_1dReEL.webp" alt="Galeria Fit Eventos">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PARCEIROS -->
-<section id="parceiros">
-  <div class="container">
-    <div class="parceiros-head reveal">
-      <span class="label">Parceiros</span>
-      <h2>Onde grandes marcas realizam <em>experiências memoráveis</em></h2>
-    </div>
-  </div>
-  <div class="parceiros-track-wrap">
-    <div class="parceiros-track">
-      <span class="parceiro-name">Bradesco</span>
-      <span class="parceiro-name">·</span>
-      <span class="parceiro-name">Natura</span>
-      <span class="parceiro-name">·</span>
-      <span class="parceiro-name">Itaú</span>
-      <span class="parceiro-name">·</span>
-      <span class="parceiro-name">Ambev</span>
-      <span class="parceiro-name">·</span>
-      <span class="parceiro-name">Magazine Luiza</span>
-      <span class="parceiro-name">·</span>
-      <span class="parceiro-name">Vivo</span>
-      <span class="parceiro-name">·</span>
-      <span class="parceiro-name">B3</span>
-      <span class="parceiro-name">·</span>
-      <span class="parceiro-name">Santander</span>
-      <span class="parceiro-name">·</span>
-      <span class="parceiro-name">Embraer</span>
-      <span class="parceiro-name">·</span>
-      <!-- duplicated for infinite loop -->
-      <span class="parceiro-name">Bradesco</span>
-      <span class="parceiro-name">·</span>
-      <span class="parceiro-name">Natura</span>
-      <span class="parceiro-name">·</span>
-      <span class="parceiro-name">Itaú</span>
-      <span class="parceiro-name">·</span>
-      <span class="parceiro-name">Ambev</span>
-      <span class="parceiro-name">·</span>
-      <span class="parceiro-name">Magazine Luiza</span>
-      <span class="parceiro-name">·</span>
-      <span class="parceiro-name">Vivo</span>
-      <span class="parceiro-name">·</span>
-      <span class="parceiro-name">B3</span>
-      <span class="parceiro-name">·</span>
-      <span class="parceiro-name">Santander</span>
-      <span class="parceiro-name">·</span>
-      <span class="parceiro-name">Embraer</span>
-      <span class="parceiro-name">·</span>
-    </div>
-  </div>
-</section>
-
-<!-- DEPOIMENTOS -->
-<section id="depoimentos">
-  <div class="container">
-    <div class="depoimentos-header reveal">
-      <span class="label">Depoimentos</span>
-      <h2>A experiência de quem já realizou eventos <em>no Espaço Fit</em></h2>
-    </div>
-    <div class="depo-grid">
-      <div class="depo-card featured reveal">
-        <div class="depo-stars">★★★★★</div>
-        <blockquote>"O espaço é muito bem localizado, amplo e com diversas opções de salas e personalizações. Destaco principalmente o atendimento da equipe comercial e a prestatividade do time de operações."</blockquote>
-        <div class="depo-author">
-          <div class="depo-avatar">AP</div>
-          <span class="depo-author-name">Alex Pereira</span>
-        </div>
-      </div>
-      <div class="depo-card reveal">
-        <div class="depo-stars">★★★★★</div>
-        <blockquote>"O lugar é super aconchegante e o espaço foi perfeito para acomodar a todos e as dinâmicas. Super recomendo."</blockquote>
-        <div class="depo-author">
-          <div class="depo-avatar">FC</div>
-          <span class="depo-author-name">Fernanda Costa</span>
-        </div>
-      </div>
-      <div class="depo-card reveal">
-        <div class="depo-stars">★★★★★</div>
-        <blockquote>"Lugar incrível! Amplo, moderno e acolhedor. A equipe é atenciosa e muito gente boa. Amei."</blockquote>
-        <div class="depo-author">
-          <div class="depo-avatar">NN</div>
-          <span class="depo-author-name">Nestor Neto</span>
-        </div>
-      </div>
-      <div class="depo-card reveal">
-        <div class="depo-stars">★★★★★</div>
-        <blockquote>"Espaço muito bacana para evento, estrutura ótima. Ambientes bonitos e funcionários educados."</blockquote>
-        <div class="depo-author">
-          <div class="depo-avatar">EC</div>
-          <span class="depo-author-name">Evelin Castro</span>
-        </div>
-      </div>
-      <div class="depo-card reveal">
-        <div class="depo-stars">★★★★★</div>
-        <blockquote>"Lugar excepcional. Amplo espaço, salas bem iluminadas e climatizadas. Atendimento muito bom."</blockquote>
-        <div class="depo-author">
-          <div class="depo-avatar">DP</div>
-          <span class="depo-author-name">Diego Pacheco</span>
-        </div>
-      </div>
-      <div class="depo-card reveal">
-        <div class="depo-stars">★★★★★</div>
-        <blockquote>"Espaço incrível, equipe alinhada, coffee maravilhoso — tive uma ótima experiência."</blockquote>
-        <div class="depo-author">
-          <div class="depo-avatar">VB</div>
-          <span class="depo-author-name">Vitória Barbosa</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTATO -->
-<section id="contato">
-  <div class="contato-accent"></div>
-  <div class="container">
-    <div class="contato-grid">
-      <div class="contato-text reveal">
-        <span class="label" style="color:var(--rose-light)">Próximo passo</span>
-        <h2>Planeje seu evento com <em style="color:var(--rose-light)">quem entende do assunto</em></h2>
-        <p>Fale com nossa equipe e conheça as possibilidades de espaço, estrutura e serviços disponíveis para o seu evento.</p>
-        <div class="contato-info-list">
-          <div class="contato-info-item">
-            <div class="contato-info-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div class="contato-info-item-text">
-              <strong>Endereço</strong>
-              Av. Alfredo Egídio de Souza Aranha, 384<br>Chácara Santo Antônio, São Paulo – SP
-            </div>
-          </div>
-          <div class="contato-info-item">
-            <div class="contato-info-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
-            </div>
-            <div class="contato-info-item-text">
-              <strong>Telefone</strong>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <div class="footer-col-contact">
+            <div class="footer-contact-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z" />
+              </svg>
               (11) 3262-0938
             </div>
-          </div>
-          <div class="contato-info-item">
-            <div class="contato-info-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <div class="contato-info-item-text">
-              <strong>WhatsApp</strong>
+            <div class="footer-contact-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
               (11) 3262-0819
             </div>
-          </div>
-          <div class="contato-info-item">
-            <div class="contato-info-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div class="contato-info-item-text">
-              <strong>E-mail</strong>
+            <div class="footer-contact-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
               contato@espacofiteventos.com.br
             </div>
           </div>
         </div>
       </div>
-      <div class="reveal">
-        <div class="form-box">
-          <form id="form-contato" onsubmit="handleSubmit(event)">
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="nome">Nome</label>
-                <input type="text" id="nome" placeholder="Seu nome completo" required>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="telefone">Telefone / WhatsApp</label>
-                <input type="tel" id="telefone" placeholder="(11) 99999-9999" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="email">E-mail</label>
-              <input type="email" id="email" placeholder="seu@email.com" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="tipo">Tipo de evento</label>
-              <select id="tipo">
-                <option value="" disabled selected>Selecione o tipo de evento</option>
-                <option>Corporativo</option>
-                <option>Casamento</option>
-                <option>Festa de 15 anos</option>
-                <option>Aniversário</option>
-                <option>Outro</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="data">Data do evento</label>
-                <input type="date" id="data">
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="convidados">Quantidade de convidados</label>
-                <input type="number" id="convidados" placeholder="Ex: 150" min="1">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="detalhes">Detalhes adicionais</label>
-              <textarea id="detalhes" rows="3" placeholder="Conte-nos mais sobre o seu evento..."></textarea>
-            </div>
-            <div class="form-submit">
-              <button type="submit" class="btn btn-primary">
-                Solicitar orçamento
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
-            </div>
-            <p class="form-note">Ao enviar, você concorda com nossa política de privacidade.</p>
-          </form>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Espaço Fit Eventos — Todos os direitos reservados.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <a href="https://wa.me/551132620819" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
+              <path
+                d="M12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.455 3.48 11.815 11.815 0 0 0 12.05 0z" />
+            </svg>
+          </a>
         </div>
+        <p class="footer-dev">Desenvolvido por <a href="http://dmove.com.br" target="_blank">DMove Marketing</a></p>
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- LOCALIZAÇÃO -->
-<section id="localizacao">
-  <div class="container">
-    <div class="loc-grid">
-      <div class="loc-text reveal">
-        <span class="label">Localização</span>
-        <h2>Localização prática e <em>acessível</em></h2>
-        <p>Um ponto estratégico que facilita a chegada de convidados e a operação do evento do início ao fim.</p>
-        <div class="loc-details">
-          <div class="loc-detail">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Av. Alfredo Egídio de Souza Aranha, 384 – Chácara Santo Antônio, São Paulo – SP, 04730-090
-          </div>
-          <div class="loc-detail">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Fácil acesso pela Marginal Pinheiros · Próximo ao Aeroporto de Congonhas
-          </div>
-          <div class="loc-detail">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            Ao lado da estação Granja Julieta · Estacionamento disponível
-          </div>
-        </div>
-        <a href="https://maps.google.com/?q=Av.+Alfredo+Egídio+de+Souza+Aranha,+384,+São+Paulo" target="_blank" class="btn btn-primary">
-          Agende sua visita
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-      <div class="loc-map reveal">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.9!2d-46.7200!3d-23.6120!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce51f8a6e0b8a5%3A0x0!2sAv.%20Alfredo%20Eg%C3%ADdio%20de%20Souza%20Aranha%2C%20384%20-%20Ch%C3%A1cara%20Santo%20Ant%C3%B4nio%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
-          allowfullscreen loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Localização Espaço Fit Eventos">
-        </iframe>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/551132620819" target="_blank" class="wa-float" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+    </svg>
+  </a>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="#" class="logo-footer">
-          <img src="https://lp.espacofiteventos.com.br/_astro/logo.fiteventos.CuQpwyAd_1n3wmb.webp" alt="Espaço Fit Eventos">
-        </a>
-        <p>O espaço ideal para eventos corporativos e sociais que exigem estrutura, excelência e atendimento de alto padrão em São Paulo.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Menu</h4>
-        <ul>
-          <li><a href="#sobre">Espaço</a></li>
-          <li><a href="#eventos">Eventos</a></li>
-          <li><a href="#estrutura">Estrutura</a></li>
-          <li><a href="#gastronomia">Gastronomia</a></li>
-          <li><a href="#galeria">Galeria</a></li>
-          <li><a href="#localizacao">Localização</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Eventos</h4>
-        <ul>
-          <li><a href="https://lp.espacofiteventos.com.br/">Corporativos</a></li>
-          <li><a href="https://lp.espacofiteventos.com.br/debutantes/">Festa de 15 anos</a></li>
-          <li><a href="#contato">Casamentos</a></li>
-          <li><a href="#contato">Aniversários</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <div class="footer-col-contact">
-          <div class="footer-contact-item">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
-            (11) 3262-0938
-          </div>
-          <div class="footer-contact-item">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            (11) 3262-0819
-          </div>
-          <div class="footer-contact-item">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            contato@espacofiteventos.com.br
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 Espaço Fit Eventos — Todos os direitos reservados.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Instagram">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-        <a href="https://wa.me/551132620819" aria-label="WhatsApp">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.455 3.48 11.815 11.815 0 0 0 12.05 0z"/></svg>
-        </a>
-      </div>
-      <p class="footer-dev">Desenvolvido por <a href="http://dmove.com.br" target="_blank">DMove Marketing</a></p>
-    </div>
-  </div>
-</footer>
-
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/551132620819" target="_blank" class="wa-float" aria-label="WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
-  </svg>
-</a>
-
-<script>
-  // ── Header scroll
-  const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  // ── Mobile nav
-  function toggleNav() {
-    const nav = document.getElementById('nav');
-    const hb = document.getElementById('hamburger');
-    nav.classList.toggle('open');
-    hb.classList.toggle('active');
-  }
-  document.querySelectorAll('nav a').forEach(l => {
-    l.addEventListener('click', () => {
-      document.getElementById('nav').classList.remove('open');
-      document.getElementById('hamburger').classList.remove('active');
+  <script>
+    // ── Header scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
     });
-  });
 
-  // ── Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, 80);
-        observer.unobserve(entry.target);
-      }
+    // ── Mobile nav
+    function toggleNav() {
+      const nav = document.getElementById('nav');
+      const hb = document.getElementById('hamburger');
+      nav.classList.toggle('open');
+      hb.classList.toggle('active');
+    }
+    document.querySelectorAll('nav a').forEach(l => {
+      l.addEventListener('click', () => {
+        document.getElementById('nav').classList.remove('open');
+        document.getElementById('hamburger').classList.remove('active');
+      });
     });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // ── Form submit
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button[type="submit"]');
-    const orig = btn.innerHTML;
-    btn.innerHTML = 'Solicitação enviada! ✓';
-    btn.style.background = 'var(--rose-dark)';
-    btn.disabled = true;
-    setTimeout(() => {
-      btn.innerHTML = orig;
-      btn.style.background = '';
-      btn.disabled = false;
-      e.target.reset();
-    }, 4000);
-  }
-</script>
+    // ── Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Form submit
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      const orig = btn.innerHTML;
+      btn.innerHTML = 'Solicitação enviada! ✓';
+      btn.style.background = 'var(--rose-dark)';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.innerHTML = orig;
+        btn.style.background = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 4000);
+    }
+  </script>
 </body>
+
 </html>

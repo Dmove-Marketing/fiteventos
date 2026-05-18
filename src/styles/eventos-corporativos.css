@@ -776,6 +776,7 @@
     overflow: hidden;
   }
   .galeria-carousel-slide img { width: 100%; height: 100%; object-fit: cover; }
+
   /* ─── CONTATO ─── */
   #contato {
     display: grid;
@@ -1046,7 +1047,7 @@
 
   .galeria-item { cursor: pointer; }
 
-  /* ─── WHATSAPP FLOAT ─── */
+/* ─── WHATSAPP FLOAT ─── */
   .whatsapp-float {
     position: fixed;
     bottom: 28px;
