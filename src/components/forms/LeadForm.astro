@@ -50,6 +50,7 @@ interface Props {
   honeypot?: boolean;
   successTitle?: string;
   successText?: string;
+  footerText?: string;
 }
 
 const {
@@ -95,6 +96,7 @@ const {
   honeypot = false,
   successTitle = 'Solicitação recebida',
   successText = 'Recebemos seu pedido.<br>Em breve entraremos em contato pelo WhatsApp ou e-mail.',
+  footerText = 'Ao enviar, você concorda com nossa política de privacidade.',
 } = Astro.props;
 
 const formElemId = `form-${formId}`;
@@ -236,7 +238,7 @@ const groupCls  = (full?: boolean) => {
     </div>
 
     <div class={cxMsg} id={theMsgId}></div>
-    <p class={cxFooter}>Ao enviar, você concorda com nossa política de privacidade.</p>
+    <p class={cxFooter}>{footerText}</p>
   </div>
 
   <div class={cxSuccess} id={theSuccessId}>

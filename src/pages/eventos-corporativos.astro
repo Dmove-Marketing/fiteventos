@@ -5,7 +5,10 @@ import config from '../../config.json';
 import Img from '../components/ui/Img.astro';
 import Video from '../components/ui/Video.astro';
 import LeadForm from '../components/forms/LeadForm.astro';
+import { getImage } from 'astro:assets';
+import salaReuniaoImg from '../assets/images/salas_reuniao.eventos-corporativos02.webp';
 import '../styles/eventos-corporativos.css';
+const posterSrc = (await getImage({ src: salaReuniaoImg, width: 1280 })).src;
 ---
 
 <Base
@@ -81,7 +84,7 @@ import '../styles/eventos-corporativos.css';
   <div class="autoridade-media">
     <Video
       src="/sobre.eventos-corporativos.mp4"
-      poster=""
+      poster={posterSrc}
       title="Espaço Fit Eventos — Eventos Corporativos"
       description="Conheça a estrutura do Espaço Fit Eventos para eventos corporativos."
       uploadDate="2026-05-14"
@@ -100,7 +103,7 @@ import '../styles/eventos-corporativos.css';
 <section id="espacos">
   <div class="section-header container">
     <span class="label">Nossos ambientes</span>
-    <h2>Flexibilidade para criar o <em style="color:var(--rose)">evento do seu jeito</em></h2>
+    <h2>Flexibilidade para criar o<br><em style="color:var(--rose)">evento do seu jeito</em></h2>
     <p>Espaços versáteis, funcionais e prontos para diferentes dinâmicas corporativas, de reuniões estratégicas a grandes apresentações.</p>
   </div>
   <div class="espacos-grid">
@@ -115,7 +118,7 @@ import '../styles/eventos-corporativos.css';
       <div class="espaco-overlay">
         <div class="espaco-info">
           <h3>Salas de Treinamento e Auditórios</h3>
-          <p>Layouts flexíveis — auditório, U, escolar, mesas redondas — com capacidade para 10 a 530 convidados</p>
+          <p>Layouts flexíveis, auditório, U, escolar, mesas redondas, com capacidade para 10 a 530 convidados</p>
         </div>
       </div>
     </div>
@@ -278,7 +281,7 @@ import '../styles/eventos-corporativos.css';
 <section id="diferenciais">
   <div class="diferenciais-head container">
       <span class="label" style="color:var(--rose)">Por que escolher o Fit</span>
-      <h2>Os diferenciais que elevam a <em>experiência do seu evento</em></h2>
+      <h2>Os diferenciais que elevam <em>a experiência do seu evento</em></h2>
   </div>
   <div class="diferenciais-grid">
       <div class="diferencial-item">
@@ -387,7 +390,7 @@ import '../styles/eventos-corporativos.css';
 <section id="clientes">
   <div class="clientes-header container">
     <span class="label">Parceiros</span>
-    <h2>Seu evento no mesmo espaço de <em>grandes empresas</em></h2>
+    <h2>Seu evento no mesmo <em>espaço de grandes empresas</em></h2>
   </div>
 
   {/* Fileira 1 — logos 01 a 66 */}
@@ -760,7 +763,7 @@ import '../styles/eventos-corporativos.css';
 <section id="contato">
   <div class="contato-left">
     <span class="label" style="color:var(--rose)">Próximo passo</span>
-    <h2>Vamos planejar seu próximo <em>evento corporativo?</em></h2>
+    <h2>Vamos planejar<br>seu próximo <em>evento corporativo?</em></h2>
     <p>Preencha seus dados e receba um orçamento personalizado para sua empresa.</p>
     <div class="contato-address">
       <div class="contato-address-item">

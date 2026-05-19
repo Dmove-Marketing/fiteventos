@@ -917,24 +917,31 @@
             justify-content: center
         }
 
-        .form-grid {
+        /* ── Form overrides escopados para garantir especificidade sobre LeadForm */
+        .contato-form-wrap .lead-form {
+            max-width: 100% !important;
+            width: 100% !important;
+        }
+
+        .contato-form-wrap .lead-form-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contato-form-wrap .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
-            margin-bottom: 20px
         }
 
-        .form-group {
+        .contato-form-wrap .form-group {
             display: flex;
             flex-direction: column;
-            gap: 6px
+            gap: 6px;
         }
 
-        .form-group.full {
-            grid-column: 1/-1
-        }
-
-        .form-label {
+        .contato-form-wrap .form-label {
             font-size: 10px;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -942,134 +949,127 @@
             font-weight: 500;
         }
 
-        .form-input,
-        .form-select,
-        .form-textarea {
+        .contato-form-wrap .form-input,
+        .contato-form-wrap .form-select,
+        .contato-form-wrap .form-textarea {
             font-family: 'Inter', sans-serif;
-            padding: 14px 16px;
-            background: var(--dourado-bg);
-            border: 1px solid rgba(196, 156, 76, .3);
-            color: var(--preto);
-            font-size: 15px;
+            padding: 14px 16px !important;
+            background: var(--dourado-bg) !important;
+            border: 1px solid rgba(196, 156, 76, .3) !important;
+            border-radius: 0 !important;
+            color: var(--preto) !important;
+            font-size: 15px !important;
             font-weight: 300;
             outline: none;
             transition: border-color .3s, background .3s;
             -webkit-appearance: none;
-            appearance: none
+            appearance: none;
+            resize: none;
+            box-sizing: border-box;
+            width: 100% !important;
         }
 
-        .form-input::placeholder,
-        .form-textarea::placeholder {
-            color: #aaa
+        .contato-form-wrap .form-input::placeholder,
+        .contato-form-wrap .form-textarea::placeholder {
+            color: #aaa;
         }
 
-        .form-input:focus,
-        .form-select:focus,
-        .form-textarea:focus {
-            border-color: var(--dourado);
-            background: var(--dourado-bg2)
+        .contato-form-wrap .form-input:focus,
+        .contato-form-wrap .form-select:focus,
+        .contato-form-wrap .form-textarea:focus {
+            border-color: var(--dourado) !important;
+            background: var(--dourado-bg2) !important;
+            box-shadow: none !important;
         }
 
-        .form-input.error,
-        .form-select.error {
-            border-color: #c97b7b;
-            background: rgba(201, 123, 123, .05)
+        .contato-form-wrap .form-input.error,
+        .contato-form-wrap .form-select.error {
+            border-color: #c97b7b !important;
+            background: rgba(201, 123, 123, .05) !important;
         }
 
-        .field-error {
+        .contato-form-wrap .field-error {
             font-size: 11px;
             color: #c97b7b;
             margin-top: 2px;
             display: none;
-            line-height: 1.4
+            line-height: 1.4;
         }
 
-        .field-error.visible {
-            display: block
+        .contato-form-wrap .field-error.visible {
+            display: block;
         }
 
-        .hp-field {
+        .contato-form-wrap .hp-field {
             position: absolute;
             left: -9999px;
             top: -9999px;
             opacity: 0;
-            pointer-events: none
+            pointer-events: none;
         }
 
-        .form-select {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(196,156,76,0.8)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 16px center;
-            background-color: var(--dourado-bg);
-            padding-right: 40px;
-            cursor: pointer
-        }
-
-        .form-select option {
-            background: var(--branco);
-            color: var(--preto)
-        }
-
-        .form-textarea {
-            resize: vertical;
-            min-height: 80px
-        }
-
-        .form-submit {
-            background: var(--dourado);
-            color: var(--branco);
-            padding: 18px 36px;
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            border: none;
+        .contato-form-wrap .form-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(196,156,76,0.8)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") !important;
+            background-repeat: no-repeat !important;
+            background-position: right 16px center !important;
+            background-color: var(--dourado-bg) !important;
+            padding-right: 40px !important;
             cursor: pointer;
-            font-weight: 600;
-            transition: background .3s, transform .3s;
-            margin-top: 8px;
-            width: 100%
         }
 
-        .form-submit:hover:not(:disabled) {
-            background: var(--dourado-escuro);
-            transform: translateY(-1px)
+        .contato-form-wrap .form-select option {
+            background: var(--branco);
+            color: var(--preto);
         }
 
-        .form-submit:disabled {
+        .contato-form-wrap .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .contato-form-wrap .form-submit,
+        .contato-form-wrap .btn.form-submit {
+            background: var(--dourado) !important;
+            color: var(--branco) !important;
+            padding: 18px 36px !important;
+            font-size: 10px !important;
+            letter-spacing: 3px !important;
+            text-transform: uppercase !important;
+            border: none !important;
+            cursor: pointer !important;
+            font-weight: 600 !important;
+            transition: background .3s, transform .3s !important;
+            margin-top: 8px !important;
+            width: 100% !important;
+            border-radius: 0 !important;
+        }
+
+        .contato-form-wrap .form-submit:hover:not(:disabled) {
+            background: var(--dourado-escuro) !important;
+            transform: translateY(-1px);
+        }
+
+        .contato-form-wrap .form-submit:disabled {
             opacity: .65;
             cursor: not-allowed;
-            transform: none
+            transform: none;
         }
 
-        .form-msg {
+        .contato-form-wrap .form-error {
             font-size: 13px;
             text-align: center;
             margin-top: 14px;
             padding: 12px 16px;
-            display: none;
-            line-height: 1.5
+            line-height: 1.5;
         }
 
-        .form-msg.error {
-            display: block;
-            background: rgba(201, 123, 123, .08);
-            color: #c05050;
-            border: 1px solid rgba(201, 123, 123, .25)
-        }
-
-        .form-msg.success {
-            display: block;
-            background: rgba(196, 156, 76, .1);
-            color: var(--dourado-escuro);
-            border: 1px solid rgba(196, 156, 76, .3)
-        }
-
-        .form-footer-msg {
+        .contato-form-wrap .form-footer {
             font-size: 12px;
             color: #aaa;
             letter-spacing: .3px;
             margin-top: 14px;
-            line-height: 1.6
+            line-height: 1.6;
+            text-align: center;
         }
 
         .mapa-section {
@@ -1448,8 +1448,8 @@
                 padding: 56px 32px
             }
 
-            .form-grid {
-                grid-template-columns: 1fr
+            .contato-form-wrap .form-row {
+                grid-template-columns: 1fr;
             }
 
             footer {
@@ -1458,12 +1458,16 @@
 
             .footer-bottom {
                 flex-direction: column;
-                gap: 20px;
+                gap: 36px;
                 text-align: center
             }
 
             .footer-logo-bottom img {
                 height: 32px;
+            }
+
+            .footer-dev-img {
+                height: 14px;
             }
         }
 

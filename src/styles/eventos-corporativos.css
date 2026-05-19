@@ -204,7 +204,7 @@
     background: var(--rose);
   }
   .hero-content h1 {
-    font-size: clamp(26px, 5.5vw, 68px);
+    font-size: clamp(21px, 4.4vw, 54px);
     font-weight: 600;
     color: var(--white);
     margin-bottom: 24px;
@@ -262,7 +262,7 @@
   .stat-item:last-child { border-right: none; }
   .stat-item:hover { background: rgba(255,255,255,0.04); }
   .stat-number {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Inter', sans-serif;
     font-size: clamp(38px, 4.5vw, 56px);
     font-weight: 600;
     color: var(--white);
@@ -288,9 +288,11 @@
     overflow: hidden;
   }
   .autoridade-media .video-wrap {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
     aspect-ratio: unset !important;
-    height: 100%;
-    min-height: 360px;
   }
   .autoridade-media img {
     width: 100%;
@@ -308,7 +310,7 @@
     justify-content: center;
   }
   .autoridade-content h2 {
-    font-size: clamp(32px, 4vw, 50px);
+    font-size: clamp(29px, 3.6vw, 45px);
     font-weight: 600;
     color: var(--charcoal);
     margin-bottom: 24px;
@@ -332,7 +334,7 @@
   #espacos .section-header { text-align: center; }
   #espacos .section-header p { margin-left: auto; margin-right: auto; }
   .section-header { margin-bottom: 56px; }
-  .section-header h2 { font-size: clamp(30px, 3.8vw, 46px); font-weight: 600; }
+  .section-header h2 { font-size: clamp(29px, 3.6vw, 45px); font-weight: 600; }
   .section-header p {
     margin-top: 16px;
     max-width: 600px;
@@ -340,6 +342,7 @@
     font-weight: 300;
   }
   #espacos .section-header p { color: rgba(255,255,255,0.6); }
+  #espacos .section-header h2 { max-width: 100%; text-wrap: pretty; }
 
   .espacos-grid {
     display: grid;
@@ -408,7 +411,7 @@
     margin: 0 auto 64px;
     text-align: center;
   }
-  .estrutura-lead h2 { font-size: clamp(28px, 3.6vw, 44px); margin-bottom: 18px; }
+  .estrutura-lead h2 { font-size: clamp(29px, 3.6vw, 45px); margin-bottom: 18px; }
   .estrutura-lead p { color: var(--text-muted); font-weight: 300; line-height: 1.85; }
 
   .estrutura-grid {
@@ -443,7 +446,7 @@
     background: var(--gray);
   }
   #eventos .section-header { text-align: center; }
-  #eventos .section-header h2 { color: var(--white); font-size: clamp(28px, 3.6vw, 44px); }
+  #eventos .section-header h2 { color: var(--white); font-size: clamp(29px, 3.6vw, 45px); }
   #eventos .label { display: block; text-align: center; color: var(--white); }
 
   .eventos-grid {
@@ -476,7 +479,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 18px;
-    color: var(--rose-light);
+    color: var(--white);
     flex-shrink: 0;
   }
   .evento-item h3 {
@@ -500,7 +503,7 @@
     align-items: start;
     margin-bottom: 64px;
   }
-  .diferenciais-head h2 { font-size: clamp(30px, 3.8vw, 46px); }
+  .diferenciais-head h2 { font-size: clamp(29px, 3.6vw, 45px); }
   .diferenciais-head p { color: var(--text-muted); font-weight: 300; line-height: 1.85; font-size: 16px; margin-top: 12px; }
 
   .diferenciais-grid {
@@ -564,7 +567,7 @@
   .gastro-text .label { color: var(--rose); }
   .gastro-text h2 {
     color: var(--white);
-    font-size: clamp(28px, 3.5vw, 44px);
+    font-size: clamp(29px, 3.6vw, 45px);
     margin-bottom: 24px;
   }
   .gastro-text p {
@@ -638,7 +641,7 @@
     text-align: center;
     margin-bottom: 56px;
   }
-  .clientes-header h2 { font-size: clamp(26px, 3.4vw, 42px); }
+  .clientes-header h2 { font-size: clamp(29px, 3.6vw, 45px); }
 
   .marquee-wrap {
     width: 100%;
@@ -689,7 +692,7 @@
     background: var(--off-white);
   }
   #depoimentos .section-header { margin-bottom: 52px; text-align: center; }
-  #depoimentos h2 { font-size: clamp(28px, 3.5vw, 44px); }
+  #depoimentos h2 { font-size: clamp(29px, 3.6vw, 45px); }
 
   .depoimentos-grid {
     display: grid;
@@ -780,7 +783,7 @@
   /* ─── CONTATO ─── */
   #contato {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1fr;
     border-top: 4px solid var(--rose);
   }
   .contato-left {
@@ -793,7 +796,7 @@
     text-align: left;
     border-right: 1px solid rgba(196, 30, 76, .15);
   }
-  .contato-left h2 { font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 18px; color: var(--charcoal); }
+  .contato-left h2 { font-size: clamp(29px, 3.6vw, 45px); margin-bottom: 18px; color: var(--charcoal); }
   .contato-left p { color: #555; font-size: 15px; line-height: 1.85; margin-bottom: 36px; font-weight: 300; }
   .contato-address { display: flex; flex-direction: column; gap: 18px; }
   .contato-address-item {
@@ -960,7 +963,7 @@
     text-align: center;
     margin-bottom: 48px;
   }
-  .loc-head h2 { color: var(--white); font-size: clamp(26px, 3.4vw, 42px); margin-bottom: 14px; }
+  .loc-head h2 { color: var(--white); font-size: clamp(29px, 3.6vw, 45px); margin-bottom: 14px; }
   .loc-head p { color: rgba(255,255,255,0.55); font-weight: 300; font-size: 16px; }
   .map-wrap {
     width: 100%;
@@ -1105,8 +1108,9 @@
   }
   @media (max-width: 580px) {
     .br-m { display: inline; }
-    .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+    .footer-bottom { flex-direction: column; gap: 36px; text-align: center; }
     .footer-logo-bottom img { height: 32px; }
+    .footer-dev-img { height: 14px; }
     .diferenciais-grid { grid-template-columns: 1fr; }
     .diferencial-item, .diferencial-item:nth-child(n+5) { grid-column: span 1; border-right: none; }
     .eventos-grid { grid-template-columns: 1fr; }
@@ -1126,7 +1130,7 @@
     .estrutura-lead h2,
     .gastro-text h2,
     #depoimentos h2,
-    .contato-left h2 { font-size: clamp(20px, 5vw, 28px); }
+    .contato-left h2,
     .clientes-header h2,
-    .loc-head h2 { font-size: clamp(18px, 4.8vw, 24px); }
+    .loc-head h2 { font-size: clamp(22px, 5.5vw, 32px); }
   }

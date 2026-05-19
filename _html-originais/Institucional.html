@@ -2652,6 +2652,66 @@
       }, 4000);
     }
   </script>
+
+  <script>
+    (function () {
+      const originals = new Map();
+
+      function wrapTextNodes(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const text = node.textContent;
+          if (!text.trim()) return;
+          const parts = text.split(/(\s+)/);
+          const frag = document.createDocumentFragment();
+          parts.forEach(function (part) {
+            if (!part.trim()) {
+              frag.appendChild(document.createTextNode(part));
+            } else {
+              const span = document.createElement('span');
+              span.dataset.word = '1';
+              span.textContent = part;
+              frag.appendChild(span);
+            }
+          });
+          node.parentNode.replaceChild(frag, node);
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          Array.from(node.childNodes).forEach(wrapTextNodes);
+        }
+      }
+
+      function colorLastLine(h1) {
+        h1.innerHTML = originals.get(h1);
+        wrapTextNodes(h1);
+
+        const spans = Array.from(h1.querySelectorAll('[data-word]'));
+        if (!spans.length) return;
+
+        const rects = spans.map(function (s) { return s.getBoundingClientRect(); });
+        const lastTop = Math.max.apply(null, rects.map(function (r) { return r.top; }));
+
+        spans.forEach(function (span, i) {
+          if (rects[i].top >= lastTop - 2) {
+            span.style.color = 'var(--rose)';
+          }
+        });
+      }
+
+      document.fonts.ready.then(function () {
+        document.querySelectorAll('h1').forEach(function (h1) {
+          originals.set(h1, h1.innerHTML);
+          colorLastLine(h1);
+        });
+
+        var rafId;
+        window.addEventListener('resize', function () {
+          cancelAnimationFrame(rafId);
+          rafId = requestAnimationFrame(function () {
+            document.querySelectorAll('h1').forEach(colorLastLine);
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 
 </html>

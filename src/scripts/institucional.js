@@ -49,7 +49,7 @@
     });
   })();
 
-  // ── Carrossel sociais (3 visíveis, avança 1 por vez)
+  // ── Carrossel sociais
   (function () {
     var carousel = document.querySelector('.sociais-carousel');
     var track = carousel && carousel.querySelector('.sociais-carousel-track');
@@ -59,7 +59,6 @@
     var total = origSlides.length;
     if (total < 2) return;
 
-    // duplica para loop infinito
     origSlides.forEach(function (slide) {
       track.appendChild(slide.cloneNode(true));
     });
@@ -67,7 +66,7 @@
     var current = 0;
 
     function getSlideWidth() {
-      return carousel.offsetWidth / 3;
+      return origSlides[0].offsetWidth;
     }
 
     function advance() {
@@ -86,7 +85,7 @@
     setInterval(advance, 4000);
   })();
 
-  // ── Carrossel corporativo (3 visíveis, avança 1 por vez)
+  // ── Carrossel corporativo
   (function () {
     var carousel = document.querySelector('.mosaic-corp-carousel');
     var track = carousel && carousel.querySelector('.mosaic-corp-carousel-track');
@@ -103,7 +102,7 @@
     var current = 0;
 
     function getSlideWidth() {
-      return carousel.offsetWidth / 3;
+      return origSlides[0].offsetWidth;
     }
 
     function advance() {
