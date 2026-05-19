@@ -1,5 +1,8 @@
 /* Estilos extraídos de debutantes.html */
 
+.br-m { display: none; }
+@media (max-width: 768px) { .br-m { display: block; } }
+
 * {
             margin: 0;
             padding: 0;
@@ -270,7 +273,7 @@
         }
 
         .hero-title {
-            font-size: clamp(26px, min(5vw, 5.8vh), 62px);
+            font-size: clamp(24px, min(5vw, 5.8vh), 60px);
             font-weight: 300;
             color: var(--branco);
             line-height: 1.15;
@@ -353,7 +356,8 @@
         .sobre {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            min-height: 600px
+            min-height: 600px;
+            padding: 40px 40px 0 40px
         }
 
         .sobre-media {
@@ -362,7 +366,7 @@
             align-items: stretch;
             justify-content: center;
             overflow: hidden;
-            padding: 32px
+            padding: 0
         }
 
         .sobre-media .video-wrap {
@@ -391,7 +395,7 @@
         }
 
         .section-title {
-            font-size: clamp(22px, 2vw, 38px);
+            font-size: clamp(20px, 2vw, 35px);
             font-weight: 300;
             color: var(--preto);
             line-height: 1.25;
@@ -1304,13 +1308,14 @@
             }
 
 .sobre {
-                grid-template-columns: 1fr
+                grid-template-columns: 1fr;
+                padding: 40px 0 0 0
             }
 
             .sobre-media {
                 min-height: 280px;
                 order: -1;
-                padding: 20px
+                padding: 0
             }
 
             .sobre-content {

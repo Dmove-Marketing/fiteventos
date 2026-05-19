@@ -34,12 +34,13 @@
   h1, h2, h3 {
     font-family: 'Inter', sans-serif;
     line-height: 1.2;
+    font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     text-wrap: balance;
   }
 
-  em { font-style: italic; color: var(--rose); }
+  em { font-style: normal; color: var(--rose); font-weight: 700; }
   h1 em, h2 em { font-style: normal; }
 
   img { display: block; max-width: 100%; }
@@ -204,8 +205,8 @@
     background: var(--rose);
   }
   .hero-content h1 {
-    font-size: clamp(21px, 4.4vw, 54px);
-    font-weight: 600;
+    font-size: clamp(24px, min(5vw, 5.8vh), 60px);
+    font-weight: 300;
     color: var(--white);
     margin-bottom: 24px;
     letter-spacing: -0.01em;
@@ -254,7 +255,7 @@
     grid-template-columns: repeat(4, 1fr);
   }
   .stat-item {
-    padding: 44px 32px;
+    padding: 30px 32px;
     text-align: center;
     border-right: 1px solid rgba(255,255,255,0.1);
     transition: background 0.2s;
@@ -310,8 +311,8 @@
     justify-content: center;
   }
   .autoridade-content h2 {
-    font-size: clamp(29px, 3.6vw, 45px);
-    font-weight: 600;
+    font-size: clamp(20px, 2vw, 35px);
+    font-weight: 300;
     color: var(--charcoal);
     margin-bottom: 24px;
   }
@@ -334,7 +335,7 @@
   #espacos .section-header { text-align: center; }
   #espacos .section-header p { margin-left: auto; margin-right: auto; }
   .section-header { margin-bottom: 56px; }
-  .section-header h2 { font-size: clamp(29px, 3.6vw, 45px); font-weight: 600; }
+  .section-header h2 { font-size: clamp(20px, 2vw, 35px); font-weight: 300; }
   .section-header p {
     margin-top: 16px;
     max-width: 600px;
@@ -411,7 +412,7 @@
     margin: 0 auto 64px;
     text-align: center;
   }
-  .estrutura-lead h2 { font-size: clamp(29px, 3.6vw, 45px); margin-bottom: 18px; }
+  .estrutura-lead h2 { font-size: clamp(20px, 2vw, 35px); margin-bottom: 18px; }
   .estrutura-lead p { color: var(--text-muted); font-weight: 300; line-height: 1.85; }
 
   .estrutura-grid {
@@ -446,7 +447,7 @@
     background: var(--gray);
   }
   #eventos .section-header { text-align: center; }
-  #eventos .section-header h2 { color: var(--white); font-size: clamp(29px, 3.6vw, 45px); }
+  #eventos .section-header h2 { color: var(--white); font-size: clamp(20px, 2vw, 35px); }
   #eventos .label { display: block; text-align: center; color: var(--white); }
 
   .eventos-grid {
@@ -503,7 +504,7 @@
     align-items: start;
     margin-bottom: 64px;
   }
-  .diferenciais-head h2 { font-size: clamp(29px, 3.6vw, 45px); }
+  .diferenciais-head h2 { font-size: clamp(20px, 2vw, 35px); }
   .diferenciais-head p { color: var(--text-muted); font-weight: 300; line-height: 1.85; font-size: 16px; margin-top: 12px; }
 
   .diferenciais-grid {
@@ -567,7 +568,7 @@
   .gastro-text .label { color: var(--rose); }
   .gastro-text h2 {
     color: var(--white);
-    font-size: clamp(29px, 3.6vw, 45px);
+    font-size: clamp(20px, 2vw, 35px);
     margin-bottom: 24px;
   }
   .gastro-text p {
@@ -641,7 +642,7 @@
     text-align: center;
     margin-bottom: 56px;
   }
-  .clientes-header h2 { font-size: clamp(29px, 3.6vw, 45px); }
+  .clientes-header h2 { font-size: clamp(20px, 2vw, 35px); }
 
   .marquee-wrap {
     width: 100%;
@@ -692,7 +693,7 @@
     background: var(--off-white);
   }
   #depoimentos .section-header { margin-bottom: 52px; text-align: center; }
-  #depoimentos h2 { font-size: clamp(29px, 3.6vw, 45px); }
+  #depoimentos h2 { font-size: clamp(20px, 2vw, 35px); }
 
   .depoimentos-grid {
     display: grid;
@@ -796,7 +797,7 @@
     text-align: left;
     border-right: 1px solid rgba(196, 30, 76, .15);
   }
-  .contato-left h2 { font-size: clamp(29px, 3.6vw, 45px); margin-bottom: 18px; color: var(--charcoal); }
+  .contato-left h2 { font-size: clamp(20px, 2vw, 35px); margin-bottom: 18px; color: var(--charcoal); }
   .contato-left p { color: #555; font-size: 15px; line-height: 1.85; margin-bottom: 36px; font-weight: 300; }
   .contato-address { display: flex; flex-direction: column; gap: 18px; }
   .contato-address-item {
@@ -963,7 +964,7 @@
     text-align: center;
     margin-bottom: 48px;
   }
-  .loc-head h2 { color: var(--white); font-size: clamp(29px, 3.6vw, 45px); margin-bottom: 14px; }
+  .loc-head h2 { color: var(--white); font-size: clamp(20px, 2vw, 35px); margin-bottom: 14px; }
   .loc-head p { color: rgba(255,255,255,0.55); font-weight: 300; font-size: 16px; }
   .map-wrap {
     width: 100%;
@@ -1108,6 +1109,7 @@
   }
   @media (max-width: 580px) {
     .br-m { display: inline; }
+    .white-m { color: var(--white) !important; font-weight: 300; }
     .footer-bottom { flex-direction: column; gap: 36px; text-align: center; }
     .footer-logo-bottom img { height: 32px; }
     .footer-dev-img { height: 14px; }
