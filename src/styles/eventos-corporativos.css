@@ -54,7 +54,7 @@
   .btn {
     display: inline-block;
     padding: 15px 36px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 14px;
     letter-spacing: 0.08em;
@@ -483,7 +483,7 @@
     flex-shrink: 0;
   }
   .evento-item h3 {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 15px;
     font-weight: 500;
     color: var(--white);
@@ -546,7 +546,7 @@
   .diferencial-item:hover .diferencial-icon { background: rgba(196, 30, 76, 0.18); border-color: var(--rose); }
   .diferencial-icon svg { color: var(--rose); }
   .diferencial-item h3 {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 600;
     color: var(--charcoal);
@@ -1089,7 +1089,7 @@
     #contato { grid-template-columns: 1fr; }
     .contato-left { border-right: none; border-bottom: 1px solid rgba(196, 30, 76, .15); padding: 56px 32px; }
     .contato-form-wrap { padding: 56px 32px; }
-    .espacos-grid { grid-template-columns: 1fr; }
+    .espacos-grid { grid-template-columns: 1fr; width: 100%; gap: 0; }
     .espaco-card.wide { grid-column: span 1; }
     .estrutura-grid { grid-template-columns: 1fr; }
     .eventos-grid { grid-template-columns: 1fr 1fr; }

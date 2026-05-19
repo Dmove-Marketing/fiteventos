@@ -349,43 +349,6 @@
             font-size: 18px
         }
 
-        .stats-bar {
-            background: linear-gradient(135deg, #D4A843 0%, #C49C4C 40%, #B8892F 100%);
-            display: flex;
-            justify-content: center;
-            box-shadow: 0 2px 12px rgba(196, 156, 76, 0.25)
-        }
-
-        .stat-item {
-            padding: 36px 60px;
-            text-align: center;
-            border-right: 1px solid rgba(255, 255, 255, 0.3);
-            flex: 1;
-            max-width: 240px
-        }
-
-        .stat-item:last-child {
-            border-right: none
-        }
-
-        .stat-num {
-            font-size: 38px;
-            font-weight: 300;
-            color: var(--branco);
-            display: block;
-            line-height: 1;
-            letter-spacing: -.5px
-        }
-
-        .stat-label {
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.8);
-            margin-top: 8px;
-            display: block;
-            font-weight: 400
-        }
 
         .sobre {
             display: grid;
@@ -395,18 +358,17 @@
 
         .sobre-media {
             background-color: var(--preto-medio);
-            min-height: 520px;
             display: flex;
-            align-items: center;
+            align-items: stretch;
             justify-content: center;
-            overflow: hidden
+            overflow: hidden;
+            padding: 32px
         }
 
-        .sobre-media video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block
+        .sobre-media .video-wrap {
+            aspect-ratio: unset !important;
+            flex: 1;
+            width: 100%
         }
 
         .sobre-content {
@@ -1341,23 +1303,14 @@
                 font-size: 15px
             }
 
-            .stats-bar {
-                flex-wrap: wrap
-            }
-
-            .stat-item {
-                flex: 1 1 50%;
-                max-width: none;
-                padding: 28px 20px
-            }
-
-            .sobre {
+.sobre {
                 grid-template-columns: 1fr
             }
 
             .sobre-media {
                 min-height: 280px;
-                order: -1
+                order: -1;
+                padding: 20px
             }
 
             .sobre-content {
