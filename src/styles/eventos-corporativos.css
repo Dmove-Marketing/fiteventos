@@ -1080,6 +1080,8 @@
   /* ─── MOBILE ─── */
   .br-d { display: inline; }
   .br-m { display: none; }
+  .br-mob { display: none; }
+  @media (max-width: 900px) { .br-mob { display: inline; } }
 
   @media (max-width: 900px) {
     .br-d { display: none; }
@@ -1094,6 +1096,7 @@
     .diferenciais-head,
     .gastro-grid { grid-template-columns: 1fr; gap: 40px; }
     .gastro-text { text-align: center; }
+    .gastro-tags { justify-content: center; }
     #contato { grid-template-columns: 1fr; }
     .contato-left { border-right: none; border-bottom: 1px solid rgba(196, 30, 76, .15); padding: 56px 32px; text-align: center; align-items: center; }
     .section-header { text-align: center; }
