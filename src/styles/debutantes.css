@@ -397,9 +397,7 @@
             padding: 80px 48px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            align-items: center
+            justify-content: center
         }
 
         .section-tag {
@@ -409,8 +407,7 @@
             color: var(--dourado);
             margin-bottom: 20px;
             display: block;
-            font-weight: 500;
-            text-align: center
+            font-weight: 500
         }
 
         .section-title {
@@ -421,7 +418,6 @@
             margin-bottom: 28px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            text-align: center
         }
 
         .section-title em {
@@ -436,8 +432,7 @@
             line-height: 1.9;
             color: #444;
             font-weight: 300;
-            margin-bottom: 36px;
-            text-align: center
+            margin-bottom: 36px
         }
 
         .section-body b {
@@ -588,9 +583,7 @@
             padding: 80px 72px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            align-items: center
+            justify-content: center
         }
 
         .gastro-content .section-body {
@@ -601,8 +594,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 28px;
-            justify-content: center
+            margin-top: 28px
         }
 
         .gastro-tag {
@@ -883,8 +875,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            text-align: center;
             border-right: 1px solid rgba(196, 156, 76, .2)
         }
 
@@ -1327,8 +1317,17 @@
                 padding: 0 20px 48px
             }
 
+            .section-tag {
+                text-align: center
+            }
+
             .section-title {
-                font-size: 18px
+                font-size: 18px;
+                text-align: center
+            }
+
+            .section-body {
+                text-align: center
             }
 
             .hero-subtitle {
@@ -1352,6 +1351,8 @@
                 padding: 56px 20px;
                 border-left: none;
                 border-top: 4px solid var(--dourado);
+                text-align: center;
+                align-items: center
             }
 
             .ambientes {
@@ -1391,6 +1392,12 @@
                 padding: 56px 20px;
                 border-left: none;
                 border-top: 4px solid var(--dourado);
+                text-align: center;
+                align-items: center
+            }
+
+            .gastro-tags {
+                justify-content: center
             }
 
             .diferenciais {
@@ -1436,7 +1443,9 @@
             .contato-info {
                 border-right: none;
                 border-bottom: 1px solid rgba(196, 156, 76, .2);
-                padding: 56px 20px
+                padding: 56px 20px;
+                align-items: center;
+                text-align: center
             }
 
             .contato-form-wrap {
