@@ -1090,11 +1090,14 @@
     .stat-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
     #autoridade { grid-template-columns: 1fr; }
     .autoridade-media { min-height: 280px; order: -1; }
-    .autoridade-content { padding: 56px 32px; border-left: none; border-top: 4px solid var(--rose); }
+    .autoridade-content { padding: 56px 32px; border-left: none; border-top: 4px solid var(--rose); text-align: center; align-items: center; }
     .diferenciais-head,
     .gastro-grid { grid-template-columns: 1fr; gap: 40px; }
+    .gastro-text { text-align: center; }
     #contato { grid-template-columns: 1fr; }
-    .contato-left { border-right: none; border-bottom: 1px solid rgba(196, 30, 76, .15); padding: 56px 32px; }
+    .contato-left { border-right: none; border-bottom: 1px solid rgba(196, 30, 76, .15); padding: 56px 32px; text-align: center; align-items: center; }
+    .section-header { text-align: center; }
+    .section-header p { margin-left: auto; margin-right: auto; }
     .contato-form-wrap { padding: 56px 32px; }
     .espacos-grid { grid-template-columns: 1fr; width: 100%; gap: 0; }
     .espaco-card.wide { grid-column: span 1; }
