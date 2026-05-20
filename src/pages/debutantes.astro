@@ -31,6 +31,7 @@ import '../styles/debutantes.css';
     </nav>
 
     <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close" id="mobileClose" aria-label="Fechar menu">✕</button>
         <a href="#ambientes">Ambientes</a>
         <a href="#estrutura">Estrutura</a>
         <a href="#gastronomia">Gastronomia</a>
@@ -40,7 +41,20 @@ import '../styles/debutantes.css';
     </div>
 
     <section class="hero">
-        <div class="hero-bg"></div>
+        <div id="hero-slides">
+            <div class="hero-slide hero-d active"><Img src="hero_carrossel.01.webp" alt="" priority width={1920} /></div>
+            <div class="hero-slide hero-d"><Img src="hero_carrossel.02.webp" alt="" width={1920} /></div>
+            <div class="hero-slide hero-d"><Img src="hero_carrossel.03.webp" alt="" width={1920} /></div>
+            <div class="hero-slide hero-d"><Img src="hero_carrossel.04.webp" alt="" width={1920} /></div>
+            <div class="hero-slide hero-d"><Img src="hero_carrossel.05.webp" alt="" width={1920} /></div>
+            <div class="hero-slide hero-d"><Img src="hero_carrossel.06.webp" alt="" width={1920} /></div>
+            <div class="hero-slide hero-m active"><Img src="heromobile-01_resultado.webp" alt="" priority width={768} /></div>
+            <div class="hero-slide hero-m"><Img src="heromobile-02_resultado.webp" alt="" width={768} /></div>
+            <div class="hero-slide hero-m"><Img src="heromobile-03_resultado.webp" alt="" width={768} /></div>
+            <div class="hero-slide hero-m"><Img src="heromobile-04_resultado.webp" alt="" width={768} /></div>
+            <div class="hero-slide hero-m"><Img src="heromobile-05_resultado.webp" alt="" width={768} /></div>
+            <div class="hero-slide hero-m"><Img src="heromobile-06_resultado.webp" alt="" width={768} /></div>
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <span class="hero-tag">São Paulo · Debutantes</span>

@@ -60,9 +60,8 @@
                 transition-duration: .01ms !important
             }
 
-            .hero-bg {
-                transform: scale(1) !important;
-                opacity: .45 !important
+            .hero-slide {
+                transition-duration: .01ms !important;
             }
 
             .hero-content {
@@ -209,6 +208,23 @@
             color: var(--dourado-claro)
         }
 
+        .mobile-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            color: var(--branco);
+            font-size: 24px;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px;
+            opacity: .8;
+            transition: opacity .2s
+        }
+
+        .mobile-close:hover { opacity: 1 }
+
         .mobile-menu .mobile-cta {
             margin-top: 16px;
             background: var(--branco);
@@ -237,22 +253,35 @@
             background: var(--preto)
         }
 
-        .hero-bg {
+        #hero-slides {
             position: absolute;
             inset: 0;
-            background-image: url('https://eventos.espacofiteventos.com.br/wp-content/uploads/2026/03/2DECOR_1571_DSC08215_resultado.avif');
-            background-size: cover;
-            background-position: center;
-            background-color: var(--preto-medio);
-            opacity: .6;
-            transform: scale(1.04);
-            animation: heroZoom 12s ease-out forwards
         }
 
-        @keyframes heroZoom {
-            to {
-                transform: scale(1)
-            }
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.2s ease;
+        }
+
+        .hero-slide.active { opacity: 1; }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            opacity: .6;
+        }
+
+        .hero-d { display: block; }
+        .hero-m { display: none; }
+
+        @media (max-width: 768px) {
+            .hero-d { display: none; }
+            .hero-m { display: block; }
         }
 
         .hero-overlay {

@@ -1114,9 +1114,19 @@
     .galeria-grid { display: none; }
     .galeria-carousel { display: block; padding: 0 16px; }
     nav { display: none; }
-    nav.open { display: flex; flex-direction: column; position: fixed; inset: 0; background: rgba(20,5,5,0.98); align-items: center; justify-content: center; gap: 32px; z-index: 99; }
-    nav.open a { font-size: 18px; }
     .hamburger { display: flex; }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 105;
+      background: rgba(20,5,5,0.98);
+      flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+      opacity: 0; transition: opacity .35s ease;
+    }
+    .mobile-menu.open { display: flex; opacity: 1; }
+    .mobile-menu a { font-size: 18px; font-weight: 300; color: var(--white); text-decoration: none; letter-spacing: 4px; text-transform: uppercase; transition: color .3s; }
+    .mobile-menu a:hover { color: var(--rose); }
+    .mobile-menu .mobile-cta { background: var(--rose); color: var(--white); padding: 14px 36px; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; margin-top: 8px; }
+    .mobile-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--white); font-size: 24px; cursor: pointer; line-height: 1; padding: 4px; opacity: .8; transition: opacity .2s; }
+    .mobile-close:hover { opacity: 1; }
     #contato .lead-form-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 580px) {

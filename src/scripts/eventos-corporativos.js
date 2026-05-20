@@ -95,21 +95,51 @@
   });
 })();
 
-const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  function toggleNav() {
-    const nav = document.getElementById('nav');
-    nav.classList.toggle('open');
+var header = document.getElementById('header');
+  if (header) {
+    window.addEventListener('scroll', function () {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    });
   }
 
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.getElementById('nav').classList.remove('open');
+  (function () {
+    var hamburger = document.getElementById('hamburgerBtn');
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (!hamburger || !mobileMenu) return;
+    var mobileLinks = mobileMenu.querySelectorAll('a');
+    var hamburgerSpans = hamburger.querySelectorAll('span');
+    var menuOpen = false;
+
+    function toggleMenu() {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        mobileMenu.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        hamburger.setAttribute('aria-label', 'Fechar menu');
+        hamburgerSpans[0].style.transform = 'rotate(45deg) translate(4px,4px)';
+        hamburgerSpans[1].style.opacity = '0';
+        hamburgerSpans[2].style.transform = 'rotate(-45deg) translate(4px,-4px)';
+      } else {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+        hamburger.setAttribute('aria-label', 'Abrir menu');
+        hamburgerSpans[0].style.transform = '';
+        hamburgerSpans[1].style.opacity = '1';
+        hamburgerSpans[2].style.transform = '';
+      }
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+
+    var mobileClose = document.getElementById('mobileClose');
+    if (mobileClose) mobileClose.addEventListener('click', toggleMenu);
+
+    mobileLinks.forEach(function (l) {
+      l.addEventListener('click', function () {
+        if (menuOpen) setTimeout(toggleMenu, 100);
+      });
     });
-  });
+  })();
 
   function handleSubmit(e) {
     e.preventDefault();

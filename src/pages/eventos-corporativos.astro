@@ -28,11 +28,20 @@ const posterSrc = (await getImage({ src: salaReuniaoImg, width: 1280 })).src;
       <a href="#gastronomia">Gastronomia</a>
       <a href="#galeria">Galeria</a>
     </nav>
-    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <div class="hamburger" id="hamburgerBtn" aria-label="Abrir menu">
       <span></span><span></span><span></span>
     </div>
   </div>
 </header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Fechar menu">✕</button>
+  <a href="#espacos">Ambientes</a>
+  <a href="#estrutura">Estrutura</a>
+  <a href="#gastronomia">Gastronomia</a>
+  <a href="#galeria">Galeria</a>
+  <a href="#contato" class="mobile-cta">Solicitar orçamento</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
