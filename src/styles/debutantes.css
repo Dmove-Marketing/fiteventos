@@ -3,6 +3,22 @@
 .br-m { display: none; }
 @media (max-width: 768px) { .br-m { display: block; } }
 
+.br-xs   { display: none; }
+.hide-xs { display: inline; }
+.show-xs { display: none; }
+@media (max-width: 400px) {
+    .br-xs   { display: inline; }
+    .hide-xs { display: none; }
+    .show-xs { display: inline; }
+}
+
+.hide-m  { display: inline; }
+.show-m  { display: none; }
+@media (max-width: 768px) {
+    .hide-m  { display: none; }
+    .show-m  { display: inline; }
+}
+
 * {
             margin: 0;
             padding: 0;
@@ -378,10 +394,12 @@
         .sobre-content {
             background: var(--dourado-bg);
             border-left: 4px solid var(--dourado);
-            padding: 80px 72px;
+            padding: 80px 48px;
             display: flex;
             flex-direction: column;
-            justify-content: center
+            justify-content: center;
+            text-align: center;
+            align-items: center
         }
 
         .section-tag {
@@ -391,7 +409,8 @@
             color: var(--dourado);
             margin-bottom: 20px;
             display: block;
-            font-weight: 500
+            font-weight: 500;
+            text-align: center
         }
 
         .section-title {
@@ -402,6 +421,7 @@
             margin-bottom: 28px;
             letter-spacing: 2px;
             text-transform: uppercase;
+            text-align: center
         }
 
         .section-title em {
@@ -416,7 +436,8 @@
             line-height: 1.9;
             color: #444;
             font-weight: 300;
-            margin-bottom: 36px
+            margin-bottom: 36px;
+            text-align: center
         }
 
         .section-body b {
@@ -567,7 +588,9 @@
             padding: 80px 72px;
             display: flex;
             flex-direction: column;
-            justify-content: center
+            justify-content: center;
+            text-align: center;
+            align-items: center
         }
 
         .gastro-content .section-body {
@@ -578,7 +601,8 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 28px
+            margin-top: 28px;
+            justify-content: center
         }
 
         .gastro-tag {
@@ -859,6 +883,8 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
+            text-align: center;
             border-right: 1px solid rgba(196, 156, 76, .2)
         }
 
@@ -1277,7 +1303,7 @@
 
         @media(max-width:768px) {
             nav {
-                padding: 18px 24px
+                padding: 18px 20px
             }
 
             .nav-links,
@@ -1298,7 +1324,11 @@
             }
 
             .hero-content {
-                padding: 0 24px 48px
+                padding: 0 20px 48px
+            }
+
+            .section-title {
+                font-size: 18px
             }
 
             .hero-subtitle {
@@ -1319,13 +1349,13 @@
             }
 
             .sobre-content {
-                padding: 56px 32px;
+                padding: 56px 20px;
                 border-left: none;
                 border-top: 4px solid var(--dourado);
             }
 
             .ambientes {
-                padding: 72px 24px
+                padding: 72px 20px
             }
 
             .ambientes-grid {
@@ -1337,7 +1367,7 @@
             }
 
             .estrutura {
-                padding: 72px 24px
+                padding: 72px 20px
             }
 
             .estrutura-grid {
@@ -1358,25 +1388,32 @@
             }
 
             .gastro-content {
-                padding: 56px 32px;
+                padding: 56px 20px;
                 border-left: none;
                 border-top: 4px solid var(--dourado);
             }
 
             .diferenciais {
-                padding: 72px 24px
+                padding: 72px 20px;
+                overflow: hidden
             }
 
             .diferenciais-grid {
                 grid-template-columns: 1fr 1fr
             }
 
+            .dif-card {
+                min-width: 0;
+                padding: 32px 20px;
+                word-break: break-word
+            }
+
             .depoimentos {
-                padding: 80px 24px
+                padding: 80px 20px
             }
 
             .galeria-header {
-                padding: 72px 24px 36px
+                padding: 72px 20px 36px
             }
 
             .galeria {
@@ -1399,11 +1436,11 @@
             .contato-info {
                 border-right: none;
                 border-bottom: 1px solid rgba(196, 156, 76, .2);
-                padding: 56px 32px
+                padding: 56px 20px
             }
 
             .contato-form-wrap {
-                padding: 56px 32px
+                padding: 56px 20px
             }
 
             .contato-form-wrap .form-row {
@@ -1411,7 +1448,7 @@
             }
 
             footer {
-                padding: 36px 24px
+                padding: 36px 20px
             }
 
             .footer-bottom {
