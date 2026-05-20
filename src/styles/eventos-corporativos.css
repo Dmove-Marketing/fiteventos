@@ -1078,6 +1078,7 @@
   .whatsapp-float svg { color: white; }
 
   /* ─── MOBILE ─── */
+  .mobile-menu { display: none; }
   .br-d { display: inline; }
   .br-m { display: none; }
   .br-mob { display: none; }
