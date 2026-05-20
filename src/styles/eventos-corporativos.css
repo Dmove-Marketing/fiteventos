@@ -311,10 +311,16 @@
     justify-content: center;
   }
   .autoridade-content h2 {
-    font-size: clamp(20px, 2vw, 35px);
+    font-size: clamp(26px, 2.8vw, 42px);
     font-weight: 300;
     color: var(--charcoal);
     margin-bottom: 24px;
+    max-width: none;
+  }
+  .autoridade-content h2 em {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--rose);
   }
   .autoridade-content p {
     color: var(--text-muted);
