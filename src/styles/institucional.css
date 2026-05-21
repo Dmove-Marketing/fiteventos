@@ -800,6 +800,7 @@ nav a:hover { color: var(--white); }
 /* ─── GALERIA ─── */
 #galeria {
   padding: var(--pad-section);
+  padding-bottom: 50px;
   background: var(--white);
 }
 .galeria-header {
@@ -858,7 +859,7 @@ nav a:hover { color: var(--white); }
 
 /* ─── PARCEIROS ─── */
 #parceiros {
-  padding: clamp(48px, 7vw, 80px) 0;
+  padding: 50px 0;
   background: var(--white);
   overflow: hidden;
 }
@@ -1200,6 +1201,49 @@ footer {
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
+/* ─── MOBILE MENU OVERLAY ─── */
+#mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(26,26,25,0.98);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+}
+#mobile-menu.open { display: flex; }
+#mobile-menu a {
+  font-size: 20px;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+#mobile-menu a:hover { color: var(--white); }
+#mobile-menu .nav-cta {
+  background: var(--rose);
+  color: var(--white) !important;
+  padding: 12px 28px;
+  font-size: 13px !important;
+}
+#mobile-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 26px;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+#mobile-close:hover { opacity: 1; }
+
 /* ─── MOBILE ─── */
 @media (max-width: 1024px) {
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -1231,15 +1275,6 @@ footer {
   /* form: colunas duplas já quebram antes do 580px */
   .form-row { grid-template-columns: 1fr; }
   nav { display: none; }
-  nav.open {
-    display: flex; flex-direction: column;
-    position: fixed; inset: 0;
-    background: rgba(26,26,25,0.98);
-    align-items: center; justify-content: center;
-    gap: 36px; z-index: 199;
-  }
-  nav.open a { font-size: 20px; color: rgba(255,255,255,0.85); }
-  nav.open a::after { display: none; }
   .hamburger { display: flex; }
   .espaco-block-head { flex-direction: column; align-items: flex-start; gap: 12px; }
   .espaco-block-head p { text-align: left; }

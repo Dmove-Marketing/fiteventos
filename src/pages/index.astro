@@ -30,12 +30,23 @@ import '../styles/institucional.css';
         <a href="#localizacao">Localização</a>
         <a href="#contato" class="nav-cta">Solicitar orçamento</a>
       </nav>
-      <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <div class="hamburger" id="hamburger">
         <span></span><span></span><span></span>
       </div>
     </div>
   </div>
 </header>
+
+<!-- MOBILE MENU OVERLAY (fora do header para evitar conflito com backdrop-filter) -->
+<div id="mobile-menu">
+  <button id="mobile-close" aria-label="Fechar menu">✕</button>
+  <a href="#sobre">Espaço</a>
+  <a href="#eventos">Eventos</a>
+  <a href="#gastronomia">Gastronomia</a>
+  <a href="#galeria">Galeria</a>
+  <a href="#localizacao">Localização</a>
+  <a href="#contato" class="nav-cta">Solicitar orçamento</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -294,8 +305,8 @@ import '../styles/institucional.css';
       <div class="gastro-text reveal">
         <span class="label">Gastronomia</span>
         <h2>Gastronomia que acompanha <em>a experiência do seu evento</em></h2>
-        <p>Assinada pelo Chef Dalton Rangel, a gastronomia é um dos destaques do Espaço Fit, com opções pensadas para diferentes tipos de evento, mantendo qualidade, consistência e integração total com a dinâmica da experiência.</p>
-        <p>Cardápios com opções vegetarianas e veganas, adaptados ao perfil do evento e dos convidados.</p>
+        <p>Assinada pelo premiado <b>Chef Dalton Rangel</b>, a gastronomia é um dos destaques do Espaço Fit, com opções pensadas para diferentes tipos de evento, mantendo qualidade, consistência e integração total com a dinâmica da experiência.</p>
+        <p>Incluindo <b>cardápios com opções vegetarianas e veganas, adaptados ao perfil do evento e dos convidados</b>.</p>
         <div class="gastro-menu">
           <div class="gastro-menu-item">Coffee break</div>
           <div class="gastro-menu-item">Almoço corporativo</div>
@@ -711,7 +722,7 @@ import '../styles/institucional.css';
   <div class="contato-grid">
       <div class="contato-text reveal">
         <span class="label" style="color:var(--rose-light)">Próximo passo</span>
-        <h2>Planeje seu evento<br class="br-m"> com <em style="color:var(--rose)"><span class="white-m">quem</span><br class="br-m">entende do assunto</em></h2>
+        <h2>Planeje seu evento<br class="br-m"> com <em style="color:var(--rose)"><span class="white-m">quem </span><br class="br-m">entende do assunto</em></h2>
         <p>Fale com nossa equipe e conheça as possibilidades de espaço,<br>estrutura e serviços disponíveis para o seu evento.</p>
         <div class="contato-info-list">
           <div class="contato-info-item">
@@ -776,9 +787,13 @@ import '../styles/institucional.css';
                   { value: 'Aniversário debutante',                label: 'Aniversário debutante' },
                   { value: 'Bodas',                                label: 'Bodas' },
                   { value: 'Casamento',                            label: 'Casamento' },
+                  { value: 'Mini Wedding',                         label: 'Mini Wedding' },
                   { value: 'Confraternização corporativa',         label: 'Confraternização corporativa' },
                   { value: 'Confraternização social',              label: 'Confraternização social' },
                   { value: 'Corporativo',                          label: 'Corporativo' },
+                  { value: 'Festas Judaicas',                      label: 'Festas Judaicas' },
+                  { value: 'Bar Mitzvah',                          label: 'Bar Mitzvah' },
+                  { value: 'Bat Mitzvah',                          label: 'Bat Mitzvah' },
                   { value: 'Formatura',                            label: 'Formatura' },
                   { value: 'Happy Hour',                           label: 'Happy Hour' },
                   { value: 'Masterclass e Palestras',              label: 'Masterclass e Palestras' },
@@ -887,7 +902,7 @@ import '../styles/institucional.css';
     <div class="footer-bottom">
       <p class="footer-copy">© 2026 Espaço Fit Eventos — Todos os direitos reservados.</p>
       <div class="footer-social">
-        <a href="#" aria-label="Instagram">
+        <a href="https://www.instagram.com/espacofit.eventos/" aria-label="Instagram">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </a>
         <a href="https://wa.me/551132620819" aria-label="WhatsApp">

@@ -7,18 +7,16 @@
   });
 
   // ── Mobile nav
-  function toggleNav() {
-    const nav = document.getElementById('nav');
-    const hb = document.getElementById('hamburger');
-    nav.classList.toggle('open');
-    hb.classList.toggle('active');
-  }
-  document.querySelectorAll('nav a').forEach(l => {
-    l.addEventListener('click', () => {
-      document.getElementById('nav').classList.remove('open');
-      document.getElementById('hamburger').classList.remove('active');
-    });
-  });
+  const _hb = document.getElementById('hamburger');
+  const _menu = document.getElementById('mobile-menu');
+  const _close = document.getElementById('mobile-close');
+
+  function openMenu()  { _menu.classList.add('open');    _hb.classList.add('active'); }
+  function closeMenu() { _menu.classList.remove('open'); _hb.classList.remove('active'); }
+
+  if (_hb)    _hb.addEventListener('click', openMenu);
+  if (_close) _close.addEventListener('click', closeMenu);
+  _menu.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMenu));
 
   // ── Scroll reveal
   const observer = new IntersectionObserver((entries) => {
