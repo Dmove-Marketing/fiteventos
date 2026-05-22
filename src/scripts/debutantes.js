@@ -121,4 +121,16 @@
     observer.observe(el);
   });
 
+  // ── Slideshow gastronomia
+  (function () {
+    var slides = document.querySelectorAll('.gastro-img .gastro-slide');
+    if (slides.length < 2) return;
+    var current = 0;
+    setInterval(function () {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 3000);
+  })();
+
 })();

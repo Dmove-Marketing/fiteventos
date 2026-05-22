@@ -598,11 +598,34 @@
         }
 
         .gastro-img {
-            background-image: url('https://espacofiteventos.com.br/wp-content/uploads/2decor-1598-dsc08270-resultado.webp');
-            background-size: cover;
-            background-position: center;
+            position: relative;
+            overflow: hidden;
             background-color: var(--preto-medio);
             min-height: 480px
+        }
+
+        .gastro-img .gastro-slides {
+            position: absolute;
+            inset: 0
+        }
+
+        .gastro-img .gastro-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease
+        }
+
+        .gastro-img .gastro-slide.active {
+            opacity: 1
+        }
+
+        .gastro-img .gastro-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block
         }
 
         .gastro-content {
