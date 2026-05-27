@@ -3,6 +3,8 @@
    Template para todos os projetos
    ======================================== */
 
+@import 'flatpickr/dist/flatpickr.min.css';
+
 /* === Reset === */
 *,
 *::before,
