@@ -828,7 +828,7 @@ const posterSrc = (await getImage({ src: salaReuniaoImg, width: 1280 })).src;
         { name: 'nome', type: 'text', placeholder: 'Seu nome completo', required: true, full: true },
         { name: 'email', type: 'email', placeholder: 'seu@email.com', required: true, full: true },
         { name: 'telefone', type: 'tel', placeholder: '(11) 9 0000-0000', required: true },
-        { name: 'data', type: 'text', placeholder: 'Data do evento', required: true },
+        { name: 'data', type: 'text', placeholder: 'Data do evento', required: true, readonly: true, flatpickr: true },
         { name: 'convidados', type: 'number', placeholder: 'Nº de pessoas', required: true },
         { name: 'tipo_evento', type: 'select', placeholder: '', required: true, options: [
           { value: '', label: 'Tipo de evento...' },

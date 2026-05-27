@@ -11,6 +11,7 @@ interface FieldOption {
 interface Field {
   name: string;
   type: 'text' | 'email' | 'tel' | 'number' | 'select' | 'textarea' | 'hidden' | 'date';
+  flatpickr?: boolean;
   label?: string;
   placeholder?: string;
   required?: boolean;
@@ -84,7 +85,7 @@ const {
       { value: 'Workshops, Conferências e Seminários',label: 'Workshops, Conferências e Seminários' },
       { value: 'Outros',                              label: 'Outros' },
     ] },
-    { name: 'data',       type: 'text',     placeholder: 'Data do Evento',                                required: true,  readonly: true },
+    { name: 'data',       type: 'text',     placeholder: 'Data do Evento',                                required: true,  readonly: true, flatpickr: true },
     { name: 'convidados', type: 'number',   placeholder: 'N° de Pessoas',                                 required: true },
     { name: 'mensagem',   type: 'textarea', placeholder: 'Detalhes adicionais: (Não obrigatório)',         required: false },
     { name: 'fonte',      type: 'hidden',   value: 'Landing page/bio' },
@@ -178,7 +179,8 @@ const groupCls  = (full?: boolean) => {
                     maxlength={f.maxlength}
                     min={f.min}
                     max={f.max}
-                    readonly={f.readonly}
+                    readonly={f.readonly || f.flatpickr || undefined}
+                    data-flatpickr={f.flatpickr || undefined}
                   />
                 )}
                 {f.errorText && <span class={cxError} id={f.errorId}>{f.errorText}</span>}
@@ -217,7 +219,8 @@ const groupCls  = (full?: boolean) => {
               maxlength={f.maxlength}
               min={f.min}
               max={f.max}
-              readonly={f.readonly}
+              readonly={f.readonly || f.flatpickr || undefined}
+              data-flatpickr={f.flatpickr || undefined}
             />
           )}
           {f.errorText && <span class={cxError} id={f.errorId}>{f.errorText}</span>}
@@ -252,11 +255,29 @@ const groupCls  = (full?: boolean) => {
 
 <script>
   import { initForms } from '../../scripts/forms.ts';
+  import flatpickr from 'flatpickr';
+  import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
+
+  function initDatePickers() {
+    document.querySelectorAll<HTMLInputElement>('[data-flatpickr]').forEach((el) => {
+      flatpickr(el, {
+        locale: Portuguese,
+        dateFormat: 'd/m/Y',
+        minDate: 'today',
+        disableMobile: true,
+      });
+    });
+  }
+
+  function init() {
+    initForms();
+    initDatePickers();
+  }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initForms);
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-    initForms();
+    init();
   }
 </script>
 
