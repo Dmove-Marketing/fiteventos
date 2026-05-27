@@ -2,10 +2,10 @@
   "project_name": "fit-eventos",
   "project_slug": "fit-eventos",
   "client": "Espaço Fit Eventos",
-  "environment": "development",
+  "environment": "production",
   "tracking": {
-    "gtm_id": "",
-    "enabled": false
+    "gtm_id": "GTM-K2CRCWQB",
+    "enabled": true
   },
   "forms": {
     "lead-form": {
