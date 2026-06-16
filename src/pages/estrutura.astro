@@ -1,0 +1,814 @@
+---
+import Base from "../layouts/Base.astro";
+import config from "../../config.json";
+import Img from "../components/ui/Img.astro";
+import Video from "../components/ui/Video.astro";
+import LeadForm from "../components/forms/LeadForm.astro";
+import "../styles/institucional.css";
+---
+
+<Base
+  title="Estrutura – Espaço Fit Eventos"
+  description="16 ambientes versáteis para eventos corporativos e sociais em São Paulo. Conheça a estrutura completa do Espaço Fit Eventos."
+  ogImage="/images/novo_logo.png"
+>
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <Img src="logo.fiteventos.webp" alt="Espaço Fit Eventos" class="logo-img" priority />
+        </a>
+        <nav id="nav">
+          <a href="/">Home</a>
+          <a href="/empresa/">Empresa</a>
+          <a href="/eventos/">Eventos</a>
+          <a href="/estrutura/" class="nav-active">Estrutura</a>
+          <a href="/servicos/">Serviços</a>
+          <a href="/faq/">FAQ</a>
+          <a href="#contato" class="nav-cta">Solicitar orçamento</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu">
+    <button id="mobile-close" aria-label="Fechar menu">✕</button>
+    <a href="/">Home</a>
+    <a href="/empresa/">Empresa</a>
+    <a href="/eventos/">Eventos</a>
+    <a href="/estrutura/">Estrutura</a>
+    <a href="/servicos/">Serviços</a>
+    <a href="/faq/">FAQ</a>
+    <a href="#contato" class="nav-cta">Solicitar orçamento</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-slides">
+      <div class="hero-slide active">
+        <Img src="1MKOF_1241_RICK6432.jpg" alt="" class="hero-slide-img" priority />
+      </div>
+      <div class="hero-slide">
+        <Img src="1MKOF_1335_DSC07751.jpg" alt="" class="hero-slide-img" />
+      </div>
+      <div class="hero-slide">
+        <Img src="4CER_2382_DSC00670.jpg" alt="" class="hero-slide-img" />
+      </div>
+      <div class="hero-slide">
+        <Img src="Salas Maiores Telões.jpg" alt="" class="hero-slide-img" />
+      </div>
+      <div class="hero-slide">
+        <Img src="Salas Menores Auditório.jpg" alt="" class="hero-slide-img" />
+      </div>
+      <div class="hero-slide">
+        <Img src="Sala Design Thinking Auditório.jpeg" alt="" class="hero-slide-img" />
+      </div>
+    </div>
+    <div class="hero-gradient"></div>
+    <div class="hero-accent"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span>São Paulo · Desde 2012</span>
+        </div>
+        <h1>
+          Estrutura completa para eventos<br /><em>de todos os formatos</em>
+        </h1>
+        <div class="hero-actions">
+          <a href="#espacos" class="btn btn-outline-white">
+            Conhecer espaços
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPAÇOS -->
+  <section id="espacos">
+    <div class="container">
+      <div class="espacos-header reveal">
+        <span class="label">Espaços</span>
+        <h2>Espaços adaptáveis para <em>diferentes públicos</em></h2>
+        <p>
+          Salas e ambientes multiuso que podem ser configurados de acordo com o perfil dos
+          convidados e as necessidades de cada evento.
+        </p>
+      </div>
+      <div class="espacos-grid reveal">
+        <div class="espacos-row">
+          <!-- Salas de Treinamento -->
+          <div class="espaco-card">
+            <div class="espaco-card-img espaco-carousel" data-espaco-carousel>
+              <div class="espaco-carousel-track">
+                <div class="espaco-carousel-slide"><Img src="IMG_0006.jpeg" alt="Salas de Treinamento e Auditórios" /></div>
+                <div class="espaco-carousel-slide"><Img src="IMG_0559.jpeg" alt="Salas de Treinamento e Auditórios" /></div>
+                <div class="espaco-carousel-slide"><Img src="IMG_0776.jpeg" alt="Salas de Treinamento e Auditórios" /></div>
+                <div class="espaco-carousel-slide"><Img src="IMG_0780.jpeg" alt="Salas de Treinamento e Auditórios" /></div>
+                <div class="espaco-carousel-slide"><Img src="IMG_0805.jpeg" alt="Salas de Treinamento e Auditórios" /></div>
+              </div>
+            </div>
+            <div class="espaco-card-body">
+              <h3>Salas de Treinamento e Auditórios</h3>
+              <p>Layouts flexíveis (auditório, U, escolar, mesas redondas) com capacidade para receber de 10 a 530 convidados</p>
+            </div>
+          </div>
+          <!-- Design Thinking -->
+          <div class="espaco-card">
+            <div class="espaco-card-img espaco-carousel" data-espaco-carousel>
+              <div class="espaco-carousel-track">
+                <div class="espaco-carousel-slide"><Img src="Sala Design Thinking Auditório.jpeg" alt="Salas Design Thinking" /></div>
+                <div class="espaco-carousel-slide"><Img src="Sala Design Thinking Balanços.jpg" alt="Salas Design Thinking" /></div>
+                <div class="espaco-carousel-slide"><Img src="Sala Design Thinking Mesas Redondas.jpg" alt="Salas Design Thinking" /></div>
+                <div class="espaco-carousel-slide"><Img src="Sala Design Thinking Mesas.jpg" alt="Salas Design Thinking" /></div>
+                <div class="espaco-carousel-slide"><Img src="Sala Design Thinking Poltronas.jpg" alt="Salas Design Thinking" /></div>
+                <div class="espaco-carousel-slide"><Img src="Sala Design Thinking Sofa.jpg" alt="Salas Design Thinking" /></div>
+              </div>
+            </div>
+            <div class="espaco-card-body">
+              <h3>Salas Design Thinking</h3>
+              <p>Espaços que estimulam troca, criatividade e construção coletiva</p>
+            </div>
+          </div>
+          <!-- Sala VIP -->
+          <div class="espaco-card">
+            <div class="espaco-card-img espaco-carousel" data-espaco-carousel>
+              <div class="espaco-carousel-track">
+                <div class="espaco-carousel-slide"><Img src="IMG_0075.jpeg" alt="Sala VIP" /></div>
+                <div class="espaco-carousel-slide"><Img src="IMG_0076.jpeg" alt="Sala VIP" /></div>
+                <div class="espaco-carousel-slide"><Img src="IMG_0077.jpeg" alt="Sala VIP" /></div>
+              </div>
+            </div>
+            <div class="espaco-card-body">
+              <h3>Sala VIP</h3>
+              <p>Um ambiente exclusivo para receber convidados com conforto e privacidade</p>
+            </div>
+          </div>
+        </div>
+        <div class="espacos-row-center">
+          <!-- Sala de Reunião -->
+          <div class="espaco-card">
+            <div class="espaco-card-img espaco-carousel" data-espaco-carousel>
+              <div class="espaco-carousel-track">
+                <div class="espaco-carousel-slide"><Img src="IMG_0526.jpeg" alt="Sala de Reunião" /></div>
+                <div class="espaco-carousel-slide"><Img src="IMG_0530.jpeg" alt="Sala de Reunião" /></div>
+              </div>
+            </div>
+            <div class="espaco-card-body">
+              <h3>Sala de Reunião</h3>
+              <p>Ambiente ideal para reuniões executivas, alinhamentos e apresentações estratégicas</p>
+            </div>
+          </div>
+          <!-- Camarim -->
+          <div class="espaco-card">
+            <div class="espaco-card-img espaco-carousel" data-espaco-carousel>
+              <div class="espaco-carousel-track">
+                <div class="espaco-carousel-slide"><Img src="IMG_0534.jpeg" alt="Camarim" /></div>
+                <div class="espaco-carousel-slide"><Img src="IMG_0535.jpeg" alt="Camarim" /></div>
+                <div class="espaco-carousel-slide"><Img src="IMG_0536.jpeg" alt="Camarim" /></div>
+              </div>
+            </div>
+            <div class="espaco-card-body">
+              <h3>Camarim</h3>
+              <p>Estrutura de apoio para palestrantes, produções e convidados especiais</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VÍDEOS -->
+  <section id="videos">
+    <div class="container">
+      <div class="videos-section-title reveal">
+        <span class="label">Ambientes em movimento</span>
+        <h2>Conheça nossos ambientes <em>em movimento</em></h2>
+      </div>
+
+      <!-- Grupo 1 -->
+      <div class="vgroup reveal">
+        <div class="vgroup-header">
+          <div class="vgroup-title">
+            <h3>Flexibilidade para diferentes formatos de evento</h3>
+            <p>Salas de 30 m² a 400 m², preparadas para receber de 10 a 530 participantes.</p>
+          </div>
+        </div>
+        <div class="vgroup-carousel" data-vgroup-carousel>
+          <div class="vgroup-track">
+            <div class="vgroup-slide"><Video src="/videos/c1-01.mp4" poster="/posters/c1-01.jpg" title="Flexibilidade para diferentes formatos de evento – vídeo 1" /></div>
+            <div class="vgroup-slide"><Video src="/videos/c1-02.mp4" poster="/posters/c1-02.jpg" title="Flexibilidade para diferentes formatos de evento – vídeo 2" /></div>
+            <div class="vgroup-slide"><Video src="/videos/c1-03.mp4" poster="/posters/c1-03.jpg" title="Flexibilidade para diferentes formatos de evento – vídeo 3" /></div>
+            <div class="vgroup-slide"><Video src="/videos/c1-04.mp4" poster="/posters/c1-04.jpg" title="Flexibilidade para diferentes formatos de evento – vídeo 4" /></div>
+            <div class="vgroup-slide"><Video src="/videos/c1-05.mp4" poster="/posters/c1-05.jpg" title="Flexibilidade para diferentes formatos de evento – vídeo 5" /></div>
+          </div>
+          <button class="vgroup-arrow vgroup-prev" aria-label="Anterior">&#8249;</button>
+          <button class="vgroup-arrow vgroup-next" aria-label="Próximo">&#8250;</button>
+        </div>
+      </div>
+
+      <!-- Grupo 2 -->
+      <div class="vgroup reveal">
+        <div class="vgroup-header">
+          <div class="vgroup-title">
+            <h3>Salas Design Thinking</h3>
+            <p>Ambientes projetados para estimular criatividade, colaboração e inovação.</p>
+          </div>
+        </div>
+        <div class="vgroup-carousel" data-vgroup-carousel>
+          <div class="vgroup-track">
+            <div class="vgroup-slide"><Video src="/videos/c2-01.mp4" poster="/posters/c2-01.jpg" title="Salas Design Thinking – vídeo 1" /></div>
+            <div class="vgroup-slide"><Video src="/videos/c2-02.mp4" poster="/posters/c2-02.jpg" title="Salas Design Thinking – vídeo 2" /></div>
+            <div class="vgroup-slide"><Video src="/videos/c2-03.mp4" poster="/posters/c2-03.jpg" title="Salas Design Thinking – vídeo 3" /></div>
+            <div class="vgroup-slide"><Video src="/videos/c2-04.mp4" poster="/posters/c2-04.jpg" title="Salas Design Thinking – vídeo 4" /></div>
+            <div class="vgroup-slide"><Video src="/videos/c2-05.mp4" poster="/posters/c2-05.jpg" title="Salas Design Thinking – vídeo 5" /></div>
+            <div class="vgroup-slide"><Video src="/videos/c2-06.mp4" poster="/posters/c2-06.jpg" title="Salas Design Thinking – vídeo 6" /></div>
+          </div>
+          <button class="vgroup-arrow vgroup-prev" aria-label="Anterior">&#8249;</button>
+          <button class="vgroup-arrow vgroup-next" aria-label="Próximo">&#8250;</button>
+        </div>
+      </div>
+
+      <!-- Grupo 3 -->
+      <div class="vgroup reveal">
+        <div class="vgroup-header">
+          <div class="vgroup-title">
+            <h3>Espaços Multiuso</h3>
+            <p>Ambientes versáteis para credenciamentos, confraternizações e experiências gastronômicas.</p>
+          </div>
+        </div>
+        <div class="vgroup-carousel" data-vgroup-carousel>
+          <div class="vgroup-track">
+            <div class="vgroup-slide"><Video src="/videos/c3-01.mp4" poster="/posters/c3-01.jpg" title="Espaços Multiuso – vídeo 1" /></div>
+            <div class="vgroup-slide"><Video src="/videos/c3-02.mp4" poster="/posters/c3-02.jpg" title="Espaços Multiuso – vídeo 2" /></div>
+            <div class="vgroup-slide"><Video src="/videos/c3-03.mp4" poster="/posters/c3-03.jpg" title="Espaços Multiuso – vídeo 3" /></div>
+            <div class="vgroup-slide"><Video src="/videos/c3-04.mp4" poster="/posters/c3-04.jpg" title="Espaços Multiuso – vídeo 4" /></div>
+          </div>
+          <button class="vgroup-arrow vgroup-prev" aria-label="Anterior">&#8249;</button>
+          <button class="vgroup-arrow vgroup-next" aria-label="Próximo">&#8250;</button>
+        </div>
+      </div>
+
+      <div class="videos-cta reveal">
+        <a href="#contato" class="btn btn-primary">
+          Descubra o espaço ideal para o seu evento
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CAPACIDADE -->
+  <section id="capacidade">
+    <div class="container">
+      <div class="capacidade-header reveal">
+        <span class="label">Capacidade</span>
+        <h2>Encontre a configuração ideal para o <em>porte e a dinâmica do seu evento</em></h2>
+      </div>
+    </div>
+    <div class="capacidade-img reveal">
+      <Img src="tabela-de-capacidade-das-salas-para-eventos-corporativos-espaco-fit-eventos.webp" alt="Tabela de capacidade das salas – Espaço Fit Eventos" />
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section id="galeria">
+    <div class="parceiros-head reveal">
+      <span class="label">Galeria</span>
+      <h2>Estrutura, experiência e um grupo que <em>respira excelência</em></h2>
+    </div>
+    <div class="parceiros-grid reveal">
+      <div class="parceiro-item"><img src="/logos/1.webp" alt="Parceiro" /></div>
+      <div class="parceiro-item"><img src="/logos/2.webp" alt="Parceiro" /></div>
+      <div class="parceiro-item"><img src="/logos/3.webp" alt="Parceiro" /></div>
+      <div class="parceiro-item"><img src="/logos/4.webp" alt="Parceiro" /></div>
+      <div class="parceiro-item"><img src="/logos/5.webp" alt="Parceiro" /></div>
+      <div class="parceiro-item"><img src="/logos/6.webp" alt="Parceiro" /></div>
+      <div class="parceiro-item"><img src="/logos/7.webp" alt="Parceiro" /></div>
+      <div class="parceiro-item"><img src="/logos/8.webp" alt="Parceiro" /></div>
+      <div class="parceiro-item"><img src="/logos/9.webp" alt="Parceiro" /></div>
+      <div class="parceiro-item"><img src="/logos/10.webp" alt="Parceiro" /></div>
+      <div class="parceiro-item"><img src="/logos/11.webp" alt="Parceiro" /></div>
+      <div class="parceiro-item"><img src="/logos/12.webp" alt="Parceiro" /></div>
+      <div class="parceiro-item"><img src="/logos/13.webp" alt="Parceiro" /></div>
+      <div class="parceiro-item"><img src="/logos/14.webp" alt="Parceiro" /></div>
+      <div class="parceiro-item"><img src="/logos/15.webp" alt="Parceiro" /></div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="contato-inner">
+      <div class="contato-img">
+        <Img src="DSCF4322.jpg" alt="Espaço Fit Eventos" />
+      </div>
+      <div class="contato-form-side">
+        <div class="contato-form-content reveal">
+          <span class="label" style="color:var(--rose-light)">Próximo passo</span>
+          <h2>
+            Planeje seu evento com <em style="color:var(--rose)">quem entende do assunto</em>
+          </h2>
+          <p>
+            Fale com nossa equipe e conheça as possibilidades de espaço,
+            estrutura e serviços disponíveis para o seu evento.
+          </p>
+          <div class="form-box">
+            <LeadForm
+              formId="lead-form-estrutura"
+              project={config.project_slug}
+              submitUrl={config.forms["lead-form"].webhooks[0]}
+              redirectUrl={config.forms["lead-form"].redirect_on_success}
+              submitText="Solicitar orçamento"
+              honeypot
+              fields={[
+                { name: "nome", type: "text", placeholder: "Seu nome completo", required: true },
+                {
+                  type: "row",
+                  fields: [
+                    { name: "telefone", type: "tel", placeholder: "(11) 9 0000-0000", required: true },
+                    { name: "email", type: "email", placeholder: "seu@email.com", required: true },
+                  ],
+                },
+                {
+                  type: "row",
+                  fields: [
+                    {
+                      name: "tipo", type: "select", required: true,
+                      options: [
+                        { value: "", label: "Tipo de evento...", disabled: true, selected: true },
+                        { value: "Aniversário", label: "Aniversário" },
+                        { value: "Aniversário debutante", label: "Aniversário debutante" },
+                        { value: "Bodas", label: "Bodas" },
+                        { value: "Casamento", label: "Casamento" },
+                        { value: "Mini Wedding", label: "Mini Wedding" },
+                        { value: "Confraternização corporativa", label: "Confraternização corporativa" },
+                        { value: "Confraternização social", label: "Confraternização social" },
+                        { value: "Corporativo", label: "Corporativo" },
+                        { value: "Festas Judaicas", label: "Festas Judaicas" },
+                        { value: "Bar Mitzvah", label: "Bar Mitzvah" },
+                        { value: "Bat Mitzvah", label: "Bat Mitzvah" },
+                        { value: "Formatura", label: "Formatura" },
+                        { value: "Happy Hour", label: "Happy Hour" },
+                        { value: "Masterclass e Palestras", label: "Masterclass e Palestras" },
+                        { value: "Mentorias e Treinamentos", label: "Mentorias e Treinamentos" },
+                        { value: "Offsite corporativo", label: "Offsite corporativo" },
+                        { value: "Shows e Festivais", label: "Shows e Festivais" },
+                        { value: "Workshops, Conferências e Seminários", label: "Workshops, Conferências e Seminários" },
+                        { value: "Outros", label: "Outros" },
+                      ],
+                    },
+                    { name: "data", type: "text", placeholder: "Data do evento", required: true, readonly: true, flatpickr: true },
+                  ],
+                },
+                { name: "convidados", type: "number", placeholder: "Nº de convidados", required: true },
+                { name: "mensagem", type: "textarea", placeholder: "Detalhes adicionais (não obrigatório)", required: false, rows: 4 },
+                { name: "fonte", type: "hidden", value: "Landing page/estrutura" },
+              ]}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALIZAÇÃO -->
+  <section id="localizacao">
+    <div class="container">
+      <div class="loc-grid">
+        <div class="loc-text reveal">
+          <span class="label">Localização</span>
+          <h2>Localização <em>prática e acessível</em></h2>
+          <p>Um ponto estratégico que facilita a chegada de convidados e a operação do evento do início ao fim.</p>
+          <div class="loc-details">
+            <div class="loc-detail">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              Av. Alfredo Egídio de Souza Aranha, 384 – Chácara Santo Antônio, São Paulo – SP, 04730-090
+            </div>
+            <div class="loc-detail">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Fácil acesso pela Marginal Pinheiros · Próximo ao Aeroporto de Congonhas
+            </div>
+            <div class="loc-detail">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+              Ao lado da estação Granja Julieta · Estacionamento disponível
+            </div>
+          </div>
+          <a href="https://maps.google.com/?q=Av.+Alfredo+Egídio+de+Souza+Aranha,+384,+São+Paulo" target="_blank" class="btn btn-primary">
+            Agende sua visita
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+          </a>
+        </div>
+        <div class="loc-map reveal">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.9!2d-46.7200!3d-23.6120!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce51f8a6e0b8a5%3A0x0!2sAv.%20Alfredo%20Eg%C3%ADdio%20de%20Souza%20Aranha%2C%20384%20-%20Ch%C3%A1cara%20Santo%20Ant%C3%B4nio%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Localização Espaço Fit Eventos"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="/" class="logo-footer">
+            <Img src="logo.fiteventos.webp" alt="Espaço Fit Eventos" />
+          </a>
+          <a href="https://www.instagram.com/espacofit.eventos/" class="footer-insta" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+        </div>
+        <div class="footer-contact-list">
+          <div class="footer-contact-label">Contato</div>
+          <div class="footer-contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"></path></svg>
+            <a href="tel:+551132620938">(11) 3262-0938</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"></path><path d="M12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.455 3.48 11.815 11.815 0 0 0 12.05 0z"></path></svg>
+            <a href="https://wa.me/551132620819" target="_blank">(11) 3262-0819</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <a href="mailto:contato@espacofiteventos.com.br">contato@espacofiteventos.com.br</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">Copyright © 2026 Espaço Fit Eventos — Todos os direitos reservados</p>
+        <p class="footer-dev">
+          Desenvolvido por <a href="http://dmove.com.br" target="_blank">
+            <Img src="logo.dmove.avif" alt="DMove Marketing" class="footer-dmove-logo" />
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/551132620819" target="_blank" class="wa-float" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"></path>
+    </svg>
+  </a>
+</Base>
+
+<script>
+  import "../scripts/institucional.js";
+
+  // Vgroup carousels (horizontal, slide by visible count)
+  document.querySelectorAll<HTMLElement>('[data-vgroup-carousel]').forEach((carousel) => {
+    const track = carousel.querySelector<HTMLElement>('.vgroup-track')!;
+    const slides = Array.from(carousel.querySelectorAll<HTMLElement>('.vgroup-slide'));
+    let current = 0;
+
+    function visibleCount() {
+      return window.innerWidth < 600 ? 1 : window.innerWidth < 900 ? 2 : 3;
+    }
+
+    function maxIndex() {
+      return Math.max(0, slides.length - visibleCount());
+    }
+
+    function go(idx: number) {
+      current = Math.max(0, Math.min(idx, maxIndex()));
+      const slideW = slides[0].offsetWidth + 12; // width + gap
+      track.style.transform = `translateX(-${current * slideW}px)`;
+    }
+
+    carousel.querySelector('.vgroup-prev')?.addEventListener('click', () => go(current - 1));
+    carousel.querySelector('.vgroup-next')?.addEventListener('click', () => go(current + 1));
+    window.addEventListener('resize', () => go(current));
+  });
+
+  document.querySelectorAll<HTMLElement>('[data-espaco-carousel]').forEach((carousel) => {
+    const track = carousel.querySelector<HTMLElement>('.espaco-carousel-track')!;
+    const origSlides = Array.from(carousel.querySelectorAll<HTMLElement>('.espaco-carousel-slide'));
+    const total = origSlides.length;
+
+    // Clone slides for infinite loop
+    origSlides.forEach(s => track.appendChild(s.cloneNode(true)));
+    const allSlides = Array.from(track.querySelectorAll<HTMLElement>('.espaco-carousel-slide'));
+
+    let current = 0;
+
+    function setWidths() {
+      const w = carousel.offsetWidth;
+      allSlides.forEach(s => { s.style.width = w + 'px'; });
+      track.style.transition = 'none';
+      track.style.transform = `translateX(-${current * carousel.offsetWidth}px)`;
+    }
+    setWidths();
+    window.addEventListener('resize', setWidths);
+
+    function next() {
+      current++;
+      track.style.transition = 'transform 0.65s ease';
+      track.style.transform = `translateX(-${current * carousel.offsetWidth}px)`;
+
+      // When we reach the cloned set, silently jump back
+      track.addEventListener('transitionend', function onEnd() {
+        track.removeEventListener('transitionend', onEnd);
+        if (current >= total) {
+          current = 0;
+          track.style.transition = 'none';
+          track.style.transform = `translateX(0)`;
+        }
+      });
+    }
+
+    setInterval(next, 4000);
+  });
+</script>
+
+<style>
+  /* ── Active nav ── */
+  .nav-active { color: var(--rose) !important; }
+
+  /* ── Hero heading ── */
+  #hero .hero-content h1 {
+    font-size: clamp(26px, min(5vw, 5.8vh), 64px);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    margin-bottom: 44px;
+    color: #fff;
+  }
+  #hero .hero-content h1 em {
+    font-style: normal;
+    color: var(--rose);
+  }
+
+  /* ── Espaços ── */
+  #espacos {
+    padding: var(--space-2xl, 5rem) 0;
+    background: #fff;
+  }
+
+  .espacos-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--space-xl, 3rem);
+  }
+
+  .espacos-header h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    margin: 8px 0 16px;
+  }
+
+  .espacos-header h2 em { font-style: normal; color: var(--rose); }
+
+  .espacos-header p {
+    color: var(--text-secondary, #555);
+    line-height: 1.7;
+  }
+
+  .espacos-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .espacos-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .espacos-row-center {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: calc((100% - 24px) * 2 / 3 + 24px);
+    margin: 0 auto;
+  }
+
+  .espaco-card {
+    border: 1px solid var(--border, #e8e4df);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .espaco-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+    transform: translateY(-3px);
+  }
+
+  .espaco-card-img {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Carrossel por card */
+  .espaco-carousel {
+    position: relative;
+  }
+  .espaco-carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease;
+  }
+  .espaco-carousel-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .espaco-carousel-slide :global(picture),
+  .espaco-carousel-slide :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .espaco-card-body {
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+
+  .espaco-card-body h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--rose);
+    margin-bottom: 8px;
+  }
+
+  .espaco-card-body p {
+    font-size: 0.85rem;
+    color: var(--text-secondary, #666);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── Vídeos ── */
+  #videos {
+    padding: var(--space-2xl, 5rem) 0;
+    background: var(--off-white, #f9f7f4);
+  }
+
+  .videos-section-title {
+    text-align: center;
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  }
+  .videos-section-title .label {
+    display: block;
+    margin-bottom: 4px;
+  }
+  .videos-section-title h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 300;
+    color: var(--charcoal, #111);
+    margin: 0;
+  }
+  .videos-section-title h2 em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  /* Grupo */
+  .vgroup {
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .vgroup:last-child { margin-bottom: 0; }
+
+  .videos-cta {
+    text-align: center;
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .vgroup-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .vgroup-title h3 {
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--charcoal, #111);
+    margin: 0 0 4px;
+  }
+  .vgroup-title p {
+    font-size: 0.82rem;
+    color: var(--text-secondary, #666);
+    margin: 0;
+  }
+  .vgroup-cta {
+    flex-shrink: 0;
+    font-size: 0.78rem;
+    padding: 0.5rem 1.1rem;
+    white-space: nowrap;
+  }
+
+  /* Carrossel horizontal */
+  .vgroup-carousel {
+    position: relative;
+    overflow: hidden;
+  }
+  .vgroup-track {
+    display: flex;
+    gap: 12px;
+    transition: transform 0.55s ease;
+  }
+  .vgroup-slide {
+    flex-shrink: 0;
+    width: calc((100% - 24px) / 3);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .vgroup-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.9);
+    color: var(--charcoal, #111);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: background 0.2s;
+    padding: 0;
+    line-height: 1;
+  }
+  .vgroup-arrow:hover { background: #fff; }
+  .vgroup-prev { left: 6px; }
+  .vgroup-next { right: 6px; }
+
+  /* ── Capacidade ── */
+  #capacidade {
+    padding: var(--space-2xl, 5rem) 0;
+    background: var(--charcoal, #1a1a1a);
+  }
+
+  .capacidade-header {
+    text-align: center;
+    margin-bottom: var(--space-xl, 3rem);
+    padding: 0 1rem;
+  }
+
+  .capacidade-header h2 {
+    color: #fff;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+  }
+
+  .capacidade-header h2 em { font-style: normal; color: var(--rose); }
+
+  .capacidade-img {
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+  }
+
+  .capacidade-img :global(picture),
+  .capacidade-img :global(img) {
+    max-width: 860px;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ── Galeria overrides ── */
+  :global(#galeria) { background: var(--off-white, #f9f7f4) !important; }
+  :global(#galeria .parceiros-head .label) { color: var(--rose) !important; }
+  :global(#galeria .parceiros-head h2) { color: #111 !important; }
+  :global(#galeria .parceiros-head h2 em) { font-style: normal; color: var(--rose) !important; }
+  :global(#galeria .parceiros-grid),
+  :global(#galeria .parceiro-item) { background: var(--off-white, #f9f7f4) !important; }
+  :global(#galeria .parceiro-item img) { opacity: 1 !important; filter: none !important; }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .espacos-row { grid-template-columns: repeat(2, 1fr); }
+    .espacos-row-center { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+    .vgroup-slide { width: calc((100% - 12px) / 2); }
+    .vgroup-header { flex-direction: column; gap: 0.75rem; }
+  }
+
+  @media (min-width: 901px) {
+    .vgroup-slide { width: calc((100% - 24px) / 3); }
+  }
+
+  @media (max-width: 580px) {
+    .espacos-row { grid-template-columns: 1fr; }
+    .espacos-row-center { grid-template-columns: 1fr; max-width: 100%; }
+    .vgroup-slide { width: 100%; }
+  }
+</style>
