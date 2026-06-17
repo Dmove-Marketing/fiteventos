@@ -91,7 +91,7 @@ import "../styles/institucional.css";
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
           </div>
           <div class="big-number-value">+1.000</div>
-          <div class="big-number-label">empresas atendidas</div>
+          <div class="big-number-label">empresas<br />atendidas</div>
         </div>
         <div class="big-number-item">
           <div class="big-number-icon">
@@ -118,7 +118,7 @@ import "../styles/institucional.css";
           <div class="big-number-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
           </div>
-          <div class="big-number-value">Granja<br />Julieta</div>
+          <div class="big-number-value">Granja Julieta</div>
           <div class="big-number-label">localização estratégica em São Paulo</div>
         </div>
       </div>
@@ -153,39 +153,6 @@ import "../styles/institucional.css";
     </div>
   </section>
 
-  <!-- MISSÃO, VISÃO E VALORES -->
-  <section id="mvv">
-    <div class="container">
-      <div class="mvv-header reveal">
-        <span class="label">Cultura</span>
-        <h2>Princípios que orientam <em>cada experiência</em></h2>
-      </div>
-      <div class="mvv-cards reveal">
-        <div class="mvv-card">
-          <div class="mvv-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
-          </div>
-          <h3>Missão</h3>
-          <p>Fazer parte dos melhores momentos do seu dia.</p>
-        </div>
-        <div class="mvv-card">
-          <div class="mvv-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-          </div>
-          <h3>Visão</h3>
-          <p>Ser uma empresa referência em eventos e treinamentos corporativos no Brasil.</p>
-        </div>
-        <div class="mvv-card">
-          <div class="mvv-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          </div>
-          <h3>Valores</h3>
-          <p>Justiça, coragem, compaixão, cortesia, verdade, honra e lealdade.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- GALERIA -->
   <section id="galeria">
     <div class="parceiros-head reveal">
@@ -208,6 +175,39 @@ import "../styles/institucional.css";
       <div class="parceiro-item"><img src="/logos/13.webp" alt="Parceiro" /></div>
       <div class="parceiro-item"><img src="/logos/14.webp" alt="Parceiro" /></div>
       <div class="parceiro-item"><img src="/logos/15.webp" alt="Parceiro" /></div>
+    </div>
+  </section>
+
+  <!-- MISSÃO, VISÃO E VALORES -->
+  <section id="mvv">
+    <div class="container">
+      <div class="mvv-header reveal">
+        <span class="label">Cultura</span>
+        <h2>Princípios que orientam <em>cada experiência</em></h2>
+      </div>
+      <div class="mvv-cards reveal">
+        <div class="mvv-card">
+          <div class="mvv-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
+          </div>
+          <h3>Missão</h3>
+          <p>Fazer parte dos melhores<br />momentos do seu dia.</p>
+        </div>
+        <div class="mvv-card">
+          <div class="mvv-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          </div>
+          <h3>Visão</h3>
+          <p>Ser uma empresa referência em eventos e treinamentos corporativos no Brasil.</p>
+        </div>
+        <div class="mvv-card">
+          <div class="mvv-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3>Valores</h3>
+          <p>Justiça, coragem, compaixão, cortesia, verdade, honra e lealdade.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -426,6 +426,12 @@ import "../styles/institucional.css";
 </script>
 
 <style>
+  /* ── Granja Julieta (big number menor) ── */
+  .big-number-item:last-child .big-number-value {
+    font-size: clamp(1.25rem, 1.9vw, 1.85rem);
+    white-space: nowrap;
+  }
+
   /* ── Page Hero ── */
   #page-hero {
     position: relative;
@@ -546,14 +552,19 @@ import "../styles/institucional.css";
     font-weight: 700;
     color: #fff;
     line-height: 1.1;
+    min-height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .big-number-label {
-    font-size: 0.8rem;
+    font-size: 0.73rem;
     color: rgba(255,255,255,0.55);
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    max-width: 140px;
+    max-width: 190px;
+    line-height: 1.4;
   }
 
   /* ── Grupo FIT ── */
@@ -609,7 +620,7 @@ import "../styles/institucional.css";
   /* ── MVV ── */
   #mvv {
     padding: var(--space-2xl, 5rem) 0;
-    background: #fff;
+    background: var(--charcoal, #1a1a1a);
   }
 
   .mvv-header {
@@ -674,13 +685,48 @@ import "../styles/institucional.css";
   }
 
   /* ── Galeria (parceiros format) overrides ── */
+  #galeria {
+    background: #fff !important;
+  }
+
   #galeria .parceiros-head h2 {
-    color: #fff;
+    color: #111;
   }
 
   #galeria .parceiro-item img {
     opacity: 1;
     filter: none;
+  }
+
+  /* ── MVV textos no fundo escuro ── */
+  #mvv .mvv-header h2 {
+    color: #fff;
+  }
+
+  #mvv .mvv-header h2 em {
+    color: var(--rose);
+  }
+
+  #mvv :global(.label) {
+    color: var(--rose) !important;
+  }
+
+  #mvv .mvv-card {
+    border-color: rgba(255,255,255,0.12);
+    background: #fff;
+  }
+
+  #mvv .mvv-card h3 {
+    color: var(--rose);
+  }
+
+  #mvv .mvv-card p {
+    color: var(--text-secondary, #555);
+  }
+
+  #mvv .mvv-icon {
+    background: rgba(196,30,76,0.08);
+    color: var(--rose);
   }
 
   /* ── Responsive ── */

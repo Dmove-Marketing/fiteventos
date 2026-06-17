@@ -670,8 +670,8 @@ nav a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.6;
-  filter: grayscale(1);
+  opacity: 1;
+  filter: grayscale(0);
   transition: opacity 0.3s, filter 0.3s;
   display: block;
 }
@@ -776,7 +776,7 @@ nav a:hover {
 
 /* ─── CONTATO ─── */
 #contato {
-  background: var(--charcoal);
+  background: var(--off-white);
 }
 
 .contato-inner {
@@ -788,21 +788,22 @@ nav a:hover {
 .contato-img {
   position: relative;
   overflow: hidden;
+  background: var(--gray-dark);
 }
 
 .contato-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .contato-form-side {
   padding: clamp(48px, 7vw, 96px) clamp(40px, 6vw, 80px);
   display: flex;
   align-items: flex-start;
-  background: var(--charcoal);
-  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--off-white);
+  border-left: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .contato-form-content {
@@ -811,12 +812,12 @@ nav a:hover {
 
 .contato-form-content h2 {
   font-size: clamp(22px, 2.4vw, 40px);
-  color: var(--white);
+  color: var(--charcoal);
   margin-bottom: 16px;
 }
 
 .contato-form-content > p {
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--text-muted);
   font-weight: 300;
   font-size: 15px;
   line-height: 1.85;
@@ -867,12 +868,12 @@ nav a:hover {
 .form-box textarea {
   width: 100%;
   padding: 13px 16px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--white);
+  border: 1px solid var(--border);
   border-radius: 6px;
   font-family: 'Inter', sans-serif;
   font-size: 14.5px;
-  color: var(--white);
+  color: var(--text);
   outline: none;
   transition: border-color 0.2s, background 0.2s;
   -webkit-appearance: none;
@@ -885,7 +886,7 @@ nav a:hover {
 .form-box .form-textarea::placeholder,
 .form-box input::placeholder,
 .form-box textarea::placeholder {
-  color: rgba(255, 255, 255, 0.38);
+  color: var(--gray-light);
 }
 
 .form-box .form-input:focus,
@@ -895,13 +896,13 @@ nav a:hover {
 .form-box select:focus,
 .form-box textarea:focus {
   border-color: var(--rose);
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--white);
   outline: none;
 }
 
 .form-box select option {
-  background: #2A2A29;
-  color: var(--white);
+  background: var(--white);
+  color: var(--text);
 }
 
 .form-box .form-label,
@@ -910,7 +911,7 @@ nav a:hover {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-muted);
 }
 
 .form-box .form-submit,
@@ -947,7 +948,7 @@ nav a:hover {
 
 .form-box .form-footer {
   font-size: 11.5px;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--gray-mid);
   text-align: center;
   margin-top: 12px;
 }
@@ -983,7 +984,7 @@ nav a:hover {
 .form-box .form-success-title {
   font-size: 18px;
   font-weight: 600;
-  color: var(--white);
+  color: var(--charcoal);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 12px;
@@ -991,14 +992,14 @@ nav a:hover {
 
 .form-box .form-success-text {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--text-muted);
   line-height: 1.75;
 }
 
 /* ─── LOCALIZAÇÃO ─── */
 #localizacao {
   padding: var(--pad-section);
-  background: var(--off-white);
+  background: var(--charcoal);
 }
 
 .loc-grid {
@@ -1010,12 +1011,12 @@ nav a:hover {
 
 .loc-text h2 {
   font-size: clamp(20px, 2.2vw, 38px);
-  color: var(--charcoal);
+  color: var(--white);
   margin-bottom: 18px;
 }
 
 .loc-text > p {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.55);
   font-weight: 300;
   font-size: 15px;
   line-height: 1.85;
@@ -1034,7 +1035,7 @@ nav a:hover {
   align-items: flex-start;
   gap: 12px;
   font-size: 14.5px;
-  color: var(--text);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .loc-detail svg {
@@ -1064,7 +1065,7 @@ nav a:hover {
   left: 0;
   width: 260px;
   height: 72px;
-  background: var(--off-white);
+  background: var(--charcoal);
   z-index: 10;
   pointer-events: none;
 }

@@ -180,28 +180,78 @@ import "../styles/institucional.css";
     </div>
   </section>
 
-  <!-- GALERIA -->
-  <section id="galeria">
-    <div class="parceiros-head reveal">
-      <span class="label">Galeria</span>
-      <h2>Estrutura, experiência e um grupo que <em>respira excelência</em></h2>
-    </div>
-    <div class="parceiros-grid reveal">
-      <div class="parceiro-item"><img src="/logos/1.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/2.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/3.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/4.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/5.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/6.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/7.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/8.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/9.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/10.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/11.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/12.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/13.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/14.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/15.webp" alt="Parceiro" /></div>
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos">
+    <div class="container">
+      <div class="dep-header reveal">
+        <span class="label">Depoimentos</span>
+        <h2>Mais de 1.000 empresas já <em>confiaram no Espaço Fit</em></h2>
+        <p>
+          Com nota 4,8 no Google e uma trajetória consolidada no mercado de eventos, o Espaço Fit
+          é reconhecido pela qualidade dos ambientes, atendimento e suporte em cada etapa do evento.
+        </p>
+      </div>
+      <div class="dep-carousel-outer reveal">
+        <button class="dep-btn dep-prev" aria-label="Anterior">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="dep-carousel-inner">
+          <div class="dep-carousel-track">
+            <div class="dep-card">
+              <div class="dep-card-inner">
+                <div class="dep-stars">★★★★★</div>
+                <blockquote>"O lugar é super aconchegante e o espaço foi perfeito para acomodar a todos e as dinâmicas. Super recomendo."</blockquote>
+                <cite>— Fernanda Costa</cite>
+              </div>
+            </div>
+            <div class="dep-card">
+              <div class="dep-card-inner">
+                <div class="dep-stars">★★★★★</div>
+                <blockquote>"Lugar incrível! Amplo, moderno e acolhedor. A equipe é atenciosa e muito gente boa. Amei."</blockquote>
+                <cite>— Nestor Neto</cite>
+              </div>
+            </div>
+            <div class="dep-card">
+              <div class="dep-card-inner">
+                <div class="dep-stars">★★★★★</div>
+                <blockquote>"Espaço muito bacana para evento, estrutura ótima. Ambientes bonitos e funcionários educados."</blockquote>
+                <cite>— Evelin Castro</cite>
+              </div>
+            </div>
+            <div class="dep-card">
+              <div class="dep-card-inner">
+                <div class="dep-stars">★★★★★</div>
+                <blockquote>"Lugar excepcional. Amplo espaço, salas bem iluminadas e climatizadas. Atendimento muito bom."</blockquote>
+                <cite>— Diego Pacheco</cite>
+              </div>
+            </div>
+            <div class="dep-card">
+              <div class="dep-card-inner">
+                <div class="dep-stars">★★★★★</div>
+                <blockquote>"O Espaço é um ótimo lugar para fazer eventos. Além de ser todo instagramável, a equipe é bastante prestativa."</blockquote>
+                <cite>— Viviane Machado</cite>
+              </div>
+            </div>
+            <div class="dep-card">
+              <div class="dep-card-inner">
+                <div class="dep-stars">★★★★★</div>
+                <blockquote>"O espaço é muito bem localizado, amplo e com diversas opções de salas e personalizações. Destaco principalmente o atendimento da equipe comercial e também da prestatividade do time de operações."</blockquote>
+                <cite>— Alex Pereira</cite>
+              </div>
+            </div>
+            <div class="dep-card">
+              <div class="dep-card-inner">
+                <div class="dep-stars">★★★★★</div>
+                <blockquote>"Espaço incrível, equipe alinhada, coffee maravilhoso — tive uma ótima experiência."</blockquote>
+                <cite>— Vitória Barbosa</cite>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="dep-btn dep-next" aria-label="Próximo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -475,6 +525,64 @@ import "../styles/institucional.css";
     carousel.querySelector('.ev-carousel-prev')?.addEventListener('click', () => { go(-1); resetTimer(); });
     carousel.querySelector('.ev-carousel-next')?.addEventListener('click', () => { go(1); resetTimer(); });
   });
+
+  // Depoimentos carousel
+  const depOuter = document.querySelector<HTMLElement>('.dep-carousel-outer');
+  const depInner = depOuter?.querySelector<HTMLElement>('.dep-carousel-inner');
+  const depTrack = depOuter?.querySelector<HTMLElement>('.dep-carousel-track');
+  if (depOuter && depInner && depTrack) {
+    const orig = Array.from(depTrack.querySelectorAll<HTMLElement>('.dep-card'));
+    const total = orig.length;
+
+    orig.forEach(s => depTrack.appendChild(s.cloneNode(true)));
+    const all = Array.from(depTrack.querySelectorAll<HTMLElement>('.dep-card'));
+
+    let current = 0, busy = false;
+
+    const visible = () => window.innerWidth <= 600 ? 1 : 3;
+    const cardW = () => depInner.offsetWidth / visible();
+
+    function setWidths() {
+      all.forEach(s => (s.style.width = cardW() + 'px'));
+      depTrack.style.transition = 'none';
+      depTrack.style.transform = `translateX(-${current * cardW()}px)`;
+    }
+
+    setWidths();
+    window.addEventListener('resize', setWidths);
+
+    function goDep(dir: number) {
+      if (busy) return;
+      busy = true;
+      if (dir === -1 && current === 0) {
+        depTrack.style.transition = 'none';
+        current = total;
+        depTrack.style.transform = `translateX(-${current * cardW()}px)`;
+        depTrack.offsetHeight;
+        current -= 1;
+        depTrack.style.transition = 'transform 0.5s ease';
+        depTrack.style.transform = `translateX(-${current * cardW()}px)`;
+      } else {
+        current += dir;
+        depTrack.style.transition = 'transform 0.5s ease';
+        depTrack.style.transform = `translateX(-${current * cardW()}px)`;
+      }
+      setTimeout(() => {
+        if (current >= total) {
+          depTrack.style.transition = 'none';
+          current -= total;
+          depTrack.style.transform = `translateX(-${current * cardW()}px)`;
+        }
+        busy = false;
+      }, 550);
+    }
+
+    depOuter.querySelector('.dep-prev')?.addEventListener('click', () => goDep(-1));
+    depOuter.querySelector('.dep-next')?.addEventListener('click', () => goDep(1));
+    let depTimer = setInterval(() => goDep(1), 4500);
+    depOuter.addEventListener('mouseenter', () => clearInterval(depTimer));
+    depOuter.addEventListener('mouseleave', () => { depTimer = setInterval(() => goDep(1), 4500); });
+  }
 </script>
 
 <style>
@@ -598,7 +706,7 @@ import "../styles/institucional.css";
   /* ── Capacidade ── */
   #capacidade {
     padding: var(--space-2xl, 5rem) 0;
-    background: var(--charcoal, #1a1a1a);
+    background: #fff;
   }
 
   .capacidade-header {
@@ -608,7 +716,7 @@ import "../styles/institucional.css";
   }
 
   .capacidade-header h2 {
-    color: #fff;
+    color: #111;
     font-size: clamp(1.6rem, 3vw, 2.2rem);
   }
 
@@ -625,38 +733,119 @@ import "../styles/institucional.css";
 
   .capacidade-img :global(picture),
   .capacidade-img :global(img) {
-    max-width: 860px;
+    max-width: 1200px;
     width: 100%;
     height: auto;
     display: block;
   }
 
-  /* ── Galeria overrides ── */
-  :global(#galeria) {
-    background: var(--off-white, #f9f7f4) !important;
+  /* ── Depoimentos ── */
+  #depoimentos {
+    padding: var(--space-2xl, 5rem) 0;
+    background: #FAF9F7;
   }
 
-  :global(#galeria .parceiros-head .label) {
+  .dep-header {
+    text-align: center;
+    margin-bottom: var(--space-xl, 3rem);
+  }
+
+  .dep-header .label {
     color: var(--rose) !important;
   }
 
-  :global(#galeria .parceiros-head h2) {
-    color: #111 !important;
+  .dep-header h2 {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: #111;
+    margin: 12px 0 20px;
   }
 
-  :global(#galeria .parceiros-head h2 em) {
+  .dep-header h2 em {
     font-style: normal;
-    color: var(--rose) !important;
+    color: var(--rose);
   }
 
-  :global(#galeria .parceiros-grid),
-  :global(#galeria .parceiro-item) {
-    background: var(--off-white, #f9f7f4) !important;
+  .dep-header p {
+    color: var(--text-secondary, #555);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.75;
   }
 
-  :global(#galeria .parceiro-item img) {
-    opacity: 1 !important;
-    filter: none !important;
+  .dep-carousel-outer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: var(--space-xl, 3rem);
+  }
+
+  .dep-carousel-inner {
+    overflow: hidden;
+    flex: 1;
+  }
+
+  .dep-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .dep-btn {
+    flex-shrink: 0;
+    background: rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .dep-btn:hover {
+    background: rgba(0,0,0,0.12);
+  }
+
+  .dep-card {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    padding: 0 0.6rem;
+  }
+
+  .dep-card-inner {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 10px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .dep-stars {
+    color: var(--rose);
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .dep-card blockquote {
+    color: #333;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+    font-style: italic;
+    flex: 1;
+  }
+
+  .dep-card cite {
+    color: #999;
+    font-size: 0.85rem;
+    font-style: normal;
+    font-weight: 500;
   }
 
   /* ── Responsive ── */
@@ -672,6 +861,12 @@ import "../styles/institucional.css";
 
     .ev-carousel {
       aspect-ratio: 16/9;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .dep-btn {
+      display: none;
     }
   }
 </style>

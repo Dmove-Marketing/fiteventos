@@ -184,32 +184,6 @@ import "../styles/institucional.css";
     </div>
   </section>
 
-  <!-- GALERIA -->
-  <!-- TODO: substituir pelo grid/carrossel de galeria definitivo -->
-  <section id="galeria">
-    <div class="parceiros-head reveal">
-      <span class="label">Galeria</span>
-      <h2>Estrutura, experiência e um grupo que <em>respira excelência</em></h2>
-    </div>
-    <div class="parceiros-grid reveal">
-      <div class="parceiro-item"><img src="/logos/1.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/2.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/3.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/4.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/5.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/6.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/7.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/8.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/9.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/10.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/11.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/12.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/13.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/14.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/15.webp" alt="Parceiro" /></div>
-    </div>
-  </section>
-
   <!-- CONTATO -->
   <section id="contato">
     <div class="contato-inner">
@@ -588,34 +562,6 @@ import "../styles/institucional.css";
 
   .ev-carousel-prev { left: 12px; }
   .ev-carousel-next { right: 12px; }
-
-  /* ── Galeria overrides ── */
-  :global(#galeria) {
-    background: var(--off-white, #f9f7f4) !important;
-  }
-
-  :global(#galeria .parceiros-head .label) {
-    color: var(--rose) !important;
-  }
-
-  :global(#galeria .parceiros-head h2) {
-    color: #111 !important;
-  }
-
-  :global(#galeria .parceiros-head h2 em) {
-    font-style: normal;
-    color: var(--rose) !important;
-  }
-
-  :global(#galeria .parceiros-grid),
-  :global(#galeria .parceiro-item) {
-    background: var(--off-white, #f9f7f4) !important;
-  }
-
-  :global(#galeria .parceiro-item img) {
-    opacity: 1 !important;
-    filter: none !important;
-  }
 
   /* ── Responsive ── */
   @media (max-width: 860px) {
