@@ -24,13 +24,12 @@ import "../styles/institucional.css";
           />
         </a>
         <nav id="nav">
-          <a href="/">Home</a>
-          <a href="/empresa/">Empresa</a>
-          <a href="/eventos/">Eventos</a>
-          <a href="/estrutura/">Estrutura</a>
-          <a href="/servicos/">Serviços</a>
-          <a href="/faq/">FAQ</a>
-          <a href="#contato" class="nav-cta">Solicitar orçamento</a>
+          <a href="/" class="nav-active">Home</a>
+          <a href="/quem-somos/">Quem Somos</a>
+          <a href="/eventos-corporativos/">Corporativo</a>
+          <a href="/social/">Social</a>
+          <a href="#contato">Contato</a>
+          <a href="#contato" class="nav-cta">Orçamento</a>
         </nav>
         <div class="hamburger" id="hamburger">
           <span></span><span></span><span></span>
@@ -43,12 +42,11 @@ import "../styles/institucional.css";
   <div id="mobile-menu">
     <button id="mobile-close" aria-label="Fechar menu">✕</button>
     <a href="/">Home</a>
-    <a href="/empresa/">Empresa</a>
-    <a href="/eventos/">Eventos</a>
-    <a href="/estrutura/">Estrutura</a>
-    <a href="/servicos/">Serviços</a>
-    <a href="/faq/">FAQ</a>
-    <a href="#contato" class="nav-cta">Solicitar orçamento</a>
+    <a href="/quem-somos/">Quem Somos</a>
+    <a href="/eventos-corporativos/">Corporativo</a>
+    <a href="/social/">Social</a>
+    <a href="#contato">Contato</a>
+    <a href="#contato" class="nav-cta">Orçamento</a>
   </div>
 
   <!-- HERO -->
@@ -75,7 +73,7 @@ import "../styles/institucional.css";
           <span>São Paulo · Desde 2012</span>
         </div>
         <h2>
-          Um espaço preparado para<br />eventos que <em>exigem excelência</em>
+          Múltiplos espaços em um <br /><em>único endereço</em>
         </h2>
         <div class="hero-actions">
           <a href="/eventos-corporativos/" class="btn btn-outline-white">
@@ -89,30 +87,6 @@ import "../styles/institucional.css";
     </div>
   </section>
 
-  <!-- AUTORIDADE -->
-  <section id="autoridade">
-    <div class="container">
-      <div class="autoridade-inner">
-        <div class="autoridade-item">
-          <span class="autoridade-num">
-            <em class="count-up" data-target="16" data-suffix="">0</em>
-          </span>
-          <span class="autoridade-label">Ambientes</span>
-        </div>
-        <div class="autoridade-sep"></div>
-        <div class="autoridade-item">
-          <span class="autoridade-num">
-            <em class="count-up" data-target="10" data-prefix="+" data-suffix="">0</em>
-          </span>
-          <span class="autoridade-label">Anos de experiência</span>
-        </div>
-        <div class="autoridade-sep"></div>
-        <div class="autoridade-item">
-          <span class="autoridade-label autoridade-label-large">Serviços<br />completos</span>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- EMPRESA -->
   <section id="empresa">
@@ -121,15 +95,15 @@ import "../styles/institucional.css";
         <div class="empresa-visual reveal">
           <div class="empresa-video-wrap">
             <video autoplay muted loop playsinline>
-              <source src="/sobre.eventos-corporativos.mp4" type="video/mp4" />
+              <source src="https://media.dmove.com.br/clients/espacofitcom/videos/video_sobre-fiteventos.webm" type="video/webm" />
             </video>
           </div>
         </div>
         <div class="empresa-text reveal">
           <span class="label">Sobre o espaço</span>
           <h2>
-            Uma trajetória sólida na realização de<br />
-            <em style="font-style:normal; color:var(--rose)">eventos bem executados</em>
+            Uma trajetória <br />
+            <em style="font-style:normal; color:var(--rose)">de sucesso</em>
           </h2>
           <p>
             Desde 2012, o Espaço Fit Eventos transforma encontros corporativos e
@@ -150,197 +124,84 @@ import "../styles/institucional.css";
   <section id="eventos">
     <div class="container">
       <div class="eventos-header reveal">
-        <span class="label">Versatilidade</span>
+        <span class="label">VERSATILIDADE</span>
         <h2>
-          Um espaço preparado para atender<br /><em
-            >múltiplos formatos com eficiência</em
+          ESPAÇOS MÚLTIPLOS PARA EVENTOS<br /><span class="accent-rose"
+            >ÚNICOS E EXCLUSIVO</span
           >
         </h2>
       </div>
     </div>
     <div class="container">
-    <div class="eventos-cards reveal">
-      <div class="evento-card">
-        <div class="evento-card-img">
-          <Img src="debutante.atualida-img.webp" alt="Festa de 15 anos" />
+      <div class="eventos-cards reveal">
+        <div class="evento-card">
+          <div class="evento-card-img">
+            <img src="https://media.dmove.com.br/clients/espacofitcom/photos/home_card-eventos-corporativos.webp" alt="Eventos Corporativos" />
+          </div>
+          <div class="evento-card-overlay"></div>
+          <div class="evento-card-content">
+            <span class="evento-badge">01</span>
+            <div class="evento-card-bottom">
+              <h3>EVENTOS CORPORATIVOS</h3>
+              <a
+                href="https://www.instagram.com/espacofiteventos/"
+                target="_blank"
+                rel="noopener"
+                class="evento-btn"
+              >
+                VEJA MAIS
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg
+                >
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="evento-card-body">
-          <div class="evento-num">01</div>
-          <h3>Festa de 15 anos</h3>
-          <a
-            href="https://lp.espacofiteventos.com.br/debutantes/"
-            class="evento-link"
-          >
-            Ver detalhes
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg
-            >
-          </a>
-        </div>
-      </div>
-      <div class="evento-card">
-        <div class="evento-card-img">
-          <Img src="casamento-atualizada.webp" alt="Casamentos" />
-        </div>
-        <div class="evento-card-body">
-          <div class="evento-num">02</div>
-          <h3>Casamentos</h3>
-          <a href="#contato" class="evento-link">
-            Ver detalhes
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg
-            >
-          </a>
-        </div>
-      </div>
-      <div class="evento-card">
-        <div class="evento-card-img">
-          <Img src="aniversario-atualizada.webp" alt="Aniversários" />
-        </div>
-        <div class="evento-card-body">
-          <div class="evento-num">03</div>
-          <h3>Aniversários</h3>
-          <a href="#contato" class="evento-link">
-            Ver detalhes
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg
-            >
-          </a>
+        <div class="evento-card">
+          <div class="evento-card-img">
+            <img src="https://media.dmove.com.br/clients/espacofitcom/photos/home_card-eventos-sociais.webp" alt="Eventos Sociais" />
+          </div>
+          <div class="evento-card-overlay"></div>
+          <div class="evento-card-content">
+            <span class="evento-badge">02</span>
+            <div class="evento-card-bottom">
+              <h3>EVENTOS SOCIAIS</h3>
+              <a
+                href="https://www.instagram.com/espacofit.eventos/"
+                target="_blank"
+                rel="noopener"
+                class="evento-btn"
+              >
+                VEJA MAIS
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg
+                >
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="evento-card">
-        <div class="evento-card-img">
-          <Img src="corporativos-atualizada.webp" alt="Eventos Corporativos" />
-        </div>
-        <div class="evento-card-body">
-          <div class="evento-num">04</div>
-          <h3>Corporativos</h3>
-          <a
-            href="https://lp.espacofiteventos.com.br/eventos-corporativos/"
-            class="evento-link"
-          >
-            Ver detalhes
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg
-            >
-          </a>
-        </div>
-      </div>
-    </div>
     </div>
     <div class="container">
       <div class="eventos-cta reveal">
-        <a href="#contato" class="btn btn-primary">
-          Solicitar orçamento
+        <a href="#contato" class="btn btn-pill-rose">
+          SOLICITAR ORÇAMENTO
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- SERVIÇOS -->
-  <section id="servicos">
-    <div class="container">
-      <div class="servicos-header reveal">
-        <span class="label">Estrutura &amp; Serviços</span>
-        <h2>
-          Estrutura completa para <em>simplificar a organização</em> e elevar a
-          experiência dos convidados
-        </h2>
-      </div>
-      <div class="servicos-grid reveal">
-        <div class="servico-card">
-          <div class="servico-img">
-            <Img
-              src="Sala_Design.eventos-corporativos01.webp"
-              alt="Espaços"
-            />
-          </div>
-          <div class="servico-body">
-            <h3>Espaços</h3>
-            <p>
-              Ambientes preparados para receber de 30 a 530 convidados com
-              excelência
-            </p>
-            <a href="/estrutura/" class="btn btn-outline">
-              Saiba Mais
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
-            </a>
-          </div>
-        </div>
-        <div class="servico-card">
-          <div class="servico-img">
-            <Img
-              src="Audiovisual.eventos-corporativos.webp"
-              alt="Tecnologia"
-            />
-          </div>
-          <div class="servico-body">
-            <h3>Tecnologia</h3>
-            <p>
-              Equipamentos e soluções para eventos presenciais, híbridos e online
-            </p>
-            <a href="/servicos/" class="btn btn-outline">
-              Saiba Mais
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
-            </a>
-          </div>
-        </div>
-        <div class="servico-card">
-          <div class="servico-img">
-            <Img
-              src="Sala_Design.eventos-corporativos05.webp"
-              alt="Mobiliário"
-            />
-          </div>
-          <div class="servico-body">
-            <h3>Mobiliário</h3>
-            <p>Conforto e funcionalidade em cada configuração</p>
-            <a href="/servicos/" class="btn btn-outline">
-              Saiba Mais
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
-            </a>
-          </div>
-        </div>
-        <div class="servico-card">
-          <div class="servico-img">
-            <Img
-              src="gastronomia.institucional01.webp"
-              alt="Gastronomia"
-            />
-          </div>
-          <div class="servico-body">
-            <h3>Gastronomia</h3>
-            <p>Cardápios assinados pelo premiado Chef Dalton Rangel</p>
-            <a href="/servicos/" class="btn btn-outline">
-              Saiba Mais
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- PARCEIROS -->
   <section id="parceiros">
@@ -349,284 +210,150 @@ import "../styles/institucional.css";
       <h2>Seu evento no mesmo <em style="font-style:normal; font-weight:700; color:var(--rose)">Espaço de grandes empresas</em></h2>
     </div>
     <div class="parceiros-grid reveal">
-      <div class="parceiro-item"><img src="/logos/1.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/2.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/3.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/4.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/5.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/6.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/7.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/8.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/9.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/10.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/11.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/12.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/13.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/14.webp" alt="Parceiro" /></div>
-      <div class="parceiro-item"><img src="/logos/15.webp" alt="Parceiro" /></div>
-    </div>
-    <div style="display:none"><!-- Fileira 1 — logos 01 a 66 -->
-    <div class="marquee-wrap">
-      <div class="marquee-track marquee-esquerda">
-        <div class="logo-item"><img src="/logos/logo-cliente01.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente02.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente03.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente04.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente05.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente06.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente07.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente08.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente09.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente10.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente11.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente12.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente13.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente14.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente15.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente16.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente17.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente18.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente19.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente20.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente21.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente22.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente23.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente24.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente25.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente26.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente27.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente28.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente29.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente30.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente31.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente32.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente33.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente34.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente35.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente36.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente37.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente38.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente39.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente40.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente41.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente42.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente43.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente44.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente45.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente46.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente47.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente48.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente49.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente50.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente51.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente52.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente53.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente54.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente55.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente56.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente57.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente58.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente59.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente60.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente61.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente62.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente63.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente64.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente65.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente66.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente01.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente02.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente03.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente04.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente05.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente06.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente07.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente08.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente09.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente10.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente11.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente12.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente13.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente14.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente15.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente16.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente17.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente18.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente19.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente20.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente21.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente22.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente23.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente24.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente25.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente26.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente27.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente28.png" alt="Parceiro" /></div>
-      </div>
-    </div>
-    <!-- Fileira 2 — logos 67 a 130 -->
-    <div class="marquee-wrap">
-      <div class="marquee-track marquee-direita">
-        <div class="logo-item"><img src="/logos/logo-cliente67.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente68.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente69.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente70.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente71.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente72.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente73.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente74.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente75.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente76.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente77.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente78.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente79.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente80.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente81.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente82.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente83.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente84.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente85.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente86.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente87.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente88.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente89.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente90.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente91.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente92.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente93.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente94.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente95.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente96.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente97.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente98.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente99.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente100.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente101.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente102.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente103.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente104.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente105.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente106.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente107.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente108.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente109.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente110.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente111.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente112.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente113.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente114.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente115.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente116.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente117.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente118.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente119.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente120.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente121.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente122.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente123.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente124.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente125.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente126.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente127.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente128.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente129.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente130.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente67.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente68.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente69.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente70.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente71.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente72.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente73.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente74.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente75.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente76.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente77.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente78.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente79.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente80.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente81.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente82.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente83.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente84.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente85.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente86.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente87.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente88.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente89.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente90.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente91.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente92.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente93.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente94.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente95.png" alt="Parceiro" /></div>
-        <div class="logo-item"><img src="/logos/logo-cliente96.png" alt="Parceiro" /></div>
-      </div>
-    </div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-1.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-2.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-3.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-4.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-5.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-6.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-7.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-8.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-9.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-10.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-11.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-12.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-13.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-14.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-15.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-16.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-17.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-18.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-19.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-20.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-21.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-22.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-23.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-24.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-25.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-26.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-27.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-28.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-29.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-30.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-31.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-32.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-33.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-34.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-35.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-36.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-37.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-38.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-39.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-40.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-41.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-42.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-43.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-44.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-45.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-46.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-47.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-48.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-49.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-50.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-51.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-52.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-53.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-54.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-55.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-56.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-57.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-58.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-59.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-60.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-61.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-62.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-63.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-64.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-65.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-66.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-67.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-68.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-69.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-70.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-71.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-72.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-73.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-74.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-75.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-76.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-77.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-78.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-79.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-80.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-81.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-82.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-83.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-84.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-85.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-86.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-87.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-88.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-89.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-90.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-91.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-92.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-93.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-94.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-95.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-96.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-97.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-98.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-99.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-100.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-101.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-102.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-103.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-104.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-105.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-106.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-107.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-108.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-109.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-110.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-111.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-112.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-113.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-114.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-115.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-116.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-117.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-118.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-119.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-120.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-121.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-122.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-123.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-124.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-125.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-126.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-127.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-128.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-129.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-130.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-131.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-132.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-133.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-134.webp" alt="Cliente Espaço Fit Eventos" /></div>
+      <div class="parceiro-item"><img src="https://media.dmove.com.br/clients/espacofitcom/photos/cliente_logo-135.webp" alt="Cliente Espaço Fit Eventos" /></div>
     </div>
   </section>
 
-  <!-- GALERIA -->
-  <section id="galeria">
-    <div class="galeria-header reveal">
-      <span class="label">Galeria</span>
-      <h2>Onde grandes marcas realizam<br /><em>experiências memoráveis</em></h2>
-    </div>
-    <div class="galeria-mosaic-wrap">
-      <div class="galeria-mosaic reveal">
-        <div class="gal-item"><Img src="galeria-pr.institucional06.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional19.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional08.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional20.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional01.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional09.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional21.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional03.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional05.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional12.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional14.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional07.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional22.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional04.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional17.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional02.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional13.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional10.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional11.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="gal-item"><Img src="galeria-pr.institucional15.webp" alt="Galeria Espaço Fit Eventos" /></div>
-      </div>
-    </div>
-    <div class="galeria-mobile-carousel">
-      <button class="carousel-btn carousel-prev" aria-label="Anterior"
-        ><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-      <div class="galeria-mobile-carousel-track">
-        <div class="galeria-mobile-carousel-slide"><Img src="galeria-pr.institucional06.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="galeria-mobile-carousel-slide"><Img src="galeria-pr.institucional19.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="galeria-mobile-carousel-slide"><Img src="galeria-pr.institucional08.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="galeria-mobile-carousel-slide"><Img src="galeria-pr.institucional20.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="galeria-mobile-carousel-slide"><Img src="galeria-pr.institucional01.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="galeria-mobile-carousel-slide"><Img src="galeria-pr.institucional09.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="galeria-mobile-carousel-slide"><Img src="galeria-pr.institucional21.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="galeria-mobile-carousel-slide"><Img src="galeria-pr.institucional03.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="galeria-mobile-carousel-slide"><Img src="galeria-pr.institucional05.webp" alt="Galeria Espaço Fit Eventos" /></div>
-        <div class="galeria-mobile-carousel-slide"><Img src="galeria-pr.institucional12.webp" alt="Galeria Espaço Fit Eventos" /></div>
-      </div>
-      <button class="carousel-btn carousel-next" aria-label="Próximo"
-        ><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-    </div>
-    <div class="galeria-cta reveal">
-      <a href="#contato" class="btn btn-outline">
-        Solicitar orçamento
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
-      </a>
-    </div>
-  </section>
 
   <!-- CONTATO -->
   <section id="contato">
     <div class="contato-inner">
       <div class="contato-img">
-        <Img src="DSCF4322.jpg" alt="Espaço Fit Eventos" />
+        <img src="https://media.dmove.com.br/clients/espacofitcom/photos/home_formulario.webp" alt="Espaço Fit Eventos" />
       </div>
       <div class="contato-form-side">
         <div class="contato-form-content reveal">
@@ -831,6 +558,256 @@ import "../styles/institucional.css";
     </svg>
   </a>
 </Base>
+
+<style>
+  #eventos {
+    background: #fafafa !important;
+    padding: 80px 0 !important;
+  }
+
+  #eventos .eventos-header {
+    text-align: center !important;
+    margin-bottom: 50px !important;
+  }
+
+  #eventos .eventos-header .label {
+    color: var(--rose, #c22055) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    margin-bottom: 12px !important;
+  }
+
+  #eventos .eventos-header h2 {
+    font-size: clamp(24px, 2.8vw, 36px) !important;
+    font-weight: 300 !important;
+    color: #111 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+  }
+
+  #eventos .eventos-header h2 .accent-rose {
+    color: var(--rose, #c22055) !important;
+    font-weight: 700 !important;
+  }
+
+  #eventos .eventos-cards {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px !important;
+    max-width: 960px !important;
+    margin: 0 auto !important;
+  }
+
+  #eventos .evento-card {
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 20px !important;
+    height: 420px !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.14) !important;
+    transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+  }
+
+  #eventos .evento-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.22) !important;
+  }
+
+  #eventos .evento-card-img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  #eventos .evento-card-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  }
+
+  #eventos .evento-card:hover .evento-card-img img {
+    transform: scale(1.06) !important;
+  }
+
+  #eventos .evento-card-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.75) 100%) !important;
+    pointer-events: none !important;
+  }
+
+  #eventos .evento-card-content {
+    position: relative !important;
+    z-index: 2 !important;
+    height: 100% !important;
+    padding: 28px 32px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+  }
+
+  #eventos .evento-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    background: var(--rose, #c22055) !important;
+    color: #fff !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 12px rgba(194, 32, 85, 0.4) !important;
+  }
+
+  #eventos .evento-card-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+
+  #eventos .evento-card-bottom h3 {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    text-transform: uppercase !important;
+    margin: 0 !important;
+    letter-spacing: 0.04em !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5) !important;
+  }
+
+  #eventos .evento-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 10px 24px !important;
+    border-radius: 50px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.22) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+  }
+
+  #eventos .evento-btn:hover {
+    background: var(--rose, #c22055) !important;
+    border-color: var(--rose, #c22055) !important;
+    gap: 12px !important;
+    box-shadow: 0 6px 20px rgba(194, 32, 85, 0.4) !important;
+  }
+
+  #eventos .eventos-cta {
+    text-align: center !important;
+    margin-top: 48px !important;
+  }
+
+  #eventos .btn-pill-rose {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 16px 38px !important;
+    border-radius: 50px !important;
+    background: var(--rose, #c22055) !important;
+    color: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    box-shadow: 0 8px 24px rgba(194, 32, 85, 0.35) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease !important;
+  }
+
+  #eventos .btn-pill-rose:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 28px rgba(194, 32, 85, 0.45) !important;
+    background: #a81947 !important;
+  }
+
+  @media (max-width: 768px) {
+    #eventos .eventos-cards {
+      grid-template-columns: 1fr !important;
+    }
+    #eventos .evento-card {
+      height: 340px !important;
+    }
+  }
+</style>
+
+<style is:global>
+  #parceiros .parceiros-grid {
+    display: grid !important;
+    grid-template-columns: repeat(15, 1fr) !important;
+    width: 90% !important;
+    max-width: 90vw !important;
+    margin: 0 auto !important;
+    gap: 5px !important;
+    border: none !important;
+  }
+
+  #parceiros .parceiro-item {
+    flex: none !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 10 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 1px solid var(--border, #e5e5e5) !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+    background: #fff !important;
+    padding: 0 !important;
+  }
+
+  #parceiros .parceiro-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    padding: 8px !important;
+    transition: transform 0.3s ease !important;
+  }
+
+  #parceiros .parceiro-item img[src*="cliente_logo-61.webp"],
+  #parceiros .parceiro-item img[src*="cliente_logo-83.webp"],
+  #parceiros .parceiro-item img[src*="cliente_logo-91.webp"],
+  #parceiros .parceiro-item img[src*="cliente_logo-94.webp"] {
+    object-fit: cover !important;
+    padding: 0 !important;
+  }
+
+  #parceiros .parceiro-item img[src*="cliente_logo-94.webp"] {
+    transform: scale(1.4) !important;
+  }
+
+  #parceiros .parceiro-item:hover img {
+    transform: scale(1.03);
+  }
+
+  @media (max-width: 1200px) {
+    #parceiros .parceiros-grid {
+      grid-template-columns: repeat(10, 1fr) !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #parceiros .parceiros-grid {
+      grid-template-columns: repeat(5, 1fr) !important;
+    }
+  }
+</style>
 <script>
   import "../scripts/institucional.js";
 </script>
