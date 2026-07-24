@@ -20,11 +20,11 @@ _menu.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMenu))
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      setTimeout(() => { entry.target.classList.add('visible'); }, 80);
+      entry.target.classList.add('visible');
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.08 });
+}, { threshold: 0.01, rootMargin: '0px 0px 200px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // ── Hero background carousel
