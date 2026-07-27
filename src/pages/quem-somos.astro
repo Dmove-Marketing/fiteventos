@@ -148,7 +148,7 @@ import "../styles/institucional.css";
       <div class="grupo-fit-grid">
         <div class="grupo-fit-text reveal">
           <span class="label">Grupo FIT</span>
-          <h2>A força de fazer parte do <em>Grupo FIT</em></h2>
+          <h2>A força de <br class="br-mobile" />fazer parte do <br class="br-mobile" /><em>Grupo FIT</em></h2>
           <p>
             O Espaço Fit Eventos integra o Grupo FIT, um ecossistema empresarial que atua
             desde 2000 desenvolvendo experiências que fazem parte da rotina e dos melhores
@@ -908,22 +908,26 @@ import "../styles/institucional.css";
     }
   }
 
+  .br-mobile {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .br-mobile {
+      display: inline;
+    }
+  }
+
   @media (max-width: 640px) {
     #hero {
       min-height: auto;
     }
 
     .big-numbers-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
     }
 
     .mvv-cards {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 420px) {
-    .big-numbers-grid {
       grid-template-columns: 1fr;
     }
   }
