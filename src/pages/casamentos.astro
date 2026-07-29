@@ -1,0 +1,816 @@
+---
+import Base from "../layouts/Base.astro";
+import config from "../../config.json";
+import Img from "../components/ui/Img.astro";
+import LeadForm from "../components/forms/LeadForm.astro";
+import "../styles/casamentos.css";
+---
+
+<Base
+  title="Casamentos com Estilo e Sofisticação – Espaço Fit Eventos"
+  description="Realize o seu casamento no Espaço Fit Eventos. Arquitetura contemporânea, gastronomia exclusiva assinada pelo Chef Dalton Rangel e ambientes versáteis em São Paulo."
+  ogImage="/images/novo_logo.png"
+>
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#hero" class="logo">
+          <Img
+            src="logo.fiteventos.webp"
+            alt="Espaço Fit Eventos"
+            class="logo-img"
+            priority
+          />
+        </a>
+        <nav id="nav">
+          <a href="#autoridade">Sobre</a>
+          <a href="#espacos">Espaços</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#gastronomia">Gastronomia</a>
+          <a href="#diferenciais">Diferenciais</a>
+          <a href="#depoimentos">Depoimentos</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#localizacao">Localização</a>
+          <a href="#contato" class="nav-cta">Orçamento</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div id="mobile-menu">
+    <button id="mobile-close" aria-label="Fechar menu">✕</button>
+    <a href="#autoridade">Sobre</a>
+    <a href="#espacos">Espaços</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#gastronomia">Gastronomia</a>
+    <a href="#diferenciais">Diferenciais</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#localizacao">Localização</a>
+    <a href="#contato" class="nav-cta">Orçamento</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-slides">
+      <div class="hero-slide active">
+        <img
+          src="https://media.dmove.com.br/clients/espacofitcom/photos/hero-casamentos_resultado.webp"
+          alt="Casamentos Espaço Fit Eventos"
+          class="hero-slide-img"
+        />
+      </div>
+    </div>
+    <div class="hero-gradient"></div>
+    <div class="hero-accent"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span>São Paulo · Casamentos</span>
+        </div>
+        <h1>
+          Casamentos com <br />estilo, sofisticação <br /><em>e personalidade</em>
+        </h1>
+        <p class="hero-subtitle">
+          Arquitetura contemporânea, gastronomia exclusiva e ambientes versáteis se unem para criar celebrações elegantes, personalizadas e repletas de significado.
+        </p>
+        <div class="hero-actions">
+          <a href="#contato" class="btn btn-primary">
+            Solicite orçamento
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+          </a>
+          <a href="#espacos" class="btn btn-outline-white">
+            Conhecer os espaços
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO AUTORIDADE / SOBRE -->
+  <section id="autoridade">
+    <div class="container">
+      <div class="ev-grid">
+        <div class="ev-text">
+          <span class="label">Sobre o Espaço Fit</span>
+          <h2>Detalhes pensados <br />para celebrar a <br /><em>sua história</em></h2>
+          <p>
+            Ao planejar um casamento, muitos casais procuram mais do que um salão de festas. Buscam um espaço que reflita seu estilo, ofereça praticidade e transforme cada momento da celebração em uma experiência memorável.
+          </p>
+          <p>
+            Desde 2012, o Espaço Fit Eventos recebe eventos em São Paulo com uma estrutura versátil, arquitetura contemporânea e uma operação preparada para transformar diferentes projetos em celebrações únicas.
+          </p>
+          <p>
+            Da cerimônia à pista de dança, cada ambiente foi pensado para oferecer liberdade criativa, conforto e sofisticação para noivos e convidados.
+          </p>
+          <div class="autoridade-actions">
+            <a href="#contato" class="btn btn-primary">
+              Falar com um especialista
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="ev-media">
+          <div class="ev-image-wrapper">
+            <img
+              src="https://media.dmove.com.br/clients/espacofitcom/photos/sobre-casamentos_resultado.webp"
+              alt="Detalhes para celebrar sua história de casamento"
+              class="autoridade-img"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO ESPAÇOS (EDITORIAL GRID GALLERY SEM LIGHTBOX) -->
+  <section id="espacos">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Nossos Espaços</span>
+        <h2>Ambientes contemporâneos para <br /><em>celebrações únicas</em></h2>
+        <p class="section-desc">
+          Cada casamento possui uma identidade própria. Por isso, nossos espaços oferecem liberdade para criar cerimônias e recepções totalmente personalizadas, integrando ambientes que acompanham cada momento da celebração.
+        </p>
+      </div>
+
+      <div class="carousel-container" id="espacos-carousel">
+        <button class="carousel-nav-btn carousel-nav-prev" aria-label="Anterior">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="carousel-slider espacos-grid-gallery">
+          <div class="carousel-slide-item espaco-card-item">
+            <img src="https://media.dmove.com.br/clients/espacofitcom/photos/espaco_casamentos06_resultado.webp" alt="Espaço Casamentos 06" loading="lazy" />
+          </div>
+
+          <div class="carousel-slide-item espaco-card-item">
+            <img src="https://media.dmove.com.br/clients/espacofitcom/photos/espaco_casamentos05_resultado.webp" alt="Espaço Casamentos 05" loading="lazy" />
+          </div>
+
+          <div class="carousel-slide-item espaco-card-item">
+            <img src="https://media.dmove.com.br/clients/espacofitcom/photos/espaco_casamentos04_resultado.webp" alt="Espaço Casamentos 04" loading="lazy" />
+          </div>
+
+          <div class="carousel-slide-item espaco-card-item">
+            <img src="https://media.dmove.com.br/clients/espacofitcom/photos/espaco_casamentos03_resultado.webp" alt="Espaço Casamentos 03" loading="lazy" />
+          </div>
+
+          <div class="carousel-slide-item espaco-card-item">
+            <img src="https://media.dmove.com.br/clients/espacofitcom/photos/espaco_casamentos02_resultado.webp" alt="Espaço Casamentos 02" loading="lazy" />
+          </div>
+
+          <div class="carousel-slide-item espaco-card-item">
+            <img src="https://media.dmove.com.br/clients/espacofitcom/photos/espaco_casamentos01_resultado.webp" alt="Espaço Casamentos 01" loading="lazy" />
+          </div>
+        </div>
+        <button class="carousel-nav-btn carousel-nav-next" aria-label="Próximo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO SERVIÇOS -->
+  <section id="servicos">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Experiência Completa</span>
+        <h2>Uma celebração <br class="br-mobile" />construída <br class="br-desktop" /><em class="em-rose-desktop">nos</em> <br class="br-mobile" /><em>detalhes</em></h2>
+      </div>
+
+      <div class="servicos-grid">
+        <!-- Bar Fit -->
+        <div class="servico-card">
+          <div class="servico-img-box">
+            <img
+              src="https://media.dmove.com.br/clients/espacofitcom/photos/bar-fit_casamnetos_resultado.webp"
+              alt="Bar Fit"
+            />
+          </div>
+          <div class="servico-content">
+            <h3>Bar Fit</h3>
+            <p>Drinks autorais, clássicos e layouts personalizáveis para acompanhar o estilo de cada casamento.</p>
+          </div>
+        </div>
+
+        <!-- Alta Confeitaria -->
+        <div class="servico-card">
+          <div class="servico-img-box">
+            <img
+              src="https://media.dmove.com.br/clients/espacofitcom/photos/alta-confeitaria_casamentos_resultado.webp"
+              alt="Alta Confeitaria"
+            />
+          </div>
+          <div class="servico-content">
+            <h3>Alta Confeitaria</h3>
+            <p>Bolos e doces finos produzidos com técnicas refinadas, sabores exclusivos e apresentação impecável.</p>
+          </div>
+        </div>
+
+        <!-- Decoração -->
+        <div class="servico-card">
+          <div class="servico-img-box">
+            <img
+              src="https://media.dmove.com.br/clients/espacofitcom/photos/decoracao_casamentos_resultado.webp"
+              alt="Decoração"
+            />
+          </div>
+          <div class="servico-content">
+            <h3>Decoração</h3>
+            <p>Projetos personalizados que traduzem a essência do casal por meio de flores, mobiliário, iluminação e elementos cuidadosamente escolhidos.</p>
+          </div>
+        </div>
+
+        <!-- Entretenimento -->
+        <div class="servico-card">
+          <div class="servico-img-box">
+            <img
+              src="https://media.dmove.com.br/clients/espacofitcom/photos/entretenimento_resultado.webp"
+              alt="Entretenimento"
+            />
+          </div>
+          <div class="servico-content">
+            <h3>Entretenimento</h3>
+            <p>Atrações cuidadosamente selecionadas para envolver os convidados e tornar a festa ainda mais dinâmica e memorável.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO GASTRONOMIA (CARROSSEL INFINITO) -->
+  <section id="gastronomia">
+    <div class="container">
+      <div class="ev-grid ev-grid-reverse">
+        <div class="ev-text">
+          <span class="label">Gastronomia Exclusiva</span>
+          <h2>Sabores que também <br /><em>contam histórias</em></h2>
+          <p>
+            Assinada pelo premiado Chef Dalton Rangel, a gastronomia do Espaço Fit Eventos transforma cada momento da recepção em uma experiência memorável.
+          </p>
+          <p>
+            Os cardápios são desenvolvidos de forma personalizada para refletir o estilo da celebração, combinando ingredientes selecionados, apresentações sofisticadas e opções para diferentes preferências e restrições alimentares.
+          </p>
+          <p>
+            Antes do casamento, os noivos vivem uma experiência exclusiva na sala de degustação, onde acompanham de perto a construção do menu que fará parte desse momento especial.
+          </p>
+
+          <div class="gastronomia-highlights">
+            <div class="gastronomia-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Menu assinado pelo Chef Dalton Rangel</span>
+            </div>
+            <div class="gastronomia-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Experiência prévia na Sala de Degustação</span>
+            </div>
+            <div class="gastronomia-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Opções para diferentes preferências e restrições</span>
+            </div>
+          </div>
+        </div>
+        <div class="ev-media">
+          <div class="carousel-container" id="gastronomia-carousel">
+            <button class="carousel-nav-btn carousel-nav-prev" aria-label="Anterior">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="carousel-slider">
+              <div class="carousel-slide-item">
+                <img src="https://media.dmove.com.br/clients/espacofitcom/photos/gastronomia_casamentos05_resultado.webp" alt="Gastronomia Casamentos 05" />
+              </div>
+              <div class="carousel-slide-item">
+                <img src="https://media.dmove.com.br/clients/espacofitcom/photos/gastronomia_casamentos04_resultado.webp" alt="Gastronomia Casamentos 04" />
+              </div>
+              <div class="carousel-slide-item">
+                <img src="https://media.dmove.com.br/clients/espacofitcom/photos/gastronomia_casamentos03_resultado.webp" alt="Gastronomia Casamentos 03" />
+              </div>
+              <div class="carousel-slide-item">
+                <img src="https://media.dmove.com.br/clients/espacofitcom/photos/gastronomia_casamentos02_resultado.webp" alt="Gastronomia Casamentos 02" />
+              </div>
+              <div class="carousel-slide-item">
+                <img src="https://media.dmove.com.br/clients/espacofitcom/photos/gastronomia_casamentos01_resultado.webp" alt="Gastronomia Casamentos 01" />
+              </div>
+            </div>
+            <button class="carousel-nav-btn carousel-nav-next" aria-label="Próximo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO DIFERENCIAIS -->
+  <section id="diferenciais">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Diferenciais</span>
+        <h2>Estrutura que valoriza <br /><em>cada momento</em></h2>
+      </div>
+
+      <div class="diferenciais-grid">
+        <!-- 1. Climatizado (Snowflake) -->
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M20 16l-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4M8 20l4-4 4 4"/></svg>
+          </div>
+          <h3>Espaço climatizado</h3>
+          <p>Ambientes totalmente climatizados para máximo conforto térmico em todas as estações do ano.</p>
+        </div>
+
+        <!-- 2. Jardim Vertical (Leaf) -->
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A9 9 0 0 1 2 11 9 9 0 0 1 11 2c6 0 11 5 11 11a9 9 0 0 1-11 7z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          </div>
+          <h3>Jardim vertical exclusivo</h3>
+          <p>Paisagismo contemporâneo integrado aos ambientes, perfeito para cenários de fotos memoráveis.</p>
+        </div>
+
+        <!-- 3. Arquitetura (Building/Structure) -->
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01"/></svg>
+          </div>
+          <h3>Arquitetura contemporânea</h3>
+          <p>Design moderno com linhas arrojadas, iluminação cênica e layouts totalmente adaptáveis.</p>
+        </div>
+
+        <!-- 4. Personalização (Palette) -->
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.7-.72 1.7-1.65 0-.43-.17-.83-.44-1.14-.29-.33-.46-.77-.46-1.26 0-1.04.84-1.89 1.88-1.89h1.76c3.1 0 5.56-2.47 5.56-5.57 0-4.69-4.26-8.49-10-8.49z"/></svg>
+          </div>
+          <h3>Personalização completa</h3>
+          <p>Flexibilidade total para adaptar ambientação, serviços e cenografia de acordo com o perfil dos noivos.</p>
+        </div>
+
+        <!-- 5. Convidados (Users) -->
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Até 530 convidados</h3>
+          <p>Capacidade versátil para receber desde mini weddings aconchegantes até grandes recepções.</p>
+        </div>
+
+        <!-- 6. Projeção Mapeada (Sparkles/Light) -->
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3z"/><path d="M5 3v4M3 5h4M19 17v4M17 19h4"/></svg>
+          </div>
+          <h3>Projeção mapeada</h3>
+          <p>Recursos audiovisuais de ponta para criar efeitos visuais imersivos e inesquecíveis.</p>
+        </div>
+
+        <!-- 7. Atendimento (Heart) -->
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.72-8.72 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3>Atendimento elogiado</h3>
+          <p>Equipe altamente qualificada e atenciosa dedicada ao suporte total em cada fase da celebração.</p>
+        </div>
+
+        <!-- 8. Custo-benefício (Diamond) -->
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l3 12"/><path d="M13 3l3 6-3 12"/><path d="M2 9h20"/></svg>
+          </div>
+          <h3>Excelente custo-benefício</h3>
+          <p>Soluções integradas com transparência de custos e alto padrão em todos os serviços fornecidos.</p>
+        </div>
+
+        <!-- 9. Localização (Map Pin) -->
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>Localização privilegiada</h3>
+          <p>Fácil acesso na Zona Sul de São Paulo, próximo à Marginal Pinheiros, transporte e hotéis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO DEPOIMENTOS -->
+  <section id="depoimentos">
+    <div class="container">
+      <div class="dep-header">
+        <span class="label">Depoimentos</span>
+        <h2>Momentos especiais <br />contados por <br class="br-mobile" />quem já <br class="br-desktop" /><em class="em-rose-desktop">celebrou</em> <br class="br-mobile" /><em>no Fit Eventos</em></h2>
+        <p>
+          Reconhecido com nota 4.8 no Google Meu Negócio, o Espaço Fit Eventos é elogiado por casais e famílias pela atenção aos detalhes, gastronomia impecável e suporte em cada momento.
+        </p>
+      </div>
+      
+      <div class="dep-grid">
+        <div class="dep-card-inner">
+          <div class="dep-stars">★★★★★</div>
+          <blockquote>"O lugar é super aconchegante e o espaço foi perfeito para acomodar nossos convidados. A equipe é atenciosa e tornou o dia inesquecível. Super recomendo!"</blockquote>
+          <cite>— Fernanda & Gustavo</cite>
+        </div>
+        <div class="dep-card-inner">
+          <div class="dep-stars">★★★★★</div>
+          <blockquote>"Lugar incrível! Amplo, moderno e muito acolhedor. Gastronomia impecável e atendimento de primeiríssima qualidade. Amei a experiência no Espaço Fit."</blockquote>
+          <cite>— Nestor & Camila</cite>
+        </div>
+        <div class="dep-card-inner">
+          <div class="dep-stars">★★★★★</div>
+          <blockquote>"Espaço muito bonito e elegante para casamentos, estrutura ótima. Ambientes integrados, comida sensacional e funcionários extremamente educados."</blockquote>
+          <cite>— Evelin & Rodrigo</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO GALERIA -->
+  <section id="galeria">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Galeria de Fotos</span>
+        <h2>Inspire-se para <br class="br-mobile" />realizar o <br class="br-desktop" /><em class="em-rose-desktop">casamento</em> <br class="br-mobile" /><em>dos seus sonhos</em></h2>
+      </div>
+
+      <div class="galeria-grid">
+        <div class="galeria-item">
+          <img src="https://media.dmove.com.br/clients/espacofitcom/photos/galeria_casamentos10_resultado.webp" alt="Galeria Casamentos 10" loading="lazy" />
+        </div>
+        <div class="galeria-item">
+          <img src="https://media.dmove.com.br/clients/espacofitcom/photos/galeria_casamentos09_resultado.webp" alt="Galeria Casamentos 09" loading="lazy" />
+        </div>
+        <div class="galeria-item">
+          <img src="https://media.dmove.com.br/clients/espacofitcom/photos/galeria_casamentos08_resultado.webp" alt="Galeria Casamentos 08" loading="lazy" />
+        </div>
+        <div class="galeria-item">
+          <img src="https://media.dmove.com.br/clients/espacofitcom/photos/galeria_casamentos07_resultado.webp" alt="Galeria Casamentos 07" loading="lazy" />
+        </div>
+        <div class="galeria-item">
+          <img src="https://media.dmove.com.br/clients/espacofitcom/photos/galeria_casamentos06_resultado.webp" alt="Galeria Casamentos 06" loading="lazy" />
+        </div>
+        <div class="galeria-item">
+          <img src="https://media.dmove.com.br/clients/espacofitcom/photos/galeria_casamentos05_resultado.webp" alt="Galeria Casamentos 05" loading="lazy" />
+        </div>
+        <div class="galeria-item">
+          <img src="https://media.dmove.com.br/clients/espacofitcom/photos/galeria_casamentos04_resultado.webp" alt="Galeria Casamentos 04" loading="lazy" />
+        </div>
+        <div class="galeria-item">
+          <img src="https://media.dmove.com.br/clients/espacofitcom/photos/galeria_casamentos03_resultado.webp" alt="Galeria Casamentos 03" loading="lazy" />
+        </div>
+        <div class="galeria-item">
+          <img src="https://media.dmove.com.br/clients/espacofitcom/photos/galeria_casamentos02_resultado.webp" alt="Galeria Casamentos 02" loading="lazy" />
+        </div>
+        <div class="galeria-item">
+          <img src="https://media.dmove.com.br/clients/espacofitcom/photos/galeria_casamentos01_resultado.webp" alt="Galeria Casamentos 01" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO CONTATO -->
+  <section id="contato">
+    <div class="contato-inner">
+      <div class="contato-img">
+        <img
+          src="https://media.dmove.com.br/clients/espacofitcom/photos/home_formulario.webp"
+          alt="Espaço Fit Eventos Casamentos"
+        />
+      </div>
+      <div class="contato-form-side">
+        <div class="contato-form-content">
+          <span class="label" style="color:var(--rose)">Contato</span>
+          <h2>
+            Estamos prontos <br />para dar vida ao <br /><em>seu casamento</em>
+          </h2>
+          <p>
+            Preencha seus dados e receba um orçamento personalizado para a sua celebração.
+          </p>
+          <div class="form-box">
+            <LeadForm
+              formId="lead-form-casamentos"
+              project={config.project_slug}
+              submitUrl={config.forms["lead-form"].webhooks[0]}
+              redirectUrl={config.forms["lead-form"].redirect_on_success}
+              submitText="Solicitar Orçamento"
+              honeypot
+              fields={[
+                {
+                  name: "nome",
+                  type: "text",
+                  placeholder: "Seu nome completo",
+                  required: true,
+                },
+                {
+                  type: "row",
+                  fields: [
+                    {
+                      name: "telefone",
+                      type: "tel",
+                      placeholder: "Telefone / WhatsApp",
+                      required: true,
+                    },
+                    {
+                      name: "email",
+                      type: "email",
+                      placeholder: "Seu e-mail",
+                      required: true,
+                    },
+                  ],
+                },
+                {
+                  type: "row",
+                  fields: [
+                    {
+                      name: "tipo_evento",
+                      type: "select",
+                      required: true,
+                      options: [
+                        { value: "", label: "Tipo de evento", disabled: true, selected: true },
+                        { value: "Bodas", label: "Bodas" },
+                        { value: "Casamento", label: "Casamento" },
+                        { value: "Confraternização Social", label: "Confraternização Social" },
+                        { value: "Outros", label: "Outros" },
+                      ],
+                    },
+                    {
+                      name: "data",
+                      type: "text",
+                      placeholder: "Data do evento (dd/mm/aaaa)",
+                      required: true,
+                      readonly: true,
+                      flatpickr: true,
+                    },
+                  ],
+                },
+                {
+                  name: "convidados",
+                  type: "number",
+                  placeholder: "Número de convidados",
+                  required: true,
+                },
+                {
+                  name: "mensagem",
+                  type: "textarea",
+                  placeholder: "Detalhes adicionais ou desejos especiais para o seu evento (opcional)",
+                  required: false,
+                  rows: 3,
+                },
+                { name: "tipo", type: "hidden", value: "Casamento" },
+                { name: "fonte", type: "hidden", value: "Landing page/casamentos" },
+              ]}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO LOCALIZAÇÃO -->
+  <section id="localizacao">
+    <div class="container">
+      <div class="loc-grid">
+        <div class="loc-info">
+          <span class="label">Localização</span>
+          <h2>Fácil para você. <br /><em>Perfeito para <br />seus convidados</em></h2>
+          <p class="loc-sub">
+            Fácil acesso pela Marginal Pinheiros, ao lado da estação Granja Julieta e próximo ao Aeroporto de Congonhas.
+          </p>
+          <div class="loc-address">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Av. Alfredo Egídio de Souza Aranha, 384 - Chácara Santo Antônio, São Paulo - SP, 04730-090</span>
+          </div>
+          <a href="#contato" class="btn btn-primary loc-cta">
+            Agende sua visita
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+          </a>
+        </div>
+        <div class="loc-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.9!2d-46.7200!3d-23.6120!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce51f8a6e0b8a5%3A0x0!2sAv.%20Alfredo%20Eg%C3%ADdio%20de%20Souza%20Aranha%2C%20384%20-%20Ch%C3%A1cara%20Santo%20Ant%C3%B4nio%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização Espaço Fit Eventos"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="/" class="logo-footer">
+            <Img src="logo.fiteventos.webp" alt="Espaço Fit Eventos" />
+          </a>
+          <p class="footer-copy" style="max-width: 320px; color: rgba(255,255,255,0.7); font-size: 13px; margin-top: 8px;">
+            Soluções completas e ambientes contemporâneos para o seu casamento em São Paulo.
+          </p>
+        </div>
+        <div class="footer-contact-list">
+          <div class="footer-contact-label">Contato</div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+551132620938">(11) 3262-0938</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+551132620819">(11) 3262-0819</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:contato@espacofiteventos.com.br">contato@espacofiteventos.com.br</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© {new Date().getFullYear()} Espaço Fit Eventos. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOATING BUTTON -->
+  <a
+    href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20casamentos%20no%20Espa%C3%A7o%20Fit%20Eventos."
+    class="wa-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Fale conosco pelo WhatsApp"
+  >
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"></path>
+    </svg>
+  </a>
+
+  <!-- LIGHTBOX DOM -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Fechar">&times;</button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+</Base>
+
+<script>
+  function setupInfiniteSlider(containerId: string) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const slider = container.querySelector<HTMLElement>('.carousel-slider');
+    const prevBtn = container.querySelector<HTMLElement>('.carousel-nav-prev');
+    const nextBtn = container.querySelector<HTMLElement>('.carousel-nav-next');
+    if (!slider) return;
+
+    const origSlides = Array.from(slider.querySelectorAll<HTMLElement>('.carousel-slide-item'));
+    const total = origSlides.length;
+    if (total < 2) return;
+
+    // Clone first and last slide for seamless infinite loop
+    const firstClone = origSlides[0].cloneNode(true) as HTMLElement;
+    const lastClone = origSlides[total - 1].cloneNode(true) as HTMLElement;
+    firstClone.classList.add('clone');
+    lastClone.classList.add('clone');
+
+    slider.appendChild(firstClone);
+    slider.insertBefore(lastClone, origSlides[0]);
+
+    // Index 1 corresponds to original slide 1
+    let currentIndex = 1;
+    let isTransitioning = false;
+
+    // Set initial position without animation
+    slider.style.transition = 'none';
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    slider.offsetHeight; // force reflow
+
+    function moveTo(index: number, animate = true) {
+      if (!slider) return;
+      if (animate) {
+        slider.style.transition = 'transform 0.5s ease-in-out';
+      } else {
+        slider.style.transition = 'none';
+      }
+      slider.style.transform = `translateX(-${index * 100}%)`;
+      currentIndex = index;
+    }
+
+    slider.addEventListener('transitionend', () => {
+      isTransitioning = false;
+      // If at last clone (after slide N), snap to real slide 1
+      if (currentIndex === total + 1) {
+        moveTo(1, false);
+      }
+      // If at first clone (before slide 1), snap to real slide N
+      if (currentIndex === 0) {
+        moveTo(total, false);
+      }
+    });
+
+    function next() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      moveTo(currentIndex + 1, true);
+    }
+
+    function prev() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      moveTo(currentIndex - 1, true);
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      prev();
+      resetTimer();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      next();
+      resetTimer();
+    });
+
+    let autoTimer = setInterval(next, 4500);
+
+    function resetTimer() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(next, 4500);
+    }
+
+    container.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    container.addEventListener('mouseleave', resetTimer);
+  }
+
+  function initNav() {
+    const _header = document.getElementById('header');
+    const _hb = document.getElementById('hamburger');
+    const _menu = document.getElementById('mobile-menu');
+    const _close = document.getElementById('mobile-close');
+
+    // Header scroll background toggle
+    window.addEventListener('scroll', () => {
+      _header?.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile nav toggle & link auto-close
+    function openMenu() {
+      _menu?.classList.add('open');
+      _hb?.classList.add('active');
+    }
+    function closeMenu() {
+      _menu?.classList.remove('open');
+      _hb?.classList.remove('active');
+    }
+
+    if (_hb) _hb.addEventListener('click', openMenu);
+    if (_close) _close.addEventListener('click', closeMenu);
+    _menu?.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMenu));
+  }
+
+  function setupLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('lightbox-close');
+    if (!lightbox || !lightboxImg || !closeBtn) return;
+
+    document.querySelectorAll('.galeria-item img').forEach((img) => {
+      img.parentElement?.addEventListener('click', () => {
+        if (lightboxImg instanceof HTMLImageElement) {
+          lightboxImg.src = img.getAttribute('src') || '';
+          lightboxImg.alt = img.getAttribute('alt') || '';
+        }
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  }
+
+  function init() {
+    setupInfiniteSlider('gastronomia-carousel');
+    setupInfiniteSlider('espacos-carousel');
+    initNav();
+    setupLightbox();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
