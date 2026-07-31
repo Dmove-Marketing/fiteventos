@@ -1126,108 +1126,63 @@ nav a:hover {
 /* ─── FOOTER ─── */
 footer {
   background: #a6a6a6;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 56px 0 36px;
+  border-top: 3px solid var(--rose);
+  padding: 48px 0;
 }
 
-.footer-main {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 48px;
-  margin-bottom: 44px;
-  flex-wrap: wrap;
-}
-
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.logo-footer img {
-  height: 36px;
-  width: auto;
-  opacity: 1;
-}
-
-.footer-insta {
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.75);
-  background: rgba(255, 255, 255, 0.05);
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
-}
-
-.footer-insta:hover {
-  border-color: var(--rose);
-  color: var(--white);
-  background: var(--rose);
-}
-
-.footer-contact-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.footer-contact-label {
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--rose-light);
-  margin-bottom: 4px;
-}
-
-.footer-contact-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.footer-contact-item svg {
-  color: var(--rose-light);
-  flex-shrink: 0;
-}
-
-.footer-contact-item a {
-  color: rgba(255, 255, 255, 0.75);
-  transition: color 0.2s;
-}
-
-.footer-contact-item a:hover {
-  color: var(--white);
+footer .container {
+  width: 92%;
+  max-width: 1500px;
 }
 
 .footer-bottom {
-  padding-top: 28px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
+  gap: 24px;
 }
 
 .footer-copy {
-  font-size: 12.5px;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  flex: 1;
+  text-align: left;
+}
+
+.footer-logo-bottom {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-logo-bottom img {
+  height: 40px;
+  width: auto;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+  display: block;
+}
+
+.footer-logo-bottom:hover img {
+  opacity: 0.8;
 }
 
 .footer-dev {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.footer-dev-text {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.3px;
 }
 
 .footer-dev a {
@@ -1235,15 +1190,16 @@ footer {
   align-items: center;
 }
 
-.footer-dmove-logo {
-  height: 18px;
+.footer-dev-img {
+  height: 36px;
   width: auto;
-  opacity: 0.75;
-  transition: opacity 0.2s;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+  display: block;
 }
 
-.footer-dev a:hover .footer-dmove-logo {
-  opacity: 1;
+.footer-dev a:hover .footer-dev-img {
+  opacity: 0.8;
 }
 
 /* ─── WHATSAPP FLOAT ─── */
@@ -1487,6 +1443,16 @@ footer {
 
   .footer-bottom {
     flex-direction: column;
-    align-items: flex-start;
+    gap: 36px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-copy,
+  .footer-logo-bottom,
+  .footer-dev {
+    flex: none;
+    text-align: center;
+    justify-content: center;
   }
 }
