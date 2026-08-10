@@ -1,6 +1,66 @@
+export function maskPhone(v: string): string {
+  let digits = v.replace(/\D/g, '');
+  if (digits.length > 11 && digits.startsWith('55')) {
+    digits = digits.slice(2);
+  }
+  digits = digits.slice(0, 11);
+
+  if (digits.length <= 10) {
+    return digits.replace(/^(\d{0,2})(\d{0,4})(\d{0,4})$/, (_, a, b, c) => {
+      if (!a) return '';
+      if (!b) return '(' + a;
+      if (!c) return '(' + a + ') ' + b;
+      return '(' + a + ') ' + b + '-' + c;
+    });
+  }
+  return digits.replace(/^(\d{0,2})(\d{0,5})(\d{0,4})$/, (_, a, b, c) => {
+    if (!a) return '';
+    if (!b) return '(' + a;
+    if (!c) return '(' + a + ') ' + b;
+    return '(' + a + ') ' + b + '-' + c;
+  });
+}
+
+export function initPhoneMasks(container: Document | HTMLElement = document) {
+  const telInputs = container.querySelectorAll<HTMLInputElement>(
+    'input[type="tel"], input[name="telefone"], input[name="phone"], input[name="whatsapp"]'
+  );
+  telInputs.forEach((input) => {
+    if (input.dataset.maskInitialized === 'true') return;
+    input.dataset.maskInitialized = 'true';
+
+    input.setAttribute('inputmode', 'numeric');
+    input.setAttribute('maxlength', '15');
+    if (!input.placeholder || input.placeholder === 'WhatsApp') {
+      input.placeholder = '(11) 90000-0000';
+    }
+
+    const applyMask = () => {
+      const pos = input.selectionStart ?? 0;
+      const prevLen = input.value.length;
+      input.value = maskPhone(input.value);
+      const diff = input.value.length - prevLen;
+      input.setSelectionRange(pos + diff, pos + diff);
+    };
+
+    input.addEventListener('input', applyMask);
+    input.addEventListener('blur', applyMask);
+
+    if (input.value) {
+      applyMask();
+    }
+  });
+}
+
 export function initForms() {
+  initPhoneMasks();
+
   const forms = document.querySelectorAll<HTMLFormElement>('form[data-form-id]');
   forms.forEach((form) => {
+    // Prevent attaching duplicate event listeners if initForms is called multiple times
+    if (form.dataset.formInitialized === 'true') return;
+    form.dataset.formInitialized = 'true';
+
     let started = false;
     const formId  = form.dataset.formId!;
     const project = form.dataset.project || window.location.hostname;
@@ -26,9 +86,8 @@ export function initForms() {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Honeypot check
-      const hp = form.querySelector<HTMLInputElement>('[name="website"]');
-      if (hp && hp.value) return;
+      // Prevent duplicate processing if submission is already in-flight
+      if (form.dataset.submitting === 'true') return;
 
       const submitBtn  = form.querySelector<HTMLButtonElement>('.form-submit, [type="submit"]');
       const btnText    = submitBtn?.querySelector<HTMLElement>('.btn-text');
@@ -38,7 +97,17 @@ export function initForms() {
         ? document.getElementById(gridId)?.querySelector('[id$="FormMsg"]') as HTMLElement | null 
         : form.querySelector('.form-error') as HTMLElement | null;
 
+      // Lock form submission state immediately
+      form.dataset.submitting = 'true';
       if (submitBtn) submitBtn.disabled = true;
+
+      // Honeypot check
+      const hp = form.querySelector<HTMLInputElement>('[name="website"]');
+      if (hp && hp.value) {
+        form.dataset.submitting = 'false';
+        if (submitBtn) submitBtn.disabled = false;
+        return;
+      }
       
       if (btnText && btnLoading) {
         btnText.style.display = 'none';
@@ -104,6 +173,9 @@ export function initForms() {
             </div>`;
         }
       } catch (err: any) {
+        // Reset submission state on error so user can retry
+        form.dataset.submitting = 'false';
+
         (window as any).dataLayer?.push({ event: 'form_error', form_id: formId, error: err.message });
 
         if (msgEl) {
@@ -127,11 +199,18 @@ export function initForms() {
   });
 }
 
+const runInit = () => {
+  initForms();
+  initPhoneMasks();
+};
+
 // Auto-initialize if imported directly in client scripts
 if (typeof document !== 'undefined') {
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initForms);
+    document.addEventListener('DOMContentLoaded', runInit);
   } else {
-    initForms();
+    runInit();
   }
 }
+
+

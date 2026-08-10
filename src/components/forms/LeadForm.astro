@@ -63,7 +63,7 @@ const {
   submitText = 'Enviar',
   fields = [
     { name: 'nome',       type: 'text',     placeholder: 'Nome',                                          required: true },
-    { name: 'telefone',   type: 'text',     placeholder: 'WhatsApp',                                      required: true },
+    { name: 'telefone',   type: 'tel',      placeholder: '(11) 90000-0000',                               required: true },
     { name: 'email',      type: 'email',    placeholder: 'E-mail',                                        required: true },
     { name: 'tipo',       type: 'select',   placeholder: '',                                              required: true,  options: [
       { value: '',                                    label: 'Tipo de evento',                     disabled: true, selected: true },
@@ -254,7 +254,7 @@ const groupCls  = (full?: boolean) => {
 </form>
 
 <script>
-  import { initForms } from '../../scripts/forms.ts';
+  import { initForms, initPhoneMasks } from '../../scripts/forms.ts';
   import flatpickr from 'flatpickr';
   import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
 
@@ -271,6 +271,7 @@ const groupCls  = (full?: boolean) => {
 
   function init() {
     initForms();
+    initPhoneMasks();
     initDatePickers();
   }
 

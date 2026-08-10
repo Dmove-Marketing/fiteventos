@@ -576,8 +576,13 @@ const {
       setDot(1);
     });
 
+    if (form.dataset.formInitialized === 'true') return;
+    form.dataset.formInitialized = 'true';
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      if (form.dataset.submitting === 'true') return;
 
       const honeypot = form.querySelector<HTMLInputElement>('[name="website"]');
       if (honeypot?.value) return;
@@ -590,6 +595,11 @@ const {
       const v2 = validateField(dataEl,     'wfw-data-err', 'Informe a data do evento.');
       const v3 = validateField(convidados, 'wfw-conv-err', 'Informe o número de convidados.');
       if (!v1 || !v2 || !v3) return;
+
+      form.dataset.submitting = 'true';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando…';
+      globalErr.hidden = true;
 
       const submitUrl = wrap.dataset.submitUrl!;
       const project   = wrap.dataset.project!;
@@ -611,10 +621,6 @@ const {
         },
       };
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Enviando…';
-      globalErr.hidden = true;
-
       try {
         const res = await fetch(submitUrl, {
           method: 'POST',
@@ -635,6 +641,7 @@ const {
           progress.hidden = true;
         }
       } catch {
+        form.dataset.submitting = 'false';
         globalErr.hidden = false;
         submitBtn.disabled = false;
         submitBtn.textContent = 'Enviar';
