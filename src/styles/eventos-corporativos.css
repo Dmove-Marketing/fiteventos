@@ -421,6 +421,9 @@
   }
   .estrutura-lead h2 { font-size: clamp(20px, 2vw, 35px); margin-bottom: 18px; }
   .estrutura-lead p { color: var(--text-muted); font-weight: 300; line-height: 1.85; }
+  @media (min-width: 901px) {
+    .estrutura-lead p { max-width: 640px; margin-left: auto; margin-right: auto; }
+  }
 
   .estrutura-grid {
     display: grid;
