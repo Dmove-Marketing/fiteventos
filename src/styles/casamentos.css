@@ -11,10 +11,11 @@
   --text-muted: #000000;   /* preto solido para melhor legibilidade (pedido da cliente) */
 }
 
-/* Remove destaque dourado dos titulos (h1/h2 em) */
+/* Remove destaque dourado e negrito dos titulos (h1/h2 em) */
 h1 em,
 h2 em {
   color: inherit;
+  font-weight: inherit;
 }
 
 /* Section Headers */
