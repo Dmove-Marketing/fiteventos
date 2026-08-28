@@ -180,7 +180,7 @@
     position: relative;
     z-index: 2;
     text-align: left;
-    padding: 120px 0 80px;
+    padding: 200px 0 80px;
     max-width: 880px;
     animation: fadeUp 1s 0.2s both;
   }
