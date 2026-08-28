@@ -7,6 +7,7 @@ import '../styles/global.css';
 import GTMHead from '../components/tracking/GTMHead.astro';
 import GTMBody from '../components/tracking/GTMBody.astro';
 import UTMCapture from '../components/tracking/UTMCapture.astro';
+import WhatsAppWidget from '../components/ui/WhatsAppWidget.astro';
 
 interface Props {
   title: string;
@@ -16,6 +17,9 @@ interface Props {
   noIndex?: boolean;
   theme?: 'dark' | 'light';
   jsonLd?: Record<string, any>;
+  hideWhatsApp?: boolean;
+  waHideEmail?: boolean;
+  waFixedTipoEvento?: string;
 }
 
 const {
@@ -26,12 +30,16 @@ const {
   noIndex = false,
   theme = 'dark',
   jsonLd,
+  hideWhatsApp = false,
+  waHideEmail = false,
+  waFixedTipoEvento = '',
 } = Astro.props;
 
 // Ler config do projeto
 import config from '../../config.json';
 const gtmId = config.tracking?.gtm_id || '';
 const trackingEnabled = config.tracking?.enabled !== false;
+const whatsappEnabled = (config as any).whatsapp?.enabled !== false;
 
 // JSON-LD padrão (Organization)
 const defaultJsonLd = {
@@ -93,6 +101,9 @@ const defaultJsonLd = {
 
     <!-- Conteúdo da página -->
     <slot />
+
+    <!-- WhatsApp widget conversacional (padrão Dmove) -->
+    {whatsappEnabled && !hideWhatsApp && <WhatsAppWidget hideEmail={waHideEmail} fixedTipoEvento={waFixedTipoEvento} />}
 
     <!-- Scripts adicionais -->
     <slot name="scripts" />

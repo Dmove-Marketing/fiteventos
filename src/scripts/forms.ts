@@ -1,75 +1,57 @@
-export function maskPhone(v: string): string {
-  let digits = v.replace(/\D/g, '');
-  if (digits.length > 11 && digits.startsWith('55')) {
-    digits = digits.slice(2);
-  }
-  digits = digits.slice(0, 11);
+import { keyMap, trackingParamKeys, getPageSource } from './lead-payload';
 
-  if (digits.length <= 10) {
-    return digits.replace(/^(\d{0,2})(\d{0,4})(\d{0,4})$/, (_, a, b, c) => {
-      if (!a) return '';
-      if (!b) return '(' + a;
-      if (!c) return '(' + a + ') ' + b;
-      return '(' + a + ') ' + b + '-' + c;
-    });
-  }
-  return digits.replace(/^(\d{0,2})(\d{0,5})(\d{0,4})$/, (_, a, b, c) => {
-    if (!a) return '';
-    if (!b) return '(' + a;
-    if (!c) return '(' + a + ') ' + b;
-    return '(' + a + ') ' + b + '-' + c;
+// Máscara pura de telefone (BR). Remove o DDI 55 quando digitado por engano.
+export function maskPhone(value: string): string {
+  let v = value.replace(/\D/g, '');
+  if (v.startsWith('55') && v.length > 11) v = v.slice(2);
+  if (v.length > 11) v = v.slice(0, 11);
+  if (v.length > 7) return `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
+  if (v.length > 2) return `(${v.slice(0, 2)}) ${v.slice(2)}`;
+  if (v.length > 0) return `(${v}`;
+  return '';
+}
+
+function applyPhoneMask(input: HTMLInputElement) {
+  input.addEventListener('input', () => {
+    input.value = maskPhone(input.value);
   });
 }
 
+// Compat: aplica a máscara em qualquer campo de telefone da página. Mantido para
+// os importadores existentes (LeadForm.astro). Idempotente via flag no elemento.
 export function initPhoneMasks(container: Document | HTMLElement = document) {
-  const telInputs = container.querySelectorAll<HTMLInputElement>(
-    'input[type="tel"], input[name="telefone"], input[name="phone"], input[name="whatsapp"]'
-  );
-  telInputs.forEach((input) => {
-    if (input.dataset.maskInitialized === 'true') return;
-    input.dataset.maskInitialized = 'true';
-
-    input.setAttribute('inputmode', 'numeric');
-    input.setAttribute('maxlength', '15');
-    if (!input.placeholder || input.placeholder === 'WhatsApp') {
-      input.placeholder = '(11) 90000-0000';
-    }
-
-    const applyMask = () => {
-      const pos = input.selectionStart ?? 0;
-      const prevLen = input.value.length;
-      input.value = maskPhone(input.value);
-      const diff = input.value.length - prevLen;
-      input.setSelectionRange(pos + diff, pos + diff);
-    };
-
-    input.addEventListener('input', applyMask);
-    input.addEventListener('blur', applyMask);
-
-    if (input.value) {
-      applyMask();
-    }
-  });
+  container
+    .querySelectorAll<HTMLInputElement>('input[type="tel"], input[name="telefone"], input[name="whatsapp"]')
+    .forEach((el) => {
+      if ((el as any).__phoneMasked) return;
+      (el as any).__phoneMasked = true;
+      applyPhoneMask(el);
+    });
 }
 
 export function initForms() {
-  initPhoneMasks();
-
   const forms = document.querySelectorAll<HTMLFormElement>('form[data-form-id]');
   forms.forEach((form) => {
-    // Prevent attaching duplicate event listeners if initForms is called multiple times
-    if (form.dataset.formInitialized === 'true') return;
-    form.dataset.formInitialized = 'true';
+    if ((form as any).__formsInitialized) return;
+    (form as any).__formsInitialized = true;
 
     let started = false;
     const formId  = form.dataset.formId!;
     const project = form.dataset.project || window.location.hostname;
-    
-    const apiUrl  = form.dataset.apiUrl ?? '';
-    const submitUrl = form.dataset.submitUrl || (apiUrl ? `${apiUrl}/submit` : null);
+
+    const isPhoneField = (el: HTMLInputElement) => {
+      const n = (el.name || '').toLowerCase();
+      return n === 'telefone' || n === 'whatsapp' || el.type === 'tel';
+    };
+
+    form.querySelectorAll<HTMLInputElement>('input').forEach((input) => {
+      if (isPhoneField(input)) applyPhoneMask(input);
+    });
+
+    const submitUrl   = form.dataset.submitUrl;
     const redirectUrl = form.dataset.redirect;
-    const gridId    = form.dataset.gridId;
-    const successId = form.dataset.successId;
+    const gridId      = form.dataset.gridId;
+    const successId   = form.dataset.successId;
 
     if (!submitUrl) {
       console.warn(`[Forms] Formulário ${formId} sem URL de webhook (data-submit-url).`);
@@ -79,41 +61,120 @@ export function initForms() {
     form.addEventListener('focusin', () => {
       if (!started) {
         started = true;
-        (window as any).dataLayer?.push({ event: 'form_start', form_id: formId, project });
+        (window as any).dataLayer?.push({ event: 'form_start', form_source: 'form', form_id: formId, project });
       }
     });
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    const submitBtn = form.querySelector<HTMLButtonElement>('.form-submit, [type="button"], [type="submit"]');
 
-      // Prevent duplicate processing if submission is already in-flight
-      if (form.dataset.submitting === 'true') return;
-
-      const submitBtn  = form.querySelector<HTMLButtonElement>('.form-submit, [type="submit"]');
-      const btnText    = submitBtn?.querySelector<HTMLElement>('.btn-text');
-      const btnLoading = submitBtn?.querySelector<HTMLElement>('.btn-loading');
-      
-      const msgEl = gridId 
-        ? document.getElementById(gridId)?.querySelector('[id$="FormMsg"]') as HTMLElement | null 
-        : form.querySelector('.form-error') as HTMLElement | null;
-
-      // Lock form submission state immediately
-      form.dataset.submitting = 'true';
-      if (submitBtn) submitBtn.disabled = true;
-
-      // Honeypot check
+    const handleSubmit = async () => {
       const hp = form.querySelector<HTMLInputElement>('[name="website"]');
-      if (hp && hp.value) {
-        form.dataset.submitting = 'false';
-        if (submitBtn) submitBtn.disabled = false;
+      if (hp && hp.value) return;
+
+      // Validação de campos obrigatórios
+      let firstInvalid: HTMLElement | null = null;
+      let isValid = true;
+
+      form.querySelectorAll<HTMLElement>('[required]').forEach((field) => {
+        const isEmpty =
+          !(field as HTMLInputElement).value ||
+          (field.tagName === 'SELECT' && (field as HTMLSelectElement).value === '');
+
+        if (isEmpty) {
+          isValid = false;
+          (field as HTMLElement).style.borderColor = '#ef4444';
+          (field as HTMLElement).style.outline = '2px solid #ef4444';
+          if (!firstInvalid) firstInvalid = field;
+          const clearError = () => {
+            (field as HTMLElement).style.removeProperty('border-color');
+            (field as HTMLElement).style.removeProperty('outline');
+            field.removeEventListener('input', clearError);
+            field.removeEventListener('change', clearError);
+          };
+          field.addEventListener('input', clearError);
+          field.addEventListener('change', clearError);
+        }
+      });
+
+      // Validação de formato: email
+      form.querySelectorAll<HTMLInputElement>('input[type="email"]').forEach((field) => {
+        if (!field.value) return; // campo vazio já capturado pelo required acima
+        const ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(field.value);
+        if (!ok) {
+          isValid = false;
+          (field as HTMLElement).style.borderColor = '#ef4444';
+          (field as HTMLElement).style.outline = '2px solid #ef4444';
+          if (!firstInvalid) firstInvalid = field;
+          const clear = () => {
+            (field as HTMLElement).style.removeProperty('border-color');
+            (field as HTMLElement).style.removeProperty('outline');
+            field.removeEventListener('input', clear);
+          };
+          field.addEventListener('input', clear);
+        }
+      });
+
+      // Validação de formato: telefone (mínimo 10 dígitos — DDD + número, sem DDI 55)
+      form.querySelectorAll<HTMLInputElement>('input').forEach((field) => {
+        if (!isPhoneField(field) || !field.value) return;
+        const digits = field.value.replace(/\D/g, '');
+        const startsWith55 = digits.startsWith('55');
+        if (digits.length < 10 || startsWith55) {
+          isValid = false;
+          (field as HTMLElement).style.borderColor = '#ef4444';
+          (field as HTMLElement).style.outline = '2px solid #ef4444';
+          if (!firstInvalid) firstInvalid = field;
+
+          let errorEl = field.parentElement?.querySelector('.field-error, .lead-form-field-error') as HTMLElement | null;
+          if (!errorEl && field.parentElement) {
+            errorEl = document.createElement('span');
+            errorEl.className = 'field-error';
+            errorEl.style.color = '#ef4444';
+            errorEl.style.fontSize = '0.78rem';
+            errorEl.style.marginTop = '4px';
+            field.parentElement.appendChild(errorEl);
+          }
+
+          if (errorEl) {
+            errorEl.textContent = startsWith55
+              ? 'Não inclua o DDI 55. Digite apenas DDD + telefone (ex: 11 99999-9999).'
+              : 'Por favor, informe um telefone válido com DDD (mínimo 10 dígitos).';
+            errorEl.style.display = 'block';
+            errorEl.classList.add('visible');
+          }
+
+          const clear = () => {
+            (field as HTMLElement).style.removeProperty('border-color');
+            (field as HTMLElement).style.removeProperty('outline');
+            if (errorEl) {
+              errorEl.style.display = 'none';
+              errorEl.classList.remove('visible');
+            }
+            field.removeEventListener('input', clear);
+          };
+          field.addEventListener('input', clear);
+        }
+      });
+
+      if (!isValid) {
+        firstInvalid!.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        (firstInvalid as HTMLElement).focus();
         return;
       }
-      
+
+      const btnText    = submitBtn?.querySelector<HTMLElement>('.btn-text');
+      const btnLoading = submitBtn?.querySelector<HTMLElement>('.btn-loading');
+
+      const msgEl = gridId
+        ? document.getElementById(gridId)?.querySelector('[id$="FormMsg"]') as HTMLElement | null
+        : form.querySelector('.form-error') as HTMLElement | null;
+
+      if (submitBtn) submitBtn.disabled = true;
+
       if (btnText && btnLoading) {
         btnText.style.display = 'none';
         btnLoading.style.display = 'inline-flex';
       } else if (submitBtn && !submitBtn.querySelector('.btn-loading')) {
-        // Fallback for raw HTML forms without the loading span
         const originalText = submitBtn.innerHTML;
         submitBtn.dataset.originalText = originalText;
         submitBtn.innerHTML = 'Enviando...';
@@ -122,18 +183,47 @@ export function initForms() {
       if (msgEl) msgEl.style.display = 'none';
 
       const formData = new FormData(form);
-      const data: Record<string, string> = {};
-      formData.forEach((v, k) => { if (k !== 'website') data[k] = v.toString(); });
+      const rawData: Record<string, string> = {};
+      formData.forEach((v, k) => { if (k !== 'website') rawData[k] = v.toString(); });
 
       const trackingRaw = sessionStorage.getItem('dmove_tracking');
-      const tracking    = trackingRaw ? JSON.parse(trackingRaw) : {};
-      const firstVisit  = sessionStorage.getItem('dmove_first_visit') || '';
+      const tracking: Record<string, string> = trackingRaw ? JSON.parse(trackingRaw) : {};
 
-      const payload = {
-        project,
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('pt-BR');
+      const timeStr = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+
+      const capitalizedFields: Record<string, string> = {};
+      let fonteBase = rawData['fonte'] || form.dataset.fonte || getPageSource(window.location.pathname);
+      Object.entries(rawData).forEach(([key, val]) => {
+        if (key === 'fonte') return;
+        const normalizedKey = key.trim().toLowerCase();
+        const mappedKey = keyMap[normalizedKey] || (key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' '));
+        capitalizedFields[mappedKey] = val;
+      });
+
+      const qs = new URLSearchParams();
+      trackingParamKeys.forEach(k => { if (tracking[k]) qs.set(k, tracking[k]); });
+      const fonte = qs.toString() ? `${fonteBase}?${qs.toString()}` : fonteBase;
+
+      // Campos Meta CAPI — enviados também como campos flat para uso direto no n8n
+      const metaCapi: Record<string, string> = {};
+      if (tracking['fbc'])         metaCapi['fbc']         = tracking['fbc'];
+      if (tracking['fbp'])         metaCapi['fbp']         = tracking['fbp'];
+      if (tracking['external_id']) metaCapi['external_id'] = tracking['external_id'];
+      if (tracking['event_id'])    metaCapi['event_id']    = tracking['event_id'];
+
+      const payload: Record<string, string> = {
+        ...capitalizedFields,
+        Fonte: fonte,
+        Data: dateStr,
+        'Horário': timeStr,
+        'URL da página': window.location.href,
+        'Agente de usuário': navigator.userAgent,
+        'Desenvolvido por': 'Dmove',
         form_id: formId,
-        data,
-        tracking: { ...tracking, first_visit: firstVisit, submitted_at: new Date().toISOString(), page_url: window.location.href },
+        form_name: formId,
+        ...metaCapi,
       };
 
       try {
@@ -148,7 +238,15 @@ export function initForms() {
         let json: any = {};
         try { json = await res.json(); } catch {}
 
-        (window as any).dataLayer?.push({ event: 'form_submit', form_id: formId, project, ...data });
+        // dataLayer limpo, SEM PII (o GTM lê e-mail/telefone/nome do DOM via Enhanced Conversions)
+        (window as any).dataLayer?.push({
+          event: 'form_submit',
+          form_source: 'form',
+          form_id: formId,
+          project,
+          tipo_evento: rawData['tipo_evento'] || '',
+          event_id: tracking['event_id'] || (window as any).__page_event_id || '',
+        });
 
         const redir = redirectUrl || json.redirect;
         if (redir) {
@@ -156,7 +254,6 @@ export function initForms() {
           return;
         }
 
-        // Show success state
         const gridEl    = gridId    ? document.getElementById(gridId)    : null;
         const successEl = successId ? document.getElementById(successId) : null;
 
@@ -164,19 +261,15 @@ export function initForms() {
           gridEl.style.display = 'none';
           successEl.classList.add('active');
         } else {
-          // Replace form content with success message if no specific grid/success elements
           form.innerHTML = `
-            <div class="form-success" style="text-align: center; padding: 2rem;">
-              <div class="form-success-icon" style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; background: #2563eb; border-radius: 50%; font-size: 1.5rem; color: white;">✓</div>
-              <h3 class="form-success-title" style="font-size: 1.15rem; font-weight: 600; margin-bottom: 4px;">Enviado com sucesso!</h3>
-              <p class="form-success-text" style="color: #666; font-size: 0.9rem;">Em breve entraremos em contato.</p>
+            <div style="text-align:center;padding:2rem;">
+              <div style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;background:var(--color-primary,#2563eb);border-radius:50%;color:white;">✓</div>
+              <h3 style="font-size:1.15rem;font-weight:600;margin-bottom:4px;">Enviado com sucesso!</h3>
+              <p style="color:#666;font-size:0.9rem;">Em breve entraremos em contato.</p>
             </div>`;
         }
       } catch (err: any) {
-        // Reset submission state on error so user can retry
-        form.dataset.submitting = 'false';
-
-        (window as any).dataLayer?.push({ event: 'form_error', form_id: formId, error: err.message });
+        (window as any).dataLayer?.push({ event: 'form_error', form_source: 'form', form_id: formId, error: err.message });
 
         if (msgEl) {
           msgEl.innerHTML = 'Erro ao enviar. Tente novamente mais tarde.';
@@ -188,29 +281,30 @@ export function initForms() {
         if (submitBtn) {
           submitBtn.disabled = false;
           if (btnText && btnLoading) {
-             btnText.style.display = 'inline';
-             btnLoading.style.display = 'none';
+            btnText.style.display = 'inline';
+            btnLoading.style.display = 'none';
           } else if (submitBtn.dataset.originalText) {
-             submitBtn.innerHTML = submitBtn.dataset.originalText;
+            submitBtn.innerHTML = submitBtn.dataset.originalText;
           }
+        }
+      }
+    };
+
+    if (submitBtn) {
+      submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        handleSubmit();
+      });
+    }
+
+    form.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && e.target instanceof HTMLElement) {
+        const tag = e.target.tagName.toLowerCase();
+        if (tag !== 'textarea' && tag !== 'button') {
+          e.preventDefault();
+          handleSubmit();
         }
       }
     });
   });
 }
-
-const runInit = () => {
-  initForms();
-  initPhoneMasks();
-};
-
-// Auto-initialize if imported directly in client scripts
-if (typeof document !== 'undefined') {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', runInit);
-  } else {
-    runInit();
-  }
-}
-
-

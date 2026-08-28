@@ -3,7 +3,9 @@
    Template para todos os projetos
    ======================================== */
 
-@import 'flatpickr/dist/flatpickr.min.css';
+/* flatpickr CSS NÃO é importado aqui (era render-blocking em todas as páginas).
+   É carregado sob demanda de /vendor/flatpickr.min.css quando o campo de data
+   é usado — ver LeadForm.astro e WhatsAppWidget.astro. */
 
 /* === Reset === */
 *,

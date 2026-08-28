@@ -7,9 +7,16 @@
     "gtm_id": "GTM-K2CRCWQB",
     "enabled": true
   },
+  "whatsapp": {
+    "phone": "551132620819",
+    "display_name": "Espaço Fit Eventos",
+    "avatar": "/images/avatar.png",
+    "enabled": true
+  },
   "forms": {
     "lead-form": {
       "id": "lead-form",
+      "preset": "social",
       "redirect_on_success": "",
       "webhooks": [
         "https://server3n8n.dmove.com.br/webhook/fit-eventos"

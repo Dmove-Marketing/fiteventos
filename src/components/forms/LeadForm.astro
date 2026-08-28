@@ -156,23 +156,23 @@ const groupCls  = (full?: boolean) => {
           <div class={cxRow}>
             {row.fields.map((f) => (
               <div class={groupCls(f.full)}>
-                {f.label && <label class={cxLabel} for={f.id ?? f.name}>{f.label}</label>}
+                {f.label && <label class={cxLabel} for={f.id ?? `form-field-${f.name}`}>{f.label}</label>}
                 {f.type === 'select' ? (
-                  <select class={cxSelect} name={f.name} id={f.id ?? f.name} required={f.required}>
+                  <select class={cxSelect} name={f.name} id={f.id ?? `form-field-${f.name}`} required={f.required}>
                     {f.options?.map((opt) => (
                       <option value={opt.value} disabled={opt.disabled} selected={opt.selected}>{opt.label}</option>
                     ))}
                   </select>
                 ) : f.type === 'textarea' ? (
-                  <textarea class={cxArea} name={f.name} id={f.id ?? f.name} rows={f.rows ?? 4} placeholder={f.placeholder} required={f.required}></textarea>
+                  <textarea class={cxArea} name={f.name} id={f.id ?? `form-field-${f.name}`} rows={f.rows ?? 4} placeholder={f.placeholder} required={f.required}></textarea>
                 ) : f.type === 'hidden' ? (
-                  <input type="hidden" name={f.name} id={f.id ?? f.name} value={f.value} />
+                  <input type="hidden" name={f.name} id={f.id ?? `form-field-${f.name}`} value={f.value} />
                 ) : (
                   <input
                     class={cxInput}
                     type={f.type}
                     name={f.name}
-                    id={f.id ?? f.name}
+                    id={f.id ?? `form-field-${f.name}`}
                     placeholder={f.placeholder}
                     required={f.required}
                     autocomplete={f.autocomplete}
@@ -193,26 +193,26 @@ const groupCls  = (full?: boolean) => {
       const f = fieldOrRow as Field;
 
       if (f.type === 'hidden') {
-        return <input type="hidden" name={f.name} id={f.id ?? f.name} value={f.value} />;
+        return <input type="hidden" name={f.name} id={f.id ?? `form-field-${f.name}`} value={f.value} />;
       }
 
       return (
         <div class={groupCls(f.full)}>
-          {f.label && <label class={cxLabel} for={f.id ?? f.name}>{f.label}</label>}
+          {f.label && <label class={cxLabel} for={f.id ?? `form-field-${f.name}`}>{f.label}</label>}
           {f.type === 'select' ? (
-            <select class={cxSelect} name={f.name} id={f.id ?? f.name} required={f.required}>
+            <select class={cxSelect} name={f.name} id={f.id ?? `form-field-${f.name}`} required={f.required}>
               {f.options?.map((opt) => (
                 <option value={opt.value} disabled={opt.disabled} selected={opt.selected}>{opt.label}</option>
               ))}
             </select>
           ) : f.type === 'textarea' ? (
-            <textarea class={cxArea} name={f.name} id={f.id ?? f.name} rows={f.rows ?? 4} placeholder={f.placeholder} required={f.required}></textarea>
+            <textarea class={cxArea} name={f.name} id={f.id ?? `form-field-${f.name}`} rows={f.rows ?? 4} placeholder={f.placeholder} required={f.required}></textarea>
           ) : (
             <input
               class={cxInput}
               type={f.type}
               name={f.name}
-              id={f.id ?? f.name}
+              id={f.id ?? `form-field-${f.name}`}
               placeholder={f.placeholder}
               required={f.required}
               autocomplete={f.autocomplete}
@@ -255,17 +255,48 @@ const groupCls  = (full?: boolean) => {
 
 <script>
   import { initForms, initPhoneMasks } from '../../scripts/forms.ts';
-  import flatpickr from 'flatpickr';
-  import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
+
+  // flatpickr (~50KB + CSS) é carregado sob demanda, só quando o usuário
+  // interage com o campo de data — fora do caminho crítico do primeiro load.
+  let _fp: any = null;
+  function ensureFlatpickrCss() {
+    if (document.getElementById('flatpickr-css')) return;
+    const l = document.createElement('link');
+    l.id = 'flatpickr-css';
+    l.rel = 'stylesheet';
+    l.href = '/vendor/flatpickr.min.css';
+    document.head.appendChild(l);
+  }
+  async function ensureFlatpickr() {
+    if (!_fp) {
+      ensureFlatpickrCss();
+      const [fp, l10n] = await Promise.all([
+        import('flatpickr'),
+        import('flatpickr/dist/l10n/pt.js'),
+      ]);
+      _fp = { flatpickr: fp.default, Portuguese: l10n.Portuguese };
+    }
+    return _fp;
+  }
 
   function initDatePickers() {
     document.querySelectorAll<HTMLInputElement>('[data-flatpickr]').forEach((el) => {
-      flatpickr(el, {
-        locale: Portuguese,
-        dateFormat: 'd/m/Y',
-        minDate: 'today',
-        disableMobile: true,
-      });
+      if ((el as any).dataset.fpLazy) return;
+      (el as any).dataset.fpLazy = '1';
+      const onOpen = async () => {
+        el.removeEventListener('focus', onOpen);
+        el.removeEventListener('click', onOpen);
+        const { flatpickr, Portuguese } = await ensureFlatpickr();
+        const inst = flatpickr(el, {
+          locale: Portuguese,
+          dateFormat: 'd/m/Y',
+          minDate: 'today',
+          disableMobile: true,
+        });
+        inst.open();
+      };
+      el.addEventListener('focus', onOpen);
+      el.addEventListener('click', onOpen);
     });
   }
 
