@@ -76,13 +76,9 @@ const defaultJsonLd = {
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/webp" href="/favicon.webp" />
 
-    <!-- Fonts — Inter (ajustar por projeto) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Fonts — Inter self-hosted (mesmo domínio, sem conexão a terceiros) -->
+    <link rel="preload" href="/fonts/Inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/fonts/inter.css" />
 
     <!-- GTM Head -->
     {trackingEnabled && gtmId && <GTMHead gtmId={gtmId} />}

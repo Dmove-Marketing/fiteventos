@@ -3,19 +3,33 @@
 (function () {
   window.dataLayer = window.dataLayer || [];
 
-  // ── Hero carousel
+  // ── Hero carousel (carregamento sob demanda dos slides 2-6)
   (function () {
     var dSlides = document.querySelectorAll('#hero-slides .hero-d');
     var mSlides = document.querySelectorAll('#hero-slides .hero-m');
     if (!dSlides.length || !mSlides.length) return;
+
+    // Carrega a imagem de um slide — só se visível (pula os display:none do outro
+    // viewport, p/ não baixar a versão desktop no mobile e vice-versa).
+    function loadSlide(idx) {
+      [dSlides[idx], mSlides[idx]].forEach(function (slide) {
+        if (!slide || slide.offsetParent === null) return;
+        var img = slide.querySelector('img[data-src]');
+        if (img) { img.src = img.getAttribute('data-src'); img.removeAttribute('data-src'); }
+      });
+    }
+
     var current = 0;
     var total = dSlides.length;
+    loadSlide(1); // pré-carrega o próximo slide
+
     setInterval(function () {
       dSlides[current].classList.remove('active');
       mSlides[current].classList.remove('active');
       current = (current + 1) % total;
       dSlides[current].classList.add('active');
       mSlides[current].classList.add('active');
+      loadSlide((current + 1) % total); // pré-carrega o seguinte
     }, 4500);
   })();
 

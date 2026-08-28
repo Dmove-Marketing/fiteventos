@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 
 interface Props {
   src: string;
@@ -8,6 +8,8 @@ interface Props {
   height?: number;
   /** true = eager + fetchpriority high (use na imagem LCP/hero) */
   priority?: boolean;
+  /** true = renderiza data-src (sem baixar) — JS carrega sob demanda (ex.: slides de carrossel não-ativos) */
+  defer?: boolean;
   quality?: number;
   class?: string;
   style?: string;
@@ -19,6 +21,7 @@ const {
   width = 1200,
   height,
   priority = false,
+  defer = false,
   quality = 80,
   class: className,
   style,
@@ -35,9 +38,26 @@ const mod = images[key];
 if (!mod) {
   console.warn(`[Img] imagem não encontrada: ${key}`);
 }
+
+// Modo defer: gera a URL otimizada mas NÃO baixa (fica em data-src). Usado nos
+// slides não-ativos do hero para não puxar 6 imagens no primeiro load.
+const deferred = defer && mod ? await getImage({ src: mod.default, width, height, quality }) : null;
+const blankPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
 ---
 
-{mod ? (
+{deferred ? (
+  <img
+    src={blankPixel}
+    data-src={deferred.src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading="lazy"
+    decoding="async"
+    class={className}
+    style={style}
+  />
+) : mod ? (
   <Image
     src={mod.default}
     alt={alt}
