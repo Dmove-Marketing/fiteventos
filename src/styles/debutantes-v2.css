@@ -1573,21 +1573,16 @@
                 display: none
             }
 
-            /* Scroll tipo "reels": hero → vídeo → 3ª seção encaixam inteiros ao
-               puxar; a partir da 3ª, rolagem normal. Usamos "proximity" (e não
-               "mandatory") de propósito: mandatory prende o dedo na 3ª seção,
-               que é alta. Proximity dá o encaixe nas telas cheias sem travar. */
+            /* Clip horizontal robusto (evita "abrir espaço" ao arrastar) */
             html {
-                scroll-snap-type: y proximity;
+                overflow-x: hidden;
             }
 
+            /* (scroll-snap vertical removido — estava travando com o 100dvh) */
             .hero,
             .sobre,
             .ambientes {
-                padding: 56px 20px 64px;
-                scroll-snap-align: start;
-                scroll-snap-stop: always;
-                scroll-margin-top: 0
+                padding: 56px 20px 64px
             }
 
             .ambientes-header {
@@ -1792,7 +1787,7 @@
                 scroll-snap-type: x mandatory;
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
-                margin: 0 -20px;
+                margin: 0;
                 padding: 0 20px 64px
             }
 
