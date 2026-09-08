@@ -5,6 +5,7 @@ import { getImage } from 'astro:assets';
 import config from '../../config.json';
 import Img from '../components/ui/Img.astro';
 import StoriesReels from '../components/ui/StoriesReels.astro';
+import Video from '../components/ui/Video.astro';
 import LeadForm from '../components/forms/LeadForm.astro';
 import '../styles/debutantes-v2.css';
 
@@ -75,7 +76,12 @@ const heroMobile = await getImage({ src: heroMobileSrc, width: 800, quality: 78 
 
 
     <section class="sobre">
-        <div class="sobre-media">
+        <!-- Desktop: vídeo horizontal (v2) -->
+        <div class="sobre-media sobre-media--d">
+            <Video src="https://lp.espacofiteventos.com.br/video.debutantes.mp4" poster="" title="Conheça o Espaço Fit Eventos" description="Um tour pelo espaço de festa de 15 anos do Espaço Fit Eventos." uploadDate="2026-05-18" duration="PT2M42S" />
+        </div>
+        <!-- Mobile: Stories vertical -->
+        <div class="sobre-media sobre-media--m">
             <StoriesReels
               poster="https://lp.espacofiteventos.com.br/reels/poster.jpg"
               title="Conheça o Espaço Fit Eventos"

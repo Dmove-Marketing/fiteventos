@@ -117,25 +117,53 @@
     track.addEventListener('touchend', function () { autoInterval = setInterval(moveNext, 5000); });
   })();
 
-  // ── Scroll reveal
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
+  // ── Scroll reveal (à prova de falha: o conteúdo nasce com opacity:0 no HTML,
+  // então NUNCA pode depender só do observer. Anima ao entrar na viewport, mas
+  // garante a revelação de qualquer jeito — sem IO, elemento já visível no load,
+  // ou rede de segurança por timeout.)
+  (function () {
+    var targets = document.querySelectorAll(
+      '.sobre-content, .estrutura-header, .gastronomia-header, .diferenciais-header, .depoimentos, .contato-info, .contato-form-wrap, .galeria-header'
+    );
+    if (!targets.length) return;
+
+    function reveal(el) {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }
+
+    targets.forEach(function (el) {
+      el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    });
+
+    // Fallback total: sem IntersectionObserver, revela tudo já.
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach(reveal);
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          reveal(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px 80px 0px' });
+
+    targets.forEach(function (el) {
+      // Já visível no carregamento? Revela na hora (evita ficar preso invisível).
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        reveal(el);
+      } else {
+        observer.observe(el);
       }
     });
-  }, { threshold: 0.05, rootMargin: '0px 0px 80px 0px' });
 
-  document.querySelectorAll(
-    '.sobre-content, .estrutura-header, .gastronomia-header, .diferenciais-header, .depoimentos, .contato-info, .contato-form-wrap, .galeria-header'
-  ).forEach(function (el) {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(24px)';
-    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    observer.observe(el);
-  });
+    // Rede de segurança: se o observer não disparar por qualquer motivo
+    // (timing/layout/re-render), garante que nada permaneça invisível.
+    setTimeout(function () { targets.forEach(reveal); }, 1600);
+  })();
 
   // ── Slideshow gastronomia (crossfade — só no desktop, onde o layout v2 aparece)
   (function () {
