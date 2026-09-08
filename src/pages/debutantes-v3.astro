@@ -6,7 +6,7 @@ import config from '../../config.json';
 import Img from '../components/ui/Img.astro';
 import StoriesReels from '../components/ui/StoriesReels.astro';
 import LeadForm from '../components/forms/LeadForm.astro';
-import '../styles/debutantes-v2.css';
+import '../styles/debutantes-v3.css';
 
 // LCP do hero: gera as URLs otimizadas (mesmos params do componente Img) para
 // pré-carregar a imagem certa por viewport — baixa UMA só, com prioridade alta.
@@ -346,5 +346,5 @@ const heroMobile = await getImage({ src: heroMobileSrc, width: 800, quality: 78 
     </footer>
 </Base>
 <script>
-  import '../scripts/debutantes-v2.js';
+  import '../scripts/debutantes-v3.js';
 </script>

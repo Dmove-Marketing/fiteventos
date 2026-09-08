@@ -557,12 +557,22 @@ const introMessages = [
     if (persist) { try { sessionStorage.setItem('wa_teaser_off', '1'); } catch (_) {} }
   }
   if (teaser && !sessionStorage.getItem('wa_teaser_off') && state.idx === 0 && !state.done) {
-    setTimeout(() => {
-      if (popup.hidden) {
-        teaser.hidden = false;
-        requestAnimationFrame(() => teaser.classList.add('wa-teaser--in'));
-      }
-    }, 4500);
+    // Aparece só 6s DEPOIS da 1ª interação (scroll/toque/clique/tecla) — não
+    // incomoda quem acabou de chegar; espera o usuário engajar com a página.
+    var teaserEvents = ['scroll', 'pointerdown', 'touchstart', 'keydown'];
+    var teaserArmed = false;
+    var onFirstInteraction = function () {
+      if (teaserArmed) return;
+      teaserArmed = true;
+      teaserEvents.forEach(function (ev) { window.removeEventListener(ev, onFirstInteraction); });
+      setTimeout(function () {
+        if (popup.hidden && !sessionStorage.getItem('wa_teaser_off')) {
+          teaser.hidden = false;
+          requestAnimationFrame(function () { teaser.classList.add('wa-teaser--in'); });
+        }
+      }, 6000);
+    };
+    teaserEvents.forEach(function (ev) { window.addEventListener(ev, onFirstInteraction, { passive: true }); });
   }
   document.getElementById('wa-teaser-close')?.addEventListener('click', (e) => {
     e.stopPropagation();

@@ -280,24 +280,32 @@ const groupCls  = (full?: boolean) => {
   }
 
   function initDatePickers() {
-    document.querySelectorAll<HTMLInputElement>('[data-flatpickr]').forEach((el) => {
-      if ((el as any).dataset.fpLazy) return;
-      (el as any).dataset.fpLazy = '1';
-      const onOpen = async () => {
-        el.removeEventListener('focus', onOpen);
-        el.removeEventListener('click', onOpen);
-        const { flatpickr, Portuguese } = await ensureFlatpickr();
-        const inst = flatpickr(el, {
+    const dateEls = Array.from(document.querySelectorAll<HTMLInputElement>('[data-flatpickr]'));
+    if (!dateEls.length) return;
+    const scope: Document | HTMLElement = dateEls[0].closest('form') || document;
+
+    let armed = false;
+    const arm = async () => {
+      if (armed) return;
+      armed = true;
+      const { flatpickr, Portuguese } = await ensureFlatpickr();
+      dateEls.forEach((el) => {
+        if ((el as any).__fp) return;
+        (el as any).__fp = flatpickr(el, {
           locale: Portuguese,
           dateFormat: 'd/m/Y',
           minDate: 'today',
-          disableMobile: true,
+          // No celular usa o seletor de data NATIVO do sistema (melhor no toque);
+          // no desktop, o calendário estilizado do flatpickr.
+          disableMobile: false,
         });
-        inst.open();
-      };
-      el.addEventListener('focus', onOpen);
-      el.addEventListener('click', onOpen);
-    });
+      });
+    };
+
+    // Pré-carrega ao começar a preencher o form → data abre "de primeira".
+    scope.addEventListener('focusin', arm, { once: true });
+    // Se o 1º toque for direto no campo de data, também dispara o carregamento.
+    dateEls.forEach((el) => el.addEventListener('click', arm));
   }
 
   function init() {
