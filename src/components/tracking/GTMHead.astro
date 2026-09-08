@@ -7,11 +7,36 @@ interface Props {
 const { gtmId } = Astro.props;
 ---
 
-<!-- Google Tag Manager -->
+<!-- Google Tag Manager (carregamento adiado: 1ª interação ou 3,5s) -->
 <script define:vars={{ gtmId }}>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer',gtmId);
+  // dataLayer disponível já — qualquer push da página fica enfileirado até o GTM subir.
+  window.dataLayer = window.dataLayer || [];
+
+  // Adia a injeção do gtm.js (que puxa FB Pixel, Clarity, etc.) para fora do
+  // caminho crítico. Dispara na 1ª interação real OU num fallback de 3,5s — o
+  // que vier primeiro. Conversões (form/WhatsApp) só ocorrem após interação,
+  // então o GTM já estará carregado; click IDs são capturados à parte pelo
+  // UTMCapture, então a atribuição não depende deste timing.
+  (function (w, d, i) {
+    var loaded = false;
+    var events = ['scroll', 'pointerdown', 'touchstart', 'keydown', 'mousemove'];
+    var timer;
+
+    function load() {
+      if (loaded) return;
+      loaded = true;
+      clearTimeout(timer);
+      events.forEach(function (e) { w.removeEventListener(e, load, { passive: true }); });
+
+      w.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName('script')[0];
+      var j = d.createElement('script');
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i;
+      f.parentNode.insertBefore(j, f);
+    }
+
+    events.forEach(function (e) { w.addEventListener(e, load, { passive: true }); });
+    timer = setTimeout(load, 3500);
+  })(window, document, gtmId);
 </script>

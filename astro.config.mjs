@@ -12,7 +12,9 @@ export default defineConfig({
 
   // Build otimizado
   build: {
-    inlineStylesheets: 'auto',
+    // Inline de todo o CSS da página no HTML — remove os requests render-blocking
+    // (debutantes-v2.css, LeadForm.css, etc.) do caminho crítico.
+    inlineStylesheets: 'always',
   },
 
   // Dev server

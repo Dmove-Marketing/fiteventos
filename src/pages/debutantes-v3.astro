@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import { getImage } from 'astro:assets';
 import config from '../../config.json';
 import Img from '../components/ui/Img.astro';
+import Video from '../components/ui/Video.astro';
 import StoriesReels from '../components/ui/StoriesReels.astro';
 import LeadForm from '../components/forms/LeadForm.astro';
 import '../styles/debutantes-v2.css';
@@ -75,7 +76,12 @@ const heroMobile = await getImage({ src: heroMobileSrc, width: 800, quality: 78 
 
 
     <section class="sobre">
-        <div class="sobre-media">
+        <!-- Desktop: vídeo horizontal (v2) -->
+        <div class="sobre-media sobre-media--d">
+            <Video src="https://lp.espacofiteventos.com.br/video.debutantes.mp4" poster="" title="Conheça o Espaço Fit Eventos" description="Um tour pelo espaço de festa de 15 anos do Espaço Fit Eventos." uploadDate="2026-05-18" duration="PT2M42S" />
+        </div>
+        <!-- Mobile: Stories vertical -->
+        <div class="sobre-media sobre-media--m">
             <StoriesReels
               poster="https://lp.espacofiteventos.com.br/reels/poster.jpg"
               title="Conheça o Espaço Fit Eventos"
@@ -137,35 +143,64 @@ const heroMobile = await getImage({ src: heroMobileSrc, width: 800, quality: 78 
     </section>
 
     <section class="gastronomia" id="gastronomia">
-        <div class="gastronomia-header">
-            <span class="section-tag">Gastronomia</span>
-            <h2 class="section-title">Uma experiência gastronômica <br class="br-m"><em>à altura da sua noite</em></h2>
-            <p class="gastronomia-desc">Menus autorais com a assinatura do premiado <b>Chef Dalton Rangel</b>, do jantar completo às ilhas interativas — com opções vegetarianas e veganas e experiências teens que surpreendem a debutante e os convidados.</p>
-            <p class="gastronomia-desc-m">Menus autorais assinados pelo premiado <b>Chef Dalton Rangel</b>.</p>
-            <div class="gastro-tags" aria-label="Experiências gastronômicas">
-                <div class="gastro-tags-track">
+        <!-- Desktop: layout v2 (slideshow + conteúdo) -->
+        <div class="gastro-desktop">
+            <div class="gastro-img">
+                <div class="gastro-slides">
+                    <div class="gastro-slide active"><Img src="gastronomia.debutantes01.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
+                    <div class="gastro-slide"><Img src="gastronomia.debutantes02.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
+                    <div class="gastro-slide"><Img src="gastronomia.debutantes03.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
+                    <div class="gastro-slide"><Img src="gastronomia.debutantes04.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
+                    <div class="gastro-slide"><Img src="gastronomia.debutantes05.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
+                    <div class="gastro-slide"><Img src="gastronomia.debutantes06.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
+                </div>
+            </div>
+            <div class="gastro-content">
+                <span class="section-tag">Gastronomia</span>
+                <h2 class="section-title">Uma experiência gastronômica <br><em>à altura da sua noite</em></h2>
+                <p class="section-body" style="margin-bottom:0">Menus autorais com a assinatura do premiado <b>Chef Dalton Rangel</b>, do jantar completo às ilhas interativas — com opções vegetarianas e veganas e experiências teens que surpreendem a debutante e os convidados.</p>
+                <div class="gastro-tags">
                     <span class="gastro-tag">Coquetéis</span>
                     <span class="gastro-tag">Ilhas gastronômicas</span>
                     <span class="gastro-tag">Finger foods</span>
                     <span class="gastro-tag">Jantar completo</span>
                     <span class="gastro-tag">Menus vegetarianos</span>
                     <span class="gastro-tag">Menus veganos</span>
-                    <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Coquetéis</span>
-                    <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Ilhas gastronômicas</span>
-                    <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Finger foods</span>
-                    <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Jantar completo</span>
-                    <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Menus vegetarianos</span>
-                    <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Menus veganos</span>
                 </div>
             </div>
         </div>
-        <div class="gastronomia-grid">
-            <div class="gastronomia-item"><Img src="gastronomia.debutantes01.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-            <div class="gastronomia-item"><Img src="gastronomia.debutantes02.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-            <div class="gastronomia-item"><Img src="gastronomia.debutantes03.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-            <div class="gastronomia-item"><Img src="gastronomia.debutantes04.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-            <div class="gastronomia-item"><Img src="gastronomia.debutantes05.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-            <div class="gastronomia-item"><Img src="gastronomia.debutantes06.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
+
+        <!-- Mobile: header + carrossel -->
+        <div class="gastro-mobile">
+            <div class="gastronomia-header">
+                <span class="section-tag">Gastronomia</span>
+                <h2 class="section-title">Uma experiência gastronômica <br class="br-m"><em>à altura da sua noite</em></h2>
+                <p class="gastronomia-desc-m">Menus autorais assinados pelo premiado <b>Chef Dalton Rangel</b>.</p>
+                <div class="gastro-tags" aria-label="Experiências gastronômicas">
+                    <div class="gastro-tags-track">
+                        <span class="gastro-tag">Coquetéis</span>
+                        <span class="gastro-tag">Ilhas gastronômicas</span>
+                        <span class="gastro-tag">Finger foods</span>
+                        <span class="gastro-tag">Jantar completo</span>
+                        <span class="gastro-tag">Menus vegetarianos</span>
+                        <span class="gastro-tag">Menus veganos</span>
+                        <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Coquetéis</span>
+                        <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Ilhas gastronômicas</span>
+                        <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Finger foods</span>
+                        <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Jantar completo</span>
+                        <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Menus vegetarianos</span>
+                        <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Menus veganos</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gastronomia-grid">
+                <div class="gastronomia-item"><Img src="gastronomia.debutantes01.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
+                <div class="gastronomia-item"><Img src="gastronomia.debutantes02.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
+                <div class="gastronomia-item"><Img src="gastronomia.debutantes03.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
+                <div class="gastronomia-item"><Img src="gastronomia.debutantes04.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
+                <div class="gastronomia-item"><Img src="gastronomia.debutantes05.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
+                <div class="gastronomia-item"><Img src="gastronomia.debutantes06.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
+            </div>
         </div>
     </section>
 

@@ -137,6 +137,19 @@
     observer.observe(el);
   });
 
+  // ── Slideshow gastronomia (crossfade — só no desktop, onde o layout v2 aparece)
+  (function () {
+    if (window.matchMedia('(max-width: 768px)').matches) return;
+    var slides = document.querySelectorAll('.gastro-img .gastro-slide');
+    if (slides.length < 2) return;
+    var current = 0;
+    setInterval(function () {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 3000);
+  })();
+
   // ── "Prefere falar agora?" abre o popup conversacional do WhatsApp (não vai direto pro wa.me)
   (function () {
     var wpp = document.querySelector('.contato-wpp');

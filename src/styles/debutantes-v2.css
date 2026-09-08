@@ -437,19 +437,24 @@
 
         .sobre-media {
             background-color: var(--preto-medio);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            padding: 48px 0
+            overflow: hidden
         }
 
-        /* Stories vertical (reels) em 9:16, centralizado na coluna escura (desktop) */
-        .sobre-media .stories {
-            height: 520px;
-            width: auto;
-            max-width: 100%;
-            border-radius: 10px
+        /* Desktop: vídeo horizontal preenche a coluna (v2). Stories é mobile-only. */
+        .sobre-media--m {
+            display: none
+        }
+
+        .sobre-media--d {
+            display: flex;
+            align-items: stretch;
+            justify-content: center
+        }
+
+        .sobre-media--d .video-wrap {
+            aspect-ratio: unset !important;
+            width: 100%;
+            height: 100%
         }
 
         .sobre-content {
@@ -509,7 +514,8 @@
         .ambientes {
             background: var(--branco);
             padding: 100px 60px;
-            scroll-margin-top: 80px
+            scroll-margin-top: 80px;
+            border-top: 4px solid var(--dourado)
         }
 
         .ambientes-header {
@@ -639,13 +645,76 @@
             line-height: 1.4
         }
 
-        /* Gastronomia — mesmo layout de Ambientes/Estrutura: header + faixa de fotos */
+        /* Gastronomia — desktop: layout v2 (slideshow + conteúdo); mobile: header + carrossel */
         .gastronomia {
             background: var(--branco);
-            padding: 100px 60px;
-            scroll-margin-top: 80px
+            padding: 0;
+            scroll-margin-top: 80px;
+            border-top: 4px solid var(--dourado)
         }
 
+        .gastro-mobile {
+            display: none
+        }
+
+        .gastro-desktop {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 580px
+        }
+
+        .gastro-img {
+            position: relative;
+            overflow: hidden;
+            background-color: var(--preto-medio);
+            min-height: 480px
+        }
+
+        .gastro-img .gastro-slides {
+            position: absolute;
+            inset: 0
+        }
+
+        .gastro-img .gastro-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease
+        }
+
+        .gastro-img .gastro-slide.active {
+            opacity: 1
+        }
+
+        .gastro-img .gastro-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block
+        }
+
+        .gastro-content {
+            background: var(--dourado-bg2);
+            border-left: 4px solid var(--dourado);
+            padding: 80px 72px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .gastro-content .section-body {
+            margin-bottom: 0
+        }
+
+        .gastro-desktop .gastro-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 28px
+        }
+
+        /* ===== elementos do bloco mobile (mostrados via @media) ===== */
         .gastronomia-header {
             max-width: 920px;
             margin: 0 auto 40px;
@@ -656,16 +725,6 @@
             margin-bottom: 16px
         }
 
-        .gastronomia-desc {
-            max-width: 780px;
-            font-size: 15px;
-            line-height: 1.85;
-            color: #555;
-            font-weight: 300;
-            margin: 0 auto
-        }
-
-        /* linha curta só no mobile (ver bloco @media) */
         .gastronomia-desc-m {
             display: none
         }
@@ -695,11 +754,6 @@
         .gastronomia-item:hover img {
             transform: scale(1.04);
             opacity: 1
-        }
-
-        .gastro-tags {
-            max-width: 660px;
-            margin: 22px auto 0
         }
 
         .gastro-tags-track {
@@ -1553,6 +1607,15 @@
                 overflow: hidden
             }
 
+            /* Mobile: some o vídeo horizontal, mostra o Stories em tela cheia */
+            .sobre-media--d {
+                display: none
+            }
+
+            .sobre-media--m {
+                display: block
+            }
+
             .sobre-media {
                 order: -1;
                 padding: 0;
@@ -1671,16 +1734,21 @@
                 border-radius: 8px
             }
 
+            /* Mobile: esconde o layout v2 (desktop), mostra header + carrossel */
+            .gastro-desktop {
+                display: none
+            }
+
+            .gastro-mobile {
+                display: block
+            }
+
             .gastronomia {
                 padding: 56px 20px 64px
             }
 
             .gastronomia-header {
                 margin-bottom: 26px
-            }
-
-            .gastronomia-desc {
-                display: none
             }
 
             .gastronomia-desc-m {
