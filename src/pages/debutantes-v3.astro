@@ -9,12 +9,13 @@ import StoriesReels from '../components/ui/StoriesReels.astro';
 import LeadForm from '../components/forms/LeadForm.astro';
 import '../styles/debutantes-v2.css';
 
-// LCP do hero: gera as URLs otimizadas (mesmos params do componente Img) para
-// pré-carregar a imagem certa por viewport — baixa UMA só, com prioridade alta.
-import heroDesktopSrc from '../assets/images/hero_carrossel.01.jpg';
-import heroMobileSrc from '../assets/images/fit-hero-debutantes.webp';
-const heroDesktop = await getImage({ src: heroDesktopSrc, width: 1920, quality: 80 });
-const heroMobile = await getImage({ src: heroMobileSrc, width: 800, quality: 78 });
+// LCP do hero: uma única <picture> — mobile = recorte vertical, desktop = foto
+// horizontal — cada uma em algumas larguras (srcset). Os preloads usam os
+// mesmos srcsets, então o navegador baixa UMA imagem, no tamanho certo p/ a tela.
+import heroDesktopSrc from '../assets/images/abertura-debutantes.jpg';
+import heroMobileSrc from '../assets/images/abertura-debutantes-mobile.jpg';
+const heroDesktop = await getImage({ src: heroDesktopSrc, widths: [1280, 1920, 2560], quality: 80 });
+const heroMobile = await getImage({ src: heroMobileSrc, widths: [640, 828, 1080], quality: 78 });
 ---
 
 <Base
@@ -25,51 +26,35 @@ const heroMobile = await getImage({ src: heroMobileSrc, width: 800, quality: 78 
   waFixedTipoEvento="Aniversario debutante"
 >
   <Fragment slot="head">
-    <link rel="preload" as="image" href={heroMobile.src} media="(max-width: 768px)" fetchpriority="high" />
-    <link rel="preload" as="image" href={heroDesktop.src} media="(min-width: 769px)" fetchpriority="high" />
+    <link rel="preload" as="image" imagesrcset={heroMobile.srcSet.attribute} imagesizes="100vw" media="(max-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" imagesrcset={heroDesktop.srcSet.attribute} imagesizes="100vw" media="(min-width: 769px)" fetchpriority="high" />
+    <!-- Fontes (só v3): os pesos 500 e 600 reaproveitam os arquivos do 400 e do
+         700, que a página já baixa — 2 downloads de ~36KB a menos. Fica no slot
+         "head", depois dos @font-face do Base, então estas regras prevalecem -->
+    <style is:inline>
+      @font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/Inter-400-latin.s.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/Inter-700-latin.s.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+    </style>
   </Fragment>
-
-<nav id="navbar">
-        <a href="#navbar" class="nav-logo">
-            <Img src="b6141e8a-26b2-4a98-a24a-572b061dd41b.png" alt="Espaço Fit Eventos" width={240} priority />
-        </a>
-        <ul class="nav-links">
-            <li><a href="#ambientes">Ambientes</a></li>
-            <li><a href="#estrutura">Estrutura</a></li>
-            <li><a href="#gastronomia">Gastronomia</a></li>
-        </ul>
-        <a href="#contato" class="nav-cta">Agendar visita</a>
-        <button class="nav-hamburger" id="hamburgerBtn" aria-label="Abrir menu">
-            <span></span><span></span><span></span>
-        </button>
-    </nav>
-
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="mobile-close" id="mobileClose" aria-label="Fechar menu">✕</button>
-        <a href="#ambientes">Ambientes</a>
-        <a href="#estrutura">Estrutura</a>
-        <a href="#gastronomia">Gastronomia</a>
-        <a href="#contato" class="mobile-cta">Agendar visita</a>
-    </div>
 
     <section class="hero">
         <div id="hero-slides">
-            <div class="hero-slide hero-d active"><Img src="hero_carrossel.01.jpg" alt="" width={1920} /></div>
-            <div class="hero-slide hero-d"><Img src="hero_carrossel.02.webp" alt="" width={1920} defer /></div>
-            <div class="hero-slide hero-d"><Img src="hero_carrossel.03.webp" alt="" width={1920} defer /></div>
-            <div class="hero-slide hero-d"><Img src="hero_carrossel.04.webp" alt="" width={1920} defer /></div>
-            <div class="hero-slide hero-d"><Img src="hero_carrossel.05.webp" alt="" width={1920} defer /></div>
-            <div class="hero-slide hero-d"><Img src="hero_carrossel.06.webp" alt="" width={1920} defer /></div>
-            <div class="hero-slide hero-m active"><Img src="fit-hero-debutantes.webp" alt="" width={800} quality={78} priority /></div>
+            <!-- <picture> em vez de <Img>: precisa de "art direction" (outra foto no mobile) -->
+            <div class="hero-slide active">
+                <picture>
+                    <source media="(max-width: 768px)" srcset={heroMobile.srcSet.attribute} sizes="100vw" width="1080" height="1920" />
+                    <img src={heroDesktop.src} srcset={heroDesktop.srcSet.attribute} sizes="100vw" width="2560" height="1438" alt="" loading="eager" fetchpriority="high" decoding="async" />
+                </picture>
+            </div>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="hero-tag">São Paulo · Debutantes</span>
-            <h1 class="hero-title">Sua festa de 15 anos com estilo, emoção <br><em>e personalidade</em></h1>
-            <p class="hero-subtitle">O Espaço Fit Eventos é mais do que um espaço para eventos: é um conceito. Com arquitetura arrojada e funcional, criamos o ambiente perfeito para você comemorar do seu jeito.</p>
+            <div class="hero-logo">
+                <Img src="b6141e8a-26b2-4a98-a24a-572b061dd41b.png" alt="Espaço Fit Eventos" width={480} priority />
+            </div>
+            <h1 class="hero-title">Sua festa de 15 anos<br><em>com personalidade</em></h1>
             <div class="hero-actions">
-                <a href="#contato" class="btn-primary">Agendar uma visita</a>
-                <a href="#ambientes" class="btn-ghost">Conhecer os ambientes</a>
+                <a href="#contato" class="btn-primary">Solicitar contato</a>
             </div>
         </div>
     </section>
@@ -97,163 +82,61 @@ const heroMobile = await getImage({ src: heroMobileSrc, width: 800, quality: 78 
         </div>
         <div class="sobre-content" style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
             <span class="section-tag">Sobre o espaço</span>
-            <h2 class="section-title">Detalhes pensados para <em>você brilhar</em></h2>
-            <p class="section-body">Com capacidade para <b>50 a 530 convidados</b>, os ambientes se adaptam a cada etapa da noite, da recepção com welcome drinks e lounges aconchegantes à pista de dança. E o pé-direito alto dá à debutante liberdade para ousar na cenografia e transformar o espaço no cenário que sempre imaginou.</p>
-            <a href="#contato" class="btn-primary sobre-cta">Agendar uma visita</a>
+            <h2 class="section-title">Detalhes pensados <em>para você brilhar</em></h2>
+            <p class="section-body">Para <b>50 a 530 convidados</b>, cada ambiente acompanha um momento da noite, do primeiro brinde à última música. E o pé-direito alto dá à debutante liberdade para ousar na cenografia e criar o cenário que sempre sonhou.</p>
+            <a href="#contato" class="btn-primary sobre-cta">Solicitar contato</a>
         </div>
     </section>
 
     <section class="ambientes" id="ambientes">
         <div class="ambientes-header">
-            <span class="section-tag">Nossos ambientes</span>
-            <h2 class="section-title">Ambientes modernos <br class="br-m">para uma <span class="show-m">festa de </span><br class="hide-m"><em><span class="hide-m">festa de </span>debutante única</em></h2>
-            <p class="ambientes-desc">Nossos espaços são um convite para você contar a sua história, que é única. Oferecemos liberdade de adaptação e integração entre os ambientes, transformando o Espaço Fit Eventos no palco perfeito para viver cada momento da sua celebração.</p>
-            <p class="ambientes-desc-m">Cada ambiente vira o cenário que você sempre imaginou.</p>
+            <span class="section-tag">Espaço · Projeção mapeada<span class="hide-m"> · </span><br class="br-m">Painéis de LED</span>
+            <h2 class="section-title">Um espaço completo <em>para uma festa única</em></h2>
+            <p class="ambientes-desc">Ambientes amplos que se adaptam ao seu tema, com projeção mapeada e painéis de LED que levam a festa para onde você imaginar.</p>
+            <p class="ambientes-desc-m">Ambientes amplos, projeção mapeada e painéis de LED.</p>
         </div>
-        <div class="ambientes-grid">
-            <div class="ambientes-item"><Img src="2DECOR_1064_RICK6215-Copia_resultado.avif" alt="Ambiente decorado para debutante" width={800} quality={72} /></div>
-            <div class="ambientes-item"><Img src="2DECOR_1065_RICK6217-31-03-2026-13-26-01_resultado.avif" alt="Decoração de festa de 15 anos" width={800} quality={72} /></div>
-            <div class="ambientes-item"><Img src="2DECOR_1145_DSC07536_resultado.avif" alt="Espaço para cerimônia de debutante" width={800} quality={72} /></div>
-            <div class="ambientes-item"><Img src="2DECOR_1289_0W1A0209_resultado.avif" alt="Sala de eventos decorada" width={800} quality={72} /></div>
-            <div class="ambientes-item"><Img src="2DECOR_1269_DSC07655_resultado.avif" alt="Ambiente de recepção" width={800} quality={72} /></div>
-            <div class="ambientes-item"><Img src="camarim.fit.webp" alt="Camarim" width={800} quality={72} /></div>
+        <div class="ambientes-carousel">
+        <button class="ambientes-btn ambientes-btn--prev" id="ambientesPrev" type="button" aria-label="Foto anterior">&lsaquo;</button>
+        <div class="ambientes-grid" id="ambientesGrid">
+            <div class="ambientes-item"><Img src="2DECOR_1145_DSC07536_resultado.avif" alt="Bolo de 15 anos com painel floral e letreiro personalizado" width={800} quality={72} zoom /></div>
+            <div class="ambientes-item"><Img src="espaco-completo-07.jpg" alt="Salão com projeção mapeada temática de Las Vegas" width={800} quality={72} zoom /></div>
+            <div class="ambientes-item"><Img src="espaco-completo-02.jpg" alt="Cenário com balões dourados e painel floral" width={800} quality={72} zoom /></div>
+            <div class="ambientes-item"><Img src="espaco-completo-06.jpg" alt="Salão com projeção mapeada rosé e mesas decoradas" width={800} quality={72} zoom /></div>
+            <div class="ambientes-item"><Img src="espaco-completo-08.jpg" alt="Salão com projeção mapeada temática da Toscana" width={800} quality={72} zoom /></div>
+            <div class="ambientes-item"><Img src="espaco-completo-09.jpg" alt="Cenário com balões azuis e borboletas suspensas" width={800} quality={72} zoom /></div>
+            <div class="ambientes-item"><Img src="espaco-completo-01.jpg" alt="Salão com projeção mapeada em tons dourados e mesas decoradas" width={800} quality={72} zoom /></div>
+            <div class="ambientes-item"><Img src="camarim.fit.webp" alt="Debutante se arrumando no camarim" width={800} quality={72} zoom /></div>
+            <div class="ambientes-item"><Img src="espaco-completo-04.jpg" alt="Salão com projeção mapeada em tons laranja e mesas decoradas" width={800} quality={72} zoom /></div>
+            <div class="ambientes-item"><Img src="espaco-completo-03.jpg" alt="Pista de LED com projeção mapeada de mármore verde" width={800} quality={72} zoom /></div>
+            <div class="ambientes-item"><Img src="2DECOR_1065_RICK6217-31-03-2026-13-26-01_resultado.avif" alt="Painéis de LED exibindo uma cidade à noite" width={1024} quality={72} zoom /></div>
         </div>
-    </section>
-
-    <section class="estrutura" id="estrutura">
-        <div class="estrutura-header" style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
-            <span class="section-tag">Infraestrutura</span>
-            <h2 class="section-title">Estrutura completa para transformar <br>sua festa de 15 anos<br><em>em um
-                    verdadeiro espetáculo</em></h2>
-            <p class="section-body">Da iluminação à sonorização, tudo contribui para
-                criar uma experiência envolvente, emocionante e inesquecível.</p>
-            <p class="estrutura-desc-m">Som, luz e tecnologia à altura de um espetáculo.</p>
-        </div>
-        <div class="estrutura-grid">
-            <div class="estrutura-card"><Img src="2DECOR_1067_RICK6219-Copia_resultado-1024x685.avif" alt="Painéis de LED e projeção mapeada" width={800} quality={72} />
-                <div class="estrutura-card-label"><span>Painéis de LED e projeção mapeada</span></div>
-            </div>
-            <div class="estrutura-card"><Img src="5FES_2825_RICK7651_resultado-1024x684.avif" alt="Estrutura para DJ e pista de dança" width={800} quality={72} />
-                <div class="estrutura-card-label"><span>Estrutura para DJ e pista de dança</span></div>
-            </div>
-            <div class="estrutura-card"><Img src="2DECOR_1571_DSC08215_resultado-1024x684.avif" alt="Estrutura audiovisual completa" width={800} quality={72} />
-                <div class="estrutura-card-label"><span>Estrutura audiovisual completa</span></div>
-            </div>
+        <button class="ambientes-btn ambientes-btn--next" id="ambientesNext" type="button" aria-label="Próxima foto">&rsaquo;</button>
         </div>
     </section>
 
-    <section class="gastronomia" id="gastronomia">
-        <!-- Desktop: layout v2 (slideshow + conteúdo) -->
-        <div class="gastro-desktop">
-            <div class="gastro-img">
-                <div class="gastro-slides">
-                    <div class="gastro-slide active"><Img src="gastronomia.debutantes01.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-                    <div class="gastro-slide"><Img src="gastronomia.debutantes02.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-                    <div class="gastro-slide"><Img src="gastronomia.debutantes03.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-                    <div class="gastro-slide"><Img src="gastronomia.debutantes04.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-                    <div class="gastro-slide"><Img src="gastronomia.debutantes05.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-                    <div class="gastro-slide"><Img src="gastronomia.debutantes06.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-                </div>
-            </div>
-            <div class="gastro-content">
-                <span class="section-tag">Gastronomia</span>
-                <h2 class="section-title">Uma experiência gastronômica <br><em>à altura da sua noite</em></h2>
-                <p class="section-body" style="margin-bottom:0">Menus autorais com a assinatura do premiado <b>Chef Dalton Rangel</b>, do jantar completo às ilhas interativas — com opções vegetarianas e veganas e experiências teens que surpreendem a debutante e os convidados.</p>
-                <div class="gastro-tags">
-                    <span class="gastro-tag">Coquetéis</span>
-                    <span class="gastro-tag">Ilhas gastronômicas</span>
-                    <span class="gastro-tag">Finger foods</span>
-                    <span class="gastro-tag">Jantar completo</span>
-                    <span class="gastro-tag">Menus vegetarianos</span>
-                    <span class="gastro-tag">Menus veganos</span>
-                </div>
-            </div>
+    <section class="gastro-v3" id="gastronomia">
+        <div class="gastro-v3-header">
+            <span class="section-tag">Gastronomia</span>
+            <h2 class="section-title">Uma experiência gastronômica <em>à altura da sua noite</em></h2>
+            <p class="section-body gastro-v3-sub">Menus autorais com a assinatura do premiado Chef Dalton Rangel.</p>
         </div>
-
-        <!-- Mobile: header + carrossel -->
-        <div class="gastro-mobile">
-            <div class="gastronomia-header">
-                <span class="section-tag">Gastronomia</span>
-                <h2 class="section-title">Uma experiência gastronômica <br class="br-m"><em>à altura da sua noite</em></h2>
-                <p class="gastronomia-desc-m">Menus autorais assinados pelo premiado <b>Chef Dalton Rangel</b>.</p>
-                <div class="gastro-tags" aria-label="Experiências gastronômicas">
-                    <div class="gastro-tags-track">
-                        <span class="gastro-tag">Coquetéis</span>
-                        <span class="gastro-tag">Ilhas gastronômicas</span>
-                        <span class="gastro-tag">Finger foods</span>
-                        <span class="gastro-tag">Jantar completo</span>
-                        <span class="gastro-tag">Menus vegetarianos</span>
-                        <span class="gastro-tag">Menus veganos</span>
-                        <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Coquetéis</span>
-                        <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Ilhas gastronômicas</span>
-                        <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Finger foods</span>
-                        <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Jantar completo</span>
-                        <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Menus vegetarianos</span>
-                        <span class="gastro-tag gastro-tag--dup" aria-hidden="true">Menus veganos</span>
-                    </div>
-                </div>
+        <div class="gastro-v3-carousel">
+            <button class="gastro-v3-btn gastro-v3-btn--prev" id="gastroPrev" type="button" aria-label="Foto anterior">&lsaquo;</button>
+            <div class="gastro-v3-track" id="gastroTrack">
+                <div class="gastro-v3-item"><Img src="gastronomia-v3-02.jpg" alt="Espetinhos gourmet servidos em cumbucas" width={800} quality={72} zoom /></div>
+                <div class="gastro-v3-item"><Img src="gastronomia-v3-04.jpg" alt="Bolinhos finalizados em bandeja dourada" width={800} quality={72} zoom /></div>
+                <div class="gastro-v3-item"><Img src="gastronomia-v3-05.jpg" alt="Prato de camarão com limão servido no réchaud" width={800} quality={72} zoom /></div>
+                <div class="gastro-v3-item"><Img src="gastronomia.debutantes02.jpg" alt="Pipoca gourmet servida em embalagem temática" width={800} quality={72} zoom /></div>
+                <div class="gastro-v3-item"><Img src="gastronomia-v3-01.jpg" alt="Mesa de buffet com petiscos e arranjos florais" width={800} quality={72} zoom /></div>
+                <div class="gastro-v3-item"><Img src="gastronomia.debutantes04.jpg" alt="Drinks servidos em bandeja espelhada" width={800} quality={72} zoom /></div>
+                <div class="gastro-v3-item"><Img src="gastronomia-v3-06.jpg" alt="Bolinhos servidos à mesa com louça fina" width={800} quality={72} zoom /></div>
+                <div class="gastro-v3-item"><Img src="gastronomia.debutantes06.jpg" alt="Mesa de buffet decorada com flores" width={800} quality={72} zoom /></div>
+                <div class="gastro-v3-item"><Img src="gastronomia.debutantes05.jpg" alt="Convidada pegando pipoca gourmet" width={800} quality={72} zoom /></div>
             </div>
-            <div class="gastronomia-grid">
-                <div class="gastronomia-item"><Img src="gastronomia.debutantes01.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-                <div class="gastronomia-item"><Img src="gastronomia.debutantes02.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-                <div class="gastronomia-item"><Img src="gastronomia.debutantes03.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-                <div class="gastronomia-item"><Img src="gastronomia.debutantes04.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-                <div class="gastronomia-item"><Img src="gastronomia.debutantes05.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-                <div class="gastronomia-item"><Img src="gastronomia.debutantes06.jpg" alt="Gastronomia Espaço Fit" width={800} quality={72} /></div>
-            </div>
+            <button class="gastro-v3-btn gastro-v3-btn--next" id="gastroNext" type="button" aria-label="Próxima foto">&rsaquo;</button>
         </div>
-    </section>
-
-    <section class="diferenciais">
-        <div class="diferenciais-header"
-            style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
-            <span class="section-tag">Diferenciais</span>
-            <h2 class="section-title">Diferenciais que <br class="br-m">tornam sua festa <br><em>de 15 anos extraordinária</em></h2>
-            <p class="section-body">Uma combinação de estrutura, personalização e
-                atendimento que faz toda a diferença.</p>
-        </div>
-        <div class="diferenciais-grid">
-            <div class="dif-card">
-                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                        <path d="M2 17l10 5 10-5"></path>
-                        <path d="M2 12l10 5 10-5"></path>
-                    </svg></div><span class="dif-card-title">Personalização do evento conforme seu estilo</span>
-            </div>
-            <div class="dif-card">
-                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
-                        <path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"></path>
-                        <path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0z"></path>
-                        <path d="M4 18v2"></path>
-                        <path d="M20 18v2"></path>
-                    </svg></div><span class="dif-card-title">Camarim exclusivo para a debutante</span>
-            </div>
-            <div class="dif-card">
-                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg></div><span class="dif-card-title">Espaço para até 530 convidados</span>
-            </div>
-            <div class="dif-card">
-                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                    </svg></div><span class="dif-card-title">Atendimento altamente elogiado</span>
-            </div>
-            <div class="dif-card">
-                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg></div><span class="dif-card-title">Localização privilegiada em São Paulo</span>
-            </div>
-            <div class="dif-card">
-                <div class="dif-card-icon"><svg viewBox="0 0 24 24">
-                        <line x1="12" y1="1" x2="12" y2="23"></line>
-                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                    </svg></div><span class="dif-card-title">Excelente custo-benefício</span>
-            </div>
-        </div>
+        <!-- Mobile: miniaturas (montadas pelo script a partir das fotos acima) -->
+        <div class="gastro-v3-thumbs" id="gastroThumbs" aria-label="Miniaturas das fotos"></div>
     </section>
 
     <section class="depoimentos" style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
@@ -303,16 +186,39 @@ const heroMobile = await getImage({ src: heroMobileSrc, width: 800, quality: 78 
 
     <div class="galeria-header" id="galeria"
         style="opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s">
-        <span class="section-tag">Galeria</span>
+        <span class="section-tag">Inspirações</span>
         <h2 class="section-title">Veja como sua festa<br class="br-xs"> de 15 anos<br><em>pode ganhar vida</em></h2>
+        <p class="section-body galeria-sub">Cada festa é única. Inspire-se para criar a sua.</p>
     </div>
 
+    <!-- Fileiras justificadas: --r = largura/altura da foto; cada fileira soma ~5
+         (horizontal = 1.5, vertical = 0.667) p/ todas terem altura parecida -->
     <div class="galeria">
-        <div class="galeria-item tall"><Img src="3RECEP_1620_RICK6734_resultado.avif" alt="Recepção de debutante" width={800} quality={72} /></div>
-        <div class="galeria-item"><Img src="2DECOR_1075_RICK6232_resultado.avif" alt="Decoração de festa" width={800} quality={72} /></div>
-        <div class="galeria-item"><Img src="2DECOR_1289_0W1A0209_resultado.avif" alt="Ambiente de recepção" width={800} quality={72} /></div>
-        <div class="galeria-item"><Img src="1MKOF_1129_RICK6291_resultado.avif" alt="Momento da festa" width={800} quality={72} /></div>
-        <div class="galeria-item"><Img src="2DECOR_1571_DSC08215_resultado.avif" alt="Detalhes da decoração" width={800} quality={72} /></div>
+        <div class="galeria-row">
+            <div class="galeria-item" style="--r: 1.5"><Img src="hero_carrossel.01.jpg" alt="Debutante ao lado do bolo de 15 anos, em frente ao painel de flores" width={800} quality={72} zoom /></div>
+            <div class="galeria-item" style="--r: 0.667"><Img src="galeria-v3-04.jpg" alt="Debutante com vestido verde ao lado do bolo de 15 anos" width={800} quality={72} zoom /></div>
+            <div class="galeria-item" style="--r: 1.5"><Img src="5FES_2825_RICK7651_resultado-1024x684.avif" alt="Convidados dançando na pista de LED com show de passistas" width={800} quality={72} zoom /></div>
+            <div class="galeria-item" style="--r: 1.5"><Img src="hero_carrossel.04.webp" alt="Debutante e acompanhante dançando na pista de LED" width={800} quality={72} zoom /></div>
+        </div>
+        <div class="galeria-row">
+            <div class="galeria-item" style="--r: 1.5"><Img src="galeria-v3-01.jpg" alt="Debutante com vestido dourado em cenário iluminado" width={800} quality={72} zoom /></div>
+            <div class="galeria-item" style="--r: 1.5"><Img src="espaco-completo-05.jpg" alt="Casal dançando na pista de LED com projeção de mármore verde" width={800} quality={72} zoom /></div>
+            <div class="galeria-item" style="--r: 0.667"><Img src="galeria-v3-02.jpg" alt="Debutante com vestido pink em frente ao jardim vertical" width={800} quality={72} zoom /></div>
+            <div class="galeria-item" style="--r: 1.5"><Img src="3RECEP_1620_RICK6734_resultado.avif" alt="Recepção de debutante" width={800} quality={72} zoom /></div>
+        </div>
+        <div class="galeria-row">
+            <div class="galeria-item" style="--r: 1.5"><Img src="hero_carrossel.06.webp" alt="Valsa da debutante na pista iluminada" width={800} quality={72} zoom /></div>
+            <div class="galeria-item" style="--r: 0.667"><Img src="galeria-v3-03.jpg" alt="Debutante com vestido vermelho sob projeção mapeada temática da Itália" width={800} quality={72} zoom /></div>
+            <div class="galeria-item" style="--r: 1.5"><Img src="hero_carrossel.02.webp" alt="Debutante ao lado do bolo de 15 anos" width={800} quality={72} zoom /></div>
+            <div class="galeria-item" style="--r: 1.5"><Img src="1MKOF_1129_RICK6291_resultado.avif" alt="Momento da festa" width={800} quality={72} zoom /></div>
+        </div>
+        <div class="galeria-row">
+            <div class="galeria-item" style="--r: 0.667"><Img src="galeria-v3-05.jpg" alt="Debutante com vestido preto sob projeção mapeada de Las Vegas" width={800} quality={72} zoom /></div>
+            <div class="galeria-item" style="--r: 1.5"><Img src="hero_carrossel.05.webp" alt="Debutante e convidados aplaudindo em volta do bolo" width={800} quality={72} zoom /></div>
+            <div class="galeria-item" style="--r: 0.667"><Img src="2DECOR_1075_RICK6232_resultado.avif" alt="Decoração de festa" width={800} quality={72} zoom /></div>
+            <div class="galeria-item" style="--r: 1.5"><Img src="hero_carrossel.03.webp" alt="Debutante e família aplaudindo ao lado do bolo" width={800} quality={72} zoom /></div>
+            <div class="galeria-item" style="--r: 0.667"><Img src="galeria-v3-06.jpg" alt="Debutante com vestido verde de veludo na pista de LED" width={800} quality={72} zoom /></div>
+        </div>
     </div>
 
     <section class="contato-section" id="contato">
@@ -352,11 +258,11 @@ const heroMobile = await getImage({ src: heroMobileSrc, width: 800, quality: 78 
               footerText="Seus dados são usados apenas para retorno de contato e orçamento."
               honeypot
               fields={[
-                { name: 'nome', type: 'text', label: 'Nome', placeholder: 'Seu nome completo', required: true },
+                { name: 'nome', type: 'text', label: 'Nome', placeholder: 'Ex.: Maria Silva', required: true },
                 { name: 'telefone', type: 'tel', label: 'WhatsApp', placeholder: '(11) 9 0000-0000', required: true },
                 { type: 'row', fields: [
-                  { name: 'data_evento', type: 'text', label: 'Data do Evento', placeholder: 'Data do evento', required: true, readonly: true, flatpickr: true },
-                  { name: 'convidados', type: 'number', label: 'Nº de Convidados', placeholder: 'Nº de pessoas', required: true }
+                  { name: 'data_evento', type: 'text', label: 'Data do Evento', placeholder: 'dd/mm/aaaa', required: true, readonly: true, flatpickr: true },
+                  { name: 'convidados', type: 'number', label: 'Nº de Convidados', placeholder: 'Ex.: 150', required: true }
                 ]},
                 { name: 'detalhes_adicionais', type: 'textarea', label: 'Mensagem', placeholder: 'Detalhes adicionais (não obrigatório)', required: false },
                 { name: 'tipo_evento', type: 'hidden', value: 'Aniversario debutante' },
@@ -374,12 +280,1003 @@ const heroMobile = await getImage({ src: heroMobileSrc, width: 800, quality: 78 
             <div class="footer-dev">
                 <span class="footer-dev-text">Desenvolvido por:</span>
                 <a href="http://dmove.com.br" target="_blank" rel="noopener noreferrer">
-                    <Img src="Versao-Principal-Negativo-scaled-e1750426923582.avif" alt="DMove" class="footer-dev-img" />
+                    <Img src="dmove-marketing-texto.png" alt="DMove" class="footer-dev-img" />
                 </a>
             </div>
         </div>
     </footer>
+
+    <!-- Visualizador de fotos em tela cheia (preenchido pelo script abaixo) -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizador de fotos" hidden>
+        <button class="lightbox-close" type="button" aria-label="Fechar">&times;</button>
+        <button class="lightbox-nav lightbox-prev" type="button" aria-label="Foto anterior">&lsaquo;</button>
+        <img class="lightbox-img" alt="" />
+        <button class="lightbox-nav lightbox-next" type="button" aria-label="Próxima foto">&rsaquo;</button>
+        <span class="lightbox-count" aria-live="polite"></span>
+    </div>
 </Base>
 <script>
   import '../scripts/debutantes-v2.js';
+
+  const byId = (id: string) => document.getElementById(id);
+
+  // ── Carrosséis (v3): cada clique nas setas rola uma foto (item + gap)
+  function setupCarousel(track: HTMLElement | null, prev: HTMLElement | null, next: HTMLElement | null) {
+    if (!track) return;
+    const step = () => {
+      const item = track.firstElementChild as HTMLElement | null;
+      return (item?.offsetWidth ?? 0) + (parseFloat(getComputedStyle(track).columnGap) || 0);
+    };
+    prev?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  }
+  setupCarousel(byId('gastroTrack'), byId('gastroPrev'), byId('gastroNext'));
+
+  setupCarousel(byId('ambientesGrid'), byId('ambientesPrev'), byId('ambientesNext'));
+
+  // ── Galeria "foto grande + miniaturas" (Gastronomia no mobile): tocar na
+  // miniatura, nas setas ou deslizar na foto grande troca a foto. No desktop o
+  // CSS ignora o estado "ativo" e a mesma trilha segue como carrossel
+  function setupThumbGallery(track: HTMLElement | null, thumbsEl: HTMLElement | null, prev: HTMLElement | null, next: HTMLElement | null) {
+    if (!track || !thumbsEl) return;
+    const items = [...track.children] as HTMLElement[];
+    if (!items.length) return;
+    let current = 0;
+
+    const thumbs = items.map((item, i) => {
+      const img = item.querySelector('img');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'gallery-thumb';
+      btn.setAttribute('aria-label', `Ver foto ${i + 1}: ${img?.alt ?? ''}`);
+      if (img) {
+        const t = document.createElement('img');
+        t.src = img.getAttribute('src') ?? '';
+        t.alt = '';
+        t.loading = 'lazy';
+        btn.appendChild(t);
+      }
+      btn.addEventListener('click', () => select(i));
+      thumbsEl.appendChild(btn);
+      return btn;
+    });
+
+    function select(i: number) {
+      current = (i + items.length) % items.length;
+      items.forEach((el, k) => el.classList.toggle('is-active', k === current));
+      thumbs.forEach((t, k) => {
+        t.classList.toggle('is-active', k === current);
+        t.setAttribute('aria-current', k === current ? 'true' : 'false');
+      });
+      // centraliza a miniatura ativa na faixa (sem rolar a página)
+      const t = thumbs[current];
+      thumbsEl!.scrollTo({ left: t.offsetLeft - (thumbsEl!.clientWidth - t.offsetWidth) / 2, behavior: 'smooth' });
+    }
+    select(0);
+
+    prev?.addEventListener('click', () => select(current - 1));
+    next?.addEventListener('click', () => select(current + 1));
+
+    let startX = 0;
+    track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) select(current + (dx < 0 ? 1 : -1));
+    });
+  }
+  setupThumbGallery(byId('gastroTrack'), byId('gastroThumbs'), byId('gastroPrev'), byId('gastroNext'));
+
+  // ── Visualizador de fotos: clicar numa foto de "Espaço completo", Gastronomia
+  // ou Galeria abre em tela cheia; setas, teclado e swipe passam para a
+  // anterior/próxima da mesma seção
+  (() => {
+    const lb = byId('lightbox');
+    if (!lb) return;
+    const lbImg = lb.querySelector<HTMLImageElement>('.lightbox-img')!;
+    const counter = lb.querySelector<HTMLElement>('.lightbox-count')!;
+    const closeBtn = lb.querySelector<HTMLButtonElement>('.lightbox-close')!;
+    const lenis = (window as any).__lenis;
+    let list: HTMLImageElement[] = [];
+    let index = 0;
+    let lastFocus: HTMLElement | null = null;
+
+    const show = (i: number) => {
+      index = (i + list.length) % list.length;
+      const img = list[index];
+      lbImg.src = img.dataset.full || img.currentSrc || img.src;
+      lbImg.alt = img.alt;
+      counter.textContent = `${index + 1} / ${list.length}`;
+    };
+    const open = (imgs: HTMLImageElement[], i: number) => {
+      list = imgs;
+      lastFocus = document.activeElement as HTMLElement | null;
+      show(i);
+      lb.hidden = false;
+      document.documentElement.style.overflow = 'hidden';
+      lenis?.stop();
+      closeBtn.focus();
+    };
+    const close = () => {
+      lb.hidden = true;
+      lbImg.removeAttribute('src');
+      document.documentElement.style.overflow = '';
+      lenis?.start();
+      lastFocus?.focus();
+    };
+
+    ['.ambientes-item', '.gastro-v3-item', '.galeria-item'].forEach((sel) => {
+      const items = [...document.querySelectorAll<HTMLElement>(sel)];
+      const imgs = items.map((el) => el.querySelector('img')).filter((img): img is HTMLImageElement => !!img);
+      items.forEach((el, i) => {
+        el.setAttribute('role', 'button');
+        el.tabIndex = 0;
+        el.setAttribute('aria-label', `Ampliar foto: ${imgs[i]?.alt ?? ''}`);
+        el.addEventListener('click', () => open(imgs, i));
+        el.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(imgs, i); }
+        });
+      });
+    });
+
+    lb.querySelector('.lightbox-prev')?.addEventListener('click', () => show(index - 1));
+    lb.querySelector('.lightbox-next')?.addEventListener('click', () => show(index + 1));
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') show(index - 1);
+      else if (e.key === 'ArrowRight') show(index + 1);
+    });
+
+    let startX = 0;
+    lb.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) show(index + (dx < 0 ? 1 : -1));
+    });
+  })();
 </script>
+
+<style>
+  /* Overrides só da v3 — o CSS base (debutantes-v2.css) é compartilhado com a v2 */
+
+  /* <picture> do hero não cria caixa própria: o <img> segue ocupando o slide */
+  .hero-slide picture {
+    display: contents;
+  }
+
+  /* Hero sem menu fixo: o logo entra no hero, no lugar da tag.
+     Respiro maior que o do título→tag p/ o logo ler como assinatura */
+  .hero-logo {
+    margin-bottom: 40px;
+  }
+
+  /* filtro deixa o logo todo branco (o "FIT" original é magenta) */
+  .hero-logo :global(img) {
+    display: block;
+    height: 36.5px;
+    width: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  /* Título = base × 0,85 × 0,85 (duas reduções de 15% sobre
+     clamp(24px, min(5vw, 5.8vh), 60px)); 40px até o CTA, o mesmo respiro
+     do logo → título */
+  .hero-title {
+    font-size: clamp(17.34px, min(3.61vw, 4.19vh), 43.35px);
+    margin-bottom: 40px;
+  }
+
+  /* Desktop/tablet: conteúdo na parte de baixo, título só com as quebras do
+     HTML e degradê leve da esquerda p/ a direita, reforçando a leitura */
+  @media (min-width: 769px) {
+    /* Ancorado embaixo com 8vh de respiro: o centro do bloco fica em ~78% da
+       altura da tela (~30% abaixo de quando era centralizado) */
+    .hero {
+      align-items: flex-end;
+    }
+
+    .hero-content {
+      max-width: none;
+      padding-top: 0;
+      padding-bottom: 8vh;
+    }
+
+    /* Quebra só nos <br> (sem isso o título quebra sozinho em telas largas);
+       fonte 10% menor que a base, que segue valendo no mobile */
+    .hero-title {
+      white-space: nowrap;
+      font-size: clamp(15.61px, min(3.25vw, 3.77vh), 39.02px);
+    }
+
+    /* CTA do hero em contorno dourado (o bloco sólido competia com o título);
+       preenche de dourado no hover */
+    .hero .btn-primary {
+      background: rgba(196, 156, 76, .12);
+      border: 1px solid var(--dourado);
+      color: var(--dourado-claro);
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 30px;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      font-weight: 600;
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero .btn-primary:hover {
+      background: var(--dourado);
+      color: var(--branco);
+    }
+
+    .hero-overlay {
+      background:
+        linear-gradient(to right, rgba(0, 0, 0, .45) 0%, rgba(0, 0, 0, .18) 35%, rgba(0, 0, 0, 0) 60%),
+        linear-gradient(to top, rgba(0, 0, 0, .72) 0%, rgba(0, 0, 0, .30) 38%, rgba(0, 0, 0, 0) 68%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-logo {
+      margin-bottom: 16px;
+    }
+
+    .hero-logo :global(img) {
+      height: 19.8px;
+    }
+
+    .hero-title {
+      margin-bottom: 24px;
+    }
+
+    /* Conteúdo do hero centralizado (logo, título, tag e CTA) */
+    .hero-content {
+      width: 100%;
+      text-align: center;
+    }
+
+    .hero-logo :global(img) {
+      margin: 0 auto;
+    }
+
+    .hero-actions {
+      align-items: center;
+    }
+
+    /* CTA mais compacto (caixa proporcional ao texto) e sem a seta */
+    .hero .btn-primary {
+      align-self: center;
+      font-size: 13px;
+      line-height: 1.3;
+      padding: 10px 20px;
+    }
+
+    .hero .btn-primary::after {
+      content: none;
+    }
+  }
+
+  /* Seção "Sobre" no desktop: fundo bege contínuo, sem a linha dourada vertical
+     e com o mesmo respiro de 40px embaixo que já existe em cima */
+  @media (min-width: 769px) {
+    .sobre {
+      background: var(--dourado-bg);
+      padding-bottom: 40px;
+    }
+
+    .sobre-content {
+      border-left: none;
+    }
+  }
+
+  /* CTA da "Sobre": mesmo tamanho/fonte do CTA do hero, mas dourado sólido
+     com texto branco (sobre o fundo claro o bloco cheio não grita) */
+  .sobre-cta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 30px;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    font-weight: 600;
+  }
+
+  /* Sem a linha dourada horizontal entre "Sobre" e "Ambientes" (desktop e mobile) */
+  .ambientes {
+    border-top: none;
+  }
+
+  /* Sem as linhas douradas no topo do contato e do rodapé */
+  .contato-section,
+  footer {
+    border-top: none;
+  }
+
+  /* "Desenvolvido por:" mais perto do logo da Dmove */
+  .footer-dev {
+    gap: 6px;
+  }
+
+  /* Contato no desktop: painel esquerdo em bege claro (no base é escuro), com
+     textos e atalho do WhatsApp recoloridos p/ fundo claro. No mobile esse
+     painel já é dissolvido no fundo branco, então nada muda lá */
+  @media (min-width: 769px) {
+    .contato-info {
+      background: var(--dourado-bg);
+      border-right: none;
+    }
+
+    .contato-info .section-title {
+      color: var(--preto);
+    }
+
+    .contato-info .section-title em {
+      color: var(--dourado);
+    }
+
+    .contato-info .section-body {
+      color: #555;
+    }
+
+    .contato-list li {
+      color: #444;
+    }
+
+    .contato-list svg {
+      stroke: var(--dourado);
+    }
+
+    .contato-wpp {
+      color: var(--preto);
+      border-color: rgba(196, 156, 76, .45);
+    }
+
+    .contato-wpp:hover {
+      background: rgba(196, 156, 76, .12);
+      border-color: var(--dourado);
+    }
+  }
+
+  /* Galeria em bege claro (cabeçalho + o fundo que aparece entre as fotos),
+     sem a linha dourada no topo */
+  .galeria-header {
+    background: var(--dourado-bg);
+    border-top: none;
+  }
+
+  .galeria {
+    background: var(--dourado-bg);
+  }
+
+  /* Gastronomia (v3): só título + carrossel de fotos, em fundo bege.
+     Desktop: 3 fotos por vez + setas; mobile: swipe com "peek" */
+  .gastro-v3 {
+    background: var(--dourado-bg);
+    padding: 100px 60px;
+    scroll-margin-top: 80px;
+  }
+
+  .gastro-v3-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .gastro-v3-header .section-title {
+    margin-bottom: 16px;
+  }
+
+  .gastro-v3-sub {
+    margin: 0 auto;
+  }
+
+  .gastro-v3-carousel {
+    position: relative;
+  }
+
+  .gastro-v3-track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .gastro-v3-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gastro-v3-item {
+    flex: 0 0 calc((100% - 32px) / 3);
+    aspect-ratio: 4 / 5;
+    scroll-snap-align: start;
+    overflow: hidden;
+    background-color: var(--preto-medio);
+  }
+
+  .gastro-v3-item :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gastro-v3-btn,
+  .ambientes-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--branco);
+    color: var(--dourado-escuro);
+    border: 1px solid rgba(196, 156, 76, .45);
+    font-size: 20px;
+    cursor: pointer;
+    transition: background .3s, border-color .3s;
+  }
+
+  .gastro-v3-btn:hover,
+  .ambientes-btn:hover {
+    background: var(--dourado-bg2);
+    border-color: var(--dourado);
+  }
+
+  .gastro-v3-btn--prev {
+    left: -22px;
+  }
+
+  .gastro-v3-btn--next {
+    right: -22px;
+  }
+
+  @media (max-width: 768px) {
+    .gastro-v3 {
+      padding: 56px 20px 64px;
+    }
+
+    .gastro-v3-header {
+      margin-bottom: 26px;
+    }
+
+    .gastro-v3-track {
+      gap: 12px;
+      margin: 0 -20px;
+      padding: 0 20px;
+    }
+
+    .gastro-v3-item {
+      flex-basis: 82%;
+      border-radius: 8px;
+    }
+
+    /* Setas também no mobile (menores, sobre a borda das fotos/cards) —
+       gastronomia, "Espaço completo" e depoimentos */
+    .gastro-v3-btn,
+    .ambientes-btn,
+    .dep-btn {
+      display: flex;
+      width: 36px;
+      height: 36px;
+      font-size: 18px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
+    }
+
+    .gastro-v3-btn--prev,
+    .ambientes-btn--prev,
+    .dep-btn-prev {
+      left: -12px;
+    }
+
+    .gastro-v3-btn--next,
+    .ambientes-btn--next,
+    .dep-btn-next {
+      right: -12px;
+    }
+  }
+
+  /* Depoimentos em fundo branco (no base é escuro): textos, cards e setas
+     recoloridos p/ fundo claro; cards em bege p/ destacar do fundo.
+     "Diferenciais" foi removida da v3 */
+  .depoimentos {
+    background: var(--branco);
+  }
+
+  .depoimentos-header .section-title {
+    color: var(--preto);
+  }
+
+  .depoimentos-header .section-title em {
+    color: var(--dourado);
+  }
+
+  .dep-card {
+    background: var(--dourado-bg);
+    border-color: rgba(196, 156, 76, .3);
+  }
+
+  .dep-card-text {
+    color: #444;
+  }
+
+  .dep-card-author {
+    color: var(--dourado-escuro);
+  }
+
+  .dep-btn {
+    background: var(--branco);
+    color: var(--dourado-escuro);
+    border-color: rgba(196, 156, 76, .45);
+  }
+
+  .dep-btn:hover {
+    background: rgba(196, 156, 76, .15);
+    border-color: var(--dourado);
+  }
+
+  .galeria-header .section-title {
+    margin-bottom: 16px;
+  }
+
+  .galeria-sub {
+    margin: 0 auto;
+  }
+
+  /* Galeria em fileiras justificadas: cada fileira ocupa a largura toda e as
+     fotos dela ficam com a mesma altura, na proporção original (--r no HTML).
+     Sem corte e com o final sempre reto. Desktop: fileiras montadas no HTML.
+     Mobile: as fileiras se desfazem e as fotos quebram linha sozinhas, todas
+     visíveis (a última linha não estica) */
+  .galeria {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .galeria-row {
+    display: flex;
+    gap: 3px;
+  }
+
+  .galeria-item {
+    flex: var(--r) 1 0%;
+    aspect-ratio: var(--r);
+    min-width: 0;
+  }
+
+  .galeria-item :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .galeria {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 4px;
+      overflow: visible;
+      scroll-snap-type: none;
+      padding: 0 20px 56px;
+    }
+
+    .galeria::after {
+      content: '';
+      flex: 999 1 0%;
+    }
+
+    .galeria-row {
+      display: contents;
+    }
+
+    .galeria-item {
+      flex: var(--r) 1 calc(var(--r) * 120px);
+      aspect-ratio: var(--r);
+      height: auto;
+      border-radius: 4px;
+      scroll-snap-align: none;
+    }
+  }
+
+  /* Fotos clicáveis (abrem o visualizador) */
+  .ambientes-item,
+  .gastro-v3-item,
+  .galeria-item {
+    cursor: zoom-in;
+  }
+
+  /* Setas do carrossel de "Espaço completo": só no mobile (no desktop é grade) */
+  .ambientes-carousel {
+    position: relative;
+  }
+
+  @media (min-width: 769px) {
+    .ambientes-btn {
+      display: none;
+    }
+  }
+
+  /* Mobile: sem o atalho retangular do WhatsApp e sem a linha de reforço (o
+     botão flutuante do WhatsApp continua); respiro no fim do form */
+  @media (max-width: 768px) {
+    .contato-wpp,
+    .contato-list {
+      display: none;
+    }
+
+    .contato-form-wrap {
+      padding-bottom: 40px;
+    }
+  }
+
+  /* Visualizador de fotos em tela cheia */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 80px;
+    background: rgba(10, 10, 10, .92);
+  }
+
+  .lightbox[hidden] {
+    display: none;
+  }
+
+  .lightbox-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, .5);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    color: var(--branco);
+    font-size: 34px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255, 255, 255, .3);
+    color: var(--branco);
+    font-size: 26px;
+    cursor: pointer;
+    transition: background .2s;
+  }
+
+  .lightbox-nav:hover {
+    background: rgba(255, 255, 255, .24);
+  }
+
+  .lightbox-prev {
+    left: 16px;
+  }
+
+  .lightbox-next {
+    right: 16px;
+  }
+
+  .lightbox-count {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, .75);
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .lightbox {
+      padding: 64px 12px 84px;
+    }
+
+    /* setas embaixo, fora da foto, p/ não cobrir o conteúdo */
+    .lightbox-nav {
+      top: auto;
+      bottom: 16px;
+      transform: none;
+      width: 44px;
+      height: 44px;
+    }
+
+    .lightbox-count {
+      bottom: 30px;
+    }
+  }
+
+  /* "Espaço completo" no desktop: linhas de 3 fotos (grid de 6 colunas, cada
+     foto ocupa 2). Se a última linha sobrar incompleta, as fotos dela esticam
+     p/ fechar sem buraco, mantendo a altura das demais (4:3 com 1/3 da
+     largura = 2:1 com 1/2 = 3:1 com a largura toda) */
+  @media (min-width: 769px) {
+    .ambientes-grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .ambientes-item {
+      grid-column: span 2;
+    }
+
+    /* sobram 2: meia largura cada */
+    .ambientes-item:nth-child(3n + 1):nth-last-child(2),
+    .ambientes-item:nth-child(3n + 1):nth-last-child(2) + .ambientes-item {
+      grid-column: span 3;
+      aspect-ratio: 2 / 1;
+    }
+
+    /* sobra 1: linha inteira */
+    .ambientes-item:nth-child(3n + 1):last-child {
+      grid-column: 1 / -1;
+      aspect-ratio: 3 / 1;
+    }
+  }
+
+  /* Gastronomia no mobile: foto grande + faixa de miniaturas (em vez de outro
+     carrossel igual ao de "Espaço completo"). Miniaturas só existem no mobile */
+  .gastro-v3-thumbs {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .gastro-v3-track {
+      display: block;
+      margin: 0;
+      padding: 0;
+      overflow: visible;
+      scroll-snap-type: none;
+    }
+
+    .gastro-v3-item {
+      display: none;
+      aspect-ratio: 5 / 4;
+    }
+
+    .gastro-v3-item.is-active {
+      display: block;
+    }
+
+    /* setas por dentro da foto grande */
+    .gastro-v3-btn--prev {
+      left: 8px;
+    }
+
+    .gastro-v3-btn--next {
+      right: 8px;
+    }
+
+    .gastro-v3-thumbs {
+      display: flex;
+      gap: 6px;
+      margin-top: 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .gastro-v3-thumbs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .gastro-v3-thumbs :global(.gallery-thumb) {
+      flex: 0 0 60px;
+      height: 60px;
+      padding: 0;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      overflow: hidden;
+      background: none;
+      opacity: .55;
+      cursor: pointer;
+      transition: opacity .2s, border-color .2s;
+    }
+
+    .gastro-v3-thumbs :global(.gallery-thumb.is-active) {
+      opacity: 1;
+      border-color: var(--dourado);
+    }
+
+    .gastro-v3-thumbs :global(.gallery-thumb img) {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  /* Formulário (desktop e mobile): todos os campos em bege claro com borda
+     dourada suave; o campo em uso ganha a borda dourada cheia e um bege um
+     pouco mais forte. Rótulos um pouco maiores e texto de exemplo menor/mais
+     claro que o rótulo. O texto digitado segue 16px (abaixo disso o iOS dá
+     zoom ao tocar no campo) */
+  .contato-form-wrap :global(.form-label) {
+    font-size: 10.5px;
+    color: #666;
+  }
+
+  .contato-form-wrap :global(.form-input),
+  .contato-form-wrap :global(.form-select),
+  .contato-form-wrap :global(.form-textarea) {
+    background-color: var(--dourado-bg) !important;
+    border: 1px solid rgba(196, 156, 76, .5) !important;
+  }
+
+  .contato-form-wrap :global(.form-input:focus),
+  .contato-form-wrap :global(.form-select:focus),
+  .contato-form-wrap :global(.form-textarea:focus) {
+    background-color: var(--dourado-bg2) !important;
+    border-color: var(--dourado) !important;
+  }
+
+  .contato-form-wrap :global(.form-input.error),
+  .contato-form-wrap :global(.form-select.error) {
+    background-color: rgba(201, 123, 123, .05) !important;
+    border-color: #c97b7b !important;
+  }
+
+  .contato-form-wrap :global(.form-input::placeholder),
+  .contato-form-wrap :global(.form-textarea::placeholder) {
+    font-size: 13px;
+    color: #b5aea2;
+  }
+
+  /* Mobile: sem as etiquetas acima dos títulos; títulos de seção 15% menores
+     (20px → 17px, incluindo o do contato) e subtítulos padronizados, mais perto
+     do título; contato e rodapé compactos (os campos mantêm 16px de fonte p/ o
+     iOS não dar zoom ao tocar) e botão de envio discreto, sem o brilho roxo do
+     .btn-primary global */
+  @media (max-width: 768px) {
+    .section-tag {
+      display: none;
+    }
+
+    .section-title {
+      font-size: 17px;
+    }
+
+    .ambientes-header .section-title,
+    .gastro-v3-header .section-title,
+    .galeria-header .section-title {
+      margin-bottom: 8px;
+    }
+
+    .ambientes-desc-m,
+    .gastro-v3-sub,
+    .galeria-sub {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.6;
+      letter-spacing: normal;
+      color: #555;
+      margin: 0 auto;
+    }
+
+    .contato-intro {
+      padding: 40px 20px 18px;
+    }
+
+    /* destaque no mesmo dourado dos outros títulos (o base usa o dourado
+       claro, pensado p/ o antigo painel escuro) */
+    .contato-info .section-title em {
+      color: var(--dourado);
+    }
+
+    .contato-form-wrap :global(.lead-form-grid) {
+      gap: 10px;
+    }
+
+    .contato-form-wrap :global(.form-row) {
+      gap: 8px;
+    }
+
+    .contato-form-wrap :global(.form-group) {
+      gap: 4px;
+    }
+
+    .contato-form-wrap :global(.form-label) {
+      letter-spacing: 1.5px;
+    }
+
+    .contato-form-wrap :global(.form-input),
+    .contato-form-wrap :global(.form-select) {
+      padding: 9px 12px !important;
+    }
+
+    .contato-form-wrap :global(.form-submit) {
+      padding: 12px 20px !important;
+      font-size: 10px !important;
+      letter-spacing: 2.5px !important;
+      box-shadow: none !important;
+    }
+
+    .contato-form-wrap :global(.form-footer) {
+      font-size: 10px;
+    }
+
+    /* Rodapé discreto: baixo, logo menor/esmaecido e copyright numa linha só
+       (em caixa alta não caberia sem descer a ~8,5px) */
+    footer {
+      padding: 18px 20px;
+    }
+
+    .footer-bottom {
+      gap: 10px;
+    }
+
+    .footer-copy {
+      font-size: 9.5px;
+      letter-spacing: .2px;
+      text-transform: none;
+      white-space: nowrap;
+    }
+
+    .footer-logo-bottom :global(img) {
+      height: 20px;
+      opacity: .5;
+    }
+
+    .footer-dev-text {
+      font-size: 9.5px;
+    }
+
+    .footer-dev :global(.footer-dev-img) {
+      height: 11px;
+    }
+  }
+
+  /* Depoimentos no mobile: título mais perto dos cards (mesmo ritmo das outras
+     seções) e conteúdo centralizado no card, com aspas douradas — depoimentos
+     curtos não deixam mais um "buraco" entre o texto e o nome */
+  @media (max-width: 768px) {
+    .depoimentos-header {
+      margin-bottom: 24px;
+    }
+
+    .dep-card {
+      justify-content: center;
+      gap: 16px;
+      padding: 28px 24px;
+    }
+
+    .dep-card-text {
+      margin-bottom: 0;
+    }
+
+    .dep-card-text::before {
+      content: '\201C';
+      display: block;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 48px;
+      line-height: .8;
+      color: var(--dourado);
+      margin-bottom: 4px;
+    }
+  }
+</style>
