@@ -98,8 +98,8 @@ const heroMobile = await getImage({ src: heroMobileSrc, widths: [640, 828, 1080]
         <div class="ambientes-carousel">
         <button class="ambientes-btn ambientes-btn--prev" id="ambientesPrev" type="button" aria-label="Foto anterior">&lsaquo;</button>
         <div class="ambientes-grid" id="ambientesGrid">
-            <div class="ambientes-item"><Img src="2DECOR_1145_DSC07536_resultado.avif" alt="Bolo de 15 anos com painel floral e letreiro personalizado" width={800} quality={72} zoom /></div>
             <div class="ambientes-item"><Img src="espaco-completo-07.jpg" alt="Salão com projeção mapeada temática de Las Vegas" width={800} quality={72} zoom /></div>
+            <div class="ambientes-item"><Img src="2DECOR_1145_DSC07536_resultado.avif" alt="Bolo de 15 anos com painel floral e letreiro personalizado" width={800} quality={72} zoom /></div>
             <div class="ambientes-item"><Img src="espaco-completo-02.jpg" alt="Cenário com balões dourados e painel floral" width={800} quality={72} zoom /></div>
             <div class="ambientes-item"><Img src="espaco-completo-06.jpg" alt="Salão com projeção mapeada rosé e mesas decoradas" width={800} quality={72} zoom /></div>
             <div class="ambientes-item"><Img src="espaco-completo-08.jpg" alt="Salão com projeção mapeada temática da Toscana" width={800} quality={72} zoom /></div>
@@ -123,6 +123,7 @@ const heroMobile = await getImage({ src: heroMobileSrc, widths: [640, 828, 1080]
         <div class="gastro-v3-carousel">
             <button class="gastro-v3-btn gastro-v3-btn--prev" id="gastroPrev" type="button" aria-label="Foto anterior">&lsaquo;</button>
             <div class="gastro-v3-track" id="gastroTrack">
+                <div class="gastro-v3-item"><Img src="gastronomia-v3-07.jpg" alt="Mesa de buffet com petiscos, mini sanduíches e crudités" width={800} quality={72} zoom /></div>
                 <div class="gastro-v3-item"><Img src="gastronomia-v3-02.jpg" alt="Espetinhos gourmet servidos em cumbucas" width={800} quality={72} zoom /></div>
                 <div class="gastro-v3-item"><Img src="gastronomia-v3-04.jpg" alt="Bolinhos finalizados em bandeja dourada" width={800} quality={72} zoom /></div>
                 <div class="gastro-v3-item"><Img src="gastronomia-v3-05.jpg" alt="Prato de camarão com limão servido no réchaud" width={800} quality={72} zoom /></div>
@@ -258,7 +259,7 @@ const heroMobile = await getImage({ src: heroMobileSrc, widths: [640, 828, 1080]
               footerText="Seus dados são usados apenas para retorno de contato e orçamento."
               honeypot
               fields={[
-                { name: 'nome', type: 'text', label: 'Nome', placeholder: 'Ex.: Maria Silva', required: true },
+                { name: 'nome', type: 'text', label: 'Nome', placeholder: 'Ex.: Jessica Andrade', required: true },
                 { name: 'telefone', type: 'tel', label: 'WhatsApp', placeholder: '(11) 9 0000-0000', required: true },
                 { type: 'row', fields: [
                   { name: 'data_evento', type: 'text', label: 'Data do Evento', placeholder: 'dd/mm/aaaa', required: true, readonly: true, flatpickr: true },
@@ -600,6 +601,14 @@ const heroMobile = await getImage({ src: heroMobileSrc, widths: [640, 828, 1080]
     gap: 6px;
   }
 
+  /* Desktop: crédito da Dmove afastado da direita p/ não ficar embaixo do
+     botão flutuante do WhatsApp */
+  @media (min-width: 769px) {
+    .footer-dev {
+      margin-right: 64px;
+    }
+  }
+
   /* Contato no desktop: painel esquerdo em bege claro (no base é escuro), com
      textos e atalho do WhatsApp recoloridos p/ fundo claro. No mobile esse
      painel já é dissolvido no fundo branco, então nada muda lá */
@@ -629,14 +638,19 @@ const heroMobile = await getImage({ src: heroMobileSrc, widths: [640, 828, 1080]
       stroke: var(--dourado);
     }
 
+    /* WhatsApp como botão secundário em verde suave (reconhecível como
+       WhatsApp sem competir com o dourado do "Enviar solicitação"); o texto
+       segue "Prefere falar agora?" normal + "Chamar no WhatsApp" em negrito */
     .contato-wpp {
-      color: var(--preto);
-      border-color: rgba(196, 156, 76, .45);
+      background: rgba(37, 211, 102, .12);
+      border: 1px solid rgba(37, 211, 102, .45);
+      border-radius: 4px;
+      color: #0f7a3d;
     }
 
     .contato-wpp:hover {
-      background: rgba(196, 156, 76, .12);
-      border-color: var(--dourado);
+      background: rgba(37, 211, 102, .2);
+      border-color: #25D366;
     }
   }
 
@@ -689,9 +703,11 @@ const heroMobile = await getImage({ src: heroMobileSrc, widths: [640, 828, 1080]
     display: none;
   }
 
+  /* 4:3 (horizontal), perto do formato das fotos (3:2 / 16:9): o quadro
+     vertical cortava muito as laterais e parecia "zoom" */
   .gastro-v3-item {
     flex: 0 0 calc((100% - 32px) / 3);
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 4 / 3;
     scroll-snap-align: start;
     overflow: hidden;
     background-color: var(--preto-medio);
