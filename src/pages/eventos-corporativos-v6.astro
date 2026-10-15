@@ -8,7 +8,7 @@ import '../styles/eventos-corporativos-v6.css';
 
 // Hero: imagem = 1º frame do vídeo de fundo, então a troca foto → vídeo não aparece.
 // Uma imagem só (desktop e mobile, recortada via object-fit), em algumas larguras.
-import heroFrameSrc from '../assets/images/hero-corporativo-v5.jpg';
+import heroFrameSrc from '../assets/images/corporativo-v6/hero-corporativo-v6.jpg';
 const heroFrame = await getImage({ src: heroFrameSrc, widths: [640, 960, 1280], quality: 78 });
 ---
 
@@ -38,9 +38,9 @@ const heroFrame = await getImage({ src: heroFrameSrc, widths: [640, 960, 1280], 
         <div id="hero-slides">
             <div class="hero-slide active">
                 <img src={heroFrame.src} srcset={heroFrame.srcSet.attribute} sizes="100vw" width="1280" height="720" alt="" loading="eager" fetchpriority="high" decoding="async" />
-                <!-- Vídeo de fundo (o mesmo vídeo editado da 2ª seção de /eventos-corporativos). A foto acima fica por baixo
+                <!-- Vídeo de fundo (vídeo horizontal "LP Carlinhos", servido de public/videos). A foto acima (1º quadro do vídeo) fica por baixo
                      como LCP/fallback; o vídeo aparece com fade quando começa a tocar -->
-                <video class="hero-video" poster={heroFrame.src} src="https://media.dmove.com.br/clients/espacofitcom/videos/video_sobre-fiteventos.webm" autoplay muted loop playsinline preload="auto" aria-hidden="true" onplaying="this.classList.add('is-playing')"></video>
+                <video class="hero-video" poster={heroFrame.src} src="/videos/video_hero-fiteventos-horz.webm" autoplay muted loop playsinline preload="auto" aria-hidden="true" onplaying="this.classList.add('is-playing')"></video>
             </div>
         </div>
         <div class="hero-overlay"></div>
@@ -119,20 +119,20 @@ const heroFrame = await getImage({ src: heroFrameSrc, widths: [640, 960, 1280], 
             <button class="salas-v5-arrow salas-v5-arrow--prev salas-v5-float" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
             <button class="salas-v5-arrow salas-v5-arrow--next salas-v5-float" type="button" aria-label="Próxima foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
             <div class="salas-v5-track">
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/salas/salas-01.webp" alt="Sala high tech com iluminação hexagonal – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/salas/salas-02.webp" alt="Sala VIP com sofás – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/salas/salas-03.webp" alt="Sala com painel de LED – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/salas/salas-04.webp" alt="Sala high tech – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/salas/salas-05.webp" alt="Sala de streaming – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/salas/salas-06.webp" alt="Sala de design thinking – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/salas/salas-07.webp" alt="Salas modernas – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/salas/salas-08.webp" alt="Salão para até 530 pessoas – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/salas/salas-09.webp" alt="Camarim – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/salas/salas-10.webp" alt="Sala de reunião – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/salas/salas-11.webp" alt="Sala de confraternização – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/salas/salas-12.webp" alt="Sala de coffee break – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/salas/salas-13.webp" alt="Sala instagramável – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/salas/salas-14.webp" alt="Sala com projeção mapeada – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-01.webp" alt="Sala high tech com iluminação hexagonal – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-02.webp" alt="Sala VIP com sofás – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-03.webp" alt="Sala com painel de LED – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-04.webp" alt="Sala high tech – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-05.webp" alt="Sala de streaming – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-06.webp" alt="Sala de design thinking – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-07.webp" alt="Salas modernas – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-08.webp" alt="Salão para até 530 pessoas – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-09.webp" alt="Camarim – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-10.webp" alt="Sala de reunião – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-11.webp" alt="Sala de confraternização – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-12.webp" alt="Sala de coffee break – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-13.webp" alt="Sala instagramável – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-14.webp" alt="Sala com projeção mapeada – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
             </div>
             </div>
             <div class="salas-v5-progress" aria-hidden="true"><i></i></div>
@@ -155,8 +155,8 @@ const heroFrame = await getImage({ src: heroFrameSrc, widths: [640, 960, 1280], 
             <button class="salas-v5-arrow salas-v5-arrow--prev salas-v5-float" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
             <button class="salas-v5-arrow salas-v5-arrow--next salas-v5-float" type="button" aria-label="Próxima foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
             <div class="salas-v5-track">
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/auditorios/auditorios-01.webp" alt="Sala e auditório para eventos corporativos – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/auditorios/auditorios-02.webp" alt="Sala e auditório para eventos corporativos – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    <div class="salas-v5-slide"><Img src="corporativo-v6/auditorios/auditorios-01-padrao.webp" alt="Sala e auditório para eventos corporativos – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    <div class="salas-v5-slide"><Img src="corporativo-v6/auditorios/auditorios-02.webp" alt="Sala e auditório para eventos corporativos – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
                     <div class="salas-v5-slide"><Img src="corporativo-v5/auditorios/auditorios-03.webp" alt="Sala e auditório para eventos corporativos – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
                     <div class="salas-v5-slide"><Img src="corporativo-v5/auditorios/auditorios-04.webp" alt="Sala e auditório para eventos corporativos – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
                     <div class="salas-v5-slide"><Img src="corporativo-v5/auditorios/auditorios-05.webp" alt="Sala e auditório para eventos corporativos – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
