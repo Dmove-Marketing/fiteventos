@@ -2532,7 +2532,7 @@ body .contato-form-wrap .form-submit.form-submit {
     align-items: center;
     padding: 5px 3.2cqw;
     min-height: 7.6cqw;
-    background: var(--salas-red);
+    background: var(--salas-red, #C4074E); /* também usada na seção Serviços, fora de .salas-v5 */
     color: #fff;
     font-size: clamp(10px, 2.7cqw, 15px);
     line-height: 1.25;
@@ -2542,7 +2542,9 @@ body .contato-form-wrap .form-submit.form-submit {
 .salas-v5-cap-txt { flex: 1 1 0; min-width: 0; font-weight: 400; }
 .salas-v5-cap-txt b,
 .salas-v5-cap-txt strong { font-weight: 800; }
-.salas-v5-cap-txt > * + *::before {
+/* o "|" fica no fim de cada item (e não no começo do próximo), senão a
+   quebra de linha deixaria um "|" solto no início da 2ª linha */
+.salas-v5-cap-txt > :not(:last-child)::after {
     content: "|";
     margin: 0 .6em;
     font-weight: 400;
@@ -2560,8 +2562,9 @@ body .contato-form-wrap .form-submit.form-submit {
 /* cartão estreito (celular): some o texto de apoio (.salas-v5-cap-opt) */
 @container (max-width: 400px) {
     .salas-v5-cap-opt { display: none; }
-    .salas-v5-cap-txt > .salas-v5-cap-opt:first-child + *::before { content: none; }
-    .salas-v5-cap-txt > * + *::before { margin: 0 .4em; }
+    /* sem "|" sobrando depois do último item que continua visível */
+    .salas-v5-cap-txt > :not(.salas-v5-cap-opt):has(+ .salas-v5-cap-opt)::after { content: none; }
+    .salas-v5-cap-txt > :not(:last-child)::after { margin: 0 .4em; }
 }
 .salas-v5-progress {
     position: relative;
@@ -2737,6 +2740,20 @@ body .contato-form-wrap .form-submit.form-submit {
     height: 100%;
     object-fit: contain;
     display: block;
+}
+/* slide com legenda em HTML (mesma faixa dos carrosséis de salas, veja
+   .salas-v5-slide--cap): foto em cima, faixa embaixo, no mesmo cartão 7:5 */
+.serv-v5-slide--cap {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    container-type: inline-size;
+}
+.serv-v5-slide--cap img {
+    flex: 1 1 0;
+    min-height: 0;
+    height: auto;
+    object-fit: cover;
 }
 .serv-v5-arrow {
     position: absolute;

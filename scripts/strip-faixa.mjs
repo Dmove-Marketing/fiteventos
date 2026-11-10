@@ -5,6 +5,8 @@
 // Uso:
 //   node scripts/strip-faixa.mjs <arquivo|pasta> [...]           sobrescreve no lugar
 //   node scripts/strip-faixa.mjs <arquivo|pasta> [...] --out dir  grava em outra pasta
+//   node scripts/strip-faixa.mjs <arquivo> --box x,y,w,h          caixa de corte manual, em px
+//                                                                 (para slides com outro layout)
 //
 // Geometria de referência (slide 1792×1280): foto em x 15–1778 e y 15–1150,
 // faixa em y 1168–1262. O corte deixa 3 px de folga dentro da foto. Para
@@ -20,6 +22,8 @@ const EXTS = new Set(['.webp', '.jpg', '.jpeg', '.png', '.avif']);
 const args = process.argv.slice(2);
 const outIdx = args.indexOf('--out');
 const outDir = outIdx >= 0 ? args.splice(outIdx, 2)[1] : null;
+const boxIdx = args.indexOf('--box');
+const manual = boxIdx >= 0 ? args.splice(boxIdx, 2)[1].split(',').map(Number) : null;
 if (!args.length) {
   console.error('Uso: node scripts/strip-faixa.mjs <arquivo|pasta> [...] [--out pasta]');
   process.exit(1);
@@ -38,7 +42,7 @@ for (const file of files) {
   const { width, height } = await sharp(input).metadata();
   const sx = width / REF.w;
   const sy = height / REF.h;
-  const region = {
+  const region = manual ? { left: manual[0], top: manual[1], width: manual[2], height: manual[3] } : {
     left: Math.round(BOX.x * sx),
     top: Math.round(BOX.y * sy),
     width: Math.round(BOX.w * sx),

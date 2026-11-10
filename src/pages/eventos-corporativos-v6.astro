@@ -61,6 +61,72 @@ const hibridos = [
   { img: 'hibridos-08.webp', partes: ['{EVENTOS HÍBRIDOS}', 'ESTÚDIO DE GRAVAÇÃO'], extra: 'TRANSMISSÃO AO VIVO', alt: 'Câmera e monitor em estúdio de gravação – Espaço Fit Eventos' },
   { img: 'hibridos-09.webp', partes: ['{EVENTOS HÍBRIDOS}', 'TRADUÇÃO SIMULTÂNEA'], extra: 'INTERAÇÃO ONLINE', alt: 'Atendente com headset, tradução simultânea e interação online – Espaço Fit Eventos' },
 ];
+
+// Carrossel "Festa de confraternização": mesma ideia. `partes` aparecem sempre;
+// `extras` somem no celular. Sem `alt`, o texto alternativo sai da própria legenda.
+// A última foto (festa junina) tem outro formato e foi cortada com --box.
+const altDe = (...grupos: (string[] | undefined)[]) => {
+  const t = grupos.flat().filter(Boolean).map((p) => p!.replace(/[{}]/g, '').toLowerCase()).join(', ');
+  return `${t.charAt(0).toUpperCase()}${t.slice(1)} – Espaço Fit Eventos`;
+};
+const confraternizacao = [
+  { img: 'confraternizacao-02.webp', partes: ['{COQUETÉIS}', 'GASTRONOMIA'], extras: ['BEBIDAS', 'HAPPY HOUR', 'DECORAÇÃO'] },
+  { img: 'confraternizacao-03.webp', partes: ['{CONFRATERNIZAÇÕES}', 'BANDAS'], extras: ['DJs', 'SONORIZAÇÃO', 'ILUMINAÇÃO'] },
+  { img: 'confraternizacao-04.webp', partes: ['{LOUNGE DE EXPOSIÇÕES}', 'SHOWROOM'], extras: ['LANÇAMENTOS', 'COQUETÉIS'] },
+  { img: 'confraternizacao-05.webp', partes: ['{HAPPY HOUR}', 'FESTAS'], extras: ['PALCO', 'ILUMINAÇÃO', 'BANDA', 'DJ'] },
+  { img: 'confraternizacao-06.webp', partes: ['{CONFRATERNIZAÇÃO}', 'HAPPY HOUR'], extras: ['FESTA DE EMPRESA'] },
+  { img: 'confraternizacao-07.webp', partes: ['{EVENTOS HÍBRIDOS}', 'TRANSMISSÃO AO VIVO'], extras: ['PALCO', 'PAINEL DE LED'] },
+  { img: 'confraternizacao-08.webp', partes: ['{CONFRATERNIZAÇÕES}', 'BANDAS'], extras: ['DJs', 'SONORIZAÇÃO', 'ILUMINAÇÃO'] },
+  { img: 'confraternizacao-09.webp', partes: ['{LOUNGE DE EXPOSIÇÕES}', 'COQUETÉIS DE LANÇAMENTO'], extras: ['FOYER'] },
+  { img: 'confraternizacao-10.webp', partes: ['{INSTAGRAMÁVEIS}', 'AMBIENTES PARA INTERAÇÃO E DESCOMPRESSÃO'] },
+  { img: 'confraternizacao-11.webp', partes: ['{ESPAÇOS GOURMET}', 'COQUETÉIS'], extras: ['COFFEES BREAKS'] },
+  { img: 'confraternizacao-12.webp', partes: ['{ESPAÇOS GOURMET}', 'COQUETÉIS'], extras: ['JANTARES', 'ALMOÇOS', 'COFFEES'] },
+  { img: 'confraternizacao-13.webp', partes: ['{EVENTOS HÍBRIDOS}', 'PAINÉIS DE LED'], extras: ['TRANSMISSÃO AO VIVO'] },
+  { img: 'confraternizacao-14.webp', partes: ['{AMBIENTES FLEXÍVEIS}', 'PARA EVENTOS PRESENCIAIS OU HÍBRIDOS'] },
+  { img: 'confraternizacao-15.webp', partes: ['{LOUNGE DE EXPOSIÇÕES}', 'COQUETÉIS'], extras: ['FOYER', 'RECEPÇÕES'] },
+  { img: 'confraternizacao-16.webp', partes: ['{LOUNGE DE EXPOSIÇÕES}', 'COQUETÉIS'], extras: ['FOYER', 'RECEPÇÕES'] },
+  { img: 'confraternizacao-17.webp', partes: ['{ESPAÇOS GOURMET}', 'COQUETÉIS'], extras: ['JANTARES', 'ALMOÇOS', 'COFFEES'] },
+  { img: 'confraternizacao-18.webp', partes: ['{ESPAÇOS GOURMET}', 'COQUETÉIS'], extras: ['JANTARES', 'ALMOÇOS', 'COFFEES'] },
+  { img: 'confraternizacao-19.webp', partes: ['{ESPAÇOS GOURMET}', 'COQUETÉIS'], extras: ['JANTARES', 'ALMOÇOS', 'COFFEES'] },
+  { img: 'confraternizacao-20.webp', partes: ['{ESPAÇOS GOURMET}', 'COQUETÉIS'], extras: ['JANTARES', 'ALMOÇOS', 'COFFEES'] },
+  { img: 'confraternizacao-01.webp', partes: ['RESERVE SUA {FESTA JUNINA} CONOSCO'], alt: 'Bandeirinhas e luzes de festa junina – Espaço Fit Eventos' },
+];
+
+// Seção "Serviços": os 3 carrosséis (gastronomia, multimídia, decoração) usam a
+// mesma faixa de legenda. Fotos em src/assets/images/corporativo-v6/servicos/.
+const gastronomia = [
+  { img: 'gastronomia-01.jpg', partes: ['{GASTRONOMIA GOURMET}', 'ALMOÇO'], extras: ['JANTAR', 'COQUETEL', 'COFFEE'] },
+  { img: 'gastronomia-02.jpg', partes: ['{GASTRONOMIA GOURMET}', 'ALMOÇO'], extras: ['JANTAR', 'COQUETEL', 'COFFEE'] },
+  { img: 'gastronomia-03.jpg', partes: ['{GASTRONOMIA GOURMET}', 'OPÇÕES VEGANAS OU VEGETARIANAS'] },
+  { img: 'gastronomia-04.jpg', partes: ['{GASTRONOMIA GOURMET}', 'CARDÁPIOS CUSTOMIZADOS'] },
+  { img: 'gastronomia-05.jpg', partes: ['{GASTRONOMIA}', 'DOCES'], extras: ['SOBREMESAS', 'OPÇÕES SAUDÁVEIS'] },
+  { img: 'gastronomia-06.jpg', partes: ['{GASTRONOMIA}', 'COFFEE BREAK'], extras: ['BRUNCH', 'COQUETEL', 'PETISCOS'] },
+  { img: 'gastronomia-07.jpg', partes: ['{GASTRONOMIA}', 'COQUETÉIS'], extras: ['HAPPY HOUR', 'CONFRATERNIZAÇÕES'] },
+];
+const multimidia = [
+  { img: 'multimidia-01.jpg', partes: ['{EQUIPAMENTOS MULTIMÍDIA}', 'TRANSMISSÃO AO VIVO'], extras: ['PAINÉIS DE LED'] },
+  { img: 'multimidia-02.jpg', partes: ['{EQUIPAMENTOS MULTIMÍDIA}', 'FILMAGEM'], extras: ['PAINÉIS DE LED', 'SOM'] },
+  { img: 'multimidia-03.jpg', partes: ['{EQUIPAMENTOS MULTIMÍDIA}', 'PALCO'], extras: ['PAINEL DE LED', 'ILUMINAÇÃO'] },
+  { img: 'multimidia-04.jpg', partes: ['{EQUIPAMENTOS MULTIMÍDIA}', 'PAINEL CHROMA KEY'], extras: ['PAINEL DE LED'] },
+  { img: 'multimidia-05.jpg', partes: ['{EQUIPAMENTOS MULTIMÍDIA}', 'TV'], extras: ['FILMAGEM', 'PROJETORES'] },
+];
+const decoracao = [
+  { img: 'decoracao-01.webp', partes: ['{LOUNGE DE EXPOSIÇÕES}', 'COQUETÉIS DE LANÇAMENTO'], extras: ['FOYER'] },
+  { img: 'decoracao-02.jpg', partes: ['{LOUNGE DE EXPOSIÇÕES}', 'SHOWROOM'], extras: ['LANÇAMENTOS', 'COQUETÉIS'] },
+  { img: 'decoracao-03.jpg', partes: ['{INSTAGRAMÁVEIS}', 'AMBIENTES PARA INTERAÇÃO E DESCOMPRESSÃO'] },
+  { img: 'decoracao-04.webp', partes: ['{ESPAÇOS GOURMET}', 'COQUETÉIS'], extras: ['COFFEES BREAKS'] },
+  { img: 'decoracao-05.jpg', partes: ['{ESPAÇOS GOURMET}', 'COQUETÉIS'], extras: ['JANTARES', 'ALMOÇOS', 'COFFEES'] },
+  { img: 'decoracao-06.jpg', partes: ['{EVENTOS HÍBRIDOS}', 'PAINÉIS DE LED'], extras: ['TRANSMISSÃO AO VIVO'] },
+  { img: 'decoracao-07.jpg', partes: ['{AMBIENTES FLEXÍVEIS}', 'PARA EVENTOS PRESENCIAIS OU HÍBRIDOS'] },
+  { img: 'decoracao-08.jpg', partes: ['{ESPAÇOS GOURMET}', 'COQUETÉIS'], extras: ['JANTARES', 'ALMOÇOS', 'COFFEES'] },
+  { img: 'decoracao-09.jpg', partes: ['{ESPAÇOS GOURMET}', 'COQUETÉIS'], extras: ['JANTARES', 'ALMOÇOS', 'COFFEES'] },
+  { img: 'decoracao-10.jpg', partes: ['{COQUETÉIS}', 'GASTRONOMIA'], extras: ['BEBIDAS', 'HAPPY HOUR', 'DECORAÇÃO'] },
+  { img: 'decoracao-11.jpg', partes: ['{CONFRATERNIZAÇÕES}', 'BANDAS'], extras: ['DJs', 'SONORIZAÇÃO', 'ILUMINAÇÃO'] },
+  { img: 'decoracao-12.jpg', partes: ['{HAPPY HOUR}', 'FESTAS'], extras: ['PALCO', 'ILUMINAÇÃO', 'BANDA', 'DJ'] },
+  { img: 'decoracao-13.jpg', partes: ['{CONFRATERNIZAÇÃO}', 'HAPPY HOUR'], extras: ['FESTA DE EMPRESA'] },
+  { img: 'decoracao-14.jpg', partes: ['{CONFRATERNIZAÇÕES}', 'BANDAS'], extras: ['DJs', 'SONORIZAÇÃO', 'ILUMINAÇÃO'] },
+  { img: 'decoracao-15.jpg', partes: ['{EVENTOS HÍBRIDOS}', 'TRANSMISSÃO AO VIVO'], extras: ['PALCO', 'PAINEL DE LED'] },
+];
 ---
 
 <Base
@@ -260,26 +326,15 @@ const hibridos = [
             <button class="salas-v5-arrow salas-v5-arrow--prev salas-v5-float" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
             <button class="salas-v5-arrow salas-v5-arrow--next salas-v5-float" type="button" aria-label="Próxima foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
             <div class="salas-v5-track">
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-02.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-03.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-04.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-05.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-06.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-07.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-08.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-09.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-10.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-11.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-12.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-13.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-14.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-15.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-16.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-17.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-18.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-19.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-20.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/confraternizacao/confraternizacao-01.webp" alt="Festa de confraternização de empresa – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    {confraternizacao.map((c) => (
+                        <figure class="salas-v5-slide salas-v5-slide--cap">
+                            <Img src={`corporativo-v6/confraternizacao/${c.img}`} alt={c.alt ?? altDe(c.partes, c.extras)} width={720} quality={72} zoom />
+                            <figcaption class="salas-v5-cap"><span class="salas-v5-cap-txt">
+                                {c.partes.map((p) => <span set:html={negrito(p)} />)}
+                                {(c.extras ?? []).map((p) => <span class="salas-v5-cap-opt" set:html={negrito(p)} />)}
+                            </span></figcaption>
+                        </figure>
+                    ))}
             </div>
             </div>
             <div class="salas-v5-progress" aria-hidden="true"><i></i></div>
@@ -313,13 +368,15 @@ const hibridos = [
             <div class="serv-v5-panel" id="serv-panel-gastronomia" role="tabpanel" aria-labelledby="serv-tab-gastronomia">
                 <div class="serv-v5-media">
                     <div class="serv-v5-track">
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/gastronomia-01.jpg" alt="Gastronomia gourmet do Espaço Fit Eventos – foto 1 de 7" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/gastronomia-02.jpg" alt="Gastronomia gourmet do Espaço Fit Eventos – foto 2 de 7" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/gastronomia-03.jpg" alt="Gastronomia gourmet do Espaço Fit Eventos – foto 3 de 7" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/gastronomia-04.jpg" alt="Gastronomia gourmet do Espaço Fit Eventos – foto 4 de 7" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/gastronomia-05.jpg" alt="Gastronomia gourmet do Espaço Fit Eventos – foto 5 de 7" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/gastronomia-06.jpg" alt="Gastronomia gourmet do Espaço Fit Eventos – foto 6 de 7" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/gastronomia-07.jpg" alt="Gastronomia gourmet do Espaço Fit Eventos – foto 7 de 7" width={760} quality={74} zoom /></div>
+                        {gastronomia.map((s) => (
+                            <figure class="serv-v5-slide serv-v5-slide--cap">
+                                <Img src={`corporativo-v6/servicos/${s.img}`} alt={altDe(s.partes, s.extras)} width={760} quality={74} zoom />
+                                <figcaption class="salas-v5-cap"><span class="salas-v5-cap-txt">
+                                    {s.partes.map((p) => <span set:html={negrito(p)} />)}
+                                    {(s.extras ?? []).map((p) => <span class="salas-v5-cap-opt" set:html={negrito(p)} />)}
+                                </span></figcaption>
+                            </figure>
+                        ))}
                     </div>
                     <button class="serv-v5-arrow serv-v5-arrow--prev" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
                     <button class="serv-v5-arrow serv-v5-arrow--next" type="button" aria-label="Próxima foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
@@ -345,11 +402,15 @@ const hibridos = [
             <div class="serv-v5-panel" id="serv-panel-multimidia" role="tabpanel" aria-labelledby="serv-tab-multimidia" hidden>
                 <div class="serv-v5-media">
                     <div class="serv-v5-track">
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/multimidia-01.jpg" alt="Equipamentos multimídia do Espaço Fit Eventos – foto 1 de 5" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/multimidia-02.jpg" alt="Equipamentos multimídia do Espaço Fit Eventos – foto 2 de 5" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/multimidia-03.jpg" alt="Equipamentos multimídia do Espaço Fit Eventos – foto 3 de 5" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/multimidia-04.jpg" alt="Equipamentos multimídia do Espaço Fit Eventos – foto 4 de 5" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/multimidia-05.jpg" alt="Equipamentos multimídia do Espaço Fit Eventos – foto 5 de 5" width={760} quality={74} zoom /></div>
+                        {multimidia.map((s) => (
+                            <figure class="serv-v5-slide serv-v5-slide--cap">
+                                <Img src={`corporativo-v6/servicos/${s.img}`} alt={altDe(s.partes, s.extras)} width={760} quality={74} zoom />
+                                <figcaption class="salas-v5-cap"><span class="salas-v5-cap-txt">
+                                    {s.partes.map((p) => <span set:html={negrito(p)} />)}
+                                    {(s.extras ?? []).map((p) => <span class="salas-v5-cap-opt" set:html={negrito(p)} />)}
+                                </span></figcaption>
+                            </figure>
+                        ))}
                     </div>
                     <button class="serv-v5-arrow serv-v5-arrow--prev" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
                     <button class="serv-v5-arrow serv-v5-arrow--next" type="button" aria-label="Próxima foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
@@ -375,21 +436,15 @@ const hibridos = [
             <div class="serv-v5-panel" id="serv-panel-decoracao" role="tabpanel" aria-labelledby="serv-tab-decoracao" hidden>
                 <div class="serv-v5-media">
                     <div class="serv-v5-track">
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/decoracao-01.webp" alt="Decoração e iluminação no Espaço Fit Eventos – foto 1 de 15" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/decoracao-02.jpg" alt="Decoração e iluminação no Espaço Fit Eventos – foto 2 de 15" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/decoracao-03.jpg" alt="Decoração e iluminação no Espaço Fit Eventos – foto 3 de 15" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/decoracao-04.webp" alt="Decoração e iluminação no Espaço Fit Eventos – foto 4 de 15" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/decoracao-05.jpg" alt="Decoração e iluminação no Espaço Fit Eventos – foto 5 de 15" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/decoracao-06.jpg" alt="Decoração e iluminação no Espaço Fit Eventos – foto 6 de 15" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/decoracao-07.jpg" alt="Decoração e iluminação no Espaço Fit Eventos – foto 7 de 15" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/decoracao-08.jpg" alt="Decoração e iluminação no Espaço Fit Eventos – foto 8 de 15" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/decoracao-09.jpg" alt="Decoração e iluminação no Espaço Fit Eventos – foto 9 de 15" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/decoracao-10.jpg" alt="Decoração e iluminação no Espaço Fit Eventos – foto 10 de 15" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/decoracao-11.jpg" alt="Decoração e iluminação no Espaço Fit Eventos – foto 11 de 15" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/decoracao-12.jpg" alt="Decoração e iluminação no Espaço Fit Eventos – foto 12 de 15" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/decoracao-13.jpg" alt="Decoração e iluminação no Espaço Fit Eventos – foto 13 de 15" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/decoracao-14.jpg" alt="Decoração e iluminação no Espaço Fit Eventos – foto 14 de 15" width={760} quality={74} zoom /></div>
-                        <div class="serv-v5-slide"><Img src="corporativo-v5/servicos/decoracao-15.jpg" alt="Decoração e iluminação no Espaço Fit Eventos – foto 15 de 15" width={760} quality={74} zoom /></div>
+                        {decoracao.map((s) => (
+                            <figure class="serv-v5-slide serv-v5-slide--cap">
+                                <Img src={`corporativo-v6/servicos/${s.img}`} alt={altDe(s.partes, s.extras)} width={760} quality={74} zoom />
+                                <figcaption class="salas-v5-cap"><span class="salas-v5-cap-txt">
+                                    {s.partes.map((p) => <span set:html={negrito(p)} />)}
+                                    {(s.extras ?? []).map((p) => <span class="salas-v5-cap-opt" set:html={negrito(p)} />)}
+                                </span></figcaption>
+                            </figure>
+                        ))}
                     </div>
                     <button class="serv-v5-arrow serv-v5-arrow--prev" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
                     <button class="serv-v5-arrow serv-v5-arrow--next" type="button" aria-label="Próxima foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
