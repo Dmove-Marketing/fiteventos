@@ -2508,6 +2508,61 @@ body .contato-form-wrap .form-submit.form-submit {
 @media (hover: hover) {
     .salas-v5-slide:hover img { transform: scale(1.04); }
 }
+
+/* Slide com legenda em HTML (<figure>): a foto vem sem faixa e a faixa vinho
+   com o texto e o logo é desenhada aqui, então trocar foto ou texto não exige
+   refazer imagem. Mantém o mesmo cartão 7:5: foto em cima, faixa embaixo */
+.salas-v5-slide--cap {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    container-type: inline-size;
+}
+.salas-v5-slide--cap img {
+    flex: 1 1 0;
+    min-height: 0;
+    height: auto;
+    object-fit: cover;
+}
+.salas-v5-cap {
+    position: relative; /* fica por cima da foto no zoom do hover */
+    z-index: 1;
+    flex: none;
+    display: flex;
+    align-items: center;
+    padding: 5px 3.2cqw;
+    min-height: 7.6cqw;
+    background: var(--salas-red);
+    color: #fff;
+    font-size: clamp(10px, 2.7cqw, 15px);
+    line-height: 1.25;
+    letter-spacing: .01em;
+}
+/* texto: partes separadas por "|"; se não couber em 1 linha, quebra em 2 */
+.salas-v5-cap-txt { flex: 1 1 0; min-width: 0; font-weight: 400; }
+.salas-v5-cap-txt b,
+.salas-v5-cap-txt strong { font-weight: 800; }
+.salas-v5-cap-txt > * + *::before {
+    content: "|";
+    margin: 0 .6em;
+    font-weight: 400;
+}
+/* logo Espaço Fit (branco) à direita da faixa */
+.salas-v5-cap::after {
+    content: "";
+    flex: none;
+    margin-left: 12px;
+    width: 11.5cqw;
+    height: 2.6cqw;
+    min-height: 13px;
+    background: url('../assets/images/corporativo-v6/logo-faixa.png') right center / contain no-repeat;
+}
+/* cartão estreito (celular): some o texto de apoio (.salas-v5-cap-opt) */
+@container (max-width: 400px) {
+    .salas-v5-cap-opt { display: none; }
+    .salas-v5-cap-txt > .salas-v5-cap-opt:first-child + *::before { content: none; }
+    .salas-v5-cap-txt > * + *::before { margin: 0 .4em; }
+}
 .salas-v5-progress {
     position: relative;
     height: 2px;

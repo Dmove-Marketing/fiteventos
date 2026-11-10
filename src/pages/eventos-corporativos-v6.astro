@@ -10,6 +10,57 @@ import '../styles/eventos-corporativos-v6.css';
 // Uma imagem só (desktop e mobile, recortada via object-fit), em algumas larguras.
 import heroFrameSrc from '../assets/images/corporativo-v6/hero-corporativo-v6.jpg';
 const heroFrame = await getImage({ src: heroFrameSrc, widths: [640, 960, 1280], quality: 78 });
+
+// Carrossel "16 salas diferenciadas": as fotos ficam SEM legenda gravada (arquivo
+// em src/assets/images/corporativo-v6/salas/) e o texto da faixa vem daqui.
+// Para trocar uma foto: substitua o arquivo (ou mude `img`). Para mudar a
+// legenda: edite `nome`. Fotos exportadas do PowerPoint (com faixa) passam por
+// `node scripts/strip-faixa.mjs <arquivo>` antes de entrar na pasta.
+const SALAS_PREFIXO = '16 SALAS DIFERENCIADAS';
+const salas = [
+  { img: 'salas-01-sala14.webp', nome: 'SALA 14 DESIGN THINKING', alt: 'Sala 14 Design Thinking, com iluminação hexagonal – Espaço Fit Eventos' },
+  { img: 'salas-02.webp', nome: 'SALA VIP', alt: 'Sala VIP com sofás – Espaço Fit Eventos' },
+  { img: 'salas-03.webp', nome: 'SALAS COM PAINEL DE LED', alt: 'Sala com painel de LED – Espaço Fit Eventos' },
+  { img: 'salas-04.webp', nome: 'SALA HIGH TECH', alt: 'Sala high tech – Espaço Fit Eventos' },
+  { img: 'salas-05.webp', nome: 'SALA DE STREAMING', alt: 'Sala de streaming – Espaço Fit Eventos' },
+  { img: 'salas-08.webp', nome: 'SALA PARA 530 PESSOAS', alt: 'Salão para até 530 pessoas – Espaço Fit Eventos' },
+  { img: 'salas-09.webp', nome: 'SALA CAMARIM', alt: 'Camarim – Espaço Fit Eventos' },
+  { img: 'salas-10-reuniao.jpg', nome: 'SALAS DE REUNIÃO', alt: 'Sala de reunião com mesa de madeira e cadeiras vermelhas – Espaço Fit Eventos' },
+  { img: 'salas-11.webp', nome: 'AMBIENTES DE CONFRATERNIZAÇÃO', alt: 'Sala de confraternização – Espaço Fit Eventos' },
+  { img: 'salas-12.webp', nome: 'ESPAÇOS PARA COFFEE BREAK', alt: 'Sala de coffee break – Espaço Fit Eventos' },
+  { img: 'salas-13.webp', nome: 'LOUNGES INSTAGRAMÁVEIS', alt: 'Sala instagramável – Espaço Fit Eventos' },
+  { img: 'salas-14.webp', nome: 'SALA COM PROJEÇÃO MAPEADA', alt: 'Sala com projeção mapeada – Espaço Fit Eventos' },
+];
+
+// Carrossel "Salas e auditórios": mesma ideia. `partes` vira o texto da faixa,
+// separado por "|" ({texto} = negrito); `extra` é a parte que some no celular.
+// Sala, área e capacidade de cada foto se editam aqui, sem refazer a imagem.
+const negrito = (t: string) => t.replace(/\{(.+?)\}/g, '<strong>$1</strong>');
+const auditorios = [
+  { img: 'auditorios-01-sala17.webp', partes: ['{SALA 17 DESIGN THINKING}', '245M²'], extra: 'CRIATIVIDADE E INOVAÇÃO', alt: 'Sala 17 Design Thinking, de 245 m², com sofás coloridos – Espaço Fit Eventos' },
+  { img: 'auditorios-03.webp', partes: ['{SALA 01}', '400M²', 'AUDITÓRIO PARA {380} PESSOAS'], extra: 'PROJEÇÃO MAPEADA', alt: 'Sala 01, auditório para 380 pessoas com projeção mapeada – Espaço Fit Eventos' },
+  { img: 'sala01-salao-painel-led.jpg', partes: ['{SALA 01}', '400M²', 'MESAS REDONDAS {180} PESSOAS'], alt: 'Sala 01 com painel de LED e mesas redondas para 180 pessoas – Espaço Fit Eventos' },
+  { img: 'sala4-escolar-mesas-longas.jpg', partes: ['{SALA 4}', '130M²', 'FORMATO ESCOLAR'], alt: 'Sala 4 em formato escolar, com mesas longas – Espaço Fit Eventos' },
+  { img: 'auditorios-06.webp', partes: ['{SALA 4}', '130M²', 'AUDITÓRIO {180} PESSOAS'], extra: 'SALAS CONFORTÁVEIS', alt: 'Sala 4, auditório para 180 pessoas – Espaço Fit Eventos' },
+  { img: 'sala4-paineis-rosa.jpg', partes: ['{SALA 4}', '130M²', 'MESAS REDONDAS'], pos: '50% 46%', alt: 'Sala 4 com mesas redondas e painéis de LED – Espaço Fit Eventos' },
+  { img: 'sala3-escolar-painel.jpg', partes: ['{SALA 3}', '245M²', 'FORMATO ESCOLAR'], alt: 'Sala 3 em formato escolar, com painel de projeção – Espaço Fit Eventos' },
+  { img: 'auditorios-09.webp', partes: ['{SALAS 06 e 07}', '60M² a 80M²', 'AUDITÓRIOS ATÉ {96} PESSOAS'], alt: 'Salas 06 e 07, auditórios para até 96 pessoas – Espaço Fit Eventos' },
+  { img: 'sala12-escolar-janelas.jpg', partes: ['{SALA 12}', '115M²', 'FORMATO ESCOLAR'], alt: 'Sala 12 em formato escolar, com janelas panorâmicas – Espaço Fit Eventos' },
+];
+
+// Carrossel "Eventos híbridos ou online": mesma ideia (veja `auditorios` acima).
+// O slide 5 (auditório escuro) substituiu o salão rosa com dois telões.
+const hibridos = [
+  { img: 'hibridos-01.webp', partes: ['{EVENTOS HÍBRIDOS}', 'TRANSMISSÃO AO VIVO'], extra: 'PAINÉIS DE LED', alt: 'Estúdio com poltronas, painéis de LED e câmera para transmissão ao vivo – Espaço Fit Eventos' },
+  { img: 'hibridos-02.webp', partes: ['{EVENTOS HÍBRIDOS}', 'ESTÚDIO DE GRAVAÇÃO'], extra: 'TRANSMISSÃO AO VIVO', alt: 'Câmera de transmissão e painel de LED em estúdio de gravação – Espaço Fit Eventos' },
+  { img: 'hibridos-03.webp', partes: ['{EVENTOS HÍBRIDOS}', 'TRANSMISSÃO AO VIVO', 'PALCO'], extra: 'PAINEL DE LED', alt: 'Palco com painel de LED para transmissão ao vivo – Espaço Fit Eventos' },
+  { img: 'hibridos-04.webp', partes: ['{EVENTOS HÍBRIDOS}', 'PAINÉIS DE LED'], extra: 'TRANSMISSÃO AO VIVO', alt: 'Salão com painéis de LED e mesas para evento híbrido – Espaço Fit Eventos' },
+  { img: 'hibridos-05-auditorio-projecao.jpg', partes: ['{EVENTOS HÍBRIDOS}', 'PROJEÇÃO MAPEADA'], extra: 'TRANSMISSÃO AO VIVO', alt: 'Auditório com projeção mapeada para evento híbrido com transmissão ao vivo – Espaço Fit Eventos' },
+  { img: 'hibridos-06.webp', partes: ['{EVENTOS HÍBRIDOS}', 'PROJEÇÃO MAPEADA'], extra: 'TRANSMISSÃO AO VIVO', alt: 'Sala com painéis de LED e projeção mapeada para evento híbrido – Espaço Fit Eventos' },
+  { img: 'hibridos-07.webp', partes: ['{EVENTOS HÍBRIDOS}', 'PAINEL CHROMA KEY'], extra: 'PAINEL DE LED', alt: 'Painel chroma key verde e painel de LED – Espaço Fit Eventos' },
+  { img: 'hibridos-08.webp', partes: ['{EVENTOS HÍBRIDOS}', 'ESTÚDIO DE GRAVAÇÃO'], extra: 'TRANSMISSÃO AO VIVO', alt: 'Câmera e monitor em estúdio de gravação – Espaço Fit Eventos' },
+  { img: 'hibridos-09.webp', partes: ['{EVENTOS HÍBRIDOS}', 'TRADUÇÃO SIMULTÂNEA'], extra: 'INTERAÇÃO ONLINE', alt: 'Atendente com headset, tradução simultânea e interação online – Espaço Fit Eventos' },
+];
 ---
 
 <Base
@@ -119,18 +170,12 @@ const heroFrame = await getImage({ src: heroFrameSrc, widths: [640, 960, 1280], 
             <button class="salas-v5-arrow salas-v5-arrow--prev salas-v5-float" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
             <button class="salas-v5-arrow salas-v5-arrow--next salas-v5-float" type="button" aria-label="Próxima foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
             <div class="salas-v5-track">
-                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-01-sala14.webp" alt="Sala 14 Design Thinking, com iluminação hexagonal – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-02.webp" alt="Sala VIP com sofás – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-03.webp" alt="Sala com painel de LED – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-04.webp" alt="Sala high tech – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-05.webp" alt="Sala de streaming – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-08.webp" alt="Salão para até 530 pessoas – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-09.webp" alt="Camarim – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-10.webp" alt="Sala de reunião – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-11.webp" alt="Sala de confraternização – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-12.webp" alt="Sala de coffee break – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-13.webp" alt="Sala instagramável – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v6/salas/salas-14.webp" alt="Sala com projeção mapeada – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    {salas.map((s) => (
+                        <figure class="salas-v5-slide salas-v5-slide--cap">
+                            <Img src={`corporativo-v6/salas/${s.img}`} alt={s.alt} width={720} quality={72} zoom />
+                            <figcaption class="salas-v5-cap"><span class="salas-v5-cap-txt"><span class="salas-v5-cap-opt">{SALAS_PREFIXO}</span><b>{s.nome}</b></span></figcaption>
+                        </figure>
+                    ))}
             </div>
             </div>
             <div class="salas-v5-progress" aria-hidden="true"><i></i></div>
@@ -153,15 +198,15 @@ const heroFrame = await getImage({ src: heroFrameSrc, widths: [640, 960, 1280], 
             <button class="salas-v5-arrow salas-v5-arrow--prev salas-v5-float" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
             <button class="salas-v5-arrow salas-v5-arrow--next salas-v5-float" type="button" aria-label="Próxima foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
             <div class="salas-v5-track">
-                    <div class="salas-v5-slide"><Img src="corporativo-v6/auditorios/auditorios-01-sala17.webp" alt="Sala e auditório para eventos corporativos – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/auditorios/auditorios-03.webp" alt="Sala e auditório para eventos corporativos – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/auditorios/auditorios-04.webp" alt="Sala e auditório para eventos corporativos – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/auditorios/auditorios-05.webp" alt="Sala e auditório para eventos corporativos – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/auditorios/auditorios-06.webp" alt="Sala e auditório para eventos corporativos – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/auditorios/auditorios-07.webp" alt="Sala e auditório para eventos corporativos – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/auditorios/auditorios-08.webp" alt="Sala e auditório para eventos corporativos – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/auditorios/auditorios-09.webp" alt="Sala e auditório para eventos corporativos – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/auditorios/auditorios-10.webp" alt="Sala e auditório para eventos corporativos – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    {auditorios.map((a) => (
+                        <figure class="salas-v5-slide salas-v5-slide--cap">
+                            <Img src={`corporativo-v6/auditorios/${a.img}`} alt={a.alt} width={720} quality={72} zoom style={a.pos ? `object-position:${a.pos}` : undefined} />
+                            <figcaption class="salas-v5-cap"><span class="salas-v5-cap-txt">
+                                {a.partes.map((p) => <span set:html={negrito(p)} />)}
+                                {a.extra && <span class="salas-v5-cap-opt" set:html={negrito(a.extra)} />}
+                            </span></figcaption>
+                        </figure>
+                    ))}
             </div>
             </div>
             <div class="salas-v5-progress" aria-hidden="true"><i></i></div>
@@ -184,15 +229,15 @@ const heroFrame = await getImage({ src: heroFrameSrc, widths: [640, 960, 1280], 
             <button class="salas-v5-arrow salas-v5-arrow--prev salas-v5-float" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
             <button class="salas-v5-arrow salas-v5-arrow--next salas-v5-float" type="button" aria-label="Próxima foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
             <div class="salas-v5-track">
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/hibridos/hibridos-01.webp" alt="Estrutura para evento híbrido ou online – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/hibridos/hibridos-02.webp" alt="Estrutura para evento híbrido ou online – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/hibridos/hibridos-03.webp" alt="Estrutura para evento híbrido ou online – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/hibridos/hibridos-04.webp" alt="Estrutura para evento híbrido ou online – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/hibridos/hibridos-05.webp" alt="Estrutura para evento híbrido ou online – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/hibridos/hibridos-06.webp" alt="Estrutura para evento híbrido ou online – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/hibridos/hibridos-07.webp" alt="Estrutura para evento híbrido ou online – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/hibridos/hibridos-08.webp" alt="Estrutura para evento híbrido ou online – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
-                    <div class="salas-v5-slide"><Img src="corporativo-v5/hibridos/hibridos-09.webp" alt="Estrutura para evento híbrido ou online – Espaço Fit Eventos" width={720} quality={72} zoom /></div>
+                    {hibridos.map((h) => (
+                        <figure class="salas-v5-slide salas-v5-slide--cap">
+                            <Img src={`corporativo-v6/hibridos/${h.img}`} alt={h.alt} width={720} quality={72} zoom />
+                            <figcaption class="salas-v5-cap"><span class="salas-v5-cap-txt">
+                                {h.partes.map((p) => <span set:html={negrito(p)} />)}
+                                {h.extra && <span class="salas-v5-cap-opt" set:html={negrito(h.extra)} />}
+                            </span></figcaption>
+                        </figure>
+                    ))}
             </div>
             </div>
             <div class="salas-v5-progress" aria-hidden="true"><i></i></div>
@@ -706,6 +751,7 @@ const heroFrame = await getImage({ src: heroFrameSrc, widths: [640, 960, 1280], 
         <button class="lightbox-nav lightbox-prev" type="button" aria-label="Foto anterior">&lsaquo;</button>
         <img class="lightbox-img" alt="" />
         <button class="lightbox-nav lightbox-next" type="button" aria-label="Próxima foto">&rsaquo;</button>
+        <p class="lightbox-cap" hidden></p>
         <span class="lightbox-count" aria-live="polite"></span>
     </div>
 </Base>
@@ -936,6 +982,7 @@ const heroFrame = await getImage({ src: heroFrameSrc, widths: [640, 960, 1280], 
     if (!lb) return;
     const lbImg = lb.querySelector<HTMLImageElement>('.lightbox-img')!;
     const counter = lb.querySelector<HTMLElement>('.lightbox-count')!;
+    const lbCap = lb.querySelector<HTMLElement>('.lightbox-cap')!;
     const closeBtn = lb.querySelector<HTMLButtonElement>('.lightbox-close')!;
     const lenis = (window as any).__lenis;
     let list: HTMLImageElement[] = [];
@@ -948,6 +995,12 @@ const heroFrame = await getImage({ src: heroFrameSrc, widths: [640, 960, 1280], 
       lbImg.src = img.dataset.full || img.currentSrc || img.src;
       lbImg.alt = img.alt;
       counter.textContent = `${index + 1} / ${list.length}`;
+      // legenda HTML do slide (<figcaption>), se tiver: não está gravada na foto
+      const capEl = img.closest('figure')?.querySelector('figcaption');
+      const capText = capEl ? [...(capEl.querySelector('.salas-v5-cap-txt')?.children ?? [])].map((c) => c.textContent?.trim()).filter(Boolean).join('  |  ') : '';
+      lbCap.textContent = capText;
+      lbCap.hidden = !capText;
+      lb.classList.toggle('lightbox--cap', !!capText);
     };
     const open = (imgs: HTMLImageElement[], i: number, pan = false) => {
       list = imgs;
@@ -1630,9 +1683,38 @@ const heroFrame = await getImage({ src: heroFrameSrc, widths: [640, 960, 1280], 
     letter-spacing: 2px;
   }
 
+  /* Legenda do slide (texto HTML) abaixo da foto ampliada */
+  .lightbox-cap {
+    position: absolute;
+    bottom: 50px;
+    left: 80px;
+    right: 80px;
+    margin: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .04em;
+  }
+
+  .lightbox--cap {
+    padding-bottom: 104px;
+  }
+
   @media (max-width: 768px) {
     .lightbox {
       padding: 64px 12px 84px;
+    }
+
+    .lightbox--cap {
+      padding-bottom: 128px;
+    }
+
+    .lightbox-cap {
+      bottom: 82px;
+      left: 12px;
+      right: 12px;
+      font-size: 12px;
     }
 
     /* setas embaixo, fora da foto, p/ não cobrir o conteúdo */
